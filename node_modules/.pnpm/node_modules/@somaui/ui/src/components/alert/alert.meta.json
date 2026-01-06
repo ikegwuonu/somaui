@@ -1,0 +1,3 @@
+{
+  "dependencies": ["icons/XIcon.tsx", "lib/cn.ts", "components/alert/icons.tsx"]
+}

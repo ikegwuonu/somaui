@@ -1,0 +1,3 @@
+{
+  "dependencies": ["icons/CalendarIcon.tsx", "lib/cn.ts"]
+}

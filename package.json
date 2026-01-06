@@ -1,0 +1,13 @@
+{
+  "name": "somaui-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "description": "SomaUI Workspace",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ikegwuonu",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0"
+}

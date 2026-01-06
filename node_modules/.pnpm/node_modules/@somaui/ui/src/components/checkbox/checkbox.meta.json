@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "icons/checkmark.tsx",
+    "lib/cn.ts",
+    "lib/label-size.tsx",
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/checkbox-group/checkbox-group.tsx"
+  ]
+}
