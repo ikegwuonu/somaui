@@ -1,1 +1,0 @@
-'use strict';var chunkYVKWMSR3_cjs=require('../../chunk-YVKWMSR3.cjs');Object.defineProperty(exports,"Blockquote",{enumerable:true,get:function(){return chunkYVKWMSR3_cjs.a}});

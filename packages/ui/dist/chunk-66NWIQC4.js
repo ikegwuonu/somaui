@@ -1,1 +1,0 @@
-import {a}from'./chunk-FRVM5LHZ.js';import {jsx}from'react/jsx-runtime';function t({children:r,className:e,...p}){return jsx("b",{className:a("somaui-bold","text-text-primary",e),...p,children:r})}t.displayName="Bold";export{t as a};

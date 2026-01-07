@@ -63,7 +63,7 @@ const batches = [
 ];
 
 // Ensure dist directory exists
-const distDir = path.join(__dirname, "..", "dist", "components");
+const distDir = path.join(__dirname, "..", "dist");
 if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
@@ -78,8 +78,11 @@ batches.forEach((batch, index) => {
 
   try {
     execSync(
-      ` tsup ${entries} --format esm,cjs --dts --out-dir dist/components`,
-      { stdio: "inherit", cwd: path.join(__dirname, "..") }
+      ` tsup ${entries} --format esm,cjs --dts --out-dir dist --no-clean`,
+      {
+        stdio: "inherit",
+        cwd: path.join(__dirname, ".."),
+      }
     );
   } catch (error) {
     console.error(`Failed to build batch ${index + 1}:`, error);

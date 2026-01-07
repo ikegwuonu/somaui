@@ -71,7 +71,6 @@ export default defineConfig({
   minifyWhitespace: true,
   external: ["react", "react-dom"],
   format: ["esm", "cjs"],
-
   outDir: "dist",
 
   esbuildOptions(options) {

@@ -1,1 +1,0 @@
-import {tv}from'tailwind-variants';import {jsx}from'react/jsx-runtime';var l=tv({base:"border-l-4 border-border text-quote py-3 px-4 text-text-primary"});function o({children:t,className:e,...r}){return jsx("blockquote",{className:l({className:e}),...r,children:t})}o.displayName="Blockquote";export{o as a};

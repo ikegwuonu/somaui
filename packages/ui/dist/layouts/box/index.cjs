@@ -1,1 +1,0 @@
-'use strict';var chunkOS6E7JMG_cjs=require('../../chunk-OS6E7JMG.cjs'),jsxRuntime=require('react/jsx-runtime');function m({as:o,ref:t,children:n,className:p,...r}){return jsxRuntime.jsx(o||"div",{ref:t,className:chunkOS6E7JMG_cjs.a("block",p),...r,children:n})}exports.Box=m;

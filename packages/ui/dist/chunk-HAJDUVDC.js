@@ -1,1 +1,0 @@
-import {a}from'./chunk-VA57PCYD.js';var s={weight:a,size:{sm:"text-xs mb-1",md:"text-sm mb-1.5",lg:"text-sm mb-1.5"}};export{s as a};
