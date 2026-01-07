@@ -1,0 +1,1 @@
+'use strict';var chunkOOWYF23N_cjs=require('./chunk-OOWYF23N.cjs'),jsxRuntime=require('react/jsx-runtime');function m({as:o,ref:t,children:n,className:p,...r}){return jsxRuntime.jsx(o||"div",{ref:t,className:chunkOOWYF23N_cjs.a("block",p),...r,children:n})}exports.a=m;

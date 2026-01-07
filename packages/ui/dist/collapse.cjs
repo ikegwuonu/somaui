@@ -1,0 +1,1 @@
+'use strict';var chunkBBPQXDR3_cjs=require('./chunk-BBPQXDR3.cjs');require('./chunk-GK2NXFDB.cjs'),require('./chunk-OOWYF23N.cjs');Object.defineProperty(exports,"Collapse",{enumerable:true,get:function(){return chunkBBPQXDR3_cjs.a}});

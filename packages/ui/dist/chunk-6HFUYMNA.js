@@ -1,0 +1,1 @@
+import {a}from'./chunk-XV5LBUPM.js';import {jsx}from'react/jsx-runtime';function m({as:o,ref:t,children:n,className:p,...r}){return jsx(o||"div",{ref:t,className:a("block",p),...r,children:n})}export{m as a};

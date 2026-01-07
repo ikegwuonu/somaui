@@ -1,1 +1,0 @@
-'use strict';var chunkI52N45XC_cjs=require('../../chunk-I52N45XC.cjs');require('../../chunk-24Z3YLK5.cjs');Object.defineProperty(exports,"Text",{enumerable:true,get:function(){return chunkI52N45XC_cjs.a}});

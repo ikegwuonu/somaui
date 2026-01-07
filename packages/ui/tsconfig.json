@@ -1,23 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
-
-    "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["node", "react"],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false, // Disable to reduce memory
+    "noUnusedParameters": false, // Disable to reduce memory
+    "noFallthroughCasesInSwitch": true,
     "declaration": true,
-    "declarationMap": false,
-    "emitDeclarationOnly": true,
-    "outDir": "./dist"
+    "declarationMap": false, // Disable declaration maps
+    "sourceMap": false, // Disable source maps for declarations
+    "incremental": false // Disable incremental compilation
   },
-  "include": ["src", "tsup.config.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
+  "paths": {
+    "@/*": ["src/*"]
+  }
 }

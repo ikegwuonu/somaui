@@ -1,0 +1,1 @@
+'use strict';var chunkDKCMGS7W_cjs=require('./chunk-DKCMGS7W.cjs');require('./chunk-CKMZHK2J.cjs'),require('./chunk-OOWYF23N.cjs');Object.defineProperty(exports,"Tab",{enumerable:true,get:function(){return chunkDKCMGS7W_cjs.a}});

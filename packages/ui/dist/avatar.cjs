@@ -1,0 +1,1 @@
+'use strict';var chunkYOWZR4IP_cjs=require('./chunk-YOWZR4IP.cjs');require('./chunk-OOWYF23N.cjs');Object.defineProperty(exports,"Avatar",{enumerable:true,get:function(){return chunkYOWZR4IP_cjs.a}});

@@ -1,0 +1,1 @@
+'use strict';var chunkEERIKBR7_cjs=require('./chunk-EERIKBR7.cjs');require('./chunk-7HAI2NON.cjs'),require('./chunk-OOWYF23N.cjs');Object.defineProperty(exports,"Announcement",{enumerable:true,get:function(){return chunkEERIKBR7_cjs.a}});

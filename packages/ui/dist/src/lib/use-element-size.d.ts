@@ -1,9 +1,0 @@
-type Size = {
-    width: number;
-    height: number;
-};
-export declare function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
-    (node: T | null) => void,
-    Size
-];
-export {};
