@@ -1,0 +1,1 @@
+'use strict';var chunkOS6E7JMG_cjs=require('./chunk-OS6E7JMG.cjs'),jsxRuntime=require('react/jsx-runtime');function a({children:i,className:r,...e}){return jsxRuntime.jsx("i",{className:chunkOS6E7JMG_cjs.a("somaui-italic","text-text-secondary",r),...e,children:i})}a.displayName="Italic";exports.a=a;

@@ -1,0 +1,1 @@
+export{a as Badge}from'../chunk-KTX2ZWH5.js';

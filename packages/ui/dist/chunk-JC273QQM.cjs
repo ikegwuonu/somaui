@@ -1,0 +1,1 @@
+'use strict';var chunk24Z3YLK5_cjs=require('./chunk-24Z3YLK5.cjs');var s={weight:chunk24Z3YLK5_cjs.a,size:{sm:"text-xs mb-1",md:"text-sm mb-1.5",lg:"text-sm mb-1.5"}};exports.a=s;

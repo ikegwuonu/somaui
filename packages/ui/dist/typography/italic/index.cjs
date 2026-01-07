@@ -1,0 +1,1 @@
+'use strict';var chunkWLQHKZG4_cjs=require('../../chunk-WLQHKZG4.cjs');require('../../chunk-OS6E7JMG.cjs');Object.defineProperty(exports,"Italic",{enumerable:true,get:function(){return chunkWLQHKZG4_cjs.a}});

@@ -1,0 +1,1 @@
+'use strict';var chunk7HAI2NON_cjs=require('../chunk-7HAI2NON.cjs');Object.defineProperty(exports,"Badge",{enumerable:true,get:function(){return chunk7HAI2NON_cjs.a}});

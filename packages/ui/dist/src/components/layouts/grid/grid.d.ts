@@ -1,0 +1,275 @@
+import type { ElementType, Ref, ReactNode, ComponentPropsWithRef } from 'react';
+import { type VariantProps } from 'tailwind-variants';
+import { GridCol } from './grid-col';
+declare const gridVariants: import("tailwind-variants").TVReturnType<{
+    columns: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    rows: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    gap: {
+        '0': string;
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+    };
+    align: {
+        end: string;
+        start: string;
+        center: string;
+        stretch: string;
+        baseline: string;
+    };
+    justify: {
+        end: string;
+        start: string;
+        around: string;
+        normal: string;
+        center: string;
+        evenly: string;
+        between: string;
+        stretch: string;
+    };
+    placeContent: {
+        center: string;
+        start: string;
+        end: string;
+        between: string;
+        around: string;
+        evenly: string;
+        baseline: string;
+        stretch: string;
+    };
+    placeItems: {
+        center: string;
+        start: string;
+        end: string;
+        baseline: string;
+        stretch: string;
+    };
+}, undefined, "grid", {
+    columns: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    rows: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    gap: {
+        '0': string;
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+    };
+    align: {
+        end: string;
+        start: string;
+        center: string;
+        stretch: string;
+        baseline: string;
+    };
+    justify: {
+        end: string;
+        start: string;
+        around: string;
+        normal: string;
+        center: string;
+        evenly: string;
+        between: string;
+        stretch: string;
+    };
+    placeContent: {
+        center: string;
+        start: string;
+        end: string;
+        between: string;
+        around: string;
+        evenly: string;
+        baseline: string;
+        stretch: string;
+    };
+    placeItems: {
+        center: string;
+        start: string;
+        end: string;
+        baseline: string;
+        stretch: string;
+    };
+}, undefined, import("tailwind-variants").TVReturnType<{
+    columns: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    rows: {
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+        none: string;
+        subgrid: string;
+    };
+    gap: {
+        '0': string;
+        '1': string;
+        '2': string;
+        '3': string;
+        '4': string;
+        '5': string;
+        '6': string;
+        '7': string;
+        '8': string;
+        '9': string;
+        '10': string;
+        '11': string;
+        '12': string;
+    };
+    align: {
+        end: string;
+        start: string;
+        center: string;
+        stretch: string;
+        baseline: string;
+    };
+    justify: {
+        end: string;
+        start: string;
+        around: string;
+        normal: string;
+        center: string;
+        evenly: string;
+        between: string;
+        stretch: string;
+    };
+    placeContent: {
+        center: string;
+        start: string;
+        end: string;
+        between: string;
+        around: string;
+        evenly: string;
+        baseline: string;
+        stretch: string;
+    };
+    placeItems: {
+        center: string;
+        start: string;
+        end: string;
+        baseline: string;
+        stretch: string;
+    };
+}, undefined, "grid", unknown, unknown, undefined>>;
+type ColumnsType = VariantProps<typeof gridVariants>['columns'];
+export type GridProps<T extends ElementType = 'div'> = {
+    as?: T;
+    ref?: Ref<any>;
+    children?: ReactNode;
+    gap?: VariantProps<typeof gridVariants>['gap'];
+    rows?: VariantProps<typeof gridVariants>['rows'];
+    align?: VariantProps<typeof gridVariants>['align'];
+    justify?: VariantProps<typeof gridVariants>['justify'];
+    columns?: ColumnsType;
+    cols?: ColumnsType;
+    colsSm?: ColumnsType;
+    colsMd?: ColumnsType;
+    colsLg?: ColumnsType;
+    colsXl?: ColumnsType;
+    cols2xl?: ColumnsType;
+    placeItems?: VariantProps<typeof gridVariants>['placeItems'];
+    placeContent?: VariantProps<typeof gridVariants>['placeContent'];
+    className?: string;
+} & Omit<ComponentPropsWithRef<T>, 'as' | 'ref' | 'className' | 'gap' | 'rows' | 'align' | 'justify' | 'columns' | 'cols' | 'colsSm' | 'colsMd' | 'colsLg' | 'colsXl' | 'cols2xl' | 'placeItems' | 'placeContent'>;
+declare function GridBase<T extends ElementType = 'div'>({ as, ref, gap, rows, align, justify, columns, cols, colsSm, colsMd, colsLg, colsXl, cols2xl, children, className, placeItems, placeContent, ...rest }: GridProps<T>): import("react/jsx-runtime").JSX.Element;
+export declare const Grid: typeof GridBase & {
+    Col: typeof GridCol;
+};
+export {};

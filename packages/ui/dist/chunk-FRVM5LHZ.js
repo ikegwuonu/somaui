@@ -1,0 +1,1 @@
+import {cn}from'tailwind-variants';function t(...n){return cn(...n)||""}export{t as a};
