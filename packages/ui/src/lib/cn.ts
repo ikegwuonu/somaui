@@ -1,4 +1,4 @@
-import { cn as cnBase } from "tailwind-variants";
+import { cx as cnBase } from "tailwind-variants";
 
 /**
  * Utility function for conditionally joining class names together with proper

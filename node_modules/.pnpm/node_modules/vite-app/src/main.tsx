@@ -1,23 +1,26 @@
-"use client";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./styles/globals.css";
+import Text from "./text";
+import { Input } from "@somaui/ui/input";
 import { Button } from "@somaui/ui/button";
-import { Loader } from "../components/ui/loader";
-import { Switch } from "../components/ui/switch/switch";
-import { Input } from "../components/ui/input/input";
-
+import { Accordion } from "@somaui/ui/accordion";
+import ButtonUI from "./ui/buttonui";
+import { TT } from "./ui/tt";
+import { Title } from "@somaui/ui/title";
+import { Loader } from "@somaui/ui/loader";
 const App = () => {
   return (
     <div className="p-10 space-y-4">
-      <p className="bg-primary-dark text-secondary-foreground">this</p>
-      <Input label="Name" placeholder="Enter your name" />
-      <Button variant="danger" type="button" as="button" size="md">
-        Click Me
+      {/* <TT /> */}
+      <Input className="bg-amber-50" />
+      <Title children="Hello, Somaui!" />
+      <ButtonUI />
+      <Input placeholder="Enter your name" label="Name" />
+      <Button size="sm" variant="outline">
+        <Loader />
       </Button>
-
-      <Switch />
     </div>
   );
 };

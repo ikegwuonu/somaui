@@ -1,1 +1,1 @@
-import {a as a$1}from'../chunk-FRVM5LHZ.js';import {jsx}from'react/jsx-runtime';function a({children:i,className:r,...e}){return jsx("i",{className:a$1("somaui-italic","text-text-secondary",r),...e,children:i})}a.displayName="Italic";export{a as Italic};
+import {a as a$1}from'../chunk-BVZYQBQW.js';import {jsx}from'react/jsx-runtime';function a({children:i,className:r,...e}){return jsx("i",{className:a$1("somaui-italic","text-text-secondary",r),...e,children:i})}a.displayName="Italic";export{a as Italic};

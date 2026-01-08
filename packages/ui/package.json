@@ -24,8 +24,10 @@
     "@floating-ui/react": ">=0.25.4",
     "@headlessui/react": ">=2.0.0",
     "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
+    "postcss": "^8.5.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "tailwind-variants": "^3.2.2",
@@ -35,7 +37,7 @@
   },
   "exports": {
     "./*": {
-      "types": "./dist/*/index.d.cts",
+      "types": "./dist/*/index.d.ts",
       "import": "./dist/*/index.js",
       "require": "./dist/*/index.cjs"
     },
