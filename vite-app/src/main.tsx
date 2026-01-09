@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./styles/globals.css";
+import "./styles/global.css";
 import Text from "./text";
 import { Input } from "@somaui/ui/input";
-import { Button } from "@somaui/ui/button";
 import { Accordion } from "@somaui/ui/accordion";
 import ButtonUI from "./ui/buttonui";
 import { TT } from "./ui/tt";
 import { Title } from "@somaui/ui/title";
 import { Loader } from "@somaui/ui/loader";
+import { Button } from "./components/button";
 const App = () => {
   return (
     <div className="p-10 space-y-4">

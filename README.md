@@ -10,3 +10,4 @@ A copy-paste Rizz UI system with sensible defaults.
 - Open source
 
 ⚠️ Early development. APIs may change.
+NB: aliases and tests

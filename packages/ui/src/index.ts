@@ -1,6 +1,3 @@
-//icons
-//export * from "@/icons";
-
 // Utils & Hooks
 export * from "./lib/cn";
 export * from "./lib/use-collapse";
