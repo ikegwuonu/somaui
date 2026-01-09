@@ -1,0 +1,49 @@
+{
+  "alert-icon": ["components/alert"],
+  "checkbox": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/checkbox-group"
+  ],
+  "announcement": ["components/badge"],
+  "button": ["components/loader"],
+  "tabs": ["components/highlight"],
+
+  "input": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/field-clear-button"
+  ],
+
+  "select": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/field-clear-button"
+  ],
+  "upload": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/field-clear-button"
+  ],
+
+  "textarea": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/field-clear-button"
+  ],
+
+  "switch": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx"
+  ],
+  "radio": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx"
+  ],
+  "pincode": ["components/field-error-text.tsx"],
+  "password": [
+    "components/field-error-text.tsx",
+    "components/field-helper-text.tsx",
+    "components/field-clear-button"
+  ]
+}

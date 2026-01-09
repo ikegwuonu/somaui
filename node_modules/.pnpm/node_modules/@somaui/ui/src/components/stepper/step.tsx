@@ -1,7 +1,7 @@
 import { useId, type HTMLAttributes, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
-import { XIcon } from "../../icons/x-mark";
-import { CheckmarkIcon } from "../../icons/checkmark";
+import { XIcon } from "@/icons/x-mark";
+import { CheckmarkIcon } from "@/icons/checkmark";
 import { useStepper } from "./stepper";
 
 const lineClasses = {

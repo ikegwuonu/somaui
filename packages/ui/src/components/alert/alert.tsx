@@ -1,6 +1,6 @@
 import type { ReactNode, MouseEvent } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { XIcon } from "../../icons/x-mark";
+import { XIcon } from "@/icons/x-mark";
 import { AlertIcon } from "./icons";
 import { cn } from "@/lib/cn";
 

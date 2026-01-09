@@ -1,7 +1,0 @@
-{
-  "dependencies": [
-    "components/accordion/accordion-body.tsx",
-    "components/accordion/accordion-context.tsx",
-    "components/accordion/accordion-header.tsx"
-  ]
-}
