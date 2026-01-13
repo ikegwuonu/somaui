@@ -1,0 +1,1 @@
+'use strict';var tailwindVariants=require('tailwind-variants'),jsxRuntime=require('react/jsx-runtime');var l=tailwindVariants.tv({base:"border-l-4 border-border text-quote py-3 px-4 text-text-primary"});function o({children:t,className:e,...r}){return jsxRuntime.jsx("blockquote",{className:l({className:e}),...r,children:t})}o.displayName="Blockquote";exports.Blockquote=o;

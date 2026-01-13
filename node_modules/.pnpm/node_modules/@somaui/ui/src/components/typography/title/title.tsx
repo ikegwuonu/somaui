@@ -1,6 +1,6 @@
 import React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { fontWeightStyles } from "../@/lib/font-weight";
+import { fontWeightStyles } from "@/lib/font-weight";
 
 const fontWeight = {
   ...fontWeightStyles,

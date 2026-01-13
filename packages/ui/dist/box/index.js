@@ -1,0 +1,1 @@
+import {cx}from'tailwind-variants';import {jsx}from'react/jsx-runtime';function o(...e){return cx(...e)||""}function a({as:e,ref:t,children:n,className:r,...p}){return jsx(e||"div",{ref:t,className:o("block",r),...p,children:n})}export{a as Box};

@@ -1,0 +1,683 @@
+---
+sidebar_position: 1
+title: Getting Started
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import NpmIcon from "@site/src/components/icons/npm-icon";
+import YarnIcon from "@site/src/components/icons/yarn-icon";
+import PnpmIcon from "@site/src/components/icons/pnpm-icon";
+import BunIcon from "@site/src/components/icons/bun-icon";
+import { Badge } from "@somaui/ui/badge";
+
+# Welcome to SomaUI 🚀
+
+**SomaUI** is a **ShadCN-inspired version of RizzUI**, built with modern web development in mind. It’s a fully **TypeScript + React 19 UI library** powered by **TailwindCSS v4**, designed to help you build beautiful and responsive interfaces quickly.
+
+## Installation
+
+You can use **SomaUI** in two ways:
+
+1. **Via CLI (recommended)** – generate projects and components with ease.
+2. **As a package** – import components directly from `@somaui/ui`.
+
+## CLI Usage
+
+SomaUI comes with a handy CLI to generate components and scaffold projects.
+
+<Tabs groupId="package-manager-init">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui init
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui init`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui init`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bun somaui init`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+This will setup a custom `styles/global.css`, `lib`,`icons`,`components` folder. The CLI ensures that your components follow the SomaUI standards and makes setup effortless.
+
+Next proceed to add your components.
+
+<Tabs groupId="package-manager-ui">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add button
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add button`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add button`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add button`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+This will copy a ready to use `button/index.tsx` in your component folder{" "}. Sometimes, a component imports other components. In such cases, the dependent component will also be created. If a component or folder already exists, the component will be skipped unless the `--overwrite` flag is used.
+
+<Tabs groupId="package-manager-multi-ui">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add button input select
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add button input select`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add button input select`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add button input select`}</CodeBlock>
+  </TabItem>
+</Tabs>
+This will copy a ready to use `button/index.tsx`, `input/index.tsx`, `select/index.tsx`
+in your component folder{" "}
+
+Use the `all` flag to get all components
+
+<Tabs groupId="package-manager-multi-all">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add --all
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add --all`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add --all`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add --all`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+See full list of components:
+
+<Tabs groupId="package-manager-ui-list">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+   <CodeBlock language="js">{`
+//Basic UI Components
+npx somaui add button
+npx somaui add input
+npx somaui add select
+npx somaui add checkbox
+npx somaui add radio
+npx somaui add textarea
+npx somaui add switch
+npx somaui add password
+npx somaui add pin-code
+npx somaui add multi-select
+
+//Form Components
+npx somaui add checkbox-group
+npx somaui add radio-group
+npx somaui add field-clear-button
+npx somaui add field-error-text
+npx somaui add field-helper-text
+
+//Feedback & Overlay Components
+npx somaui add alert
+npx somaui add modal
+npx somaui add drawer
+npx somaui add tooltip
+npx somaui add popover
+npx somaui add progressbar
+npx somaui add radial-progressbar
+npx somaui add loader
+npx somaui add announcement
+
+//Layout Components
+npx somaui add box
+npx somaui add flex
+npx somaui add grid
+npx somaui add collapse
+npx somaui add accordion
+npx somaui add tabs
+npx somaui add stepper
+npx somaui add table
+
+//Data Display Components
+npx somaui add avatar
+npx somaui add badge
+npx somaui add empty
+npx somaui add dropdown
+npx somaui add upload
+npx somaui add action-icon
+
+//Advanced Components
+npx somaui add advanced-checkbox
+npx somaui add advanced-radio
+npx somaui add highlight
+npx somaui add file-input
+npx somaui add upload-zone
+
+//Typography Components
+npx somaui add typography
+npx somaui add title
+npx somaui add text
+npx somaui add code
+npx somaui add blockquote
+npx somaui add italic
+npx somaui add bold
+
+//Utility Components
+npx somaui add cn
+npx somaui add use-collapse
+
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`
+    //Basic UI Components
+yarn dlx somaui add button
+yarn dlx somaui add input
+yarn dlx somaui add select
+yarn dlx somaui add checkbox
+yarn dlx somaui add radio
+yarn dlx somaui add textarea
+yarn dlx somaui add switch
+yarn dlx somaui add password
+yarn dlx somaui add pin-code
+yarn dlx somaui add multi-select
+
+//Form Components
+yarn dlx somaui add checkbox-group
+yarn dlx somaui add radio-group
+yarn dlx somaui add field-clear-button
+yarn dlx somaui add field-error-text
+yarn dlx somaui add field-helper-text
+
+//Feedback & Overlay Components
+yarn dlx somaui add alert
+yarn dlx somaui add modal
+yarn dlx somaui add drawer
+yarn dlx somaui add tooltip
+yarn dlx somaui add popover
+yarn dlx somaui add progressbar
+yarn dlx somaui add radial-progressbar
+yarn dlx somaui add loader
+yarn dlx somaui add announcement
+
+//Layout Components
+yarn dlx somaui add box
+yarn dlx somaui add flex
+yarn dlx somaui add grid
+yarn dlx somaui add collapse
+yarn dlx somaui add accordion
+yarn dlx somaui add tabs
+yarn dlx somaui add stepper
+yarn dlx somaui add table
+
+//Data Display Components
+yarn dlx somaui add avatar
+yarn dlx somaui add badge
+yarn dlx somaui add empty
+yarn dlx somaui add dropdown
+yarn dlx somaui add upload
+yarn dlx somaui add action-icon
+
+//Advanced Components
+yarn dlx somaui add advanced-checkbox
+yarn dlx somaui add advanced-radio
+yarn dlx somaui add highlight
+yarn dlx somaui add file-input
+yarn dlx somaui add upload-zone
+
+//Typography Components
+yarn dlx somaui add typography
+yarn dlx somaui add title
+yarn dlx somaui add text
+yarn dlx somaui add code
+yarn dlx somaui add blockquote
+yarn dlx somaui add italic
+yarn dlx somaui add bold
+
+//Utility Components
+yarn dlx somaui add cn
+yarn dlx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`//Basic UI Components
+pnpm dlx somaui add button
+pnpm dlx somaui add input
+pnpm dlx somaui add select
+pnpm dlx somaui add checkbox
+pnpm dlx somaui add radio
+pnpm dlx somaui add textarea
+pnpm dlx somaui add switch
+pnpm dlx somaui add password
+pnpm dlx somaui add pin-code
+pnpm dlx somaui add multi-select
+
+//Form Components
+pnpm dlx somaui add checkbox-group
+pnpm dlx somaui add radio-group
+pnpm dlx somaui add field-clear-button
+pnpm dlx somaui add field-error-text
+pnpm dlx somaui add field-helper-text
+
+//Feedback & Overlay Components
+pnpm dlx somaui add alert
+pnpm dlx somaui add modal
+pnpm dlx somaui add drawer
+pnpm dlx somaui add tooltip
+pnpm dlx somaui add popover
+pnpm dlx somaui add progressbar
+pnpm dlx somaui add radial-progressbar
+pnpm dlx somaui add loader
+pnpm dlx somaui add announcement
+
+//Layout Components
+pnpm dlx somaui add box
+pnpm dlx somaui add flex
+pnpm dlx somaui add grid
+pnpm dlx somaui add collapse
+pnpm dlx somaui add accordion
+pnpm dlx somaui add tabs
+pnpm dlx somaui add stepper
+pnpm dlx somaui add table
+
+//Data Display Components
+pnpm dlx somaui add avatar
+pnpm dlx somaui add badge
+pnpm dlx somaui add empty
+pnpm dlx somaui add dropdown
+pnpm dlx somaui add upload
+pnpm dlx somaui add action-icon
+
+//Advanced Components
+pnpm dlx somaui add advanced-checkbox
+pnpm dlx somaui add advanced-radio
+pnpm dlx somaui add highlight
+pnpm dlx somaui add file-input
+pnpm dlx somaui add upload-zone
+
+//Typography Components
+pnpm dlx somaui add typography
+pnpm dlx somaui add title
+pnpm dlx somaui add text
+pnpm dlx somaui add code
+pnpm dlx somaui add blockquote
+pnpm dlx somaui add italic
+pnpm dlx somaui add bold
+
+//Utility Components
+pnpm dlx somaui add cn
+pnpm dlx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`//Basic UI Components
+bunx somaui add button
+bunx somaui add input
+bunx somaui add select
+bunx somaui add checkbox
+bunx somaui add radio
+bunx somaui add textarea
+bunx somaui add switch
+bunx somaui add password
+bunx somaui add pin-code
+bunx somaui add multi-select
+
+//Form Components
+bunx somaui add checkbox-group
+bunx somaui add radio-group
+bunx somaui add field-clear-button
+bunx somaui add field-error-text
+bunx somaui add field-helper-text
+
+//Feedback & Overlay Components
+bunx somaui add alert
+bunx somaui add modal
+bunx somaui add drawer
+bunx somaui add tooltip
+bunx somaui add popover
+bunx somaui add progressbar
+bunx somaui add radial-progressbar
+bunx somaui add loader
+bunx somaui add announcement
+
+//Layout Components
+bunx somaui add box
+bunx somaui add flex
+bunx somaui add grid
+bunx somaui add collapse
+bunx somaui add accordion
+bunx somaui add tabs
+bunx somaui add stepper
+bunx somaui add table
+
+//Data Display Components
+bunx somaui add avatar
+bunx somaui add badge
+bunx somaui add empty
+bunx somaui add dropdown
+bunx somaui add upload
+bunx somaui add action-icon
+
+//Advanced Components
+bunx somaui add advanced-checkbox
+bunx somaui add advanced-radio
+bunx somaui add highlight
+bunx somaui add file-input
+bunx somaui add upload-zone
+
+//Typography Components
+bunx somaui add typography
+bunx somaui add title
+bunx somaui add text
+bunx somaui add code
+bunx somaui add blockquote
+bunx somaui add italic
+bunx somaui add bold
+
+//Utility Components
+bunx somaui add cn
+bunx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+</Tabs>
+
+<div className="flex items-center gap-2 mb-4">
+  <span>
+    Install <strong>SomaUI & Core Dependencies</strong>
+  </span>
+</div>
+
+<Tabs groupId="package-manager">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npm i @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`yarn add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`pnpm add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`bun add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+<div className="!mt-6 !mb-8 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+  **Package Overview** - **`@headlessui/react`** - Provides accessible, unstyled
+  primitives for complex components (dropdowns, modals, tabs) -
+  **`@floating-ui/react`** - Advanced positioning system for tooltips, popovers,
+  and dropdowns - **`tailwind-variants`** - Type-safe variant management system
+  for component styling - **`tailwind-merge`** - A utility for merging Tailwind
+  CSS classes
+</div>
+
+<div className="flex items-center gap-2 mb-4">
+  <span>
+    Install <strong>Tailwind CSS & Forms Plugin</strong>
+  </span>
+</div>
+
+Install these development dependencies for styling:
+
+<Tabs groupId="package-manager-tailwind">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npm i -D tailwindcss @tailwindcss/forms @tailwindcss/postcss`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`yarn add -D tailwindcss @tailwindcss/forms @tailwindcss/postcss`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`pnpm add -D tailwindcss @tailwindcss/forms @tailwindcss/postcss`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">
+      {`bun add -D tailwindcss @tailwindcss/forms @tailwindcss/postcss`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+<div className="!mt-6 !mb-8 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg border border-green-200 dark:border-green-800">
+  **Development Dependencies** - **`tailwindcss`** - The core Tailwind CSS v4
+  framework - **`@tailwindcss/forms`** - Enhanced form styling with consistent,
+  accessible input designs - **`@tailwindcss/postcss`** - Tailwind CSS v4
+  PostCSS processing engine
+</div>
+
+Voila!!

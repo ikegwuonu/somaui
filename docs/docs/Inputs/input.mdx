@@ -1,0 +1,758 @@
+---
+sidebar_position: 1
+---
+
+import { Input } from "@somaui/ui/input";
+import Paper from "@site/src/components/paper";
+import InputCounter, {
+  InputCharacterCounter,
+  InputClearable,
+} from "@site/src/components/input";
+import {
+  MagnifyingGlassIcon,
+  ArrowRightIcon,
+  CurrencyDollarIcon,
+} from "@heroicons/react/24/outline";
+
+# Input
+
+A basic widget for getting the user input.
+
+CLI Usage
+
+```tsx
+pnpm dlx somaui add input
+```
+
+generates `components/input` and other dependent files/folder:
+
+```tsx
+import React from "react";
+import { tv, type VariantProps } from "tailwind-variants";
+import { cn } from "@/lib/cn";
+import { FieldErrorText } from "../field-error-text";
+import { FieldHelperText } from "../field-helper-text";
+import { FieldClearButton } from "../field-clear-button";
+import { labelStyles } from "@/lib/label-size";
+
+const inputContainer = tv({
+  base: "flex items-center peer w-full transition duration-200 border-[length:var(--border-width)] focus-within:ring-[0.8px] hover:border-primary focus-within:border-primary focus-within:ring-primary [&_input::placeholder]:opacity-60 rounded-[var(--border-radius)]",
+  variants: {
+    variant: {
+      text: "border-transparent ring-transparent bg-transparent",
+      outline: "border-border ring-border bg-transparent",
+    },
+    size: {
+      sm: "px-2 py-1 text-xs h-8",
+      md: "px-3.5 py-2 text-sm h-10",
+      lg: "px-4 py-2 text-base h-12",
+    },
+    disabled: {
+      true: "!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted",
+    },
+    error: {
+      true: "!border-red hover:!border-red focus-within:!border-red !ring-red !bg-transparent",
+    },
+  },
+  defaultVariants: {
+    variant: "outline",
+    size: "md",
+  },
+});
+
+const inputField = tv({
+  base: "somaui-input-field w-full border-0 bg-transparent p-0 [font-size:inherit] focus:outline-none focus:ring-0 [&::-ms-clear]:hidden [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none",
+  variants: {
+    disabled: {
+      true: "cursor-not-allowed placeholder:text-muted-foreground",
+    },
+    clearable: {
+      true: "[&:placeholder-shown~.input-clear-btn]:opacity-0 [&:placeholder-shown~.input-clear-btn]:invisible [&:not(:placeholder-shown)~.input-clear-btn]:opacity-100 [&:not(:placeholder-shown)~.input-clear-btn]:visible",
+    },
+    hasPrefix: {
+      true: "",
+    },
+    hasSuffix: {
+      true: "",
+    },
+    hasPlaceholder: {
+      true: "",
+      false: "placeholder-shown:placeholder:opacity-0",
+    },
+  },
+  compoundVariants: [
+    { hasPrefix: true, class: "ps-2.5" },
+    { hasSuffix: true, class: "pe-2.5" },
+  ],
+});
+
+export interface InputProps
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "size" | "type" | "prefix" | "suffix"
+  > {
+  type?:
+    | "text"
+    | "email"
+    | "number"
+    | "tel"
+    | "search"
+    | "url"
+    | "time"
+    | "date"
+    | "week"
+    | "month"
+    | "datetime-local";
+  variant?: VariantProps<typeof inputContainer>["variant"];
+  size?: VariantProps<typeof inputContainer>["size"];
+  placeholder?: string;
+  disabled?: boolean;
+  label?: React.ReactNode;
+  labelWeight?: keyof typeof labelStyles.weight;
+  clearable?: boolean;
+  onClear?: (event: React.MouseEvent) => void;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  helperText?: React.ReactNode;
+  error?: string;
+  labelClassName?: string;
+  inputClassName?: string;
+  prefixClassName?: string;
+  suffixClassName?: string;
+  helperClassName?: string;
+  errorClassName?: string;
+  className?: string;
+  ref?: React.Ref<HTMLInputElement>;
+}
+
+export function Input({
+  className,
+  type = "text",
+  variant = "outline",
+  size = "md",
+  disabled,
+  placeholder,
+  label,
+  labelWeight = "medium",
+  error,
+  clearable,
+  onClear,
+  prefix,
+  suffix,
+  readOnly,
+  helperText,
+  labelClassName,
+  inputClassName,
+  errorClassName,
+  helperClassName,
+  prefixClassName,
+  suffixClassName,
+  ref,
+  ...inputProps
+}: InputProps) {
+  return (
+    <div className={cn("somaui-input-root", "flex flex-col", className)}>
+      <label className="block">
+        {label ? (
+          <span
+            className={cn(
+              "somaui-input-label",
+              "block",
+              labelStyles.size[size],
+              labelStyles.weight[labelWeight],
+              disabled && "text-muted-foreground",
+              labelClassName
+            )}
+          >
+            {label}
+          </span>
+        ) : null}
+
+        <span
+          className={inputContainer({
+            variant,
+            size,
+            disabled,
+            error: Boolean(error),
+            className: inputClassName,
+          })}
+        >
+          {prefix ? (
+            <span
+              className={cn(
+                "somaui-input-prefix",
+                "leading-normal whitespace-nowrap",
+                prefixClassName
+              )}
+            >
+              {prefix}
+            </span>
+          ) : null}
+
+          <input
+            ref={ref}
+            type={type}
+            disabled={disabled}
+            readOnly={readOnly}
+            spellCheck="false"
+            placeholder={placeholder || "Screen reader only"}
+            aria-invalid={error ? "true" : undefined}
+            aria-required={inputProps.required}
+            className={inputField({
+              disabled,
+              clearable,
+              hasPrefix: Boolean(prefix),
+              hasSuffix: Boolean(suffix),
+              hasPlaceholder: Boolean(placeholder),
+            })}
+            {...inputProps}
+          />
+
+          {clearable ? (
+            <FieldClearButton
+              as="span"
+              size={size}
+              onClick={onClear}
+              hasSuffix={Boolean(suffix)}
+            />
+          ) : null}
+
+          {suffix ? (
+            <span
+              className={cn(
+                "somaui-input-suffix",
+                "leading-normal whitespace-nowrap",
+                suffixClassName
+              )}
+            >
+              {suffix}
+            </span>
+          ) : null}
+        </span>
+      </label>
+
+      {!error && helperText ? (
+        <FieldHelperText
+          size={size}
+          className={cn(
+            "somaui-input-helper-text",
+            disabled && "text-muted-foreground",
+            helperClassName
+          )}
+        >
+          {helperText}
+        </FieldHelperText>
+      ) : null}
+
+      {error ? (
+        <FieldErrorText
+          size={size}
+          error={error}
+          className={cn("somaui-input-error-text", errorClassName)}
+        />
+      ) : null}
+    </div>
+  );
+}
+```
+
+<p className="pt-4">As a package:</p>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+```
+
+<div className="mb-20 md:mb-28" />
+
+## Default
+
+The default style of **Input** component.
+
+<Paper className="text-gray-950 block">
+  <Input
+    label="Name"
+    placeholder="Enter your name"
+    className="w-full max-w-xs"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return <Input label="Name" placeholder="Enter your name" />;
+}
+```
+
+<div className="mb-16" />
+
+## Types
+
+You can change the type of **Input** using [**type**](#input-types) property.
+
+<Paper className="block">
+  <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4 text-gray-950">
+    <Input type="number" label="Number" placeholder="1234567890" />
+    <Input type="text" label="Name" placeholder="Enter your Name" />
+    <Input type="email" label="Email" placeholder="Your email" />
+    <Input type="time" label="Time" />
+    <Input type="date" label="Date" />
+    <Input type="datetime-local" label="Datetime Local" />
+    <Input type="month" label="Month" />
+    <Input type="search" label="Search" placeholder="Search" />
+    <Input type="tel" label="Tel" placeholder="Telephone" />
+    <Input type="url" label="Url" placeholder="Url" />
+    <Input type="week" label="Week" />
+  </div>
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <>
+      <Input type="number" label="Number" placeholder="1234567890" />
+      <Input type="text" label="Name" placeholder="Enter your Name" />
+      <Input type="email" label="Email" placeholder="Your email" />
+      <Input type="time" label="Time" />
+      <Input type="date" label="Date" />
+      <Input type="datetime-local" label="Datetime Local" />
+      <Input type="month" label="Month" />
+      <Input type="search" label="Search" placeholder="Search" />
+      <Input type="tel" label="Tel" placeholder="Telephone" />
+      <Input type="url" label="Url" placeholder="Url" />
+      <Input type="week" label="Week" />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Variants
+
+You can change the style of **Input** using [**variant**](#input-variants) property.
+
+<Paper className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 text-gray-950">
+  <Input label="Outline" placeholder="Enter your name" variant="outline" />
+  <Input label="Flat" placeholder="Enter your name" variant="flat" />
+  <Input label="Text" placeholder="Enter your name" variant="text" />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <>
+      <Input label="Outline" placeholder="Enter your name" variant="outline" />
+      <Input label="Flat" placeholder="Enter your name" variant="flat" />
+      <Input label="Text" placeholder="Enter your name" variant="text" />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Sizes
+
+You can change the sizes of **Input** using [**size**](#input-sizes) property.
+
+<Paper className="gap-4 justify-start items-start text-gray-950">
+  <Input
+    type="email"
+    size="sm"
+    label="Small"
+    placeholder="Enter your email"
+    className="w-full max-w-xs"
+  />
+  <Input
+    type="email"
+    label="Default"
+    placeholder="Enter your email"
+    className="w-full max-w-sm"
+  />
+  <Input
+    type="email"
+    size="lg"
+    label="Large"
+    placeholder="Enter your email"
+    className="w-full max-w-md"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <>
+      <Input
+        type="email"
+        size="sm"
+        label="Small"
+        placeholder="Enter your email"
+      />
+      <Input type="email" label="Default" placeholder="Enter your email" />
+      <Input
+        type="email"
+        size="lg"
+        label="Large"
+        placeholder="Enter your email"
+      />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+<div className="mb-16" />
+
+## Prefix & Suffix
+
+You can add any text or icon to the **Input** component using **prefix**, **suffix** props.
+
+<Paper className="grid grid-cols-1 gap-4 text-gray-950">
+  <Input label="Url" prefix="https://" suffix=".com" placeholder="mysite" />
+  <Input
+    type="number"
+    label="Price"
+    prefix={<CurrencyDollarIcon className="w-5" />}
+    suffix=".00"
+    placeholder="Enter your price"
+  />
+  <Input
+    label="Search"
+    prefix={<MagnifyingGlassIcon className="w-4" />}
+    suffix={<ArrowRightIcon className="w-4" />}
+    placeholder="Icons as prefix and suffix"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+import {
+  MagnifyingGlassIcon,
+  ArrowRightIcon,
+  CurrencyDollarIcon,
+} from "@heroicons/react/24/outline";
+
+export default function App() {
+  return (
+    <>
+      <Input label="Url" prefix="https://" suffix=".com" placeholder="mysite" />
+      <Input
+        type="number"
+        label="Price"
+        prefix={<CurrencyDollarIcon className="w-5" />}
+        suffix=".00"
+        placeholder="Enter your price"
+      />
+      <Input
+        label="Search"
+        prefix={<MagnifyingGlassIcon className="w-4" />}
+        suffix={<ArrowRightIcon className="w-4" />}
+        placeholder="Icons as prefix and suffix"
+      />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## With Quantity Counter
+
+You can create quantity counter with **Input**.
+
+<Paper className="block text-gray-950">
+  <InputCounter />
+</Paper>
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Input } from "@somaui/ui/input";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+
+export default function App() {
+  const [state, setState] = useState(0);
+
+  return (
+    <Input
+      label="Quantity Counter"
+      type="number"
+      min={0}
+      step={1}
+      value={state}
+      onChange={(e) => setState(Number(e.target.value))}
+      suffix={
+        <div className="-mr-3.5 grid gap-[2px] p-0.5 rtl:-ml-3.5 rtl:-mr-0">
+          <button
+            type="button"
+            className="rounded-[3px] bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            onClick={() => setState((prevState) => prevState + 1)}
+          >
+            <ChevronUpIcon className="h-3 w-3" />
+          </button>
+          <button
+            type="button"
+            className="rounded-[3px] bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            onClick={() => setState((prevState) => prevState - 1)}
+          >
+            <ChevronDownIcon className="h-3 w-3" />
+          </button>
+        </div>
+      }
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## With Character Counter
+
+You can create character counter with **Input**.
+
+<Paper className="block text-gray-950">
+  <InputCharacterCounter />
+</Paper>
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  const MAXLENGTH = 24;
+  const [state, setState] = useState("Chat GPT is awesome!");
+
+  return (
+    <Input
+      label="Character Counter"
+      value={state}
+      maxLength={MAXLENGTH}
+      onChange={(e) => setState(() => e.target.value)}
+      suffix={state.length + `/${MAXLENGTH}`}
+      suffixClassName="opacity-70"
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## With Clearable Button
+
+You can create clearable **Input** using **clearable** property.
+
+<Paper className="block text-gray-950">
+  <InputClearable label="Name" variant="active" />
+</Paper>
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  const [state, setState] = useState("This is Jhon.");
+
+  return (
+    <Input
+      type="text"
+      label="Name"
+      value={state}
+      placeholder="clearable ..."
+      onChange={(e) => setState(e.target.value)}
+      onClear={() => setState("")}
+      clearable
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Disabled
+
+You can make disabled **Input** using **disabled** property.
+
+<Paper className="block text-gray-950">
+  <Input
+    type="text"
+    label="Name"
+    placeholder="Enter your name"
+    disabled
+    className="w-full max-w-md"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <Input type="text" label="Name" placeholder="Enter your name" disabled />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## With Helper Text
+
+You can show field helper message to the **Input** using **helperText** property.
+
+<Paper className="block text-gray-950">
+  <Input
+    type="email"
+    label="Email"
+    placeholder="Your email"
+    helperText="Example: john@doe.io"
+    className="w-full max-w-md"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <Input
+      type="email"
+      label="Email"
+      placeholder="Enter your email"
+      helperText="Example: john@doe.io"
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## With Error Message
+
+You can show the validation error message using **error** property.
+
+<Paper className="block text-gray-950">
+  <Input
+    label="Name"
+    placeholder="Your Name"
+    error="This field is required"
+    className="w-full max-w-md"
+  />
+</Paper>
+
+```tsx
+import { Input } from "@somaui/ui/input";
+
+export default function App() {
+  return (
+    <Input
+      label="Name"
+      placeholder="Your Name"
+      error="This field is required"
+    />
+  );
+}
+```
+
+<div className="mb-20" />
+
+## API Reference
+
+<hr />
+
+<div className="mb-10" />
+
+### Input Props
+
+Here is the API documentation of the Input component. And the rest of the props are the same as the original html input field.
+
+<div className="overflow-x-auto">
+
+|      Props      |               Type               |                                                                 Description                                                                 |   Default   |
+| :-------------: | :------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :---------: |
+|      type       |    [InputTypes](#input-types)    |                                               This Input component only supports these types                                                |  `"text"`   |
+|      label      |           `ReactNode`            |                                                               Set field label                                                               |    \_\_     |
+|   labelWeight   |   [LabelWeight](#label-weight)   |                                                            Set label font weight                                                            | `"medium"`  |
+|     variant     | [InputVariants](#input-variants) |                                                     The variants of the component are:                                                      | `"outline"` |
+|      size       |    [InputSizes](#input-sizes)    |                                  The size of the component. "sm" is equivalent to the dense input styling.                                  |   `"md"`    |
+|   placeholder   |             `string`             |                                                         Set input placeholder text                                                          |    \_\_     |
+|    disabled     |            `boolean`             |                                                    Whether the input is disabled or not                                                     |    \_\_     |
+|    clearable    |            `boolean`             |                                                            Add clearable option                                                             |    \_\_     |
+|     onClear     |  [InputOnClear](#input-onclear)  |                                          Callback function called when the clear button is clicked                                          |    \_\_     |
+|     prefix      |           `ReactNode`            | The prefix is designed for adding any icon or text on the Input field's start (it's a left icon for the `ltr` and right icon for the `rtl`) |    \_\_     |
+|     suffix      |           `ReactNode`            |  The suffix is designed for adding any icon or text on the Input field's end (it's a right icon for the `ltr` and left icon for the `rtl`)  |    \_\_     |
+|   helperText    |           `ReactNode`            |                                            Add helper text. Can be a string or a React component                                            |    \_\_     |
+|      error      |             `string`             |                                                     Show error message using this prop                                                      |    \_\_     |
+| labelClassName  |             `string`             |                                                     Override default CSS style of label                                                     |    \_\_     |
+| inputClassName  |             `string`             |                                                     Override default CSS style of input                                                     |    \_\_     |
+| prefixClassName |             `string`             |                                                    Override default CSS style of prefix                                                     |    \_\_     |
+| suffixClassName |             `string`             |                                                    Override default CSS style of suffix                                                     |    \_\_     |
+| helperClassName |             `string`             |                                                  Override default CSS style of helperText                                                   |    \_\_     |
+| errorClassName  |             `string`             |                                                 Override default CSS style of error message                                                 |    \_\_     |
+|    className    |             `string`             |                                               Add custom classes to the root of the component                                               |    \_\_     |
+|       ref       |     `Ref<HTMLInputElement>`      |                                                                                                                                             |    \_\_     |
+|       ...       |      `InputHTMLAttributes`       |                                   native props like **value**, **onChange**, **onFocus**, **onBlur** ...                                    |    \_\_     |
+
+</div>
+
+<div className="mb-10" />
+
+### Input Types
+
+```ts
+type InputTypes =
+  | "text"
+  | "number"
+  | "email"
+  | "time"
+  | "date"
+  | "datetime-local"
+  | "month"
+  | "search"
+  | "tel"
+  | "url"
+  | "week";
+```
+
+<div className="mb-10" />
+
+### Label Weight
+
+```ts
+type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+```
+
+<div className="mb-10" />
+
+### Input Variants
+
+```ts
+type InputVariants = "outline" | "flat" | "text";
+```
+
+<div className="mb-10" />
+
+### Input Sizes
+
+```ts
+type InputSizes = "sm" | "md" | "lg";
+```
+
+<div className="mb-10" />
+
+### Input onClear
+
+```ts
+type InputOnClear = (event) => void;
+```

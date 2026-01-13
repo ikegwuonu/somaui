@@ -1,0 +1,1 @@
+'use strict';var chunkPSZ4TFJ7_cjs=require('../chunk-PSZ4TFJ7.cjs'),jsxRuntime=require('react/jsx-runtime');function t({children:r,className:e,...p}){return jsxRuntime.jsx("b",{className:chunkPSZ4TFJ7_cjs.a("somaui-bold","text-text-primary",e),...p,children:r})}t.displayName="Bold";exports.Bold=t;

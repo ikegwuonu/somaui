@@ -1,0 +1,387 @@
+---
+sidebar_position: 1
+---
+
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { Button } from "@somaui/ui/button";
+import {
+  BellIcon,
+  BoltIcon,
+  HeartIcon,
+  HandThumbUpIcon,
+  ChatBubbleOvalLeftIcon,
+  AdjustmentsHorizontalIcon,
+} from "@heroicons/react/24/outline";
+import Paper from "@site/src/components/paper";
+
+# ActionIcon
+
+Primary action icon button to trigger an operation. It's a simple button that contains no text, only an icon.
+
+CLI Usage
+
+```tsx
+pnpm dlx somaui add action-icon
+```
+
+generates `components/action-icon` :
+
+```tsx
+import React from "react";
+import { tv, type VariantProps } from "tailwind-variants";
+import { SpinnerIcon } from "@/icons/spinner";
+
+const actionIcon = tv({
+  base: "inline-flex items-center cursor-pointer justify-center active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)] border-[length:var(--border-width)]",
+  variants: {
+    variant: {
+      solid:
+        "bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary/90 focus-visible:ring-border text-primary-foreground border-transparent dark:backdrop-blur",
+      outline:
+        "bg-transparent border-border hover:border-primary focus-visible:ring-border hover:text-primary dark:backdrop-blur",
+      flat: "bg-muted hover:bg-primary-lighter focus-visible:ring-primary-lighter hover:text-primary-dark border-transparent backdrop-blur",
+      text: "hover:text-primary focus-visible:ring-primary-lighter border-transparent",
+      danger:
+        "bg-red hover:bg-red-dark dark:hover:bg-red/80 focus-visible:ring-red/30 text-white border-transparent dark:backdrop-blur",
+    },
+    size: {
+      sm: "p-0.5 size-8",
+      md: "p-1 size-10",
+      lg: "p-2 size-12",
+    },
+    disabled: {
+      true: "dark:hover:bg-muted/70 cursor-not-allowed border-muted bg-muted/70 text-muted-foreground hover:text-muted-foreground backdrop-blur-xl hover:border-muted hover:bg-muted/70",
+    },
+    isLoading: {
+      true: "pointer-events-none relative",
+    },
+  },
+  defaultVariants: {
+    variant: "solid",
+    size: "md",
+  },
+});
+
+const spinnerStyles = tv({
+  base: "animate-spin",
+  variants: {
+    size: {
+      sm: "size-4",
+      md: "size-[18px]",
+      lg: "w-5 h-5",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
+
+export type ActionIconProps = Omit<
+  VariantProps<typeof actionIcon>,
+  "disabled" | "isLoading"
+> &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> &
+  React.HTMLAttributes<HTMLSpanElement> & {
+    as?: "button" | "span";
+    type?: "button" | "submit" | "reset";
+    children: React.ReactNode;
+    isLoading?: boolean;
+    disabled?: boolean;
+    ref?: React.Ref<HTMLButtonElement>;
+  };
+
+export function ActionIcon({
+  as = "button",
+  type = "button",
+  children,
+  className,
+  isLoading,
+  variant,
+  size,
+  disabled,
+  ref,
+  ...actionIconProps
+}: ActionIconProps) {
+  const Component = as;
+
+  return (
+    <Component
+      ref={ref}
+      disabled={disabled}
+      className={actionIcon({
+        variant,
+        size,
+        disabled,
+        isLoading,
+        className,
+      })}
+      {...(as && as !== "span" && { type })}
+      {...actionIconProps}
+    >
+      {isLoading ? (
+        <SpinnerIcon className={spinnerStyles({ size })} />
+      ) : (
+        <>{children}</>
+      )}
+    </Component>
+  );
+}
+```
+
+As a package
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+```
+
+<div className="mb-20 md:mb-28" />
+
+## Default
+
+The default style of **ActionIcon** component.
+
+<Paper>
+  <ActionIcon>
+    <AdjustmentsHorizontalIcon className="size-5" />
+  </ActionIcon>
+</Paper>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+
+export default function App() {
+  return (
+    <ActionIcon>
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Variants
+
+You can change the style of the **ActionIcon** using [**variant**](#actionicon-variants) property.
+
+<Paper>
+  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+    <ActionIcon>
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon variant="outline">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon variant="flat">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon variant="text">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon variant="danger">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+  </div>
+</Paper>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+
+export default function App() {
+  return (
+    <>
+      <ActionIcon>
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon variant="outline">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon variant="flat">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon variant="text">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon variant="danger">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Sizes
+
+You can change the size of the **ActionIcon** using [**size**](#actionicon-sizes) property.
+
+<Paper>
+  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+    <ActionIcon size="sm">
+      <AdjustmentsHorizontalIcon className="w-4 h-4" />
+    </ActionIcon>
+    <ActionIcon>
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon size="lg">
+      <AdjustmentsHorizontalIcon className="w-6 h-6" />
+    </ActionIcon>
+  </div>
+</Paper>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+
+export default function App() {
+  return (
+    <>
+      <ActionIcon size="sm">
+        <AdjustmentsHorizontalIcon className="w-4 h-4" />
+      </ActionIcon>
+      <ActionIcon>
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon size="lg">
+        <AdjustmentsHorizontalIcon className="w-6 h-6" />
+      </ActionIcon>
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Loading
+
+You can set the loading state of the **ActionIcon** button using **isLoading** property.
+
+<Paper>
+  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+    <ActionIcon isLoading={true}>
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon isLoading={true} variant="outline">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon isLoading={true} variant="flat">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+    <ActionIcon isLoading={true} variant="danger">
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+  </div>
+</Paper>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+
+export default function App() {
+  return (
+    <>
+      <ActionIcon isLoading={true} variant="solid">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon isLoading={true} variant="outline">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon isLoading={true} variant="flat">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+      <ActionIcon isLoading={true} variant="danger">
+        <AdjustmentsHorizontalIcon className="size-5" />
+      </ActionIcon>
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Disabled
+
+The disabled style of the **ActionIcon** component.
+
+<Paper>
+  <ActionIcon disabled={true}>
+    <AdjustmentsHorizontalIcon className="size-5" />
+  </ActionIcon>
+</Paper>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+
+export default function App() {
+  return (
+    <ActionIcon disabled={true}>
+      <AdjustmentsHorizontalIcon className="size-5" />
+    </ActionIcon>
+  );
+}
+```
+
+<div className="mb-20" />
+
+## API Reference
+
+<hr />
+
+<div className="mb-10" />
+
+### ActionIcon Props
+
+Here is the API documentation of the ActionIcon component. And the rest of the props are the same as the original html button. You can use props like **id**, **title**, **onClick**, **onFocus**, **onBlur** etc.
+
+<div className="overflow-x-auto">
+
+|   Props   |                        Type                        |                                         Description                                         |   Default   |
+| :-------: | :------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :---------: |
+|    as     |                 `button` or `span`                 |                                          Render as                                          | `"button"`  |
+| children  |                 `React.ReactNode`                  |                                      Use any SVG icon                                       |    \_\_     |
+|   type    | [ActionIconButtonTypes](#action-icon-button-types) |                            Set the original HTML type of button                             | `"button"`  |
+|  variant  |     [ActionIconVariants](#actionicon-variants)     |                                 Set the ActionIcon variants                                 |  `"solid"`  |
+|   size    |        [ActionIconSizes](#actionicon-sizes)        | Set the size of the component. <br /> `"sm"` is equivalent to the dense ActionIcon styling. |   `"md"`    |
+|   color   |       [ActionIconColors](#actionicon-colors)       |                                   Change ActionIcon color                                   | `"primary"` |
+| isLoading |                     `boolean`                      |                            Set the loading status of ActionIcon                             |    \_\_     |
+| disabled  |                     `boolean`                      |                              Disabled state of the ActionIcon                               |    \_\_     |
+| className |                      `string`                      |                             Add custom classes for extra style                              |    \_\_     |
+|    ref    |              `Ref<HTMLButtonElement>`              |                                         forwardRef                                          |    \_\_     |
+|    ...    |     `ButtonHTMLAttributes` or `HTMLAttributes`     |                native props like **onClick**, **title**, **aria-label** ...                 |    \_\_     |
+
+</div>
+
+<div className="mb-10" />
+
+### Action Icon Button Types
+
+```ts
+type ActionIconButtonTypes = "button" | "submit" | "reset";
+```
+
+<div className="mb-10" />
+
+### ActionIcon Variants
+
+```ts
+type ActionIconVariants = "solid" | "flat" | "outline" | "text";
+```
+
+<div className="mb-10" />
+
+### ActionIcon Sizes
+
+```ts
+type ActionIconSizes = "sm" | "md" | "lg";
+```
+
+<div className="mb-10" />
+
+### ActionIcon Colors
+
+```ts
+type ActionIconColors = "primary" | "secondary" | "danger";
+```

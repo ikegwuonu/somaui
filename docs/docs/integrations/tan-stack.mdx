@@ -1,0 +1,968 @@
+---
+sidebar_position: 6
+---
+
+import Paper from "@site/src/components/paper";
+import { Badge } from "@somaui/ui/badge";
+import TanStackTableDemo from "@site/src/components/integrations/tan-stack-table";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import NpmIcon from "@site/src/components/icons/npm-icon";
+import YarnIcon from "@site/src/components/icons/yarn-icon";
+import PnpmIcon from "@site/src/components/icons/pnpm-icon";
+import BunIcon from "@site/src/components/icons/bun-icon";
+
+# TanStack Table
+
+A powerful, headless table component built on top of **TanStack Table** (formerly React Table). Seamlessly integrated with SomaUI's design system, this component provides a flexible and performant solution for building complex, interactive data tables with sorting, filtering, pagination, and row selection.
+
+<div className="mb-14" />
+
+<Paper disableShowCodeBtn>
+  <TanStackTableDemo />
+</Paper>
+
+<div className="mb-16" />
+
+## Features
+
+- 🎯 **Headless Architecture** - Full control over table rendering and styling
+- 🔍 **Advanced Filtering** - Global search and column-specific filters
+- 📊 **Sorting & Pagination** - Built-in sorting and pagination capabilities
+- ✅ **Row Selection** - Single and multi-row selection with checkboxes
+- 🎨 **Theme Integration** - Fully integrated with SomaUI theme colors and design tokens
+- 🌓 **Dark Mode Support** - Automatic dark mode styling using SomaUI theme variables
+- 📱 **Responsive** - Works seamlessly across all device sizes
+- ⚡ **Performant** - Optimized for large datasets with virtual scrolling support
+- 🎛️ **Column Visibility** - Toggle column visibility dynamically
+- ♿ **Accessible** - Built with accessibility best practices
+
+<div className="mb-16" />
+
+## Installation
+
+<hr />
+
+Before using the TanStack Table component, you'll need to install the required dependency:
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 1
+  </Badge>
+  <span>
+    Install the <strong>@tanstack/react-table</strong> package.
+  </span>
+</div>
+
+<div className="mb-4" />
+
+<Tabs groupId="package-manager">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="bash">{`npm install @tanstack/react-table`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="bash">{`yarn add @tanstack/react-table`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="bash">{`pnpm add @tanstack/react-table`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="bash">{`bun add @tanstack/react-table`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 2
+  </Badge>
+  <span>
+    Create a table component, <strong>table.tsx</strong>
+  </span>
+</div>
+
+```tsx
+import React from "react";
+import { Table } from "@somaui/ui/table";
+import { type Person } from "./data";
+import { flexRender, Table as TanStackTableTypes } from "@tanstack/react-table";
+
+type TablePropsTypes = {
+  table: TanStackTableTypes<Person>;
+};
+
+export default function MainTable({ table }: TablePropsTypes) {
+  const footers = table
+    .getFooterGroups()
+    .map((group) =>
+      group.headers.map((header) => header.column.columnDef.footer)
+    )
+    .flat()
+    .filter(Boolean);
+
+  return (
+    <div className="w-full overflow-x-auto overflow-y-hidden custom-scrollbar">
+      <Table
+        className="!shadow-none !border-0"
+        style={{
+          width: table.getTotalSize(),
+        }}
+      >
+        <Table.Header className="!bg-[var(--muted)] !border-y-0">
+          {table.getHeaderGroups().map((headerGroup) => {
+            return (
+              <Table.Row key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <Table.Head
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      style={{
+                        width: header.getSize(),
+                      }}
+                      className="!text-start"
+                    >
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </Table.Head>
+                  );
+                })}
+              </Table.Row>
+            );
+          })}
+        </Table.Header>
+        <Table.Body>
+          {table.getRowModel().rows.map((row) => (
+            <Table.Row key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <Table.Cell
+                  key={cell.id}
+                  className="!text-start"
+                  style={{
+                    width: cell.column.getSize(),
+                  }}
+                >
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+
+        {footers.length > 0 && (
+          <Table.Footer>
+            {table.getFooterGroups().map((footerGroup) => (
+              <Table.Row key={footerGroup.id}>
+                {footerGroup.headers.map((footer) => {
+                  return (
+                    <Table.Cell key={footer.id}>
+                      {footer.isPlaceholder ? null : (
+                        <>
+                          {flexRender(
+                            footer.column.columnDef.footer,
+                            footer.getContext()
+                          )}
+                        </>
+                      )}
+                    </Table.Cell>
+                  );
+                })}
+              </Table.Row>
+            ))}
+          </Table.Footer>
+        )}
+      </Table>
+    </div>
+  );
+}
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 3
+  </Badge>
+  <span>
+    Create a <strong>column.tsx</strong> file to define your table columns.
+  </span>
+</div>
+
+```tsx
+import { type Person } from "./data";
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { Button } from "@somaui/ui/button";
+import { Checkbox } from "@somaui/ui/checkbox";
+import { Popover } from "@somaui/ui/popover";
+import { createColumnHelper } from "@tanstack/react-table";
+import { AvatarCard, DateCell, getStatusBadge } from "./utils";
+import {
+  EllipsisHorizontalIcon,
+  EyeIcon,
+  PencilIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+
+const columnHelper = createColumnHelper<Person>();
+
+export const defaultColumns = [
+  columnHelper.accessor("id", {
+    size: 50,
+    header: ({ table }) => (
+      <Checkbox
+        className="ps-2"
+        inputClassName="bg-white"
+        aria-label="Select all rows"
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={table.getIsSomeRowsSelected()}
+        onChange={() => table.toggleAllPageRowsSelected()}
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        className="ps-2"
+        aria-label="Select row"
+        checked={row.getIsSelected()}
+        indeterminate={row.getIsSomeSelected()}
+        onChange={() => row.toggleSelected()}
+      />
+    ),
+  }),
+
+  columnHelper.accessor("name", {
+    size: 280,
+    header: "Customer",
+    cell: ({ row: { original } }) => (
+      <AvatarCard
+        src={original.avatar}
+        name={original.name}
+        description={original.email.toLowerCase()}
+      />
+    ),
+  }),
+
+  columnHelper.accessor("dueDate", {
+    size: 180,
+    header: "Due Date",
+    cell: ({ row }) => <DateCell date={new Date(row.original.dueDate)} />,
+  }),
+
+  columnHelper.accessor("amount", {
+    size: 120,
+    header: "Amount",
+    cell: ({ row }) => (
+      <span className="font-medium">$ {row.original.amount}</span>
+    ),
+  }),
+
+  columnHelper.accessor("status", {
+    size: 120,
+    header: "Status",
+    cell: (info) => getStatusBadge(info.renderValue()!),
+  }),
+
+  columnHelper.accessor("avatar", {
+    size: 120,
+    header: "",
+    cell: () => (
+      <div className="w-full flex justify-center">
+        <Popover shadow="sm" placement="bottom-end">
+          <Popover.Trigger>
+            <ActionIcon as="span" variant="text" className="h-auto p-0">
+              <EllipsisHorizontalIcon strokeWidth={2} className="size-5" />
+            </ActionIcon>
+          </Popover.Trigger>
+          <Popover.Content className="p-1 flex flex-col">
+            <Button
+              size="sm"
+              variant="text"
+              className="hover:bg-[var(--muted)] gap-2 justify-start"
+            >
+              <PencilIcon className="size-3.5" /> Edit
+            </Button>
+            <Button
+              size="sm"
+              variant="text"
+              className="hover:bg-[var(--muted)] gap-2 justify-start"
+            >
+              <EyeIcon className="size-3.5" /> View
+            </Button>
+            <Button
+              size="sm"
+              variant="text"
+              className="hover:bg-[var(--muted)] gap-2 justify-start"
+            >
+              <TrashIcon className="size-3.5" /> Delete
+            </Button>
+          </Popover.Content>
+        </Popover>
+      </div>
+    ),
+  }),
+];
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 4
+  </Badge>
+  <span>
+    Create a <strong>data.ts</strong> file to define your data structure and
+    sample data.
+  </span>
+</div>
+
+```tsx
+export type Person = {
+  id: string;
+  name: string;
+  userName: string;
+  avatar: string;
+  email: string;
+  dueDate: string;
+  amount: number;
+  status: string;
+};
+
+export const defaultData = [
+  {
+    id: "62447",
+    name: "Francis Sanford MD",
+    userName: "George33",
+    avatar: "https://randomuser.me/api/portraits/women/8.jpg",
+    email: "Marya.Barrow@yahoo.com",
+    dueDate: "2023-10-18T13:24:00.760Z",
+    amount: 544,
+    status: "Paid",
+  },
+  // ... more data
+];
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 5
+  </Badge>
+  <span>
+    Create a <strong>pagination.tsx</strong> file for table pagination controls.
+  </span>
+</div>
+
+```tsx
+import { ActionIcon } from "@somaui/ui/action-icon";
+import { Select, SelectOption } from "@somaui/ui/select";
+import { Text } from "@somaui/ui/typography";
+import { type Table as ReactTableType } from "@tanstack/react-table";
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/20/solid";
+
+const options = [
+  { value: 5, label: "5" },
+  { value: 10, label: "10" },
+  { value: 15, label: "15" },
+  { value: 20, label: "20" },
+];
+
+export default function TablePagination<TData extends Record<string, any>>({
+  table,
+}: {
+  table: ReactTableType<TData>;
+}) {
+  return (
+    <div className="flex w-full items-center justify-between @container">
+      <div className="hidden @2xl:block">
+        <Text>
+          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredRowModel().rows.length} row(s) selected.
+        </Text>
+      </div>
+      <div className="flex w-full items-center justify-between gap-6 @2xl:w-auto @2xl:gap-12">
+        <div className="flex items-center gap-4">
+          <Text className="hidden text-sm font-medium text-[var(--text-secondary)] @md:block">
+            Rows per page
+          </Text>
+          <Select
+            size="sm"
+            options={options}
+            className="w-[52px]"
+            value={table.getState().pagination.pageSize}
+            onChange={(v: SelectOption) => {
+              table.setPageSize(Number(v.value));
+            }}
+            selectClassName="font-semibold text-sm ring-0 shadow-sm"
+            optionClassName="justify-center font-medium"
+            suffixClassName="[&_svg]:!size-3"
+          />
+        </div>
+        <Text className="hidden text-sm font-medium text-[var(--text-secondary)] @3xl:block">
+          Page {table.getState().pagination.pageIndex + 1} of{" "}
+          {table.getPageCount().toLocaleString()}
+        </Text>
+        <div className="grid grid-cols-4 gap-2">
+          <ActionIcon
+            size="sm"
+            rounded="lg"
+            variant="outline"
+            aria-label="Go to first page"
+            onClick={() => table.firstPage()}
+            disabled={!table.getCanPreviousPage()}
+            className="text-[var(--text-primary)] shadow-sm disabled:text-[var(--muted-foreground)] disabled:shadow-none"
+          >
+            <ChevronDoubleLeftIcon className="size-5" />
+          </ActionIcon>
+          <ActionIcon
+            size="sm"
+            rounded="lg"
+            variant="outline"
+            aria-label="Go to previous page"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+            className="text-[var(--text-primary)] shadow-sm disabled:text-[var(--muted-foreground)] disabled:shadow-none"
+          >
+            <ChevronLeftIcon className="size-5" />
+          </ActionIcon>
+          <ActionIcon
+            size="sm"
+            rounded="lg"
+            variant="outline"
+            aria-label="Go to next page"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+            className="text-[var(--text-primary)] shadow-sm disabled:text-[var(--muted-foreground)] disabled:shadow-none"
+          >
+            <ChevronRightIcon className="size-5" />
+          </ActionIcon>
+          <ActionIcon
+            size="sm"
+            rounded="lg"
+            variant="outline"
+            aria-label="Go to last page"
+            onClick={() => table.lastPage()}
+            disabled={!table.getCanNextPage()}
+            className="text-[var(--text-primary)] shadow-sm disabled:text-[var(--muted-foreground)] disabled:shadow-none"
+          >
+            <ChevronDoubleRightIcon className="size-5" />
+          </ActionIcon>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 6
+  </Badge>
+  <span>
+    Create a <strong>toolbar.tsx</strong> file for table toolbar with search and
+    filters.
+  </span>
+</div>
+
+```tsx
+import {
+  ActionIcon,
+  Badge,
+  Button,
+  Checkbox,
+  Input,
+  Popover,
+  Select,
+  Text,
+  Title,
+} from "somaui";
+import { type Table as ReactTableType } from "@tanstack/react-table";
+import {
+  AdjustmentsHorizontalIcon,
+  MagnifyingGlassIcon,
+  TrashIcon,
+} from "@heroicons/react/20/solid";
+
+interface TableToolbarProps<T extends Record<string, any>> {
+  table: ReactTableType<T>;
+}
+
+const statusOptions = [
+  { label: "Paid", value: "Paid" },
+  { label: "Pending", value: "Pending" },
+  { label: "Draft", value: "Draft" },
+];
+
+export default function TableToolbar<TData extends Record<string, any>>({
+  table,
+}: TableToolbarProps<TData>) {
+  const isFiltered =
+    table.getState().globalFilter || table.getState().columnFilters.length > 0;
+
+  return (
+    <div className="flex items-center justify-between w-full mb-4">
+      <Input
+        type="search"
+        placeholder="Search by anything..."
+        value={table.getState().globalFilter ?? ""}
+        onClear={() => table.setGlobalFilter("")}
+        onChange={(e) => table.setGlobalFilter(e.target.value)}
+        inputClassName="h-9"
+        clearable={true}
+        prefix={<MagnifyingGlassIcon className="size-4" />}
+      />
+      <div className="flex items-center gap-4">
+        <Select
+          options={statusOptions}
+          value={table.getColumn("status")?.getFilterValue() ?? []}
+          onChange={(e) => table.getColumn("status")?.setFilterValue(e)}
+          getOptionValue={(option: { value: any }) => option.value}
+          getOptionDisplayValue={(option: { value: string }) =>
+            renderOptionDisplayValue(option.value)
+          }
+          placeholder="Status..."
+          displayValue={(selected: string) =>
+            renderOptionDisplayValue(selected)
+          }
+          className={"w-32"}
+          dropdownClassName="!z-20 h-auto"
+          selectClassName="ring-0"
+        />
+
+        {isFiltered && (
+          <Button
+            onClick={() => {
+              table.resetGlobalFilter();
+              table.resetColumnFilters();
+            }}
+            variant="flat"
+            className="gap-2"
+          >
+            <TrashIcon className="size-4" /> Clear
+          </Button>
+        )}
+
+        {table && (
+          <Popover shadow="sm" placement="bottom-end">
+            <Popover.Trigger>
+              <ActionIcon title={"Toggle Columns"}>
+                <AdjustmentsHorizontalIcon className="size-[18px]" />
+              </ActionIcon>
+            </Popover.Trigger>
+            <Popover.Content className="z-0">
+              <>
+                <Title as="h6" className="!mb-4 text-sm font-semibold">
+                  Toggle Columns
+                </Title>
+                <div className="grid grid-cols-1 gap-4">
+                  {table.getAllLeafColumns().map((column) => {
+                    return (
+                      typeof column.columnDef.header === "string" &&
+                      column.columnDef.header.length > 0 && (
+                        <Checkbox
+                          size="sm"
+                          key={column.id}
+                          label={column.columnDef.header}
+                          checked={column.getIsVisible()}
+                          onChange={column.getToggleVisibilityHandler()}
+                          iconClassName="size-4 translate-x-0.5"
+                        />
+                      )
+                    );
+                  })}
+                </div>
+              </>
+            </Popover.Content>
+          </Popover>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function renderOptionDisplayValue(value: string) {
+  switch (value.toLowerCase()) {
+    case "pending":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="warning" renderAsDot />
+          <Text className="font-medium capitalize text-orange-dark">
+            {value}
+          </Text>
+        </div>
+      );
+    case "paid":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="success" renderAsDot />
+          <Text className="font-medium capitalize text-green-dark">
+            {value}
+          </Text>
+        </div>
+      );
+    case "overdue":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="danger" renderAsDot />
+          <Text className="font-medium capitalize text-red-dark">{value}</Text>
+        </div>
+      );
+    default:
+      return (
+        <div className="flex items-center gap-2">
+          <Badge renderAsDot className="bg-[var(--muted-foreground)]" />
+          <Text className="font-medium capitalize text-[var(--text-secondary)]">
+            {value}
+          </Text>
+        </div>
+      );
+  }
+}
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 7
+  </Badge>
+  <span>
+    Create a <strong>utils.tsx</strong> file for utility components (optional).
+  </span>
+</div>
+
+```tsx
+import dayjs from "dayjs";
+import { Avatar, AvatarProps } from "@somaui/ui/avatar";
+import { Badge } from "@somaui/ui/badge";
+import { Text } from "@somaui/ui/typography";
+import { cn } from "somaui";
+
+interface AvatarCardProps {
+  src: string;
+  name: string;
+  className?: string;
+  description?: string;
+  avatarProps?: AvatarProps;
+}
+
+export function AvatarCard({
+  src,
+  name,
+  className,
+  description,
+  avatarProps,
+}: AvatarCardProps) {
+  return (
+    <figure className={cn("flex items-center gap-3", className)}>
+      <Avatar name={name} src={src} {...avatarProps} />
+      <figcaption className="grid gap-0.5">
+        <Text className="font-lexend text-sm font-medium text-[var(--text-primary)] dark:text-[var(--text-secondary)]">
+          {name}
+        </Text>
+        {description && (
+          <Text className="!text-[13px] !leading-normal text-[var(--muted-foreground)]">
+            {description}
+          </Text>
+        )}
+      </figcaption>
+    </figure>
+  );
+}
+
+interface DateCellProps {
+  date: Date;
+  className?: string;
+  dateFormat?: string;
+  dateClassName?: string;
+  timeFormat?: string;
+  timeClassName?: string;
+}
+
+export function DateCell({
+  date,
+  className,
+  timeClassName,
+  dateClassName,
+  dateFormat = "MMMM D, YYYY",
+  timeFormat = "h:mm A",
+}: DateCellProps) {
+  return (
+    <div className={cn("grid gap-0", className)}>
+      <time
+        dateTime={formatDate(date, "YYYY-MM-DD")}
+        className={cn(
+          "font-medium text-[var(--text-secondary)]",
+          dateClassName
+        )}
+      >
+        {formatDate(date, dateFormat)}
+      </time>
+      <time
+        dateTime={formatDate(date, "HH:mm:ss")}
+        className={cn(
+          "text-[13px] text-[var(--muted-foreground)] leading-normal",
+          timeClassName
+        )}
+      >
+        {formatDate(date, timeFormat)}
+      </time>
+    </div>
+  );
+}
+
+export function formatDate(
+  date?: Date,
+  format: string = "DD MMM, YYYY"
+): string {
+  if (!date) return "";
+  return dayjs(date).format(format);
+}
+
+export function getStatusBadge(status: string) {
+  switch (status?.toLowerCase()) {
+    case "pending":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="warning" renderAsDot />
+          <Text className="font-medium text-orange-dark">{status}</Text>
+        </div>
+      );
+    case "paid":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="success" renderAsDot />
+          <Text className="font-medium text-green-dark">{status}</Text>
+        </div>
+      );
+    case "overdue":
+      return (
+        <div className="flex items-center gap-2">
+          <Badge color="danger" renderAsDot />
+          <Text className="font-medium text-red-dark">{status}</Text>
+        </div>
+      );
+    default:
+      return (
+        <div className="flex items-center gap-2">
+          <Badge renderAsDot className="bg-[var(--muted-foreground)]" />
+          <Text className="font-medium text-[var(--text-secondary)]">
+            {status}
+          </Text>
+        </div>
+      );
+  }
+}
+```
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 8
+  </Badge>
+  <span>Use the components in your page file.</span>
+</div>
+
+```tsx
+import React from "react";
+import MainTable from "./table";
+import {
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import { defaultData } from "./data";
+import { defaultColumns } from "./column";
+import TableToolbar from "./toolbar";
+import TablePagination from "./pagination";
+
+export default function TanStackTableDemo() {
+  const [rowSelection, setRowSelection] = React.useState({});
+  const table = useReactTable({
+    data: defaultData,
+    columns: defaultColumns,
+    initialState: {
+      pagination: {
+        pageIndex: 0,
+        pageSize: 5,
+      },
+    },
+    state: {
+      rowSelection,
+    },
+    enableRowSelection: true,
+    onRowSelectionChange: setRowSelection,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+  });
+
+  return (
+    <>
+      <TableToolbar table={table} />
+      <MainTable table={table} />
+      <TablePagination table={table} />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Advanced Usage
+
+### Custom Column Rendering
+
+Customize how columns are rendered:
+
+```tsx
+columnHelper.accessor("amount", {
+  size: 120,
+  header: "Amount",
+  cell: ({ row }) => {
+    const amount = row.original.amount;
+    return (
+      <span
+        className={cn(
+          "font-medium",
+          amount > 500 ? "text-green-dark" : "text-orange-dark"
+        )}
+      >
+        $ {amount}
+      </span>
+    );
+  },
+});
+```
+
+### Column Sorting
+
+Enable sorting on columns:
+
+```tsx
+columnHelper.accessor("name", {
+  size: 280,
+  header: "Customer",
+  enableSorting: true,
+  cell: ({ row: { original } }) => (
+    <AvatarCard
+      src={original.avatar}
+      name={original.name}
+      description={original.email.toLowerCase()}
+    />
+  ),
+});
+```
+
+### Custom Filters
+
+Add custom filtering logic:
+
+```tsx
+const table = useReactTable({
+  // ... other config
+  getFilteredRowModel: getFilteredRowModel(),
+  filterFns: {
+    customFilter: (row, columnId, filterValue) => {
+      // Custom filter logic
+      return row.getValue(columnId) === filterValue;
+    },
+  },
+});
+```
+
+### Row Expansion
+
+Add expandable rows:
+
+```tsx
+columnHelper.display({
+  id: "expander",
+  cell: ({ row }) => (
+    <button onClick={() => row.toggleExpanded()}>
+      {row.getIsExpanded() ? "▼" : "▶"}
+    </button>
+  ),
+});
+```
+
+<div className="mb-20" />
+
+## Best Practices
+
+- **Use memoization** - Memoize columns and data to prevent unnecessary re-renders
+- **Virtual scrolling** - For large datasets, consider using virtual scrolling
+- **Column sizing** - Set appropriate column sizes for better layout control
+- **Accessibility** - Ensure proper ARIA labels and keyboard navigation
+- **Performance** - Use `getFilteredRowModel` and `getPaginationRowModel` for better performance
+- **State management** - Manage table state externally for better control
+- **Type safety** - Use TypeScript for type-safe column definitions
+- **Theme consistency** - Use SomaUI theme colors for consistent styling
+
+<div className="mb-20" />
+
+## API Reference
+
+The TanStack Table component extends all features from [TanStack Table](https://tanstack.com/table). Refer to their documentation for a complete list of available APIs and options.
+
+### Common Table Options
+
+| Option                    | Type                 | Description                           |
+| :------------------------ | :------------------- | :------------------------------------ |
+| **data**                  | `TData[]`            | Array of data to display in the table |
+| **columns**               | `ColumnDef<TData>[]` | Column definitions                    |
+| **getCoreRowModel**       | `() => RowModel`     | Core row model getter                 |
+| **getFilteredRowModel**   | `() => RowModel`     | Filtered row model getter             |
+| **getPaginationRowModel** | `() => RowModel`     | Pagination row model getter           |
+| **enableRowSelection**    | `boolean`            | Enable row selection                  |
+| **onRowSelectionChange**  | `(updater) => void`  | Row selection change handler          |
+| **initialState**          | `TableState`         | Initial table state                   |
+
+<div className="mb-4" />
+
+> **Note:** For more information, please refer to the [TanStack Table Documentation](https://tanstack.com/table/latest).
+
+<div className="mb-20" />

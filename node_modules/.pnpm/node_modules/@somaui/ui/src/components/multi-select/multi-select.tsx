@@ -15,9 +15,9 @@ import {
 } from "@headlessui/react";
 import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/cn";
-import { XIcon } from "../../icons/x-mark";
-import { SearchIcon } from "../../icons/search";
-import { ChevronDownIcon } from "../../icons/chevron-down";
+import { XIcon } from "@/icons/x-mark";
+import { SearchIcon } from "@/icons/search";
+import { ChevronDownIcon } from "@/icons/chevron-down";
 import {
   useInternalState,
   ourPlacementObject,

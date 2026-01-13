@@ -18,10 +18,10 @@ import type { ExtractProps } from "@/lib/extract-props";
 import { FieldErrorText } from "../field-error-text";
 import { FieldHelperText } from "../field-helper-text";
 import { FieldClearButton } from "../field-clear-button";
-import { ChevronDownIcon } from "../../icons/chevron-down";
+import { ChevronDownIcon } from "@/icons/chevron-down";
 import { labelStyles } from "@/lib/label-size";
 import { dropdownStyles } from "@/lib/dropdown-list-style";
-import { SearchIcon } from "../../icons/search";
+import { SearchIcon } from "@/icons/search";
 import {
   type TheirPlacementType,
   displayValueFn,
