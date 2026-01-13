@@ -1,6 +1,6 @@
 import React, { forwardRef, type ElementType } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { Loader } from "../loader";
+import { Loader } from "@/components/loader";
 
 const button = tv({
   base: "font-medium inline-flex items-center justify-center cursor-pointer active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)]",
