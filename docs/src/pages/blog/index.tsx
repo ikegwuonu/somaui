@@ -25,7 +25,8 @@ const blogPosts = [
       "Updated Peer Dependencies",
       "New UploadZone Component",
     ],
-    link: "/blog/2026/13/1/2026/",
+
+    link: "/blog/2026/1/1/2026/",
   },
 ];
 

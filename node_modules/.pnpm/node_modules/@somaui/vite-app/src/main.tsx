@@ -5,6 +5,7 @@ import "./styles/global.css";
 
 import ButtonUI from "./ui/buttonui";
 import { Title } from "@somaui/ui/title";
+import { FieldErrorText } from "@somaui/ui";
 
 const App = () => {
   return (
