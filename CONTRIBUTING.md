@@ -14,6 +14,6 @@ We welcome contributions of all kinds.
 Create your own fork and clone it locally.
 
 ```bash
-git clone https://github.com/your-username/soma-ui.git
-cd soma-ui
+git clone https://github.com/ikegwuonu/somaui.git
+cd somaui
 ```

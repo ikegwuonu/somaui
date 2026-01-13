@@ -1,0 +1,719 @@
+---
+sidebar_position: 5
+---
+
+import PhoneNumber, {
+  PhoneNumberDefault,
+} from "@site/src/components/phone-number";
+import Paper from "@site/src/components/paper";
+import { Badge } from "@somaui/ui/badge";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import NpmIcon from "@site/src/components/icons/npm-icon";
+import YarnIcon from "@site/src/components/icons/yarn-icon";
+import PnpmIcon from "@site/src/components/icons/pnpm-icon";
+import BunIcon from "@site/src/components/icons/bun-icon";
+
+# PhoneNumber
+
+A highly customizable phone input component with automatic formatting and international country code support. Built on top of **react-phone-input-2**, the PhoneNumber component seamlessly integrates with SomaUI's design system, providing a consistent and accessible user experience.
+
+<div className="mb-14" />
+
+<Paper disableShowCodeBtn>
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    preferredCountries={["us"]}
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+<div className="mb-16" />
+
+## Features
+
+- 🌍 **International Support** - Automatic country code detection and formatting
+- 🎨 **Multiple Variants** - Choose from outline, flat, or text styles
+- 📏 **Flexible Sizing** - Three size options (sm, md, lg) to match your design
+- ✨ **Clearable Input** - Optional clear button for better UX
+- 🔍 **Searchable Dropdown** - Easy country selection with search functionality
+- ♿ **Accessible** - Built with accessibility best practices
+- 🎯 **Type Safe** - Full TypeScript support
+
+<div className="mb-16" />
+
+## Installation
+
+<hr />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 1
+  </Badge>
+  <span>
+    Install the <strong>react-phone-input-2</strong> package.
+  </span>
+</div>
+
+<div className="mb-4" />
+
+<Tabs groupId="package-manager">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="bash">
+      {`npm install react-phone-input-2 tailwind-variants`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="bash">
+      {`yarn add react-phone-input-2 tailwind-variants`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="bash">
+      {`pnpm add react-phone-input-2 tailwind-variants`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="bash">
+      {`bun add react-phone-input-2 tailwind-variants`}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+<div className="mb-14" />
+
+<div className="flex items-center gap-2 mb-4">
+  <Badge color="primary" size="sm" className="rounded-md">
+    Step 2
+  </Badge>
+  <span>
+    Create phone number component, <strong>components/phone-number.tsx</strong>
+  </span>
+</div>
+
+```tsx
+import React from "react";
+import PhoneInput from "react-phone-input-2";
+import type { PhoneInputProps } from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { tv, type VariantProps } from "tailwind-variants";
+import { cn } from "@somaui/ui/lib/cn";
+import { FieldErrorText } from "@somaui/ui";
+import { FieldHelperText } from "@somaui/ui";
+import { FieldClearButton } from "@somaui/ui";
+
+const labelStyles = {
+  size: {
+    sm: "text-xs mb-1",
+    md: "text-sm mb-1.5",
+    lg: "text-sm mb-1.5",
+  },
+} as const;
+
+const phoneNumber = tv({
+  slots: {
+    input:
+      "block peer !w-full focus:outline-none transition duration-200 disabled:!bg-gray-100 disabled:!text-gray-500 disabled:placeholder:!text-gray-400 disabled:!cursor-not-allowed disabled:!border-gray-200 rounded-[var(--border-radius)]",
+    button:
+      "!border-0 !bg-transparent !static [&>.selected-flag]:!absolute [&>.selected-flag]:!top-[1px] [&>.selected-flag]:!bottom-[1px] [&>.selected-flag]:!left-[1px] [&>.selected-flag.open]:!bg-transparent [&>.selected-flag:hover]:!bg-transparent [&>.selected-flag:focus]:!bg-transparent",
+    dropdown:
+      "!border !border-border !shadow-xl !text-sm !max-h-[216px] !w-full !my-1.5 !bg-gray-50 [&>.no-entries-message]:!text-center [&>.divider]:!border-muted !rounded-[var(--border-radius)] [&>li.country.highlight]:!bg-primary-lighter/70 [&>li.country:hover]:!bg-primary-lighter/70 !p-0",
+    searchBox:
+      "!pr-2.5 !bg-gray-50 [&>.search-box]:!w-full [&>.search-box]:!m-0 [&>.search-box]:!px-3 [&>.search-box]:!py-1 [&>.search-box]:!text-sm [&>.search-box]:!capitalize [&>.search-box]:!h-9 [&>.search-box]:!leading-[36px] [&>.search-box]:!rounded-md [&>.search-box]:!bg-transparent [&>.search-box]:!border-muted [&>.search-box:focus]:!border-gray-400/70 [&>.search-box:focus]:!ring-0 [&>.search-box]:placeholder:!text-gray-500",
+    label: "",
+    clearButton:
+      "absolute right-2 group-hover/phone-number:visible group-hover/phone-number:translate-x-0 group-hover/phone-number:opacity-100",
+  },
+  variants: {
+    variant: {
+      flat: {
+        input:
+          "!border-0 focus:ring-2 placeholder:!opacity-90 read-only:focus:!ring-0 !bg-primary-lighter/70 hover:enabled:!bg-primary-lighter/90 focus:!ring-primary/30 !text-primary-dark",
+      },
+      outline: {
+        input:
+          "!bg-transparent focus:ring-[0.6px] !border !border-muted read-only:!border-muted read-only:focus:!ring-0 placeholder:!text-gray-500 hover:!border-primary focus:!border-primary focus:!ring-primary",
+      },
+      text: {
+        input:
+          "!border-0 focus:ring-2 !bg-transparent hover:!text-primary-dark focus:!ring-primary/30 !text-primary",
+      },
+    },
+    size: {
+      sm: {
+        input: "py-1 !text-xs !h-8 !leading-[32px]",
+        button: "[&>.selected-flag]:!h-[30px]",
+        clearButton: "top-[9px]",
+        label: labelStyles.size.sm,
+      },
+      md: {
+        input: "py-2 !text-sm !h-10 !leading-[40px]",
+        button: "[&>.selected-flag]:!h-[38px]",
+        clearButton: "top-3",
+        label: labelStyles.size.md,
+      },
+      lg: {
+        input: "py-2 !text-base !h-12 !leading-[48px]",
+        button: "[&>.selected-flag]:!h-[46px]",
+        clearButton: "top-4",
+        label: labelStyles.size.lg,
+      },
+    },
+    error: {
+      true: {
+        input:
+          "!border-red hover:enabled:!border-red focus:enabled:!border-red focus:!ring-red",
+      },
+    },
+    disabled: {
+      true: {
+        button: "pointer-events-none",
+      },
+    },
+    readOnly: {
+      true: {
+        button: "pointer-events-none",
+      },
+    },
+  },
+  defaultVariants: {
+    variant: "outline",
+    size: "md",
+  },
+});
+
+export interface PhoneNumberProps
+  extends Omit<
+    PhoneInputProps,
+    | "inputClass"
+    | "buttonClass"
+    | "containerClass"
+    | "dropdownClass"
+    | "searchClass"
+    | "enableSearch"
+    | "disableSearchIcon"
+  > {
+  label?: React.ReactNode;
+  error?: string;
+  size?: VariantProps<typeof phoneNumber>["size"];
+  variant?: VariantProps<typeof phoneNumber>["variant"];
+  clearable?: boolean;
+  enableSearch?: boolean;
+  onClear?: (event: React.MouseEvent) => void;
+  labelClassName?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
+  dropdownClassName?: string;
+  searchClassName?: string;
+  helperClassName?: string;
+  errorClassName?: string;
+  helperText?: React.ReactNode;
+  className?: string;
+}
+
+const PhoneNumber = ({
+  size = "md",
+  variant = "outline",
+  label,
+  helperText,
+  error,
+  clearable,
+  onClear,
+  enableSearch,
+  labelClassName,
+  inputClassName,
+  buttonClassName,
+  dropdownClassName,
+  searchClassName,
+  helperClassName,
+  errorClassName,
+  className,
+  ...props
+}: PhoneNumberProps) => {
+  const inputProps = (props.inputProps || {}) as {
+    disabled?: boolean;
+    readOnly?: boolean;
+  };
+
+  const {
+    input: inputClass,
+    button: buttonClass,
+    dropdown: dropdownClass,
+    searchBox: searchBoxClass,
+    label: labelClass,
+    clearButton: clearButtonClass,
+  } = phoneNumber({
+    size,
+    variant,
+    error: Boolean(error),
+    disabled: Boolean(inputProps.disabled),
+    readOnly: Boolean(inputProps.readOnly),
+  });
+
+  return (
+    <div className={cn("somaui-phone-number", className)}>
+      {label && (
+        <label
+          className={cn("block font-medium", labelClass(), labelClassName)}
+        >
+          {label}
+        </label>
+      )}
+      <div className="relative group/phone-number">
+        <PhoneInput
+          inputClass={cn(inputClass(), inputClassName)}
+          buttonClass={cn(buttonClass(), buttonClassName)}
+          dropdownClass={cn(dropdownClass(), dropdownClassName)}
+          searchClass={cn(searchBoxClass(), searchClassName)}
+          enableSearch={enableSearch}
+          disableSearchIcon
+          {...props}
+        />
+        {clearable && (
+          <FieldClearButton
+            size={size}
+            onClick={onClear}
+            className={clearButtonClass()}
+          />
+        )}
+      </div>
+      {!error && helperText && (
+        <FieldHelperText size={size} className={helperClassName}>
+          {helperText}
+        </FieldHelperText>
+      )}
+      {error && (
+        <FieldErrorText size={size} error={error} className={errorClassName} />
+      )}
+    </div>
+  );
+};
+
+PhoneNumber.displayName = "PhoneNumber";
+export default PhoneNumber;
+```
+
+<div className="mb-16" />
+
+## Usage
+
+<hr />
+
+### Basic Example
+
+The simplest way to use the PhoneNumber component with default settings:
+
+<Paper className="block h-96">
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    preferredCountries={["us"]}
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <PhoneNumber
+      label="Phone Number"
+      country="us"
+      preferredCountries={["us"]}
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+### Controlled Component
+
+For controlled usage, manage the phone number value with state:
+
+<Paper className="block h-96">
+  <PhoneNumberDefault />
+</Paper>
+
+```tsx
+import React from "react";
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+
+  return (
+    <PhoneNumber
+      value={phoneNumber}
+      country="us"
+      label="Phone Number"
+      preferredCountries={["us"]}
+      onChange={(value: string) => setPhoneNumber(value)}
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Variants
+
+The PhoneNumber component supports three visual variants to match your design needs:
+
+<Paper className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <PhoneNumber
+    label="Outline Variant"
+    country="us"
+    variant="outline"
+    className="[&_li]:!my-0"
+  />
+  <PhoneNumber
+    label="Flat Variant"
+    country="us"
+    variant="flat"
+    className="[&_li]:!my-0"
+  />
+  <PhoneNumber
+    label="Text Variant"
+    country="us"
+    variant="text"
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <>
+      <PhoneNumber label="Outline Variant" country="us" variant="outline" />
+      <PhoneNumber label="Flat Variant" country="us" variant="flat" />
+      <PhoneNumber label="Text Variant" country="us" variant="text" />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Sizes
+
+Choose from three size options to match your form's density and design requirements:
+
+<Paper className="gap-6 justify-start items-start">
+  <PhoneNumber
+    label="Small Size"
+    country="us"
+    size="sm"
+    className="[&_li]:!my-0"
+  />
+  <PhoneNumber
+    label="Medium Size (Default)"
+    country="us"
+    size="md"
+    className="[&_li]:!my-0"
+  />
+  <PhoneNumber
+    label="Large Size"
+    country="us"
+    size="lg"
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <>
+      <PhoneNumber label="Small Size" country="us" size="sm" />
+      <PhoneNumber label="Medium Size (Default)" country="us" size="md" />
+      <PhoneNumber label="Large Size" country="us" size="lg" />
+    </>
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Clearable Input
+
+Enable the clear button to allow users to quickly reset the phone number field. The clear button appears when the input has a value:
+
+<Paper className="block h-96">
+  <PhoneNumberDefault />
+</Paper>
+
+```tsx
+import React from "react";
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+
+  return (
+    <PhoneNumber
+      value={phoneNumber}
+      country="us"
+      label="Phone Number"
+      preferredCountries={["us"]}
+      onChange={(value: string) => setPhoneNumber(value)}
+      clearable={!!phoneNumber}
+      onClear={() => {
+        setPhoneNumber("");
+      }}
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Searchable Dropdown
+
+Enable search functionality in the country dropdown for easier country selection, especially useful when dealing with many countries:
+
+<Paper className="block h-96">
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    enableSearch
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return <PhoneNumber label="Phone Number" country="us" enableSearch />;
+}
+```
+
+<div className="mb-16" />
+
+## Disabled State
+
+Disable the phone number input to prevent user interaction:
+
+<Paper className="block">
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    disabled
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return <PhoneNumber label="Phone Number" country="us" disabled />;
+}
+```
+
+<div className="mb-16" />
+
+## Helper Text
+
+Provide additional context or instructions using the `helperText` prop:
+
+<Paper className="block h-96">
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    helperText="Include country code. We'll never share your number."
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <PhoneNumber
+      label="Phone Number"
+      country="us"
+      helperText="Include country code. We'll never share your number."
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Error State
+
+Display validation errors using the `error` prop. When an error is present, the helper text is automatically hidden:
+
+<Paper className="block h-96">
+  <PhoneNumber
+    label="Phone Number"
+    country="us"
+    error="Please enter a valid phone number."
+    className="[&_li]:!my-0"
+  />
+</Paper>
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <PhoneNumber
+      label="Phone Number"
+      country="us"
+      error="Please enter a valid phone number."
+    />
+  );
+}
+```
+
+<div className="mb-16" />
+
+## Advanced Usage
+
+### Custom Styling
+
+You can customize individual parts of the component using className props:
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <PhoneNumber
+      label="Phone Number"
+      country="us"
+      inputClassName="custom-input-styles"
+      buttonClassName="custom-button-styles"
+      dropdownClassName="custom-dropdown-styles"
+      labelClassName="custom-label-styles"
+    />
+  );
+}
+```
+
+### Preferred Countries
+
+Set preferred countries that appear at the top of the dropdown:
+
+```tsx
+import PhoneNumber from "@components/phone-number";
+
+export default function App() {
+  return (
+    <PhoneNumber
+      label="Phone Number"
+      country="us"
+      preferredCountries={["us", "ca", "gb"]}
+    />
+  );
+}
+```
+
+<div className="mb-20" />
+
+## API Reference
+
+<hr />
+
+<div className="mb-10" />
+
+### PhoneNumber Props
+
+| Prop                  | Type                                | Description                                                                    | Default     |
+| :-------------------- | :---------------------------------- | :----------------------------------------------------------------------------- | :---------- |
+| **label**             | `ReactNode`                         | The label text displayed above the input                                       | `undefined` |
+| **error**             | `string`                            | Error message to display below the input. When provided, helper text is hidden | `undefined` |
+| **variant**           | `"outline" \| "flat" \| "text"`     | Visual style variant of the component                                          | `"outline"` |
+| **size**              | `"sm" \| "md" \| "lg"`              | Size of the component. `"sm"` provides dense styling                           | `"md"`      |
+| **clearable**         | `boolean`                           | Show a clear button when input has a value                                     | `false`     |
+| **enableSearch**      | `boolean`                           | Enable search functionality in the country dropdown                            | `false`     |
+| **onClear**           | `(event: React.MouseEvent) => void` | Callback fired when the clear button is clicked                                | `undefined` |
+| **helperText**        | `ReactNode`                         | Helper text displayed below the input (hidden when error is present)           | `undefined` |
+| **labelClassName**    | `string`                            | Additional CSS classes for the label element                                   | `undefined` |
+| **inputClassName**    | `string`                            | Additional CSS classes for the input element                                   | `undefined` |
+| **buttonClassName**   | `string`                            | Additional CSS classes for the country selector button                         | `undefined` |
+| **dropdownClassName** | `string`                            | Additional CSS classes for the country dropdown                                | `undefined` |
+| **searchClassName**   | `string`                            | Additional CSS classes for the search input in dropdown                        | `undefined` |
+| **helperClassName**   | `string`                            | Additional CSS classes for the helper text                                     | `undefined` |
+| **errorClassName**    | `string`                            | Additional CSS classes for the error message                                   | `undefined` |
+| **className**         | `string`                            | Additional CSS classes for the root wrapper element                            | `undefined` |
+
+<div className="mb-4" />
+
+> **Note:** The PhoneNumber component extends all props from [react-phone-input-2](https://www.npmjs.com/package/react-phone-input-2), allowing you to use features like `country`, `preferredCountries`, `onChange`, `value`, `inputProps`, and more. Refer to the react-phone-input-2 documentation for a complete list of available props.
+
+<div className="mb-10" />
+
+### PhoneNumber Variants
+
+```ts
+type PhoneNumberVariants = "outline" | "flat" | "text";
+```
+
+- **outline** - Input with border and transparent background (default)
+- **flat** - Input with colored background and no border
+- **text** - Minimal input with no border or background
+
+<div className="mb-10" />
+
+### PhoneNumber Sizes
+
+```ts
+type PhoneNumberSizes = "sm" | "md" | "lg";
+```
+
+- **sm** - Small size with compact padding (32px height)
+- **md** - Medium size with standard padding (40px height) - default
+- **lg** - Large size with generous padding (48px height)
+
+<div className="mb-10" />
+
+## Best Practices
+
+- **Always provide a label** - Labels improve accessibility and user experience
+- **Use helper text** - Provide context about the expected format or purpose
+- **Validate input** - Use the `error` prop to display validation feedback
+- **Set preferred countries** - Improve UX by showing commonly used countries first
+- **Enable search** - Consider enabling search when your app targets international users
+- **Handle onChange** - Use controlled components for form integration
+
+<div className="mb-20" />

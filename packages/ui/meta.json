@@ -12,7 +12,7 @@
   "input": [
     "components/field-error-text.tsx",
     "components/field-helper-text.tsx",
-    "components/field-clear-button"
+    "components/field-clear-button.tsx"
   ],
 
   "select": [
@@ -44,6 +44,6 @@
   "password": [
     "components/field-error-text.tsx",
     "components/field-helper-text.tsx",
-    "components/field-clear-button"
+    "components/field-clear-button.tsx"
   ]
 }

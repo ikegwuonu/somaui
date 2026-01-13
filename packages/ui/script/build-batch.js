@@ -72,8 +72,6 @@ const additionalFiles = [
   "src/components/field-error-text.tsx",
   "src/components/field-helper-text.tsx",
   "src/components/highlight.tsx",
-  "src/components/upload/file-input.tsx",
-  "src/components/upload/upload-zone.tsx",
 ];
 
 // Ensure dist directory exists

@@ -1,6 +1,6 @@
 # Soma UI
 
-A copy-paste Rizz UI system with sensible defaults.
+A ShadcnUI version Rizz UI system with additional components.
 
 ## Goals
 
@@ -10,4 +10,9 @@ A copy-paste Rizz UI system with sensible defaults.
 - Open source
 
 ⚠️ Early development. APIs may change.
-NB: aliases and tests
+
+## Tasks
+
+- Work on using aliases
+- Create tests with jest
+- Update playground test UI
