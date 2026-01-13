@@ -11,7 +11,7 @@ import { ProaLogo } from "../icons/proa-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const data = {
-  title: `A Modern & Minimal
+  title: `A Shadcn-inspired version of RizzUI
   <br className="hidden md:inline-block" /> <span className="italic">React UI Library</span>`,
   description: `Built with Tailwind CSS. Beautifully crafted, production-ready components designed for creators who value elegant simplicity and performance.`,
 };
@@ -73,19 +73,14 @@ export default function HeroBlock() {
       <div className="container! relative mx-auto">
         <header className="text-center flex flex-col items-center justify-center">
           <Announcement
-            badgeText="⚡ v2.0.0"
+            badgeText="⚡ SomaUI"
             className="mb-6! md:mb-7! sm:hidden mx-auto border border-border [box-shadow:0_1px_0_var(--border-color)]"
-          >
-            — released
-          </Announcement>
+          ></Announcement>
           <Announcement
-            badgeText="⚡ v2.0.0"
-            highlightedText=" released"
+            badgeText="⚡ SomaUI"
             highlightedTextClassName="ml-1.5"
             className="mb-6! hidden sm:block md:mb-7! mx-auto border border-border [box-shadow:0_1px_0_var(--border-color)]"
-          >
-            — upgraded for React 19 and beyond.
-          </Announcement>
+          ></Announcement>
           <Title
             as="h1"
             dangerouslySetInnerHTML={{ __html: data.title }}
@@ -112,7 +107,6 @@ export default function HeroBlock() {
             >
               <Button
                 size="lg"
-                as="span"
                 variant="outline"
                 className="text-sm md:text-base h-12 bg-white dark:bg-gray-50 px-6 transition-all relative hover:no-underline!"
               >
@@ -121,7 +115,7 @@ export default function HeroBlock() {
             </a>
           </div>
 
-          <div className="pt-20 md:pt-24 lg:pt-28 xl:pt-32 2xl:pt-40">
+          <div className="pt-20 hidden md:pt-24 lg:pt-28 xl:pt-32 2xl:pt-40">
             <Text className="text-gray-500 text-xs font-medium uppercase tracking-widest">
               Trusted by teams at
             </Text>

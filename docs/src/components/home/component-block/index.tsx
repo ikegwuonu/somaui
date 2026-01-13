@@ -84,7 +84,7 @@ export default function ComponentBlock() {
   });
 
   return (
-    <section className="pt-10 md:pt-16 xl:pt-20 2xl:pt-24 pb-14 md:pb-20 group">
+    <section className="pt-10 hidden md:pt-16 xl:pt-20 2xl:pt-24 pb-14 md:pb-20 group">
       <header className="text-center mb-8 sm:mb-10 md:mb-12">
         <div ref={ref} className="container! mx-auto">
           <Text className="mb-3! text-[11px] sm:text-xs lg:text-sm tracking-[4px] uppercase text-gray-500">

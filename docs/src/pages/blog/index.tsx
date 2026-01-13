@@ -8,11 +8,11 @@ import { Button } from "@somaui/ui/button";
 // Blog post data
 const blogPosts = [
   {
-    title: "SomaUI 2.0.0",
-    date: "November 11, 2025",
+    title: "SomaUI.0",
+    date: "January 13, 2026",
     readingTime: "7 min read",
     description:
-      "We're excited to announce SomaUI 2.0.0, a major release that brings significant improvements to the developer experience, performance, and modern web standards. This release includes the new UploadZone component, Tailwind CSS v4 migration, and represents a major step forward in making SomaUI more powerful, easier to use, and aligned with the latest web technologies.",
+      "We're excited to announce SomaUI.0, a major release that brings significant improvements to the developer experience, performance, and modern web standards. This release includes the new UploadZone component, Tailwind CSS v4 migration, and represents a major step forward in making SomaUI more powerful, easier to use, and aligned with the latest web technologies.",
     features: [
       "Tailwind CSS v4 Migration",
       "CSS-First Configuration",
@@ -25,25 +25,7 @@ const blogPosts = [
       "Updated Peer Dependencies",
       "New UploadZone Component",
     ],
-    link: "/blog/2025/11/11/2025/",
-  },
-  {
-    title: "SomaUI 1.0.0",
-    date: "January 1, 2025",
-    readingTime: "4 min read",
-    description:
-      "In this ever-evolving landscape of web development, creating modern, accessible, and responsive user interfaces has become more critical than ever. To meet these demands, we are thrilled to introduce SomaUI, a next-generation React UI library that offers limitless customization options, unparalleled ease of use, and robust type safety.",
-    features: [
-      "React 19 support",
-      "Versioned doc",
-      "Tree shaking",
-      "Client components",
-      "Server components",
-      "Integrated Components",
-      "Select search field sticky",
-      "MultiSelect search field sticky",
-    ],
-    link: "/blog/2025/1/1/2025/",
+    link: "/blog/2026/13/1/2026/",
   },
 ];
 

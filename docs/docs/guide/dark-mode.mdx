@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 import Tabs from "@theme/Tabs";
@@ -13,7 +13,7 @@ import { Badge } from "@somaui/ui/badge";
 
 # Dark Mode
 
-Adding dark mode to your Next.js app, it's a one-time process. We use [next-themes](https://www.npmjs.com/package/next-themes) and [CSS variables](#configure-globalscss) for a seamless dark mode experience.
+Adding dark mode to your Next.js app, it's a one-time process. We use [next-themes](https://www.npmjs.com/package/next-themes) and [CSS variables](#configure-globalcss) for a seamless dark mode experience.
 
 <div className="flex items-center gap-2 mb-4">
   <Badge color="primary" size="sm" className="rounded-md">
@@ -112,7 +112,7 @@ Add the <strong>ThemeProvider</strong> component to your root layout, <strong>ap
 
 ```tsx layout.tsx
 import { ThemeProvider } from "@/components/theme-provider";
-import "@/app/globals.css";
+import "@/app/styles/global.css";
 
 export const metadata = {
   title: "App Name",
@@ -152,8 +152,9 @@ Add a theme switcher components, <strong>components/theme-switcher.tsx</strong>
 
 import React from "react";
 import { useTheme } from "next-themes";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { DropdownMenu } from "@somaui/ui/dropdown";
+import { ActionIcon } from "@/components/action-icon";
+import { DropdownMenu } from "@/components/dropdown";
+// import  import { DropdownMenu } from "@somaui/ui/dropdown"; when using ui package
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
 export function ThemeSwitcher() {
@@ -183,20 +184,20 @@ export function ThemeSwitcher() {
     Step 5
   </Badge>
   <span>
-    Configure <strong>globals.css</strong>
+    Configure <strong>global.css</strong>
   </span>
 </div>
 
-### Configure globals.css
+### Configure global.css
 
-SomaUI 2.0 uses <strong>Tailwind CSS v4</strong> with the modern OKLCH color space for better color perception. Create or update your <code>app/globals.css</code>:
+SomaUI uses <strong>Tailwind CSS v4</strong> with the modern OKLCH color space for better color perception. Create or update your <code>app/styles/global.css</code>:
 
-```css title=globals.css
+```css title=global.css
 /* Import Tailwind CSS v4 */
 @import "tailwindcss";
 
-/* Configure content sources for SomaUI components */
-@source '../node_modules/somaui/dist';
+/* Configure content sources for SomaUI components by uncommenting the line below if using the ui package */
+/* @source '../node_modules/somaui/dist'; */
 
 /* Enable enhanced form styles */
 @plugin '@tailwindcss/forms';

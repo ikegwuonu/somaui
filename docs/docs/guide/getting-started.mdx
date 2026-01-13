@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Getting Started
 ---
 
 import Tabs from "@theme/Tabs";
@@ -11,39 +12,545 @@ import PnpmIcon from "@site/src/components/icons/pnpm-icon";
 import BunIcon from "@site/src/components/icons/bun-icon";
 import { Badge } from "@somaui/ui/badge";
 
-# Getting Started
+# Welcome to SomaUI 🚀
 
-Welcome to **SomaUI** - A modern, minimal React UI library built with **Tailwind CSS v4** and **React 19**. Get production-ready components that are intuitive, accessible, and performant.
-
-## Features
-
-- **50+ Components** - Comprehensive set of UI components including buttons, forms, modals, and more
-- **Tailwind CSS v4** - Modern CSS-first configuration without JavaScript config files
-- **Dark Mode Ready** - Built-in dark mode support using OKLCH color space
-- **Fully Accessible** - WCAG compliant components built on Headless UI primitives
-- **Tree-shakeable** - Optimized bundle size - only ship what you use
-- **TypeScript Native** - Complete type safety and IntelliSense support
-
-## Prerequisites
-
-Before you begin, make sure you have:
-
-- **React** 19.1.0 or higher
-- **Node.js** 18.0.0 or higher
-- **Package Manager**: pnpm 9.0+ (recommended), npm, yarn, or bun
+**SomaUI** is a **ShadCN-inspired version of RizzUI**, built with modern web development in mind. It’s a fully **TypeScript + React 19 UI library** powered by **TailwindCSS v4**, designed to help you build beautiful and responsive interfaces quickly.
 
 ## Installation
 
+You can use **SomaUI** in two ways:
+
+1. **Via CLI (recommended)** – generate projects and components with ease.
+2. **As a package** – import components directly from `@somaui/ui`.
+
+## CLI Usage
+
+SomaUI comes with a handy CLI to generate components and scaffold projects.
+
+<Tabs groupId="package-manager-init">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui init
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui init`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui init`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bun somaui init`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+This will setup a custom `styles/global.css`, `lib`,`icons`,`components` folder. The CLI ensures that your components follow the SomaUI standards and makes setup effortless.
+
+Next proceed to add your components.
+
+<Tabs groupId="package-manager-ui">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add button
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add button`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add button`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add button`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+This will copy a ready to use `button/index.tsx` in your component folder{" "}. Sometimes, a component imports other components. In such cases, the dependent component will also be created. If a component or folder already exists, the component will be skipped unless the `--overwrite` flag is used.
+
+<Tabs groupId="package-manager-multi-ui">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add button input select
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add button input select`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add button input select`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add button input select`}</CodeBlock>
+  </TabItem>
+</Tabs>
+This will copy a ready to use `button/index.tsx`, `input/index.tsx`, `select/index.tsx`
+in your component folder{" "}
+
+Use the `all` flag to get all components
+
+<Tabs groupId="package-manager-multi-all">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+    <CodeBlock language="js">
+      {`npx somaui add --all
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`yarn dlx somaui add --all`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`pnpm dlx somaui add --all`}</CodeBlock>
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`bunx somaui add --all`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+See full list of components:
+
+<Tabs groupId="package-manager-ui-list">
+  <TabItem
+    value="npm"
+    label={
+      <div className="flex items-center gap-2">
+        <NpmIcon className="size-5" /> npm
+      </div>
+    }
+    default
+  >
+   <CodeBlock language="js">{`
+//Basic UI Components
+npx somaui add button
+npx somaui add input
+npx somaui add select
+npx somaui add checkbox
+npx somaui add radio
+npx somaui add textarea
+npx somaui add switch
+npx somaui add password
+npx somaui add pin-code
+npx somaui add multi-select
+
+//Form Components
+npx somaui add checkbox-group
+npx somaui add radio-group
+npx somaui add field-clear-button
+npx somaui add field-error-text
+npx somaui add field-helper-text
+
+//Feedback & Overlay Components
+npx somaui add alert
+npx somaui add modal
+npx somaui add drawer
+npx somaui add tooltip
+npx somaui add popover
+npx somaui add progressbar
+npx somaui add radial-progressbar
+npx somaui add loader
+npx somaui add announcement
+
+//Layout Components
+npx somaui add box
+npx somaui add flex
+npx somaui add grid
+npx somaui add collapse
+npx somaui add accordion
+npx somaui add tabs
+npx somaui add stepper
+npx somaui add table
+
+//Data Display Components
+npx somaui add avatar
+npx somaui add badge
+npx somaui add empty
+npx somaui add dropdown
+npx somaui add upload
+npx somaui add action-icon
+
+//Advanced Components
+npx somaui add advanced-checkbox
+npx somaui add advanced-radio
+npx somaui add highlight
+npx somaui add file-input
+npx somaui add upload-zone
+
+//Typography Components
+npx somaui add typography
+npx somaui add title
+npx somaui add text
+npx somaui add code
+npx somaui add blockquote
+npx somaui add italic
+npx somaui add bold
+
+//Utility Components
+npx somaui add cn
+npx somaui add use-collapse
+
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="yarn"
+    label={
+      <div className="flex items-center gap-2">
+        <YarnIcon className="size-5" /> yarn
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`
+    //Basic UI Components
+yarn dlx somaui add button
+yarn dlx somaui add input
+yarn dlx somaui add select
+yarn dlx somaui add checkbox
+yarn dlx somaui add radio
+yarn dlx somaui add textarea
+yarn dlx somaui add switch
+yarn dlx somaui add password
+yarn dlx somaui add pin-code
+yarn dlx somaui add multi-select
+
+//Form Components
+yarn dlx somaui add checkbox-group
+yarn dlx somaui add radio-group
+yarn dlx somaui add field-clear-button
+yarn dlx somaui add field-error-text
+yarn dlx somaui add field-helper-text
+
+//Feedback & Overlay Components
+yarn dlx somaui add alert
+yarn dlx somaui add modal
+yarn dlx somaui add drawer
+yarn dlx somaui add tooltip
+yarn dlx somaui add popover
+yarn dlx somaui add progressbar
+yarn dlx somaui add radial-progressbar
+yarn dlx somaui add loader
+yarn dlx somaui add announcement
+
+//Layout Components
+yarn dlx somaui add box
+yarn dlx somaui add flex
+yarn dlx somaui add grid
+yarn dlx somaui add collapse
+yarn dlx somaui add accordion
+yarn dlx somaui add tabs
+yarn dlx somaui add stepper
+yarn dlx somaui add table
+
+//Data Display Components
+yarn dlx somaui add avatar
+yarn dlx somaui add badge
+yarn dlx somaui add empty
+yarn dlx somaui add dropdown
+yarn dlx somaui add upload
+yarn dlx somaui add action-icon
+
+//Advanced Components
+yarn dlx somaui add advanced-checkbox
+yarn dlx somaui add advanced-radio
+yarn dlx somaui add highlight
+yarn dlx somaui add file-input
+yarn dlx somaui add upload-zone
+
+//Typography Components
+yarn dlx somaui add typography
+yarn dlx somaui add title
+yarn dlx somaui add text
+yarn dlx somaui add code
+yarn dlx somaui add blockquote
+yarn dlx somaui add italic
+yarn dlx somaui add bold
+
+//Utility Components
+yarn dlx somaui add cn
+yarn dlx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="pnpm"
+    label={
+      <div className="flex items-center gap-2">
+        <PnpmIcon className="size-5" /> pnpm
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`//Basic UI Components
+pnpm dlx somaui add button
+pnpm dlx somaui add input
+pnpm dlx somaui add select
+pnpm dlx somaui add checkbox
+pnpm dlx somaui add radio
+pnpm dlx somaui add textarea
+pnpm dlx somaui add switch
+pnpm dlx somaui add password
+pnpm dlx somaui add pin-code
+pnpm dlx somaui add multi-select
+
+//Form Components
+pnpm dlx somaui add checkbox-group
+pnpm dlx somaui add radio-group
+pnpm dlx somaui add field-clear-button
+pnpm dlx somaui add field-error-text
+pnpm dlx somaui add field-helper-text
+
+//Feedback & Overlay Components
+pnpm dlx somaui add alert
+pnpm dlx somaui add modal
+pnpm dlx somaui add drawer
+pnpm dlx somaui add tooltip
+pnpm dlx somaui add popover
+pnpm dlx somaui add progressbar
+pnpm dlx somaui add radial-progressbar
+pnpm dlx somaui add loader
+pnpm dlx somaui add announcement
+
+//Layout Components
+pnpm dlx somaui add box
+pnpm dlx somaui add flex
+pnpm dlx somaui add grid
+pnpm dlx somaui add collapse
+pnpm dlx somaui add accordion
+pnpm dlx somaui add tabs
+pnpm dlx somaui add stepper
+pnpm dlx somaui add table
+
+//Data Display Components
+pnpm dlx somaui add avatar
+pnpm dlx somaui add badge
+pnpm dlx somaui add empty
+pnpm dlx somaui add dropdown
+pnpm dlx somaui add upload
+pnpm dlx somaui add action-icon
+
+//Advanced Components
+pnpm dlx somaui add advanced-checkbox
+pnpm dlx somaui add advanced-radio
+pnpm dlx somaui add highlight
+pnpm dlx somaui add file-input
+pnpm dlx somaui add upload-zone
+
+//Typography Components
+pnpm dlx somaui add typography
+pnpm dlx somaui add title
+pnpm dlx somaui add text
+pnpm dlx somaui add code
+pnpm dlx somaui add blockquote
+pnpm dlx somaui add italic
+pnpm dlx somaui add bold
+
+//Utility Components
+pnpm dlx somaui add cn
+pnpm dlx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+  <TabItem
+    value="bun"
+    label={
+      <div className="flex items-center gap-2">
+        <BunIcon className="size-5" /> bun
+      </div>
+    }
+  >
+    <CodeBlock language="js">{`//Basic UI Components
+bunx somaui add button
+bunx somaui add input
+bunx somaui add select
+bunx somaui add checkbox
+bunx somaui add radio
+bunx somaui add textarea
+bunx somaui add switch
+bunx somaui add password
+bunx somaui add pin-code
+bunx somaui add multi-select
+
+//Form Components
+bunx somaui add checkbox-group
+bunx somaui add radio-group
+bunx somaui add field-clear-button
+bunx somaui add field-error-text
+bunx somaui add field-helper-text
+
+//Feedback & Overlay Components
+bunx somaui add alert
+bunx somaui add modal
+bunx somaui add drawer
+bunx somaui add tooltip
+bunx somaui add popover
+bunx somaui add progressbar
+bunx somaui add radial-progressbar
+bunx somaui add loader
+bunx somaui add announcement
+
+//Layout Components
+bunx somaui add box
+bunx somaui add flex
+bunx somaui add grid
+bunx somaui add collapse
+bunx somaui add accordion
+bunx somaui add tabs
+bunx somaui add stepper
+bunx somaui add table
+
+//Data Display Components
+bunx somaui add avatar
+bunx somaui add badge
+bunx somaui add empty
+bunx somaui add dropdown
+bunx somaui add upload
+bunx somaui add action-icon
+
+//Advanced Components
+bunx somaui add advanced-checkbox
+bunx somaui add advanced-radio
+bunx somaui add highlight
+bunx somaui add file-input
+bunx somaui add upload-zone
+
+//Typography Components
+bunx somaui add typography
+bunx somaui add title
+bunx somaui add text
+bunx somaui add code
+bunx somaui add blockquote
+bunx somaui add italic
+bunx somaui add bold
+
+//Utility Components
+bunx somaui add cn
+bunx somaui add use-collapse
+`}</CodeBlock>
+
+  </TabItem>
+</Tabs>
+
 <div className="flex items-center gap-2 mb-4">
-  <Badge color="primary" size="sm" className="rounded-md">
-    Step 1
-  </Badge>
   <span>
     Install <strong>SomaUI & Core Dependencies</strong>
   </span>
 </div>
-
-Navigate to your React/Next.js project and run:
 
 <Tabs groupId="package-manager">
   <TabItem
@@ -56,7 +563,7 @@ Navigate to your React/Next.js project and run:
     default
   >
     <CodeBlock language="js">
-      {`npm i somaui @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+      {`npm i @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
     </CodeBlock>
   </TabItem>
   <TabItem
@@ -68,7 +575,7 @@ Navigate to your React/Next.js project and run:
     }
   >
     <CodeBlock language="js">
-      {`yarn add somaui @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+      {`yarn add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
     </CodeBlock>
   </TabItem>
   <TabItem
@@ -80,7 +587,7 @@ Navigate to your React/Next.js project and run:
     }
   >
     <CodeBlock language="js">
-      {`pnpm add somaui @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+      {`pnpm add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
     </CodeBlock>
   </TabItem>
   <TabItem
@@ -92,24 +599,21 @@ Navigate to your React/Next.js project and run:
     }
   >
     <CodeBlock language="js">
-      {`bun add somaui @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
+      {`bun add  @headlessui/react @floating-ui/react tailwind-variants tailwind-merge`}
     </CodeBlock>
   </TabItem>
 </Tabs>
 
 <div className="!mt-6 !mb-8 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-  **Package Overview** - **`somaui`** - The core UI component library -
-  **`@headlessui/react`** - Provides accessible, unstyled primitives for complex
-  components (dropdowns, modals, tabs) - **`@floating-ui/react`** - Advanced
-  positioning system for tooltips, popovers, and dropdowns -
-  **`tailwind-variants`** - Type-safe variant management system for component
-  styling - **`tailwind-merge`** - A utility for merging Tailwind CSS classes
+  **Package Overview** - **`@headlessui/react`** - Provides accessible, unstyled
+  primitives for complex components (dropdowns, modals, tabs) -
+  **`@floating-ui/react`** - Advanced positioning system for tooltips, popovers,
+  and dropdowns - **`tailwind-variants`** - Type-safe variant management system
+  for component styling - **`tailwind-merge`** - A utility for merging Tailwind
+  CSS classes
 </div>
 
 <div className="flex items-center gap-2 mb-4">
-  <Badge color="primary" size="sm" className="rounded-md">
-    Step 2
-  </Badge>
   <span>
     Install <strong>Tailwind CSS & Forms Plugin</strong>
   </span>
@@ -176,243 +680,4 @@ Install these development dependencies for styling:
   PostCSS processing engine
 </div>
 
-## Configuration
-
-<div className="flex items-center gap-2 mb-4">
-  <Badge color="primary" size="sm" className="rounded-md">
-    Step 3
-  </Badge>
-  <span>
-    Configure <strong>Your Styles</strong>
-  </span>
-</div>
-
-Tailwind CSS v4 uses a modern CSS-first configuration approach. No `tailwind.config.js` file is required.
-
-Create or update your `app/globals.css` (or `src/app/globals.css` for Next.js):
-
-```css title=globals.css
-/* Import Tailwind CSS v4 */
-@import "tailwindcss";
-
-/* Configure content sources for SomaUI components */
-@source '../node_modules/somaui/dist';
-
-/* Enable enhanced form styles */
-@plugin '@tailwindcss/forms';
-
-/* Define color palette using OKLCH color space */
-:root {
-  /* Base Colors */
-  --background: oklch(100% 0 0);
-  --foreground: oklch(40.17% 0 0);
-  --muted: oklch(91.58% 0 0);
-  --muted-foreground: oklch(66% 0 0);
-
-  /* Border Tokens */
-  --border-radius: 0.5rem;
-  --border-width: 0.0625rem;
-  --border-color: oklch(90.37% 0 0);
-
-  /* Text Tokens */
-  --text-primary: oklch(0% 0 0);
-  --text-secondary: oklch(40.17% 0 0);
-
-  /* Primary Brand Colors */
-  --primary-lighter: oklch(91.58% 0 0);
-  --primary: oklch(17.76% 0 0);
-  --primary-dark: oklch(0% 0 0);
-  --primary-foreground: oklch(100% 0 0);
-
-  /* Secondary Colors */
-  --secondary-lighter: oklch(91.99% 0.0386 276.02);
-  --secondary: oklch(50.51% 0.2633 276.95);
-  --secondary-dark: oklch(45.41% 0.2431 277.06);
-  --secondary-foreground: oklch(100% 0 0);
-
-  /* Danger/Error Colors */
-  --red-lighter: oklch(89.99% 0.0393 14);
-  --red: oklch(59.6% 0.2445 29.23);
-  --red-dark: oklch(51.71% 0.2121 29.2338);
-
-  /* Warning Colors */
-  --orange-lighter: oklch(95.67% 0.0452 84.5695);
-  --orange: oklch(78.37% 0.1587 72.99);
-  --orange-dark: oklch(54.83% 0.1339 53.95);
-
-  /* Info Colors */
-  --blue-lighter: oklch(91.66% 0.0404 257.5078);
-  --blue: oklch(57.31% 0.2144 258.25);
-  --blue-dark: oklch(51.58% 0.1888 258.27);
-
-  /* Success Colors */
-  --green-lighter: oklch(92.79% 0.086 155.61);
-  --green: oklch(64.01% 0.1776 148.74);
-  --green-dark: oklch(53.79% 0.1441 149.52);
-}
-
-/* Map CSS variables to Tailwind's color system */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-
-  --border-radius: var(--border-radius);
-  --color-border: var(--border-color);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-
-  --color-primary-lighter: var(--primary-lighter);
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-foreground: var(--primary-foreground);
-
-  --color-secondary-lighter: var(--secondary-lighter);
-  --color-secondary: var(--secondary);
-  --color-secondary-dark: var(--secondary-dark);
-  --color-secondary-foreground: var(--secondary-foreground);
-
-  --color-red-lighter: var(--red-lighter);
-  --color-red: var(--red);
-  --color-red-dark: var(--red-dark);
-
-  --color-orange-lighter: var(--orange-lighter);
-  --color-orange: var(--orange);
-  --color-orange-dark: var(--orange-dark);
-
-  --color-blue-lighter: var(--blue-lighter);
-  --color-blue: var(--blue);
-  --color-blue-dark: var(--blue-dark);
-
-  --color-green-lighter: var(--green-lighter);
-  --color-green: var(--green);
-  --color-green-dark: var(--green-dark);
-}
-
-/* Override browser autofill background for all input components */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-textarea:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-  -webkit-text-fill-color: inherit !important;
-  transition: background-color 5000s ease-in-out 0s;
-  caret-color: inherit;
-}
-
-/* Firefox autofill */
-input:-moz-autofill,
-input:-moz-autofill:hover,
-input:-moz-autofill:focus,
-input:-moz-autofill:active,
-textarea:-moz-autofill,
-textarea:-moz-autofill:hover,
-textarea:-moz-autofill:focus,
-textarea:-moz-autofill:active {
-  background-color: transparent !important;
-  color: inherit !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-```
-
-<div className="!mt-6 !mb-8 p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg border border-purple-200 dark:border-purple-800">
-  **About OKLCH Color Space** OKLCH is a modern color space that provides
-  perceptually uniform colors. Unlike RGB/HEX, colors with the same lightness
-  value in OKLCH appear equally bright to human eyes, making it ideal for
-  creating accessible and visually consistent color palettes.
-</div>
-
-<div className="flex items-center gap-2 mb-4">
-  <Badge color="primary" size="sm" className="rounded-md">
-    Step 4
-  </Badge>
-  <span>
-    Configure <strong>PostCSS</strong>
-  </span>
-</div>
-
-Create or update your `postcss.config.mjs`:
-
-```js title=postcss.config.mjs
-const config = {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
-};
-export default config;
-```
-
-## Usage
-
-Now you're ready to start using SomaUI components in your application. For dark mode support, refer to our [dark mode guide](/docs/guide/dark-mode).
-
-### Basic Example
-
-Here's a simple example to get you started:
-
-```tsx
-import { Button } from "@somaui/ui/button";
-
-export default function App() {
-  return (
-    <>
-      <Button>Get Started</Button>
-    </>
-  );
-}
-```
-
-#### Class Name Utility (`cn`)
-
-The `cn` utility helps you merge Tailwind CSS classes intelligently. It automatically resolves conflicting classes and combines multiple class sources into a single string.
-
-**Key Features:**
-
-- Resolves Tailwind class conflicts (e.g., `px-2` vs `px-4` → `px-4` wins)
-- Supports strings, arrays, objects, and conditional expressions
-- Type-safe with full TypeScript support
-
-**Example:**
-
-The `cn` utility function is used to conditionally combine class names based on component props, enabling dynamic styling of the component.
-
-```tsx
-import { cn } from "@somaui/ui/lib/cn";
-import { Button } from "@somaui/ui/button";
-
-const CustomButton = ({ className, variant = "primary", ...props }) => (
-  <Button
-    {...props}
-    className={cn(
-      "bg-gradient-to-r text-white shadow-lg hover:shadow-xl transition-all",
-      variant === "primary"
-        ? "from-purple-600 via-purple-500 to-blue-600"
-        : "from-pink-500 via-rose-500 to-orange-500",
-      className
-    )}
-  />
-);
-```
-
-## Next Steps
-
-Now that you have SomaUI set up, explore these resources to enhance your application:
-
-- **[Dark Mode](/docs/guide/dark-mode)** - Add dark mode support to your application
-- **[Theming](/docs/guide/theming)** - Customize colors and theme tokens
-- **[Components](/docs/buttons/button)** - Browse the complete component library
-- **[Form Components](/docs/Inputs/input)** - Explore form inputs and validation
-
-## Support
-
-If you encounter any issues or have questions:
-
-- Open an issue on [GitHub](https://github.com/somaui/somaui/issues)
-- Check our [documentation](https://somaui.com/docs) for detailed guides
-- Join our community for support and discussions
+Voila!!
