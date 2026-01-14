@@ -3,8 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "description": "SomaUI Workspace",
+  "workspaces": [
+    "docs",
+    "packages/*",
+    "vite-app"
+  ],
   "scripts": {
-    "vercel-build": "pnpm --filter packages/ui build && pnpm --filter docs build"
+    "build": "pnpm --filter packages/ui build && pnpm --filter docs build"
   },
   "author": "ikegwuonu",
   "license": "ISC",
