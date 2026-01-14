@@ -9,7 +9,7 @@
     "vite-app"
   ],
   "scripts": {
-    "build": "pnpm --filter packages/ui build && pnpm --filter docs build"
+    "build": "pnpm --filter packages/ui build && pnpm --filter docs build && pnpm --filter vite-app build && pnpm --filter cli build"
   },
   "author": "ikegwuonu",
   "license": "ISC",
