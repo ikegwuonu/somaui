@@ -5,7 +5,7 @@ import { CopyButton } from "../copy-button";
 import { tokens, darkThemeTokens } from "./tokens";
 import { hexToOklch } from "@site/src/utils/hex-to-oklch";
 import RangeSlider from "@site/src/components/range-slider";
-import { useRizzUITheme } from "@site/src/contexts/somaui-theme-context";
+import { useSomaUITheme } from "@site/src/contexts/somaui-theme-context";
 
 type TokenTypes = {
   name: string;
@@ -15,7 +15,7 @@ type TokenTypes = {
 };
 
 export default function ColorTokens() {
-  const { lightTokens, darkTokens } = useRizzUITheme();
+  const { lightTokens, darkTokens } = useSomaUITheme();
   const [activeTab, setActiveTab] = React.useState(0);
 
   // Convert tokens object back to array format for rendering
@@ -90,7 +90,7 @@ const TokenRow = React.memo(function TokenRow({
   token: TokenTypes;
   theme: "light" | "dark";
 }) {
-  const { updateToken, resetToken } = useRizzUITheme();
+  const { updateToken, resetToken } = useSomaUITheme();
   const [hex, setHex] = React.useState(token.hex);
   const [oklch, setOklch] = React.useState(token.oklch);
   const [isChange, setIsChange] = React.useState(false);
