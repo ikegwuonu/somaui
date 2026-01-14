@@ -108,7 +108,7 @@
             background-size: 16px;
             background-repeat: no-repeat;
             @apply !text-gray-900;
-            &:placeholder {
+            ::placeholder {
               @apply !text-gray-500;
             }
           }
