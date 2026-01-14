@@ -18,6 +18,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rm -rf node_modules dist coverage",
     "test": "jest --coverage",

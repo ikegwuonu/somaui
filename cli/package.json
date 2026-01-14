@@ -11,6 +11,9 @@
   "type": "module",
   "description": "CLI for adding SomaUI components to your project",
   "main": "dist/somaui.cjs",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup src/bin/somaui.ts --format cjs --platform node --target node18 --out-dir dist --clean --minify",
     "dev": "tsup src/bin/somaui.ts --format cjs --platform node --target node18 --out-dir dist --clean --watch",
