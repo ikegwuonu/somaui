@@ -3,6 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "description": "SomaUI Workspace",
+  "workspaces": [
+    "docs",
+    "packages/*",
+    "vite-app"
+  ],
   "scripts": {
     "vercel-build": "pnpm --filter packages/ui build && pnpm --filter docs build"
   },
@@ -10,6 +15,6 @@
   "license": "ISC",
   "packageManager": "pnpm@8.15.6",
   "engines": {
-    "node": "22.16.0"
+    "node": "20.x"
   }
 }
