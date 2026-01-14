@@ -1,36 +1,36 @@
-import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
-import type * as Preset from "@docusaurus/preset-classic";
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: "SomaUI",
+  title: 'SomaUI',
   tagline:
-    "A RizzUI version of Shadcn. Designed to provide you with a simple and intuitive set of UI components that are easy to use, customize and integrate into your React application.",
-  favicon: "img/soma-favicon.ico",
+    'A RizzUI version of Shadcn. Designed to provide you with a simple and intuitive set of UI components that are easy to use, customize and integrate into your React application.',
+  favicon: 'img/soma-favicon.ico',
 
-  url: "https://somaui.vercel.app/",
+  url: 'https://somaui.vercel.app/',
 
-  baseUrl: "/",
+  baseUrl: '/',
 
-  organizationName: "ikegwuonu",
-  projectName: "somaui",
+  organizationName: 'ikegwuonu',
+  projectName: 'somaui',
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'throw',
 
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: "warn",
+      onBrokenMarkdownLinks: 'warn',
     },
   },
 
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
         highlightSearchTermsOnTargetPage: true,
@@ -41,28 +41,28 @@ const config: Config = {
 
   presets: [
     [
-      "classic",
+      'classic',
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.ts"),
-          editUrl: "https://github.com/ikegwuonu/somaui/docs",
-          routeBasePath: "docs",
+          sidebarPath: require.resolve('./sidebars.ts'),
+          editUrl: 'https://github.com/ikegwuonu/somaui/docs',
+          routeBasePath: 'docs',
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ikegwuonu/somaui/docs/blog",
-          onInlineTags: "warn",
-          onInlineAuthors: "warn",
-          onUntruncatedBlogPosts: "warn",
+          editUrl: 'https://github.com/ikegwuonu/somaui/docs/blog',
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
           postsPerPage: 12,
-          blogTitle: "SomaUI Blogs",
-          blogDescription: "Read blog posts about SomaUI updates from team.",
-          blogSidebarCount: "ALL",
-          blogSidebarTitle: "List of all posts",
-          blogListComponent: "@site/src/pages/blog/index",
+          blogTitle: 'SomaUI Blogs',
+          blogDescription: 'Read blog posts about SomaUI updates from team.',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'List of all posts',
+          blogListComponent: '@site/src/pages/blog/index',
         },
         theme: {
-          customCss: [require.resolve("./src/css/custom.css")],
+          customCss: [require.resolve('./src/css/custom.css')],
         },
       } satisfies Preset.Options,
     ],
@@ -70,36 +70,36 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/soma-favicon.ico",
+    image: 'img/soma-favicon.ico',
     fonts: {
-      myFont: ["Outfit", "sans-serif"],
+      myFont: ['Outfit', 'sans-serif'],
     },
     navbar: {
       logo: {
-        alt: "SomaUI",
-        src: "img/soma-favicon.ico",
+        alt: 'SomaUI',
+        src: 'img/soma-favicon.ico',
       },
       items: [
         {
-          to: "docs/guide/getting-started",
-          position: "left",
-          label: "Documentation",
+          to: 'docs/guide/getting-started',
+          position: 'left',
+          label: 'Documentation',
         },
         {
-          to: "docs/guide/components",
-          position: "left",
-          label: "Components",
+          to: 'docs/guide/components',
+          position: 'left',
+          label: 'Components',
         },
         {
-          to: "/blog",
-          position: "left",
-          label: "Blog",
+          to: '/blog',
+          position: 'left',
+          label: 'Blog',
         },
         {
-          href: "https://github.com/ikegwuonu/somaui",
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub",
+          href: 'https://github.com/ikegwuonu/somaui',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub',
         },
         // {
 

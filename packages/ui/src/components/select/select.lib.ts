@@ -2,7 +2,14 @@ import { type SelectOption } from './select';
 import { isString, isNumber } from './select-shared.lib';
 
 // Re-export shared utilities for backward compatibility
-export { isString, isNumber, isEmpty, ourPlacementObject, preventHeadlessUIKeyboardInterActions, type TheirPlacementType } from './select-shared.lib';
+export {
+  isString,
+  isNumber,
+  isEmpty,
+  ourPlacementObject,
+  preventHeadlessUIKeyboardInterActions,
+  type TheirPlacementType,
+} from './select-shared.lib';
 
 // Select-specific display and value functions
 export function getOptionValueFn(option: any) {

@@ -1,1 +1,1 @@
-export { Loader, type LoaderTypes } from "./loader";
+export { Loader, type LoaderTypes } from './loader';

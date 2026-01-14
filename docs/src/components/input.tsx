@@ -1,6 +1,6 @@
-import React from "react";
-import { Input } from "@somaui/ui";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import React from 'react';
+import { Input } from '@somaui/ui';
+import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function InputCounter() {
   const [state, setState] = React.useState(0);
@@ -13,17 +13,17 @@ export default function InputCounter() {
       value={state}
       onChange={(e) => setState(Number(e.target.value))}
       suffix={
-        <div className="-mr-3.5 grid gap-[2px] p-0.5 rtl:-ml-3.5 rtl:-mr-0">
+        <div className="-mr-3.5 grid gap-[2px] p-0.5 rtl:-mr-0 rtl:-ml-3.5">
           <button
             type="button"
-            className="rounded-[3px] bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            className="rounded-[3px] bg-gray-100 px-1.5 py-0.5 hover:bg-gray-200 focus:bg-gray-200"
             onClick={() => setState((prevState) => prevState + 1)}
           >
             <ChevronUpIcon className="h-3 w-3" />
           </button>
           <button
             type="button"
-            className="rounded-[3px]  bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            className="rounded-[3px] bg-gray-100 px-1.5 py-0.5 hover:bg-gray-200 focus:bg-gray-200"
             onClick={() => setState((prevState) => prevState - 1)}
           >
             <ChevronDownIcon className="h-3 w-3" />
@@ -37,7 +37,7 @@ export default function InputCounter() {
 
 export function InputCharacterCounter() {
   const MAXLENGTH = 24;
-  const [state, setState] = React.useState("Chat GPT is awesome!");
+  const [state, setState] = React.useState('Chat GPT is awesome!');
 
   return (
     <Input
@@ -54,7 +54,7 @@ export function InputCharacterCounter() {
 }
 
 export function InputClearable({ label }) {
-  const [state, setState] = React.useState("This is Jhon.");
+  const [state, setState] = React.useState('This is Jhon.');
   return (
     <Input
       type="text"
@@ -62,7 +62,7 @@ export function InputClearable({ label }) {
       placeholder="clearable ..."
       value={state}
       onChange={(e) => setState(e.target.value)}
-      onClear={() => setState("")}
+      onClear={() => setState('')}
       clearable
       className="w-full max-w-md"
     />

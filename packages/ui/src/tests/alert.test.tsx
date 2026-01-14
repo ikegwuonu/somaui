@@ -12,14 +12,16 @@ describe('Alert Component', () => {
       render(
         <Alert color="danger">
           <h2>Danger</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores.</p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores.
+          </p>
         </Alert>
       );
       const alertElement = screen.getByTestId('alert-parent');
       const xicon = screen.getByTestId('alert-xicon');
       const barElement = screen.getByTestId('alert-bar');
       const childrenElement = screen.getByText('Danger');
-      
+
       expect(alertElement).toBeInTheDocument();
       expect(xicon).toBeInTheDocument();
       expect(barElement).toBeInTheDocument();
@@ -30,7 +32,7 @@ describe('Alert Component', () => {
       render(<Alert color="info">Info</Alert>);
       const questionIcon = screen.getByTestId('alert-question-icon');
       const barElement = screen.getByTestId('alert-bar');
-      
+
       expect(questionIcon).toBeInTheDocument();
       expect(barElement).toBeInTheDocument();
     });
@@ -39,7 +41,7 @@ describe('Alert Component', () => {
       render(<Alert color="success">Success</Alert>);
       const checkIcon = screen.getByTestId('alert-check-icon');
       const barElement = screen.getByTestId('alert-bar');
-      
+
       expect(checkIcon).toBeInTheDocument();
       expect(barElement).toBeInTheDocument();
     });
@@ -48,7 +50,7 @@ describe('Alert Component', () => {
       render(<Alert color="warning">Warning</Alert>);
       const warningIcon = screen.getByTestId('alert-warning-icon');
       const barElement = screen.getByTestId('alert-bar');
-      
+
       expect(warningIcon).toBeInTheDocument();
       expect(barElement).toBeInTheDocument();
     });
@@ -63,7 +65,7 @@ describe('Alert Component', () => {
       );
       const alertElement = screen.getByTestId('alert-parent');
       const xicon = screen.getByTestId('alert-xicon');
-      
+
       expect(alertElement).toBeInTheDocument();
       expect(xicon).toBeInTheDocument();
     });
@@ -71,7 +73,7 @@ describe('Alert Component', () => {
     test('Renders alert component with medium size (default)', () => {
       render(<Alert color="info">Medium Alert</Alert>);
       const alertElement = screen.getByTestId('alert-parent');
-      
+
       expect(alertElement).toBeInTheDocument();
     });
 
@@ -83,7 +85,7 @@ describe('Alert Component', () => {
       );
       const alertElement = screen.getByTestId('alert-parent');
       const checkIcon = screen.getByTestId('alert-check-icon');
-      
+
       expect(alertElement).toBeInTheDocument();
       expect(checkIcon).toBeInTheDocument();
     });
@@ -98,7 +100,7 @@ describe('Alert Component', () => {
         </Alert>
       );
       const alertClearIcon = screen.getByTestId('alert-clear-icon');
-      
+
       expect(alertClearIcon).toBeInTheDocument();
       await user.click(alertClearIcon);
       expect(onClose).toHaveBeenCalledTimes(1);
@@ -111,32 +113,36 @@ describe('Alert Component', () => {
         </Alert>
       );
       const alertClearIcon = screen.getByTestId('alert-clear-icon');
-      
+
       expect(alertClearIcon).toBeInTheDocument();
     });
 
     test('Alert component with custom closeIcon', () => {
-      const CustomCloseIcon = () => <div data-testid="custom-close-icon">X</div>;
+      const CustomCloseIcon = () => (
+        <div data-testid="custom-close-icon">X</div>
+      );
       render(
         <Alert closable closeIcon={<CustomCloseIcon />} color="warning">
           Custom close icon
         </Alert>
       );
       const customCloseIcon = screen.getByTestId('custom-close-icon');
-      
+
       expect(customCloseIcon).toBeInTheDocument();
       expect(screen.queryByTestId('alert-clear-icon')).not.toBeInTheDocument();
     });
 
     test('Alert component with closeIcon prop renders close button', () => {
-      const CustomCloseIcon = () => <div data-testid="custom-close-icon">X</div>;
+      const CustomCloseIcon = () => (
+        <div data-testid="custom-close-icon">X</div>
+      );
       render(
         <Alert closeIcon={<CustomCloseIcon />} color="success">
           Close icon without closable
         </Alert>
       );
       const customCloseIcon = screen.getByTestId('custom-close-icon');
-      
+
       expect(customCloseIcon).toBeInTheDocument();
     });
   });
@@ -150,7 +156,7 @@ describe('Alert Component', () => {
         </Alert>
       );
       const customIcon = screen.getByTestId('custom-icon');
-      
+
       expect(customIcon).toBeInTheDocument();
       expect(screen.queryByTestId('alert-xicon')).not.toBeInTheDocument();
     });
@@ -158,7 +164,7 @@ describe('Alert Component', () => {
     test('Alert component uses default icon when icon prop is not provided', () => {
       render(<Alert color="info">Default icon</Alert>);
       const questionIcon = screen.getByTestId('alert-question-icon');
-      
+
       expect(questionIcon).toBeInTheDocument();
     });
   });
@@ -171,7 +177,7 @@ describe('Alert Component', () => {
         </Alert>
       );
       const alertElement = screen.getByTestId('alert-parent');
-      
+
       expect(alertElement).toHaveClass('custom-alert-class');
     });
 
@@ -182,18 +188,21 @@ describe('Alert Component', () => {
         </Alert>
       );
       const barElement = screen.getByTestId('alert-bar');
-      
+
       expect(barElement).toHaveClass('custom-bar-class');
     });
 
     test('Alert component with custom iconContainerClassName', () => {
       render(
-        <Alert color="success" iconContainerClassName="custom-icon-container-class">
+        <Alert
+          color="success"
+          iconContainerClassName="custom-icon-container-class"
+        >
           Custom icon container class
         </Alert>
       );
       const iconContainer = screen.getByTestId('alert-content');
-      
+
       expect(iconContainer).toHaveClass('custom-icon-container-class');
     });
 
@@ -204,7 +213,7 @@ describe('Alert Component', () => {
         </Alert>
       );
       const iconContainer = screen.getByTestId('alert-content');
-      
+
       expect(iconContainer).toHaveClass('custom-icon-class');
     });
   });
@@ -217,14 +226,14 @@ describe('Alert Component', () => {
           <p>Description</p>
         </Alert>
       );
-      
+
       expect(screen.getByText('Title')).toBeInTheDocument();
       expect(screen.getByText('Description')).toBeInTheDocument();
     });
 
     test('Alert component renders text children', () => {
       render(<Alert color="info">Simple text content</Alert>);
-      
+
       expect(screen.getByText('Simple text content')).toBeInTheDocument();
     });
   });
@@ -232,7 +241,7 @@ describe('Alert Component', () => {
   describe('Component Structure', () => {
     test('Alert component has all required elements', () => {
       render(<Alert color="danger">Test</Alert>);
-      
+
       expect(screen.getByTestId('alert-parent')).toBeInTheDocument();
       expect(screen.getByTestId('alert-bar')).toBeInTheDocument();
       expect(screen.getByTestId('alert-content')).toBeInTheDocument();
@@ -240,14 +249,14 @@ describe('Alert Component', () => {
 
     test('Alert component bar is always rendered', () => {
       render(<Alert color="success">Test</Alert>);
-      
+
       const barElement = screen.getByTestId('alert-bar');
       expect(barElement).toBeInTheDocument();
     });
 
     test('Alert component icon wrapper is always rendered', () => {
       render(<Alert color="warning">Test</Alert>);
-      
+
       const iconWrapper = screen.getByTestId('alert-content');
       expect(iconWrapper).toBeInTheDocument();
     });
@@ -256,7 +265,7 @@ describe('Alert Component', () => {
   describe('Edge Cases', () => {
     test('Alert component with empty children', () => {
       render(<Alert color="danger">{null}</Alert>);
-      
+
       const alertElement = screen.getByTestId('alert-parent');
       expect(alertElement).toBeInTheDocument();
     });
@@ -269,7 +278,7 @@ describe('Alert Component', () => {
           <div>Third</div>
         </Alert>
       );
-      
+
       expect(screen.getByText('First')).toBeInTheDocument();
       expect(screen.getByText('Second')).toBeInTheDocument();
       expect(screen.getByText('Third')).toBeInTheDocument();

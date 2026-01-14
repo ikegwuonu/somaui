@@ -1,22 +1,22 @@
-import React from "react";
-import { Tab } from "@somaui/ui";
+import React from 'react';
+import { Tab } from '@somaui/ui';
 
 const data = [
-  "Home",
-  "Explore",
-  "Products",
-  "Widgets",
-  "About",
-  "Features",
-  "Pricing",
-  "Dashboard",
-  "Settings",
-  "Profile",
-  "Users",
-  "Contact",
-  "Privacy",
-  "Docs",
-  "Blog",
+  'Home',
+  'Explore',
+  'Products',
+  'Widgets',
+  'About',
+  'Features',
+  'Pricing',
+  'Dashboard',
+  'Settings',
+  'Profile',
+  'Users',
+  'Contact',
+  'Privacy',
+  'Docs',
+  'Blog',
 ];
 
 export default function AuthResponsiveTab() {

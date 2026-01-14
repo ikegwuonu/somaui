@@ -1,23 +1,23 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { DefaultIcon } from "./empty-icons";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { DefaultIcon } from './empty-icons';
 
 const empty = tv({
-  base: "flex flex-col",
+  base: 'flex flex-col',
   variants: {
     alignment: {
-      start: "items-start",
-      center: "items-center",
-      end: "items-end",
+      start: 'items-start',
+      center: 'items-center',
+      end: 'items-end',
     },
   },
   defaultVariants: {
-    alignment: "center",
+    alignment: 'center',
   },
 });
 
-type EmptyTextTagProps = "h2" | "h3" | "h4" | "h5" | "h6" | "p";
+type EmptyTextTagProps = 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 type EmptyVariant = VariantProps<typeof empty>;
 
 export interface EmptyProps {
@@ -27,7 +27,7 @@ export interface EmptyProps {
   text?: string;
   textAs?: EmptyTextTagProps;
   textClassName?: string;
-  alignment?: EmptyVariant["alignment"];
+  alignment?: EmptyVariant['alignment'];
   className?: string;
 }
 
@@ -35,10 +35,10 @@ export function Empty({
   image,
   className,
   text,
-  textAs = "p",
+  textAs = 'p',
   imageClassName,
   textClassName,
-  alignment = "center",
+  alignment = 'center',
   defaultImageClassName,
   children,
 }: React.PropsWithChildren<EmptyProps>) {
@@ -52,7 +52,7 @@ export function Empty({
       })}
     >
       <div className="text-center">
-        <div className={cn("somaui-empty-icon", imageClassName)}>
+        <div className={cn('somaui-empty-icon', imageClassName)}>
           {image ? (
             image
           ) : (
@@ -62,7 +62,7 @@ export function Empty({
         {text ? (
           <Component
             role="heading"
-            className={cn("somaui-empty-text", textClassName)}
+            className={cn('somaui-empty-text', textClassName)}
           >
             {text}
           </Component>
@@ -73,4 +73,4 @@ export function Empty({
   );
 }
 
-Empty.displayName = "Empty";
+Empty.displayName = 'Empty';

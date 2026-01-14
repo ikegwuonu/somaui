@@ -1,60 +1,60 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { SpinnerIcon } from "@/icons/spinner";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { SpinnerIcon } from '@/icons/spinner';
 
 const actionIcon = tv({
-  base: "inline-flex items-center cursor-pointer justify-center active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)] border-[length:var(--border-width)]",
+  base: 'inline-flex items-center cursor-pointer justify-center active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)] border-[length:var(--border-width)]',
   variants: {
     variant: {
       solid:
-        "bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary/90 focus-visible:ring-border text-primary-foreground border-transparent dark:backdrop-blur",
+        'bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary/90 focus-visible:ring-border text-primary-foreground border-transparent dark:backdrop-blur',
       outline:
-        "bg-transparent border-border hover:border-primary focus-visible:ring-border hover:text-primary dark:backdrop-blur",
-      flat: "bg-muted hover:bg-primary-lighter focus-visible:ring-primary-lighter hover:text-primary-dark border-transparent backdrop-blur",
-      text: "hover:text-primary focus-visible:ring-primary-lighter border-transparent",
+        'bg-transparent border-border hover:border-primary focus-visible:ring-border hover:text-primary dark:backdrop-blur',
+      flat: 'bg-muted hover:bg-primary-lighter focus-visible:ring-primary-lighter hover:text-primary-dark border-transparent backdrop-blur',
+      text: 'hover:text-primary focus-visible:ring-primary-lighter border-transparent',
       danger:
-        "bg-red hover:bg-red-dark dark:hover:bg-red/80 focus-visible:ring-red/30 text-white border-transparent dark:backdrop-blur",
+        'bg-red hover:bg-red-dark dark:hover:bg-red/80 focus-visible:ring-red/30 text-white border-transparent dark:backdrop-blur',
     },
     size: {
-      sm: "p-0.5 size-8",
-      md: "p-1 size-10",
-      lg: "p-2 size-12",
+      sm: 'p-0.5 size-8',
+      md: 'p-1 size-10',
+      lg: 'p-2 size-12',
     },
     disabled: {
-      true: "dark:hover:bg-muted/70 cursor-not-allowed border-muted bg-muted/70 text-muted-foreground hover:text-muted-foreground backdrop-blur-xl hover:border-muted hover:bg-muted/70",
+      true: 'dark:hover:bg-muted/70 cursor-not-allowed border-muted bg-muted/70 text-muted-foreground hover:text-muted-foreground backdrop-blur-xl hover:border-muted hover:bg-muted/70',
     },
     isLoading: {
-      true: "pointer-events-none relative",
+      true: 'pointer-events-none relative',
     },
   },
   defaultVariants: {
-    variant: "solid",
-    size: "md",
+    variant: 'solid',
+    size: 'md',
   },
 });
 
 const spinnerStyles = tv({
-  base: "animate-spin",
+  base: 'animate-spin',
   variants: {
     size: {
-      sm: "size-4",
-      md: "size-[18px]",
-      lg: "w-5 h-5",
+      sm: 'size-4',
+      md: 'size-[18px]',
+      lg: 'w-5 h-5',
     },
   },
   defaultVariants: {
-    size: "md",
+    size: 'md',
   },
 });
 
 export type ActionIconProps = Omit<
   VariantProps<typeof actionIcon>,
-  "disabled" | "isLoading"
+  'disabled' | 'isLoading'
 > &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'> &
   React.HTMLAttributes<HTMLSpanElement> & {
-    as?: "button" | "span";
-    type?: "button" | "submit" | "reset";
+    as?: 'button' | 'span';
+    type?: 'button' | 'submit' | 'reset';
     children: React.ReactNode;
     isLoading?: boolean;
     disabled?: boolean;
@@ -62,8 +62,8 @@ export type ActionIconProps = Omit<
   };
 
 export function ActionIcon({
-  as = "button",
-  type = "button",
+  as = 'button',
+  type = 'button',
   children,
   className,
   isLoading,
@@ -86,7 +86,7 @@ export function ActionIcon({
         isLoading,
         className,
       })}
-      {...(as && as !== "span" && { type })}
+      {...(as && as !== 'span' && { type })}
       {...actionIconProps}
     >
       {isLoading ? (

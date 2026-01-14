@@ -1,16 +1,16 @@
-import React from "react";
-import { NativeSelect } from "@somaui/ui";
+import React from 'react';
+import { NativeSelect } from '@somaui/ui';
 
 export default function NativeSelectDefault() {
-  const [state, setState] = React.useState("John");
+  const [state, setState] = React.useState('John');
   return (
     <NativeSelect
       label="Name"
       value={state}
-      options={["John", "Miller", "James", "Franky"]}
+      options={['John', 'Miller', 'James', 'Franky']}
       onChange={(e) => setState(e.target.value)}
       clearable={!!state}
-      onClear={() => setState("")}
+      onClear={() => setState('')}
     />
   );
 }

@@ -1,5 +1,5 @@
-import { cn } from "@somaui/ui/lib/cn";
-import React from "react";
+import { cn } from '@somaui/ui/lib/cn';
+import React from 'react';
 
 type CopyButtonProps = {
   value: string;
@@ -21,7 +21,7 @@ export function CopyButton({ value, className }: CopyButtonProps) {
     }, 1000);
   }, [hasCopied]);
 
-  const tooltipText = hasCopied ? "Copied" : "Copy";
+  const tooltipText = hasCopied ? 'Copied' : 'Copy';
 
   return (
     <button
@@ -31,15 +31,15 @@ export function CopyButton({ value, className }: CopyButtonProps) {
         setHasCopied(true);
       }}
       className={cn(
-        "shrink-0 cursor-pointer border-0 p-0 flex items-center relative justify-center w-8 h-8 text-sm text-gray-400 hover:text-gray-200 rounded transition-all ease-in-out",
+        'relative flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded border-0 p-0 text-sm text-gray-400 transition-all ease-in-out hover:text-gray-200',
         className
       )}
     >
       <svg
         viewBox="0 0 24 24"
         className={cn(
-          "w-[18px] h-[18px] transition-all duration-200",
-          hasCopied && "opacity-0 [transform:scale(0.33)]"
+          'h-[18px] w-[18px] transition-all duration-200',
+          hasCopied && '[transform:scale(0.33)] opacity-0'
         )}
       >
         <path
@@ -50,8 +50,8 @@ export function CopyButton({ value, className }: CopyButtonProps) {
       <svg
         viewBox="0 0 24 24"
         className={cn(
-          "w-[18px] h-[18px] absolute opacity-0 [transform:scale(0.33)] transition-all duration-200",
-          hasCopied && "opacity-100 [transform:scale(1)]"
+          'absolute h-[18px] w-[18px] [transform:scale(0.33)] opacity-0 transition-all duration-200',
+          hasCopied && '[transform:scale(1)] opacity-100'
         )}
       >
         <path

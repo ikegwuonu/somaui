@@ -50,7 +50,9 @@ const flex = tv({
   },
 });
 
-export type FlexProps<T extends ElementType = 'div'> = VariantProps<typeof flex> & {
+export type FlexProps<T extends ElementType = 'div'> = VariantProps<
+  typeof flex
+> & {
   /* defines the component tag name to render */
   as?: T;
   ref?: React.Ref<any>;

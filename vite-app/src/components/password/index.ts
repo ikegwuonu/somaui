@@ -1,1 +1,1 @@
-export { Password, type PasswordProps } from "./password";
+export { Password, type PasswordProps } from './password';

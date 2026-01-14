@@ -1,20 +1,20 @@
-import { RadialProgressBar } from "@somaui/ui";
+import { RadialProgressBar } from '@somaui/ui';
 
 const data = [
   {
     size: 80,
-    trackColor: "#F7EEFF",
-    progressColor: "#7928ca",
+    trackColor: '#F7EEFF',
+    progressColor: '#7928ca',
   },
   {
     size: 100,
-    trackColor: "#EBFEF8",
-    progressColor: "#10b981",
+    trackColor: '#EBFEF8',
+    progressColor: '#10b981',
   },
   {
     size: 120,
-    trackColor: "#FFEEF2",
-    progressColor: "#f1416c",
+    trackColor: '#FFEEF2',
+    progressColor: '#f1416c',
   },
 ];
 

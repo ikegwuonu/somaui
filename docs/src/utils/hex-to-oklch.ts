@@ -30,9 +30,12 @@ export function hexToOklch(hex: string): string {
   const linearB = b <= 0.04045 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
 
   // Convert Linear RGB to OKLab
-  const l = 0.4122214708 * linearR + 0.5363325363 * linearG + 0.0514459929 * linearB;
-  const m = 0.2119034982 * linearR + 0.6806995451 * linearG + 0.1073969566 * linearB;
-  const s = 0.0883024619 * linearR + 0.2817188376 * linearG + 0.6299787005 * linearB;
+  const l =
+    0.4122214708 * linearR + 0.5363325363 * linearG + 0.0514459929 * linearB;
+  const m =
+    0.2119034982 * linearR + 0.6806995451 * linearG + 0.1073969566 * linearB;
+  const s =
+    0.0883024619 * linearR + 0.2817188376 * linearG + 0.6299787005 * linearB;
 
   const l_ = Math.cbrt(l);
   const m_ = Math.cbrt(m);
@@ -45,7 +48,7 @@ export function hexToOklch(hex: string): string {
   // Convert OKLab to OKLCH
   const C = Math.sqrt(a * a + b_ * b_);
   let h = Math.atan2(b_, a) * (180 / Math.PI);
-  
+
   // Normalize hue to 0-360
   if (h < 0) {
     h += 360;
@@ -61,4 +64,3 @@ export function hexToOklch(hex: string): string {
 
   return `oklch(${LPercent}% ${CFormatted} ${HFormatted})`;
 }
-

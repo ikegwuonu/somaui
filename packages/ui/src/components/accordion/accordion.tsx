@@ -1,11 +1,11 @@
-import type { ReactNode, ElementType } from "react";
-import { AccordionHeader } from "./accordion-header";
-import { AccordionBody } from "./accordion-body";
-import { AccordionProvider } from "./accordion-context";
-import { cn } from "@/lib/cn";
+import type { ReactNode, ElementType } from 'react';
+import { AccordionHeader } from './accordion-header';
+import { AccordionBody } from './accordion-body';
+import { AccordionProvider } from './accordion-context';
+import { cn } from '@/lib/cn';
 
 export type AccordionProps = {
-  as?: "div" | "li";
+  as?: 'div' | 'li';
   defaultOpen?: boolean;
   duration?: number;
   className?: string;
@@ -13,17 +13,17 @@ export type AccordionProps = {
 };
 
 export function Accordion({
-  as = "div",
+  as = 'div',
   defaultOpen,
   duration,
   className,
   children,
 }: AccordionProps) {
-  const Component = (as || "div") as ElementType;
+  const Component = (as || 'div') as ElementType;
 
   return (
     <AccordionProvider defaultOpen={defaultOpen} duration={duration}>
-      <Component className={cn("somaui-accordion-root", className)}>
+      <Component className={cn('somaui-accordion-root', className)}>
         {children}
       </Component>
     </AccordionProvider>

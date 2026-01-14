@@ -2,18 +2,18 @@
 sidebar_position: 2
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
-import { Badge } from "@somaui/ui/badge";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
+import { Badge } from '@somaui/ui/badge';
 
 # As a Package
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
@@ -76,7 +76,7 @@ Navigate to your React/Next.js project and run:
   </TabItem>
 </Tabs>
 
-<div className="!mt-6 !mb-8 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+<div className="!mt-6 !mb-8 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/30">
   **Package Overview** - **`somaui`** - The core UI component library -
   **`@headlessui/react`** - Provides accessible, unstyled primitives for complex
   components (dropdowns, modals, tabs) - **`@floating-ui/react`** - Advanced
@@ -85,7 +85,7 @@ Navigate to your React/Next.js project and run:
   styling - **`tailwind-merge`** - A utility for merging Tailwind CSS classes
 </div>
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -148,7 +148,7 @@ Install these development dependencies for styling:
   </TabItem>
 </Tabs>
 
-<div className="!mt-6 !mb-8 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg border border-green-200 dark:border-green-800">
+<div className="!mt-6 !mb-8 rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/30">
   **Development Dependencies** - **`tailwindcss`** - The core Tailwind CSS v4
   framework - **`@tailwindcss/forms`** - Enhanced form styling with consistent,
   accessible input designs - **`@tailwindcss/postcss`** - Tailwind CSS v4
@@ -157,7 +157,7 @@ Install these development dependencies for styling:
 
 ## Configuration
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 3
   </Badge>
@@ -172,7 +172,7 @@ Create or update your `app/globals.css` (or `src/app/globals.css` for Next.js):
 
 ```css title=globals.css
 /* Import Tailwind CSS v4 */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Configure content sources for SomaUI components */
 @source '../node_modules/@somaui/ui/dist';
@@ -300,14 +300,14 @@ textarea:-moz-autofill:active {
 }
 ```
 
-<div className="!mt-6 !mb-8 p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg border border-purple-200 dark:border-purple-800">
+<div className="!mt-6 !mb-8 rounded-lg border border-purple-200 bg-purple-50 p-4 dark:border-purple-800 dark:bg-purple-950/30">
   **About OKLCH Color Space** OKLCH is a modern color space that provides
   perceptually uniform colors. Unlike RGB/HEX, colors with the same lightness
   value in OKLCH appear equally bright to human eyes, making it ideal for
   creating accessible and visually consistent color palettes.
 </div>
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 4
   </Badge>
@@ -321,7 +321,7 @@ Create or update your `postcss.config.mjs`:
 ```js title=postcss.config.mjs
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    '@tailwindcss/postcss': {},
   },
 };
 export default config;
@@ -336,7 +336,7 @@ Now you're ready to start using SomaUI components in your application. For dark 
 Here's a simple example to get you started:
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -362,17 +362,17 @@ The `cn` utility helps you merge Tailwind CSS classes intelligently. It automati
 The `cn` utility function is used to conditionally combine class names based on component props, enabling dynamic styling of the component.
 
 ```tsx
-import { cn } from "@somaui/ui/lib/cn";
-import { Button } from "@somaui/ui/button";
+import { cn } from '@somaui/ui/lib/cn';
+import { Button } from '@somaui/ui/button';
 
-const CustomButton = ({ className, variant = "primary", ...props }) => (
+const CustomButton = ({ className, variant = 'primary', ...props }) => (
   <Button
     {...props}
     className={cn(
-      "bg-gradient-to-r text-white shadow-lg hover:shadow-xl transition-all",
-      variant === "primary"
-        ? "from-purple-600 via-purple-500 to-blue-600"
-        : "from-pink-500 via-rose-500 to-orange-500",
+      'bg-gradient-to-r text-white shadow-lg transition-all hover:shadow-xl',
+      variant === 'primary'
+        ? 'from-purple-600 via-purple-500 to-blue-600'
+        : 'from-pink-500 via-rose-500 to-orange-500',
       className
     )}
   />

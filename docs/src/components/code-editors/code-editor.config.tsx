@@ -1,6 +1,6 @@
 export enum PACKAGE_MANAGERS {
-  NPM = "npm",
-  YARN = "yarn",
-  PNPM = "pnpm",
-  BUN = "bun",
+  NPM = 'npm',
+  YARN = 'yarn',
+  PNPM = 'pnpm',
+  BUN = 'bun',
 }

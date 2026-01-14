@@ -1,18 +1,18 @@
-import { type Person } from "./data";
-import { ActionIcon, Button, Checkbox, Popover } from "@somaui/ui";
-import { createColumnHelper } from "@tanstack/react-table";
-import { AvatarCard, DateCell, getStatusBadge } from "./utils";
+import { type Person } from './data';
+import { ActionIcon, Button, Checkbox, Popover } from '@somaui/ui';
+import { createColumnHelper } from '@tanstack/react-table';
+import { AvatarCard, DateCell, getStatusBadge } from './utils';
 import {
   EllipsisHorizontalIcon,
   EyeIcon,
   PencilIcon,
   TrashIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 const columnHelper = createColumnHelper<Person>();
 
 export const defaultColumns = [
-  columnHelper.accessor("id", {
+  columnHelper.accessor('id', {
     size: 50,
     header: ({ table }) => (
       <Checkbox
@@ -35,9 +35,9 @@ export const defaultColumns = [
     ),
   }),
 
-  columnHelper.accessor("name", {
+  columnHelper.accessor('name', {
     size: 280,
-    header: "Customer",
+    header: 'Customer',
     cell: ({ row: { original } }) => (
       <AvatarCard
         src={original.avatar}
@@ -47,56 +47,56 @@ export const defaultColumns = [
     ),
   }),
 
-  columnHelper.accessor("dueDate", {
+  columnHelper.accessor('dueDate', {
     size: 180,
-    header: "Due Date",
+    header: 'Due Date',
     cell: ({ row }) => <DateCell date={new Date(row.original.dueDate)} />,
   }),
 
-  columnHelper.accessor("amount", {
+  columnHelper.accessor('amount', {
     size: 120,
-    header: "Amount",
+    header: 'Amount',
     cell: ({ row }) => (
       <span className="font-medium">$ {row.original.amount}</span>
     ),
   }),
 
-  columnHelper.accessor("status", {
+  columnHelper.accessor('status', {
     size: 120,
-    header: "Status",
+    header: 'Status',
     cell: (info) => getStatusBadge(info.renderValue()!),
   }),
 
-  columnHelper.accessor("avatar", {
+  columnHelper.accessor('avatar', {
     size: 120,
-    header: "",
+    header: '',
     cell: () => (
-      <div className="w-full flex justify-center">
+      <div className="flex w-full justify-center">
         <Popover shadow="sm" placement="bottom-end">
           <Popover.Trigger>
             <ActionIcon as="span" variant="text" className="h-auto p-0">
               <EllipsisHorizontalIcon strokeWidth={2} className="size-5" />
             </ActionIcon>
           </Popover.Trigger>
-          <Popover.Content className="p-1 flex flex-col">
+          <Popover.Content className="flex flex-col p-1">
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <PencilIcon className="size-3.5" /> Edit
             </Button>
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <EyeIcon className="size-3.5" /> View
             </Button>
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <TrashIcon className="size-3.5" /> Delete
             </Button>

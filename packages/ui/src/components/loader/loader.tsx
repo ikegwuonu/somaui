@@ -1,31 +1,31 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { BarsSpinner } from "./bars-spinner";
-import { PulseLoader } from "./pulse-loader";
-import { Spinner } from "./spinner";
-import { ThreeDotScale } from "./three-dot-scale";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { BarsSpinner } from './bars-spinner';
+import { PulseLoader } from './pulse-loader';
+import { Spinner } from './spinner';
+import { ThreeDotScale } from './three-dot-scale';
 
 const loader = tv({
-  base: "somaui-loader h-auto",
+  base: 'somaui-loader h-auto',
   variants: {
     size: {
-      sm: "w-5",
-      md: "w-[22px]",
-      lg: "w-7",
+      sm: 'w-5',
+      md: 'w-[22px]',
+      lg: 'w-7',
     },
     color: {
-      current: "text-current",
-      primary: "text-primary",
-      secondary: "text-secondary",
-      danger: "text-red",
-      info: "text-blue",
-      success: "text-green",
-      warning: "text-orange",
+      current: 'text-current',
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      danger: 'text-red',
+      info: 'text-blue',
+      success: 'text-green',
+      warning: 'text-orange',
     },
   },
   defaultVariants: {
-    size: "md",
-    color: "current",
+    size: 'md',
+    color: 'current',
   },
 });
 
@@ -39,16 +39,16 @@ const Components = {
 type LoaderVariant = VariantProps<typeof loader>;
 
 export interface LoaderTypes extends React.SVGProps<SVGSVGElement> {
-  size?: LoaderVariant["size"];
+  size?: LoaderVariant['size'];
   variant?: keyof typeof Components;
-  color?: LoaderVariant["color"];
+  color?: LoaderVariant['color'];
   className?: string;
 }
 
 export function Loader({
-  size = "md",
-  color = "current",
-  variant = "bars",
+  size = 'md',
+  color = 'current',
+  variant = 'bars',
   className,
   ...props
 }: LoaderTypes) {
@@ -67,4 +67,4 @@ export function Loader({
   );
 }
 
-Loader.displayName = "Loader";
+Loader.displayName = 'Loader';

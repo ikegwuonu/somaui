@@ -2,16 +2,16 @@
 sidebar_position: 6
 ---
 
-import Paper from "@site/src/components/paper";
-import { Badge } from "@somaui/ui/badge";
-import TanStackTableDemo from "@site/src/components/integrations/tan-stack-table";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
+import Paper from '@site/src/components/paper';
+import { Badge } from '@somaui/ui/badge';
+import TanStackTableDemo from '@site/src/components/integrations/tan-stack-table';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
 
 # TanStack Table
 
@@ -46,7 +46,7 @@ A powerful, headless table component built on top of **TanStack Table** (formerl
 
 Before using the TanStack Table component, you'll need to install the required dependency:
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
@@ -103,7 +103,7 @@ Before using the TanStack Table component, you'll need to install the required d
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -113,10 +113,10 @@ Before using the TanStack Table component, you'll need to install the required d
 </div>
 
 ```tsx
-import React from "react";
-import { Table } from "@somaui/ui/table";
-import { type Person } from "./data";
-import { flexRender, Table as TanStackTableTypes } from "@tanstack/react-table";
+import React from 'react';
+import { Table } from '@somaui/ui/table';
+import { type Person } from './data';
+import { flexRender, Table as TanStackTableTypes } from '@tanstack/react-table';
 
 type TablePropsTypes = {
   table: TanStackTableTypes<Person>;
@@ -132,14 +132,14 @@ export default function MainTable({ table }: TablePropsTypes) {
     .filter(Boolean);
 
   return (
-    <div className="w-full overflow-x-auto overflow-y-hidden custom-scrollbar">
+    <div className="custom-scrollbar w-full overflow-x-auto overflow-y-hidden">
       <Table
-        className="!shadow-none !border-0"
+        className="!border-0 !shadow-none"
         style={{
           width: table.getTotalSize(),
         }}
       >
-        <Table.Header className="!bg-[var(--muted)] !border-y-0">
+        <Table.Header className="!border-y-0 !bg-[var(--muted)]">
           {table.getHeaderGroups().map((headerGroup) => {
             return (
               <Table.Row key={headerGroup.id}>
@@ -214,7 +214,7 @@ export default function MainTable({ table }: TablePropsTypes) {
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 3
   </Badge>
@@ -224,24 +224,24 @@ export default function MainTable({ table }: TablePropsTypes) {
 </div>
 
 ```tsx
-import { type Person } from "./data";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { Button } from "@somaui/ui/button";
-import { Checkbox } from "@somaui/ui/checkbox";
-import { Popover } from "@somaui/ui/popover";
-import { createColumnHelper } from "@tanstack/react-table";
-import { AvatarCard, DateCell, getStatusBadge } from "./utils";
+import { type Person } from './data';
+import { ActionIcon } from '@somaui/ui/action-icon';
+import { Button } from '@somaui/ui/button';
+import { Checkbox } from '@somaui/ui/checkbox';
+import { Popover } from '@somaui/ui/popover';
+import { createColumnHelper } from '@tanstack/react-table';
+import { AvatarCard, DateCell, getStatusBadge } from './utils';
 import {
   EllipsisHorizontalIcon,
   EyeIcon,
   PencilIcon,
   TrashIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 const columnHelper = createColumnHelper<Person>();
 
 export const defaultColumns = [
-  columnHelper.accessor("id", {
+  columnHelper.accessor('id', {
     size: 50,
     header: ({ table }) => (
       <Checkbox
@@ -264,9 +264,9 @@ export const defaultColumns = [
     ),
   }),
 
-  columnHelper.accessor("name", {
+  columnHelper.accessor('name', {
     size: 280,
-    header: "Customer",
+    header: 'Customer',
     cell: ({ row: { original } }) => (
       <AvatarCard
         src={original.avatar}
@@ -276,56 +276,56 @@ export const defaultColumns = [
     ),
   }),
 
-  columnHelper.accessor("dueDate", {
+  columnHelper.accessor('dueDate', {
     size: 180,
-    header: "Due Date",
+    header: 'Due Date',
     cell: ({ row }) => <DateCell date={new Date(row.original.dueDate)} />,
   }),
 
-  columnHelper.accessor("amount", {
+  columnHelper.accessor('amount', {
     size: 120,
-    header: "Amount",
+    header: 'Amount',
     cell: ({ row }) => (
       <span className="font-medium">$ {row.original.amount}</span>
     ),
   }),
 
-  columnHelper.accessor("status", {
+  columnHelper.accessor('status', {
     size: 120,
-    header: "Status",
+    header: 'Status',
     cell: (info) => getStatusBadge(info.renderValue()!),
   }),
 
-  columnHelper.accessor("avatar", {
+  columnHelper.accessor('avatar', {
     size: 120,
-    header: "",
+    header: '',
     cell: () => (
-      <div className="w-full flex justify-center">
+      <div className="flex w-full justify-center">
         <Popover shadow="sm" placement="bottom-end">
           <Popover.Trigger>
             <ActionIcon as="span" variant="text" className="h-auto p-0">
               <EllipsisHorizontalIcon strokeWidth={2} className="size-5" />
             </ActionIcon>
           </Popover.Trigger>
-          <Popover.Content className="p-1 flex flex-col">
+          <Popover.Content className="flex flex-col p-1">
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <PencilIcon className="size-3.5" /> Edit
             </Button>
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <EyeIcon className="size-3.5" /> View
             </Button>
             <Button
               size="sm"
               variant="text"
-              className="hover:bg-[var(--muted)] gap-2 justify-start"
+              className="justify-start gap-2 hover:bg-[var(--muted)]"
             >
               <TrashIcon className="size-3.5" /> Delete
             </Button>
@@ -339,7 +339,7 @@ export const defaultColumns = [
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 4
   </Badge>
@@ -363,14 +363,14 @@ export type Person = {
 
 export const defaultData = [
   {
-    id: "62447",
-    name: "Francis Sanford MD",
-    userName: "George33",
-    avatar: "https://randomuser.me/api/portraits/women/8.jpg",
-    email: "Marya.Barrow@yahoo.com",
-    dueDate: "2023-10-18T13:24:00.760Z",
+    id: '62447',
+    name: 'Francis Sanford MD',
+    userName: 'George33',
+    avatar: 'https://randomuser.me/api/portraits/women/8.jpg',
+    email: 'Marya.Barrow@yahoo.com',
+    dueDate: '2023-10-18T13:24:00.760Z',
     amount: 544,
-    status: "Paid",
+    status: 'Paid',
   },
   // ... more data
 ];
@@ -378,7 +378,7 @@ export const defaultData = [
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 5
   </Badge>
@@ -388,22 +388,22 @@ export const defaultData = [
 </div>
 
 ```tsx
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { Select, SelectOption } from "@somaui/ui/select";
-import { Text } from "@somaui/ui/typography";
-import { type Table as ReactTableType } from "@tanstack/react-table";
+import { ActionIcon } from '@somaui/ui/action-icon';
+import { Select, SelectOption } from '@somaui/ui/select';
+import { Text } from '@somaui/ui/typography';
+import { type Table as ReactTableType } from '@tanstack/react-table';
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/20/solid';
 
 const options = [
-  { value: 5, label: "5" },
-  { value: 10, label: "10" },
-  { value: 15, label: "15" },
-  { value: 20, label: "20" },
+  { value: 5, label: '5' },
+  { value: 10, label: '10' },
+  { value: 15, label: '15' },
+  { value: 20, label: '20' },
 ];
 
 export default function TablePagination<TData extends Record<string, any>>({
@@ -412,10 +412,10 @@ export default function TablePagination<TData extends Record<string, any>>({
   table: ReactTableType<TData>;
 }) {
   return (
-    <div className="flex w-full items-center justify-between @container">
+    <div className="@container flex w-full items-center justify-between">
       <div className="hidden @2xl:block">
         <Text>
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </Text>
       </div>
@@ -438,7 +438,7 @@ export default function TablePagination<TData extends Record<string, any>>({
           />
         </div>
         <Text className="hidden text-sm font-medium text-[var(--text-secondary)] @3xl:block">
-          Page {table.getState().pagination.pageIndex + 1} of{" "}
+          Page {table.getState().pagination.pageIndex + 1} of{' '}
           {table.getPageCount().toLocaleString()}
         </Text>
         <div className="grid grid-cols-4 gap-2">
@@ -495,7 +495,7 @@ export default function TablePagination<TData extends Record<string, any>>({
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 6
   </Badge>
@@ -516,22 +516,22 @@ import {
   Select,
   Text,
   Title,
-} from "somaui";
-import { type Table as ReactTableType } from "@tanstack/react-table";
+} from 'somaui';
+import { type Table as ReactTableType } from '@tanstack/react-table';
 import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
   TrashIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/20/solid';
 
 interface TableToolbarProps<T extends Record<string, any>> {
   table: ReactTableType<T>;
 }
 
 const statusOptions = [
-  { label: "Paid", value: "Paid" },
-  { label: "Pending", value: "Pending" },
-  { label: "Draft", value: "Draft" },
+  { label: 'Paid', value: 'Paid' },
+  { label: 'Pending', value: 'Pending' },
+  { label: 'Draft', value: 'Draft' },
 ];
 
 export default function TableToolbar<TData extends Record<string, any>>({
@@ -541,12 +541,12 @@ export default function TableToolbar<TData extends Record<string, any>>({
     table.getState().globalFilter || table.getState().columnFilters.length > 0;
 
   return (
-    <div className="flex items-center justify-between w-full mb-4">
+    <div className="mb-4 flex w-full items-center justify-between">
       <Input
         type="search"
         placeholder="Search by anything..."
-        value={table.getState().globalFilter ?? ""}
-        onClear={() => table.setGlobalFilter("")}
+        value={table.getState().globalFilter ?? ''}
+        onClear={() => table.setGlobalFilter('')}
         onChange={(e) => table.setGlobalFilter(e.target.value)}
         inputClassName="h-9"
         clearable={true}
@@ -555,8 +555,8 @@ export default function TableToolbar<TData extends Record<string, any>>({
       <div className="flex items-center gap-4">
         <Select
           options={statusOptions}
-          value={table.getColumn("status")?.getFilterValue() ?? []}
-          onChange={(e) => table.getColumn("status")?.setFilterValue(e)}
+          value={table.getColumn('status')?.getFilterValue() ?? []}
+          onChange={(e) => table.getColumn('status')?.setFilterValue(e)}
           getOptionValue={(option: { value: any }) => option.value}
           getOptionDisplayValue={(option: { value: string }) =>
             renderOptionDisplayValue(option.value)
@@ -565,7 +565,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
           displayValue={(selected: string) =>
             renderOptionDisplayValue(selected)
           }
-          className={"w-32"}
+          className={'w-32'}
           dropdownClassName="!z-20 h-auto"
           selectClassName="ring-0"
         />
@@ -586,7 +586,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
         {table && (
           <Popover shadow="sm" placement="bottom-end">
             <Popover.Trigger>
-              <ActionIcon title={"Toggle Columns"}>
+              <ActionIcon title={'Toggle Columns'}>
                 <AdjustmentsHorizontalIcon className="size-[18px]" />
               </ActionIcon>
             </Popover.Trigger>
@@ -598,7 +598,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
                 <div className="grid grid-cols-1 gap-4">
                   {table.getAllLeafColumns().map((column) => {
                     return (
-                      typeof column.columnDef.header === "string" &&
+                      typeof column.columnDef.header === 'string' &&
                       column.columnDef.header.length > 0 && (
                         <Checkbox
                           size="sm"
@@ -623,36 +623,36 @@ export default function TableToolbar<TData extends Record<string, any>>({
 
 export function renderOptionDisplayValue(value: string) {
   switch (value.toLowerCase()) {
-    case "pending":
+    case 'pending':
       return (
         <div className="flex items-center gap-2">
           <Badge color="warning" renderAsDot />
-          <Text className="font-medium capitalize text-orange-dark">
+          <Text className="text-orange-dark font-medium capitalize">
             {value}
           </Text>
         </div>
       );
-    case "paid":
+    case 'paid':
       return (
         <div className="flex items-center gap-2">
           <Badge color="success" renderAsDot />
-          <Text className="font-medium capitalize text-green-dark">
+          <Text className="text-green-dark font-medium capitalize">
             {value}
           </Text>
         </div>
       );
-    case "overdue":
+    case 'overdue':
       return (
         <div className="flex items-center gap-2">
           <Badge color="danger" renderAsDot />
-          <Text className="font-medium capitalize text-red-dark">{value}</Text>
+          <Text className="text-red-dark font-medium capitalize">{value}</Text>
         </div>
       );
     default:
       return (
         <div className="flex items-center gap-2">
           <Badge renderAsDot className="bg-[var(--muted-foreground)]" />
-          <Text className="font-medium capitalize text-[var(--text-secondary)]">
+          <Text className="font-medium text-[var(--text-secondary)] capitalize">
             {value}
           </Text>
         </div>
@@ -663,7 +663,7 @@ export function renderOptionDisplayValue(value: string) {
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 7
   </Badge>
@@ -673,11 +673,11 @@ export function renderOptionDisplayValue(value: string) {
 </div>
 
 ```tsx
-import dayjs from "dayjs";
-import { Avatar, AvatarProps } from "@somaui/ui/avatar";
-import { Badge } from "@somaui/ui/badge";
-import { Text } from "@somaui/ui/typography";
-import { cn } from "somaui";
+import dayjs from 'dayjs';
+import { Avatar, AvatarProps } from '@somaui/ui/avatar';
+import { Badge } from '@somaui/ui/badge';
+import { Text } from '@somaui/ui/typography';
+import { cn } from 'somaui';
 
 interface AvatarCardProps {
   src: string;
@@ -695,7 +695,7 @@ export function AvatarCard({
   avatarProps,
 }: AvatarCardProps) {
   return (
-    <figure className={cn("flex items-center gap-3", className)}>
+    <figure className={cn('flex items-center gap-3', className)}>
       <Avatar name={name} src={src} {...avatarProps} />
       <figcaption className="grid gap-0.5">
         <Text className="font-lexend text-sm font-medium text-[var(--text-primary)] dark:text-[var(--text-secondary)]">
@@ -725,24 +725,24 @@ export function DateCell({
   className,
   timeClassName,
   dateClassName,
-  dateFormat = "MMMM D, YYYY",
-  timeFormat = "h:mm A",
+  dateFormat = 'MMMM D, YYYY',
+  timeFormat = 'h:mm A',
 }: DateCellProps) {
   return (
-    <div className={cn("grid gap-0", className)}>
+    <div className={cn('grid gap-0', className)}>
       <time
-        dateTime={formatDate(date, "YYYY-MM-DD")}
+        dateTime={formatDate(date, 'YYYY-MM-DD')}
         className={cn(
-          "font-medium text-[var(--text-secondary)]",
+          'font-medium text-[var(--text-secondary)]',
           dateClassName
         )}
       >
         {formatDate(date, dateFormat)}
       </time>
       <time
-        dateTime={formatDate(date, "HH:mm:ss")}
+        dateTime={formatDate(date, 'HH:mm:ss')}
         className={cn(
-          "text-[13px] text-[var(--muted-foreground)] leading-normal",
+          'text-[13px] leading-normal text-[var(--muted-foreground)]',
           timeClassName
         )}
       >
@@ -754,33 +754,33 @@ export function DateCell({
 
 export function formatDate(
   date?: Date,
-  format: string = "DD MMM, YYYY"
+  format: string = 'DD MMM, YYYY'
 ): string {
-  if (!date) return "";
+  if (!date) return '';
   return dayjs(date).format(format);
 }
 
 export function getStatusBadge(status: string) {
   switch (status?.toLowerCase()) {
-    case "pending":
+    case 'pending':
       return (
         <div className="flex items-center gap-2">
           <Badge color="warning" renderAsDot />
-          <Text className="font-medium text-orange-dark">{status}</Text>
+          <Text className="text-orange-dark font-medium">{status}</Text>
         </div>
       );
-    case "paid":
+    case 'paid':
       return (
         <div className="flex items-center gap-2">
           <Badge color="success" renderAsDot />
-          <Text className="font-medium text-green-dark">{status}</Text>
+          <Text className="text-green-dark font-medium">{status}</Text>
         </div>
       );
-    case "overdue":
+    case 'overdue':
       return (
         <div className="flex items-center gap-2">
           <Badge color="danger" renderAsDot />
-          <Text className="font-medium text-red-dark">{status}</Text>
+          <Text className="text-red-dark font-medium">{status}</Text>
         </div>
       );
     default:
@@ -798,7 +798,7 @@ export function getStatusBadge(status: string) {
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 8
   </Badge>
@@ -806,18 +806,18 @@ export function getStatusBadge(status: string) {
 </div>
 
 ```tsx
-import React from "react";
-import MainTable from "./table";
+import React from 'react';
+import MainTable from './table';
 import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { defaultData } from "./data";
-import { defaultColumns } from "./column";
-import TableToolbar from "./toolbar";
-import TablePagination from "./pagination";
+} from '@tanstack/react-table';
+import { defaultData } from './data';
+import { defaultColumns } from './column';
+import TableToolbar from './toolbar';
+import TablePagination from './pagination';
 
 export default function TanStackTableDemo() {
   const [rowSelection, setRowSelection] = React.useState({});
@@ -859,16 +859,16 @@ export default function TanStackTableDemo() {
 Customize how columns are rendered:
 
 ```tsx
-columnHelper.accessor("amount", {
+columnHelper.accessor('amount', {
   size: 120,
-  header: "Amount",
+  header: 'Amount',
   cell: ({ row }) => {
     const amount = row.original.amount;
     return (
       <span
         className={cn(
-          "font-medium",
-          amount > 500 ? "text-green-dark" : "text-orange-dark"
+          'font-medium',
+          amount > 500 ? 'text-green-dark' : 'text-orange-dark'
         )}
       >
         $ {amount}
@@ -883,9 +883,9 @@ columnHelper.accessor("amount", {
 Enable sorting on columns:
 
 ```tsx
-columnHelper.accessor("name", {
+columnHelper.accessor('name', {
   size: 280,
-  header: "Customer",
+  header: 'Customer',
   enableSorting: true,
   cell: ({ row: { original } }) => (
     <AvatarCard
@@ -920,10 +920,10 @@ Add expandable rows:
 
 ```tsx
 columnHelper.display({
-  id: "expander",
+  id: 'expander',
   cell: ({ row }) => (
     <button onClick={() => row.toggleExpanded()}>
-      {row.getIsExpanded() ? "▼" : "▶"}
+      {row.getIsExpanded() ? '▼' : '▶'}
     </button>
   ),
 });

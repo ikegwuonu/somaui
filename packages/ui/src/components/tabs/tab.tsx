@@ -1,13 +1,13 @@
-import { useState, useRef } from "react";
-import { TabGroup, type TabGroupProps } from "@headlessui/react";
-import { cn } from "@/lib/cn";
-import type { ExtractProps } from "@/lib/extract-props";
-import { TabList } from "./tab-list";
-import { TabListItem } from "./tab-list-item";
-import { TabPanels } from "./tab-panels";
-import { TabPanel } from "./tab-panel";
-import { TabProvider } from "./tab-context";
-import { useRect } from "@/lib/use-rect";
+import { useState, useRef } from 'react';
+import { TabGroup, type TabGroupProps } from '@headlessui/react';
+import { cn } from '@/lib/cn';
+import type { ExtractProps } from '@/lib/extract-props';
+import { TabList } from './tab-list';
+import { TabListItem } from './tab-list-item';
+import { TabPanels } from './tab-panels';
+import { TabPanel } from './tab-panel';
+import { TabProvider } from './tab-context';
+import { useRect } from '@/lib/use-rect';
 
 export type TabProps = ExtractProps<TabGroupProps> & {
   hideHoverAnimation?: boolean;
@@ -47,8 +47,8 @@ export function Tab({
         as="div"
         selectedIndex={selectedIndex ?? activeTab}
         onChange={onChange ?? setActiveTab}
-        className={cn("somaui-tab-root", "w-full", className, {
-          "flex gap-4": vertical,
+        className={cn('somaui-tab-root', 'w-full', className, {
+          'flex gap-4': vertical,
         })}
         {...props}
       >

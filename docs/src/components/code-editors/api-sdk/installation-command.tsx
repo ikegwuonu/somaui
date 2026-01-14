@@ -1,29 +1,29 @@
-import { v4 as uuidv4 } from "uuid";
-import { PACKAGE_MANAGERS } from "../code-editor.config";
-import { MultiFilesEditor } from "../multi-files-editor";
+import { v4 as uuidv4 } from 'uuid';
+import { PACKAGE_MANAGERS } from '../code-editor.config';
+import { MultiFilesEditor } from '../multi-files-editor';
 
 const installationCommands = [
   {
     id: uuidv4(),
-    name: "npm",
+    name: 'npm',
     manager: PACKAGE_MANAGERS.NPM,
     value: `npm i somaui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
-    name: "yarn",
+    name: 'yarn',
     manager: PACKAGE_MANAGERS.YARN,
     value: `yarn add somaui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
-    name: "pnpm",
+    name: 'pnpm',
     manager: PACKAGE_MANAGERS.PNPM,
     value: `pnpm i somaui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
-    name: "bun",
+    name: 'bun',
     manager: PACKAGE_MANAGERS.BUN,
     value: `bun add somaui @headlessui/react @floating-ui/react`,
   },

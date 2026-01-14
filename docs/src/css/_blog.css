@@ -5,8 +5,8 @@
 
 /* Banner Section - Positioned before the blog list page */
 .blog-list-page .blog-banner {
-  @apply w-full bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 border-b border-border;
-  @apply py-12 md:py-16 lg:py-20 px-4 md:px-6;
+  @apply border-border w-full border-b bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950;
+  @apply px-4 py-12 md:px-6 md:py-16 lg:py-20;
   display: block;
   width: 100%;
   margin: 0;
@@ -23,11 +23,11 @@
 }
 
 .blog-banner-title {
-  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4;
+  @apply mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white;
 }
 
 .blog-banner-description {
-  @apply text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+  @apply mx-auto max-w-2xl text-base text-gray-600 md:text-lg dark:text-gray-400;
 }
 
 .blog-list-page #__docusaurus {
@@ -40,7 +40,7 @@
   }
 
   main {
-    @apply grid justify-between grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-x-4 gap-y-6 mx-auto !max-w-[1232px] w-full flex-auto px-4 md:px-6 py-8 md:py-12;
+    @apply mx-auto grid w-full !max-w-[1232px] flex-auto grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-between gap-x-4 gap-y-6 px-4 py-8 md:px-6 md:py-12;
     .hidden-for-blog-list-page {
       @apply hidden;
     }
@@ -54,16 +54,16 @@
 
 .blog-list-page #__docusaurus {
   article {
-    @apply border p-1.5 rounded-xl !mb-0 w-full flex flex-col justify-between dark:bg-[#111111];
+    @apply !mb-0 flex w-full flex-col justify-between rounded-xl border p-1.5 dark:bg-[#111111];
     border-color: var(--ifm-color-gray-200);
     header {
-      @apply [&_.row]:hidden p-3 pb-0;
+      @apply p-3 pb-0 [&_.row]:hidden;
       h2 {
-        @apply text-xl font-medium !-mb-2 [&_a]:hover:no-underline [&_a]:text-blue;
+        @apply [&_a]:text-blue !-mb-2 text-xl font-medium [&_a]:hover:no-underline;
       }
     }
     .markdown {
-      @apply h-full [&>p]:line-clamp-3 [&_ul_li]:mt-1 [&_ul_li_a]:pointer-events-none [&_ul_li_a]:no-underline px-3;
+      @apply h-full px-3 [&_ul_li]:mt-1 [&_ul_li_a]:pointer-events-none [&_ul_li_a]:no-underline [&>p]:line-clamp-3;
       .anchor {
         @apply hidden;
       }
@@ -71,13 +71,13 @@
     footer {
       @apply mt-4 block w-full [&_.col--9]:hidden [&.row]:mx-0;
       .col {
-        @apply text-left px-0;
+        @apply px-0 text-left;
         > a {
-          @apply block text-center bg-gray-200 dark:bg-slate-900 px-5 py-2 rounded-md hover:no-underline capitalize text-sm [&_b]:!font-medium hover:bg-gray-200/50 transition-colors;
+          @apply block rounded-md bg-gray-200 px-5 py-2 text-center text-sm capitalize transition-colors hover:bg-gray-200/50 hover:no-underline dark:bg-slate-900 [&_b]:!font-medium;
         }
       }
       .col--3 {
-        @apply !w-full block p-0;
+        @apply block !w-full p-0;
         --ifm-col-width: 100%;
       }
     }
@@ -95,7 +95,7 @@
   }
   .container .row {
     header {
-      @apply border-b border-gray-100 mb-8;
+      @apply mb-8 border-b border-gray-100;
       div[class*='container_'] {
         @apply text-gray-400;
       }
@@ -103,9 +103,9 @@
         @apply !mt-6 pt-6 pb-0;
       }
       div[class*='authorCol_'] {
-        @apply block flex-none w-auto;
+        @apply block w-auto flex-none;
         .avatar {
-          @apply items-center flex gap-4;
+          @apply flex items-center gap-4;
         }
         .avatar__photo {
           @apply size-10;
@@ -117,17 +117,17 @@
           }
         }
         .avatar__name {
-          @apply text-primary [&_span]:font-medium [&_span]:text-sm;
+          @apply text-primary [&_span]:text-sm [&_span]:font-medium;
         }
       }
     }
     main {
-      @apply mx-auto flex-auto max-w-[860px];
+      @apply mx-auto max-w-[860px] flex-auto;
       .hidden-for-blog-list-page {
         @apply my-8;
       }
       h1 {
-        @apply text-4xl font-bold mt-2;
+        @apply mt-2 text-4xl font-bold;
       }
       h2 {
         @apply text-3xl;
@@ -136,7 +136,7 @@
         @apply text-2xl;
       }
       h4 {
-        @apply text-xl !mb-4;
+        @apply !mb-4 text-xl;
       }
       h5 {
         @apply text-lg;
@@ -156,7 +156,7 @@
 
 .blog-post-page article header .row::before {
   content: 'Posted By';
-  @apply ml-4 mb-3 text-sm w-full text-gray-400;
+  @apply mb-3 ml-4 w-full text-sm text-gray-400;
 }
 
 .docs-version-current #__docusaurus {
@@ -167,7 +167,7 @@
     @apply border-l-0 pl-5;
   }
   li > .menu__link--active:not(.menu__link--sublist) {
-    @apply border-l-0 pl-5 ml-0;
+    @apply ml-0 border-l-0 pl-5;
   }
 }
 #__docusaurus .theme-doc-sidebar-menu li > .menu__link::before {

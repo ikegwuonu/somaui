@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, {
   createContext,
@@ -6,11 +6,11 @@ import React, {
   useEffect,
   useState,
   useCallback,
-} from "react";
+} from 'react';
 import {
   tokens,
   darkThemeTokens,
-} from "@site/src/components/color-tokens/tokens";
+} from '@site/src/components/color-tokens/tokens';
 
 type TokenValue = {
   hex: string;
@@ -27,10 +27,10 @@ type ThemeContextType = {
   updateToken: (
     tokenName: string,
     value: string,
-    theme: "light" | "dark"
+    theme: 'light' | 'dark'
   ) => void;
-  resetToken: (tokenName: string, theme: "light" | "dark") => void;
-  resetAllTokens: (theme: "light" | "dark") => void;
+  resetToken: (tokenName: string, theme: 'light' | 'dark') => void;
+  resetAllTokens: (theme: 'light' | 'dark') => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -62,19 +62,19 @@ export function SomaUIThemeProvider({
   const applyCSSVariables = useCallback(
     (
       tokens: ThemeTokens,
-      selector: ":root" | '[data-theme="dark"]' = ":root"
+      selector: ':root' | '[data-theme="dark"]' = ':root'
     ) => {
       const root = document.documentElement;
       const isDark = selector === '[data-theme="dark"]';
 
       // Create or update style element
       let styleId = isDark
-        ? "somaui-dark-theme-vars"
-        : "somaui-light-theme-vars";
+        ? 'somaui-dark-theme-vars'
+        : 'somaui-light-theme-vars';
       let styleElement = document.getElementById(styleId) as HTMLStyleElement;
 
       if (!styleElement) {
-        styleElement = document.createElement("style");
+        styleElement = document.createElement('style');
         styleElement.id = styleId;
         document.head.appendChild(styleElement);
       }
@@ -85,23 +85,23 @@ export function SomaUIThemeProvider({
         cssRules.push(`  ${name}: ${value.oklch};`);
       });
 
-      styleElement.textContent = `${selector} {\n${cssRules.join("\n")}\n}`;
+      styleElement.textContent = `${selector} {\n${cssRules.join('\n')}\n}`;
     },
     []
   );
 
   // Apply initial CSS variables
   useEffect(() => {
-    applyCSSVariables(lightTokens, ":root");
+    applyCSSVariables(lightTokens, ':root');
     applyCSSVariables(darkTokens, '[data-theme="dark"]');
   }, [lightTokens, darkTokens, applyCSSVariables]);
 
   // Update a single token
   const updateToken = useCallback(
-    (tokenName: string, value: string, theme: "light" | "dark") => {
-      const isOklch = value.startsWith("oklch") || value.endsWith("rem");
+    (tokenName: string, value: string, theme: 'light' | 'dark') => {
+      const isOklch = value.startsWith('oklch') || value.endsWith('rem');
 
-      if (theme === "light") {
+      if (theme === 'light') {
         setLightTokens((prev) => {
           const updated = { ...prev };
           if (updated[tokenName]) {
@@ -140,8 +140,8 @@ export function SomaUIThemeProvider({
 
   // Reset a single token to default
   const resetToken = useCallback(
-    (tokenName: string, theme: "light" | "dark") => {
-      const defaultTokens = theme === "light" ? tokens : darkThemeTokens;
+    (tokenName: string, theme: 'light' | 'dark') => {
+      const defaultTokens = theme === 'light' ? tokens : darkThemeTokens;
       const defaultToken = defaultTokens.find((t) => t.name === tokenName);
 
       if (defaultToken) {
@@ -152,11 +152,11 @@ export function SomaUIThemeProvider({
   );
 
   // Reset all tokens to default
-  const resetAllTokens = useCallback((theme: "light" | "dark") => {
-    const defaultTokens = theme === "light" ? tokens : darkThemeTokens;
+  const resetAllTokens = useCallback((theme: 'light' | 'dark') => {
+    const defaultTokens = theme === 'light' ? tokens : darkThemeTokens;
     const tokensObj = tokensToObject(defaultTokens);
 
-    if (theme === "light") {
+    if (theme === 'light') {
       setLightTokens(tokensObj);
     } else {
       setDarkTokens(tokensObj);
@@ -181,7 +181,7 @@ export function SomaUIThemeProvider({
 export function useSomaUITheme() {
   const context = useContext(SomaUIThemeContext);
   if (context === undefined) {
-    throw new Error("useSomaUITheme must be used within a SomaUIThemeProvider");
+    throw new Error('useSomaUITheme must be used within a SomaUIThemeProvider');
   }
   return context;
 }

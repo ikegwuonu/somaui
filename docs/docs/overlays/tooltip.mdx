@@ -2,20 +2,20 @@
 sidebar_position: 30
 ---
 
-import { Tooltip } from "@somaui/ui/tooltip";
-import { Text } from "@somaui/ui/typography";
-import { Button } from "@somaui/ui/button";
-import { InformationCircleIcon } from "@heroicons/react/24/solid";
-import Paper from "@site/src/components/paper";
+import { Tooltip } from '@somaui/ui/tooltip';
+import { Text } from '@somaui/ui/typography';
+import { Button } from '@somaui/ui/button';
+import { InformationCircleIcon } from '@heroicons/react/24/solid';
+import Paper from '@site/src/components/paper';
 
 # Tooltip
 
 Tooltip displays informative text when users **hover** or **focus** an element.
 
 ```jsx
-"use client";
+'use client';
 
-import { Tooltip } from "@somaui/ui/tooltip";
+import { Tooltip } from '@somaui/ui/tooltip';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -31,10 +31,10 @@ The default style of the **Tooltip** component.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Tooltip } from "@somaui/ui/tooltip";
-import { Button } from "@somaui/ui/button";
+import { Tooltip } from '@somaui/ui/tooltip';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -52,33 +52,33 @@ export default function App() {
 You can change the size of **Tooltip** using [**size**](#tooltip-sizes) property.
 
 <Paper className="flex-row flex-wrap justify-around gap-4">
-  <Tooltip size="sm" content={"Small Tooltip!"}>
+  <Tooltip size="sm" content={'Small Tooltip!'}>
     <Button variant="outline">Small</Button>
   </Tooltip>
-  <Tooltip content={"Default Tooltip!"}>
+  <Tooltip content={'Default Tooltip!'}>
     <Button variant="outline">Default</Button>
   </Tooltip>
-  <Tooltip size="lg" content={"Large Tooltip!"}>
+  <Tooltip size="lg" content={'Large Tooltip!'}>
     <Button variant="outline">Large</Button>
   </Tooltip>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Tooltip } from "@somaui/ui/tooltip";
-import { Button } from "@somaui/ui/button";
+import { Tooltip } from '@somaui/ui/tooltip';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
     <>
-      <Tooltip size="sm" content={"Small Tooltip!"}>
+      <Tooltip size="sm" content={'Small Tooltip!'}>
         <Button variant="outline">Small</Button>
       </Tooltip>
-      <Tooltip content={"Default Tooltip!"}>
+      <Tooltip content={'Default Tooltip!'}>
         <Button variant="outline">Default</Button>
       </Tooltip>
-      <Tooltip size="lg" content={"Large Tooltip!"}>
+      <Tooltip size="lg" content={'Large Tooltip!'}>
         <Button variant="outline">Large</Button>
       </Tooltip>
     </>
@@ -93,59 +93,59 @@ export default function App() {
 You can change the color of **Tooltip** using [**color**](#tooltip-colors) property.
 
 <Paper className="flex-row flex-wrap justify-around gap-4">
-  <Tooltip content={"Primary Color!"}>
+  <Tooltip content={'Primary Color!'}>
     <Button variant="outline">Primary</Button>
   </Tooltip>
-  <Tooltip content={"Invert Color!"} color="invert">
+  <Tooltip content={'Invert Color!'} color="invert">
     <Button variant="outline">Invert</Button>
   </Tooltip>
-  <Tooltip content={"Secondary Color!"} color="secondary">
+  <Tooltip content={'Secondary Color!'} color="secondary">
     <Button variant="outline">Secondary</Button>
   </Tooltip>
-  <Tooltip content={"Danger Color!"} color="danger">
+  <Tooltip content={'Danger Color!'} color="danger">
     <Button variant="outline">Danger</Button>
   </Tooltip>
-  <Tooltip content={"Info Color!"} color="info">
+  <Tooltip content={'Info Color!'} color="info">
     <Button variant="outline">Info</Button>
   </Tooltip>
-  <Tooltip content={"Success Color!"} color="success">
+  <Tooltip content={'Success Color!'} color="success">
     <Button variant="outline">Success</Button>
   </Tooltip>
-  <Tooltip content={"Warning Color!"} color="warning">
+  <Tooltip content={'Warning Color!'} color="warning">
     <Button variant="outline">Warning</Button>
   </Tooltip>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Tooltip } from "@somaui/ui/tooltip";
-import { Button } from "@somaui/ui/button";
+import { Tooltip } from '@somaui/ui/tooltip';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
     <>
-      <Tooltip content={"Primary Color!"}>
+      <Tooltip content={'Primary Color!'}>
         <Button variant="outline">Primary</Button>
       </Tooltip>
-      <Tooltip content={"Invert Color!"} color="invert">
+      <Tooltip content={'Invert Color!'} color="invert">
         <Button variant="outline" className="border-gray-900">
           Invert
         </Button>
       </Tooltip>
-      <Tooltip content={"Secondary Color!"} color="secondary">
+      <Tooltip content={'Secondary Color!'} color="secondary">
         <Button variant="outline">Secondary</Button>
       </Tooltip>
-      <Tooltip content={"Danger Color!"} color="danger">
+      <Tooltip content={'Danger Color!'} color="danger">
         <Button variant="outline">Danger</Button>
       </Tooltip>
-      <Tooltip content={"Info Color!"} color="info">
+      <Tooltip content={'Info Color!'} color="info">
         <Button variant="outline">Info</Button>
       </Tooltip>
-      <Tooltip content={"Success Color!"} color="success">
+      <Tooltip content={'Success Color!'} color="success">
         <Button variant="outline">Success</Button>
       </Tooltip>
-      <Tooltip content={"Warning Color!"} color="warning">
+      <Tooltip content={'Warning Color!'} color="warning">
         <Button variant="outline">Warning</Button>
       </Tooltip>
     </>
@@ -163,8 +163,8 @@ You can use custom content inside **Tooltip**
   <Tooltip
     content={
       <div className="w-40 text-start">
-        <div className="inline-flex items-center gap-2 text-base mb-1.5">
-          <InformationCircleIcon className="w-5 h-5" />
+        <div className="mb-1.5 inline-flex items-center gap-2 text-base">
+          <InformationCircleIcon className="h-5 w-5" />
           <Text fontWeight="medium">Tooltip Title</Text>
         </div>
         <Text className="text-sm text-gray-200">
@@ -179,16 +179,16 @@ You can use custom content inside **Tooltip**
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Tooltip, Text, Button } from "somaui";
-import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import { Tooltip, Text, Button } from 'somaui';
+import { InformationCircleIcon } from '@heroicons/react/24/solid';
 
 function CustomContent() {
   return (
     <div className="w-40 text-start">
-      <div className="inline-flex items-center gap-2 text-base mb-1.5">
-        <InformationCircleIcon className="w-5 h-5" />
+      <div className="mb-1.5 inline-flex items-center gap-2 text-base">
+        <InformationCircleIcon className="h-5 w-5" />
         <Text fontWeight="medium">Tooltip Title</Text>
       </div>
       <Text className="text-sm text-gray-600">
@@ -214,38 +214,38 @@ export default function App() {
 You can change placement of the **Tooltip** using property [**placement**](#tooltip-placements).
 
 <Paper className="h-[560px]">
-  <div className="relative m-auto flex h-96 max-w-xl w-full flex-wrap justify-center gap-8">
-    <Tooltip content={"Left"} placement="left">
+  <div className="relative m-auto flex h-96 w-full max-w-xl flex-wrap justify-center gap-8">
+    <Tooltip content={'Left'} placement="left">
       <Button variant="outline" className="absolute top-1/2 left-0">
         L
       </Button>
     </Tooltip>
-    <Tooltip content={"Right"} placement="right">
+    <Tooltip content={'Right'} placement="right">
       <Button variant="outline" className="absolute top-1/2 right-0">
         R
       </Button>
     </Tooltip>
-    <Tooltip content={"Top"} placement="top">
+    <Tooltip content={'Top'} placement="top">
       <Button variant="outline" className="absolute top-0">
         T
       </Button>
     </Tooltip>
-    <Tooltip content={"Bottom"} placement="bottom">
+    <Tooltip content={'Bottom'} placement="bottom">
       <Button variant="outline" className="absolute -bottom-5">
         B
       </Button>
     </Tooltip>
-    <Tooltip content={"Top Start"} placement="top-start">
-      <Button variant="outline" className="absolute left-10 xl:left-20 top-0">
+    <Tooltip content={'Top Start'} placement="top-start">
+      <Button variant="outline" className="absolute top-0 left-10 xl:left-20">
         TS
       </Button>
     </Tooltip>
-    <Tooltip content={"Top End"} placement="top-end">
+    <Tooltip content={'Top End'} placement="top-end">
       <Button variant="outline" className="absolute top-0 right-10 xl:right-20">
         TE
       </Button>
     </Tooltip>
-    <Tooltip content={"Bottom Start"} placement="bottom-start">
+    <Tooltip content={'Bottom Start'} placement="bottom-start">
       <Button
         variant="outline"
         className="absolute -bottom-5 left-10 xl:left-20"
@@ -253,30 +253,30 @@ You can change placement of the **Tooltip** using property [**placement**](#tool
         BS
       </Button>
     </Tooltip>
-    <Tooltip content={"Bottom End"} placement="bottom-end">
+    <Tooltip content={'Bottom End'} placement="bottom-end">
       <Button
         variant="outline"
-        className="absolute -bottom-5 right-10 xl:right-20"
+        className="absolute right-10 -bottom-5 xl:right-20"
       >
         BE
       </Button>
     </Tooltip>
-    <Tooltip content={"Left Start"} placement="left-start">
-      <Button variant="outline" className="absolute left-8 top-24">
+    <Tooltip content={'Left Start'} placement="left-start">
+      <Button variant="outline" className="absolute top-24 left-8">
         LS
       </Button>
     </Tooltip>
-    <Tooltip content={"Left End"} placement="left-end">
+    <Tooltip content={'Left End'} placement="left-end">
       <Button variant="outline" className="absolute bottom-16 left-8">
         LE
       </Button>
     </Tooltip>
-    <Tooltip content={"Right Start"} placement="right-start">
-      <Button variant="outline" className="absolute right-8 top-24">
+    <Tooltip content={'Right Start'} placement="right-start">
+      <Button variant="outline" className="absolute top-24 right-8">
         RS
       </Button>
     </Tooltip>
-    <Tooltip content={"Right End"} placement="right-end">
+    <Tooltip content={'Right End'} placement="right-end">
       <Button variant="outline" className="absolute right-8 bottom-16">
         RE
       </Button>
@@ -285,44 +285,44 @@ You can change placement of the **Tooltip** using property [**placement**](#tool
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Tooltip } from "@somaui/ui/tooltip";
-import { Button } from "@somaui/ui/button";
+import { Tooltip } from '@somaui/ui/tooltip';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
     <div className="flex h-[560px] flex-col">
-      <div className="relative m-auto flex h-96 max-w-xl w-full flex-wrap justify-center gap-8">
-        <Tooltip content={"Left"} placement="left">
+      <div className="relative m-auto flex h-96 w-full max-w-xl flex-wrap justify-center gap-8">
+        <Tooltip content={'Left'} placement="left">
           <Button variant="outline" className="absolute top-1/2 left-0">
             L
           </Button>
         </Tooltip>
-        <Tooltip content={"Right"} placement="right">
+        <Tooltip content={'Right'} placement="right">
           <Button variant="outline" className="absolute top-1/2 right-0">
             R
           </Button>
         </Tooltip>
-        <Tooltip content={"Top"} placement="top">
+        <Tooltip content={'Top'} placement="top">
           <Button variant="outline" className="absolute top-0">
             T
           </Button>
         </Tooltip>
-        <Tooltip content={"Bottom"} placement="bottom">
+        <Tooltip content={'Bottom'} placement="bottom">
           <Button variant="outline" className="absolute -bottom-5">
             B
           </Button>
         </Tooltip>
-        <Tooltip content={"Top Start"} placement="top-start">
+        <Tooltip content={'Top Start'} placement="top-start">
           <Button
             variant="outline"
-            className="absolute left-10 xl:left-20 top-0"
+            className="absolute top-0 left-10 xl:left-20"
           >
             TS
           </Button>
         </Tooltip>
-        <Tooltip content={"Top End"} placement="top-end">
+        <Tooltip content={'Top End'} placement="top-end">
           <Button
             variant="outline"
             className="absolute top-0 right-10 xl:right-20"
@@ -330,7 +330,7 @@ export default function App() {
             TE
           </Button>
         </Tooltip>
-        <Tooltip content={"Bottom Start"} placement="bottom-start">
+        <Tooltip content={'Bottom Start'} placement="bottom-start">
           <Button
             variant="outline"
             className="absolute -bottom-5 left-10 xl:left-20"
@@ -338,30 +338,30 @@ export default function App() {
             BS
           </Button>
         </Tooltip>
-        <Tooltip content={"Bottom End"} placement="bottom-end">
+        <Tooltip content={'Bottom End'} placement="bottom-end">
           <Button
             variant="outline"
-            className="absolute -bottom-5 right-10 xl:right-20"
+            className="absolute right-10 -bottom-5 xl:right-20"
           >
             BE
           </Button>
         </Tooltip>
-        <Tooltip content={"Left Start"} placement="left-start">
-          <Button variant="outline" className="absolute left-8 top-24">
+        <Tooltip content={'Left Start'} placement="left-start">
+          <Button variant="outline" className="absolute top-24 left-8">
             LS
           </Button>
         </Tooltip>
-        <Tooltip content={"Left End"} placement="left-end">
+        <Tooltip content={'Left End'} placement="left-end">
           <Button variant="outline" className="absolute bottom-16 left-8">
             LE
           </Button>
         </Tooltip>
-        <Tooltip content={"Right Start"} placement="right-start">
-          <Button variant="outline" className="absolute right-8 top-24">
+        <Tooltip content={'Right Start'} placement="right-start">
+          <Button variant="outline" className="absolute top-24 right-8">
             RS
           </Button>
         </Tooltip>
-        <Tooltip content={"Right End"} placement="right-end">
+        <Tooltip content={'Right End'} placement="right-end">
           <Button variant="outline" className="absolute right-8 bottom-16">
             RE
           </Button>
@@ -406,14 +406,14 @@ Here is the API documentation of the Tooltip component. You can use the followin
 
 ```ts
 type TooltipPlacements =
-  | "left"
-  | "right"
-  | "top"
-  | "bottom"
-  | "left-start"
-  | "left-end"
-  | "right-start"
-  | "right-end";
+  | 'left'
+  | 'right'
+  | 'top'
+  | 'bottom'
+  | 'left-start'
+  | 'left-end'
+  | 'right-start'
+  | 'right-end';
 ```
 
 <div className="mb-10" />
@@ -430,14 +430,14 @@ type TooltipChildren = Element & { ref?: RefObject<any> | undefined };
 
 ```ts
 type TooltipColors =
-  | "primary"
-  | "invert"
-  | "secondary"
-  | "danger"
-  | "info"
-  | "success"
-  | "warning"
-  | "invert";
+  | 'primary'
+  | 'invert'
+  | 'secondary'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'invert';
 ```
 
 <div className="mb-10" />
@@ -445,7 +445,7 @@ type TooltipColors =
 ### Tooltip Sizes
 
 ```ts
-type TooltipSizes = "sm" | "md" | "lg";
+type TooltipSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />
@@ -453,5 +453,5 @@ type TooltipSizes = "sm" | "md" | "lg";
 ### Tooltip Shadows
 
 ```ts
-type TooltipShadows = "sm" | "md" | "lg" | "xl";
+type TooltipShadows = 'sm' | 'md' | 'lg' | 'xl';
 ```

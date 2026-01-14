@@ -1,51 +1,53 @@
-import React from "react";
-import RcTable from "rc-table";
-import { tv, type VariantProps } from "tailwind-variants";
-import { Empty, cn } from "@somaui/ui";
+import React from 'react';
+import RcTable from 'rc-table';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { Empty, cn } from '@somaui/ui';
 
 export type ExtractProps<T> = T extends React.ComponentType<infer P> ? P : T;
 
 const tableStyles = tv({
-  base: "somaui-rc-table [&_.rc-table-content]:overflow-x-auto [&_table]:w-full [&_.rc-table-row:hover]:bg-muted/60",
+  base: 'somaui-rc-table [&_.rc-table-content]:overflow-x-auto [&_table]:w-full [&_.rc-table-row:hover]:bg-muted/60',
   variants: {
     variant: {
       modern:
-        "[&_thead]:bg-muted/50 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-border]",
-      minimal: "[&_thead]:bg-muted/50]",
+        '[&_thead]:bg-muted/50 [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-border]',
+      minimal: '[&_thead]:bg-muted/50]',
       elegant:
-        "[&_thead]:border-y [&_thead]:border-border [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-border]",
+        '[&_thead]:border-y [&_thead]:border-border [&_td.rc-table-cell]:border-b [&_td.rc-table-cell]:border-border]',
     },
     striped: {
-      true: "[&_.rc-table-row:nth-child(2n)_.rc-table-cell]:bg-muted/40]",
+      true: '[&_.rc-table-row:nth-child(2n)_.rc-table-cell]:bg-muted/40]',
     },
   },
   defaultVariants: {
-    variant: "modern",
+    variant: 'modern',
     striped: false,
   },
 });
 
 const theadStyles = tv({
-  base: "[&_thead]:text-left [&_thead]:rtl:text-right [&_th.rc-table-cell]:uppercase [&_th.rc-table-cell]:text-xs [&_th.rc-table-cell]:font-medium [&_th.rc-table-cell]:tracking-wide",
+  base: '[&_thead]:text-left [&_thead]:rtl:text-right [&_th.rc-table-cell]:uppercase [&_th.rc-table-cell]:text-xs [&_th.rc-table-cell]:font-medium [&_th.rc-table-cell]:tracking-wide',
 });
 
 const tCellStyles = tv({
-  base: "[&_.rc-table-cell]:px-3 [&_th.rc-table-cell]:py-3 [&_td.rc-table-cell]:py-4]",
+  base: '[&_.rc-table-cell]:px-3 [&_th.rc-table-cell]:py-3 [&_td.rc-table-cell]:py-4]',
 });
 
 type RCTableProps = ExtractProps<typeof RcTable>;
 
-export interface TableProps
-  extends Omit<RCTableProps, "className" | "emptyText"> {
+export interface TableProps extends Omit<
+  RCTableProps,
+  'className' | 'emptyText'
+> {
   emptyText?: React.ReactElement;
-  variant?: VariantProps<typeof tableStyles>["variant"];
+  variant?: VariantProps<typeof tableStyles>['variant'];
   striped?: boolean;
   className?: string;
 }
 
 export default function Table({
   striped,
-  variant = "modern",
+  variant = 'modern',
   emptyText,
   className,
   ...props
@@ -64,4 +66,4 @@ export default function Table({
   );
 }
 
-Table.displayName = "Table";
+Table.displayName = 'Table';

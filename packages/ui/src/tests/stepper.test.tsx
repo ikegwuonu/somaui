@@ -12,7 +12,7 @@ test('Renders stepper component', () => {
       <Stepper.Step title="Step 3" />
     </Stepper>
   );
-  
+
   expect(screen.getByText('Step 1')).toBeInTheDocument();
   expect(screen.getByText('Step 2')).toBeInTheDocument();
   expect(screen.getByText('Step 3')).toBeInTheDocument();
@@ -26,7 +26,7 @@ test('Renders stepper with current index', () => {
       <Stepper.Step title="Step 3" />
     </Stepper>
   );
-  
+
   expect(screen.getByText('Step 1')).toBeInTheDocument();
   expect(screen.getByText('Step 2')).toBeInTheDocument();
   expect(screen.getByText('Step 3')).toBeInTheDocument();
@@ -39,7 +39,7 @@ test('Renders stepper with descriptions', () => {
       <Stepper.Step title="Step 2" description="Second step" />
     </Stepper>
   );
-  
+
   expect(screen.getByText('First step')).toBeInTheDocument();
   expect(screen.getByText('Second step')).toBeInTheDocument();
 });
@@ -51,7 +51,7 @@ test('Renders vertical stepper', () => {
       <Stepper.Step title="Step 2" />
     </Stepper>
   );
-  
+
   const stepperRoot = container.querySelector('.rizzui-stepper-root');
   expect(stepperRoot).toHaveClass('flex-col');
 });
@@ -63,7 +63,7 @@ test('Renders stepper with dot variant', () => {
       <Stepper.Step title="Step 2" />
     </Stepper>
   );
-  
+
   expect(screen.getByText('Step 1')).toBeInTheDocument();
   expect(screen.getByText('Step 2')).toBeInTheDocument();
 });
@@ -76,9 +76,8 @@ test('Renders stepper step with custom status', () => {
       <Stepper.Step title="Step 3" status="error" />
     </Stepper>
   );
-  
+
   expect(screen.getByText('Step 1')).toBeInTheDocument();
   expect(screen.getByText('Step 2')).toBeInTheDocument();
   expect(screen.getByText('Step 3')).toBeInTheDocument();
 });
-

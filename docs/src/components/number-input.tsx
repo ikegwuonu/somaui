@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   NumberInput,
   NumberInputProps,
   usePatternFormat,
-} from "./integrations/number-input";
+} from './integrations/number-input';
 
-import { Input } from "@somaui/ui";
+import { Input } from '@somaui/ui';
 
 type CardExpiryType = NumberInputProps & {
   isMask?: boolean;
@@ -41,7 +41,7 @@ export default function NumberInputDefault({
 function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
   const { format } = usePatternFormat({
     ...props,
-    format: "##/##",
+    format: '##/##',
   });
 
   const _format = (val: string) => {
@@ -54,7 +54,7 @@ function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
       if (Number(month) === 0) {
         month = `01`;
       } else if (Number(month) > 12) {
-        month = "12";
+        month = '12';
       }
     }
     return isMask ? format(`${month}${year}`) : `${month}/${year}`;
@@ -64,7 +64,7 @@ function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
 }
 
 export function NumberInputClearable() {
-  const [inputValue, setInputValue] = React.useState("");
+  const [inputValue, setInputValue] = React.useState('');
 
   return (
     <CardExpiry
@@ -77,8 +77,8 @@ export function NumberInputClearable() {
         value: inputValue,
         onChange: (e) => setInputValue(e.target.value),
         clearable: true,
-        onClear: () => setInputValue(""),
-        label: "Clearable",
+        onClear: () => setInputValue(''),
+        label: 'Clearable',
       }}
     />
   );
@@ -87,7 +87,7 @@ export function NumberInputClearable() {
 function CardExpiryTwo({ isMask = false, ...props }: CardExpiryType) {
   const { format } = usePatternFormat({
     ...props,
-    format: "##/##",
+    format: '##/##',
   });
 
   const _format = (val: string) => {
@@ -100,7 +100,7 @@ function CardExpiryTwo({ isMask = false, ...props }: CardExpiryType) {
       if (Number(month) === 0) {
         month = `01`;
       } else if (Number(month) > 12) {
-        month = "12";
+        month = '12';
       }
     }
     return isMask ? format(`${month}${year}`) : `${month}/${year}`;
@@ -110,7 +110,7 @@ function CardExpiryTwo({ isMask = false, ...props }: CardExpiryType) {
 }
 
 export function NumberInputCardExpiry() {
-  const [inputValue, setInputValue] = React.useState("");
+  const [inputValue, setInputValue] = React.useState('');
 
   return (
     <CardExpiryTwo
@@ -123,8 +123,8 @@ export function NumberInputCardExpiry() {
         value: inputValue,
         onChange: (e) => setInputValue(e.target.value),
         clearable: true,
-        onClear: () => setInputValue(""),
-        label: "Card Expiry",
+        onClear: () => setInputValue(''),
+        label: 'Card Expiry',
       }}
     />
   );
@@ -138,7 +138,7 @@ export function NumberInputPhoneNumber() {
       allowEmptyFormatting
       mask="_"
       customInput={Input as React.ComponentType<unknown>}
-      {...{ label: "US Phone Number" }}
+      {...{ label: 'US Phone Number' }}
     />
   );
 }
@@ -151,7 +151,7 @@ export function NumberInputWithGap() {
   function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
     const { format } = usePatternFormat({
       ...props,
-      format: "##/##",
+      format: '##/##',
     });
     const _format = (val: string) => {
       let month = val.substring(0, 2);
@@ -161,9 +161,9 @@ export function NumberInputWithGap() {
         month = `0${month[0]}`;
       } else if (month.length === 2) {
         if (Number(month) === 0) {
-          month = "01";
+          month = '01';
         } else if (Number(month) > 12) {
-          month = "12";
+          month = '12';
         }
       }
       return isMask ? format(`${month}${year}`) : `${month}/${year}`;
@@ -179,25 +179,25 @@ export function NumberInputWithGap() {
         value="411111"
         mask="_"
         customInput={Input as React.ComponentType<unknown>}
-        {...{ label: "Credit Card Input Group", variant: "outline" }}
+        {...{ label: 'Credit Card Input Group', variant: 'outline' }}
       />
       <div className="grid grid-cols-2 gap-2">
         <CardExpiry
           isMask
           formatType="custom"
           placeholder="MM/YY"
-          mask={["M", "M", "Y", "Y"]}
+          mask={['M', 'M', 'Y', 'Y']}
           allowEmptyFormatting
           customInput={Input as React.ComponentType<unknown>}
-          {...{ variant: "outline" }}
+          {...{ variant: 'outline' }}
         />
         <NumberInput
           formatType="pattern"
           format="###"
-          mask={["C", "V", "C"]}
+          mask={['C', 'V', 'C']}
           allowEmptyFormatting
           customInput={Input as React.ComponentType<unknown>}
-          {...{ variant: "outline" }}
+          {...{ variant: 'outline' }}
         />
       </div>
     </div>
@@ -208,7 +208,7 @@ export function NumberInputWithNoGap() {
   function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
     const { format } = usePatternFormat({
       ...props,
-      format: "##/##",
+      format: '##/##',
     });
     const _format = (val: string) => {
       let month = val.substring(0, 2);
@@ -218,9 +218,9 @@ export function NumberInputWithNoGap() {
         month = `0${month[0]}`;
       } else if (month.length === 2) {
         if (Number(month) === 0) {
-          month = "01";
+          month = '01';
         } else if (Number(month) > 12) {
-          month = "12";
+          month = '12';
         }
       }
       return isMask ? format(`${month}${year}`) : `${month}/${year}`;
@@ -237,10 +237,10 @@ export function NumberInputWithNoGap() {
         mask="_"
         customInput={Input as React.ComponentType<unknown>}
         {...{
-          label: "Credit Card Input Group",
-          variant: "outline",
+          label: 'Credit Card Input Group',
+          variant: 'outline',
           inputClassName:
-            "border-b-0 rounded-b-none hover:border-b hover:rounded-b focus:border-b focus:rounded-b",
+            'border-b-0 rounded-b-none hover:border-b hover:rounded-b focus:border-b focus:rounded-b',
         }}
       />
       <div className="grid grid-cols-2">
@@ -248,25 +248,25 @@ export function NumberInputWithNoGap() {
           isMask
           formatType="custom"
           placeholder="MM/YY"
-          mask={["M", "M", "Y", "Y"]}
+          mask={['M', 'M', 'Y', 'Y']}
           allowEmptyFormatting
           customInput={Input as React.ComponentType<unknown>}
           {...{
-            variant: "outline",
+            variant: 'outline',
             inputClassName:
-              "rounded-t-none rounded-br-none hover:rounded-t hover:rounded-br focus:rounded-t focus:rounded-br",
+              'rounded-t-none rounded-br-none hover:rounded-t hover:rounded-br focus:rounded-t focus:rounded-br',
           }}
         />
         <NumberInput
           formatType="pattern"
           format="###"
-          mask={["C", "V", "C"]}
+          mask={['C', 'V', 'C']}
           allowEmptyFormatting
           customInput={Input as React.ComponentType<unknown>}
           {...{
-            variant: "outline",
+            variant: 'outline',
             inputClassName:
-              "rounded-t-none rounded-bl-none border-l-0 hover:rounded-t hover:rounded-bl hover:border-l focus:rounded-t focus:rounded-bl focus:border-l",
+              'rounded-t-none rounded-bl-none border-l-0 hover:rounded-t hover:rounded-bl hover:border-l focus:rounded-t focus:rounded-bl focus:border-l',
           }}
         />
       </div>

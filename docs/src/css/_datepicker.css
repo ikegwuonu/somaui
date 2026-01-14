@@ -140,7 +140,7 @@
 .react-datepicker .react-datepicker__day--range-start,
 .react-datepicker .react-datepicker__day--range-end,
 .react-datepicker .react-datepicker__day--selected {
-  @apply rounded-[var(--border-radius)] border-none bg-[var(--primary)] font-normal leading-7 text-[var(--primary-foreground)];
+  @apply rounded-[var(--border-radius)] border-none bg-[var(--primary)] leading-7 font-normal text-[var(--primary-foreground)];
   @apply hover:bg-[var(--primary-dark)] hover:text-[var(--primary-foreground)];
   @apply dark:bg-[var(--primary)] dark:text-[var(--primary-foreground)];
   @apply dark:hover:bg-[var(--primary-dark)] dark:hover:text-[var(--primary-foreground)];
@@ -266,7 +266,7 @@
 /* Year and month dropdown arrow */
 .react-datepicker .react-datepicker__year-read-view--down-arrow,
 .react-datepicker .react-datepicker__month-read-view--down-arrow {
-  @apply top-[5px] h-[7px] w-[7px] border-r-[length:var(--border-width)] border-t-[length:var(--border-width)] border-[var(--muted)];
+  @apply top-[5px] h-[7px] w-[7px] border-t-[length:var(--border-width)] border-r-[length:var(--border-width)] border-[var(--muted)];
 }
 
 /* Sub-header containing year and month dropdown */

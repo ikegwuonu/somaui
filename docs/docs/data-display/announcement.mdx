@@ -2,16 +2,16 @@
 sidebar_position: 3
 ---
 
-import { Announcement } from "@somaui/ui/announcement";
-import { ChevronRightIcon, MegaphoneIcon } from "@heroicons/react/24/outline";
-import Paper from "@site/src/components/paper";
+import { Announcement } from '@somaui/ui/announcement';
+import { ChevronRightIcon, MegaphoneIcon } from '@heroicons/react/24/outline';
+import Paper from '@site/src/components/paper';
 
 # Announcement
 
 A component for new product announcement or news.
 
 ```jsx
-import { Announcement } from "@somaui/ui/announcement";
+import { Announcement } from '@somaui/ui/announcement';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -31,7 +31,7 @@ The default style of **Announcement** component.
 </Paper>
 
 ```jsx
-import { Announcement } from "@somaui/ui/announcement";
+import { Announcement } from '@somaui/ui/announcement';
 
 export default function App() {
   return (
@@ -52,7 +52,7 @@ export default function App() {
 
 You can change the size of **Announcement** using [**size**](#announcement-sizes) property.
 
-<Paper className="gap-4 justify-start items-start">
+<Paper className="items-start justify-start gap-4">
   <Announcement
     className="flex-wrap"
     size="sm"
@@ -86,7 +86,7 @@ You can change the size of **Announcement** using [**size**](#announcement-sizes
 </Paper>
 
 ```jsx
-import { Announcement } from "@somaui/ui/announcement";
+import { Announcement } from '@somaui/ui/announcement';
 
 export default function App() {
   return (
@@ -184,7 +184,7 @@ You can change the color of **Announcement** using [**color**](#announcement-col
 </Paper>
 
 ```tsx
-import { Announcement } from "@somaui/ui/announcement";
+import { Announcement } from '@somaui/ui/announcement';
 
 export default function App() {
   return (
@@ -248,7 +248,7 @@ export default function App() {
 
 You can change background color of **Announcement** using **bgColor** property.
 
-<Paper className="gap-4 justify-start items-start">
+<Paper className="items-start justify-start gap-4">
   <Announcement
     className="flex-wrap"
     badgeText="White Background"
@@ -267,7 +267,7 @@ You can change background color of **Announcement** using **bgColor** property.
 </Paper>
 
 ```jsx
-import { Announcement } from "@somaui/ui/announcement";
+import { Announcement } from '@somaui/ui/announcement';
 
 export default function App() {
   return (
@@ -298,12 +298,12 @@ export default function App() {
 
 You can add icons to **Announcement** using **startIcon** & **endIcon** property.
 
-<Paper className="gap-4 justify-start items-start">
+<Paper className="items-start justify-start gap-4">
   <Announcement
     className="flex-wrap"
     highlightedText="25% discount"
     color="primary"
-    startIcon={<MegaphoneIcon className="w-5 text-primary-dark" />}
+    startIcon={<MegaphoneIcon className="text-primary-dark w-5" />}
   >
     on our every product
   </Announcement>
@@ -312,15 +312,15 @@ You can add icons to **Announcement** using **startIcon** & **endIcon** property
     badgeText="Trending"
     highlightedText="25% discount"
     color="danger"
-    endIcon={<ChevronRightIcon className="w-3.5 ml-1" />}
+    endIcon={<ChevronRightIcon className="ml-1 w-3.5" />}
   >
     on our every product
   </Announcement>
 </Paper>
 
 ```jsx
-import { Announcement } from "@somaui/ui/announcement";
-import { ChevronRightIcon, MegaphoneIcon } from "@heroicons/react/24/outline";
+import { Announcement } from '@somaui/ui/announcement';
+import { ChevronRightIcon, MegaphoneIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
@@ -329,7 +329,7 @@ export default function App() {
         className="flex-wrap"
         highlightedText="25% discount"
         color="primary"
-        startIcon={<MegaphoneIcon className="w-5 text-primary-dark" />}
+        startIcon={<MegaphoneIcon className="text-primary-dark w-5" />}
       >
         on our every product
       </Announcement>
@@ -338,7 +338,7 @@ export default function App() {
         badgeText="Trending"
         highlightedText="25% discount"
         color="danger"
-        endIcon={<ChevronRightIcon className="w-3.5 ml-1" />}
+        endIcon={<ChevronRightIcon className="ml-1 w-3.5" />}
       >
         on our every product
       </Announcement>
@@ -382,7 +382,7 @@ Here is the API documentation of the Announcement component.
 ### Announcement Sizes
 
 ```ts
-type AnnouncementSizes = "sm" | "md" | "lg";
+type AnnouncementSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />
@@ -391,10 +391,10 @@ type AnnouncementSizes = "sm" | "md" | "lg";
 
 ```ts
 type AnnouncementColors =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "info"
-  | "success"
-  | "warning";
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning';
 ```

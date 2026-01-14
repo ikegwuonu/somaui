@@ -1,7 +1,7 @@
 #__docusaurus {
   overflow: hidden;
   nav.navbar {
-    @apply bg-white/[0.7] backdrop-blur-lg z-[9999] border-b border-border;
+    @apply border-border z-[9999] border-b bg-white/[0.7] backdrop-blur-lg;
     box-shadow: 0px 1px 0 var(--border-color);
     &.navbar--fixed-top {
       position: fixed;
@@ -12,7 +12,7 @@
     padding: 1rem;
     .header-github-link::before {
       display: flex;
-      content: "View on Github";
+      content: 'View on Github';
       color: var(--ifm-color-gray-600);
       font-size: 14px;
       font-weight: 500;
@@ -102,7 +102,7 @@
           }
           .navbar__search-input {
             --ifm-navbar-search-input-background-color: var(--gray-50);
-            @apply ring-[1.5px] ring-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-900 md:w-full rounded-full;
+            @apply rounded-full ring-[1.5px] ring-gray-300 focus:ring-2 focus:ring-gray-900 focus:outline-none md:w-full;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-search-icon lucide-search'%3E%3Cpath d='m21 21-4.34-4.34'/%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3C/svg%3E");
             background-position: 12px;
             background-size: 16px;
@@ -128,13 +128,13 @@
           }
 
           /* dropdown style */
-          span[class*="dropdownMenu"] {
+          span[class*='dropdownMenu'] {
             border: 1px solid #70747325;
             background: var(--ifm-navbar-background-color);
             box-shadow: none;
             padding-right: 0 !important;
-            span[class*="suggestions"] {
-              div[class*="suggestion"] {
+            span[class*='suggestions'] {
+              div[class*='suggestion'] {
                 height: auto;
                 box-shadow: none;
                 padding: 0.5rem 1rem;
@@ -144,7 +144,7 @@
                 border-radius: 6px;
                 &:not(:last-child) {
                   &::after {
-                    content: "";
+                    content: '';
                     position: absolute;
                     left: 0;
                     bottom: -5px;
@@ -157,7 +157,7 @@
                   color: var(--ifm-menu-color) !important;
                   text-decoration: none !important;
                 }
-                span[class*="hitPath"] {
+                span[class*='hitPath'] {
                   color: var(--ifm-sidebar-icon-color) !important;
                   mark,
                   > span,
@@ -166,7 +166,7 @@
                   }
                 }
               }
-              div[class*="cursor"] {
+              div[class*='cursor'] {
                 background-color: var(--ifm-menu-color-background-hover);
                 mark,
                 > span,
@@ -176,7 +176,7 @@
                     text-decoration: none;
                   }
                 }
-                span[class*="hitPath"] {
+                span[class*='hitPath'] {
                   color: var(--ifm-sidebar-icon-color) !important;
                   mark,
                   > span,
@@ -185,17 +185,17 @@
                   }
                 }
               }
-              span[class*="hitIcon"] {
+              span[class*='hitIcon'] {
                 display: none;
               }
-              span[class*="hitAction"] {
+              span[class*='hitAction'] {
                 display: none;
               }
-              span[class*="hitTree"] {
+              span[class*='hitTree'] {
                 display: none;
               }
             }
-            div[class*="hitFooter"] {
+            div[class*='hitFooter'] {
               background-color: var(--ifm-menu-color-background-hover);
               border-radius: 8px;
               color: var(--ifm-menu-color);
@@ -238,20 +238,20 @@
           background-repeat: no-repeat;
           background-position: center;
           background-size: 19px;
-          content: "";
+          content: '';
         }
         .header-github-link {
           margin-left: 0.75rem;
           order: 3;
         }
-        div[class*="colorModeToggle_"] {
+        div[class*='colorModeToggle_'] {
           order: 2;
           margin-left: 1rem;
         }
-        div[class*="colorModeToggle_"] button:hover {
+        div[class*='colorModeToggle_'] button:hover {
           background-color: transparent;
         }
-        svg[class*="iconExternalLink_"] {
+        svg[class*='iconExternalLink_'] {
           @apply hidden;
         }
       }
@@ -406,7 +406,7 @@
   }
 }
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   #__docusaurus {
     nav.navbar {
       background-color: #00000003;
@@ -420,12 +420,12 @@ html[data-theme="dark"] {
               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23777' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' /%3E%3C/svg%3E%0A");
             }
             /* dropdown style */
-            span[class*="dropdownMenu"] {
-              span[class*="suggestions"] {
-                div[class*="suggestion"] {
+            span[class*='dropdownMenu'] {
+              span[class*='suggestions'] {
+                div[class*='suggestion'] {
                   background-color: transparent;
                 }
-                div[class*="cursor"] {
+                div[class*='cursor'] {
                   background-color: var(--ifm-menu-color-background-hover);
                 }
               }

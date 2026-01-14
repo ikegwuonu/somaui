@@ -8,22 +8,22 @@ import {
   Select,
   Text,
   Title,
-} from "@somaui/ui";
-import { type Table as ReactTableType } from "@tanstack/react-table";
+} from '@somaui/ui';
+import { type Table as ReactTableType } from '@tanstack/react-table';
 import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
   TrashIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/20/solid';
 
 interface TableToolbarProps<T extends Record<string, any>> {
   table: ReactTableType<T>;
 }
 
 const statusOptions = [
-  { label: "Paid", value: "Paid" },
-  { label: "Pending", value: "Pending" },
-  { label: "Draft", value: "Draft" },
+  { label: 'Paid', value: 'Paid' },
+  { label: 'Pending', value: 'Pending' },
+  { label: 'Draft', value: 'Draft' },
 ];
 
 export default function TableToolbar<TData extends Record<string, any>>({
@@ -33,21 +33,21 @@ export default function TableToolbar<TData extends Record<string, any>>({
     table.getState().globalFilter || table.getState().columnFilters.length > 0;
 
   return (
-    <div className="flex items-center justify-between w-full mb-4">
+    <div className="mb-4 flex w-full items-center justify-between">
       <Input
         type="search"
         placeholder="Search by anything..."
-        value={table.getState().globalFilter ?? ""}
-        onClear={() => table.setGlobalFilter("")}
+        value={table.getState().globalFilter ?? ''}
+        onClear={() => table.setGlobalFilter('')}
         onChange={(e) => table.setGlobalFilter(e.target.value)}
         clearable={true}
         prefix={<MagnifyingGlassIcon className="size-4" />}
       />
-      <div className="flex items-center gap-4 flex-1 max-w-xs">
+      <div className="flex max-w-xs flex-1 items-center gap-4">
         <Select
           options={statusOptions}
-          value={table.getColumn("status")?.getFilterValue() ?? []}
-          onChange={(e) => table.getColumn("status")?.setFilterValue(e)}
+          value={table.getColumn('status')?.getFilterValue() ?? []}
+          onChange={(e) => table.getColumn('status')?.setFilterValue(e)}
           getOptionValue={(option: { value: any }) => option.value}
           getOptionDisplayValue={(option: { value: string }) =>
             renderOptionDisplayValue(option.value)
@@ -56,7 +56,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
           displayValue={(selected: string) =>
             renderOptionDisplayValue(selected)
           }
-          className={"w-56"}
+          className={'w-56'}
           dropdownClassName="!z-20 h-auto"
           selectClassName="ring-0"
         />
@@ -79,7 +79,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
             <Popover.Trigger>
               <ActionIcon
                 variant="outline"
-                title={"Toggle Columns"}
+                title={'Toggle Columns'}
                 className="shrink-0"
               >
                 <AdjustmentsHorizontalIcon className="size-[18px]" />
@@ -93,7 +93,7 @@ export default function TableToolbar<TData extends Record<string, any>>({
                 <div className="grid grid-cols-1 gap-4">
                   {table.getAllLeafColumns().map((column) => {
                     return (
-                      typeof column.columnDef.header === "string" &&
+                      typeof column.columnDef.header === 'string' &&
                       column.columnDef.header.length > 0 && (
                         <Checkbox
                           size="sm"
@@ -119,36 +119,36 @@ export default function TableToolbar<TData extends Record<string, any>>({
 
 export function renderOptionDisplayValue(value: string) {
   switch (value.toLowerCase()) {
-    case "pending":
+    case 'pending':
       return (
         <div className="flex items-center gap-2">
           <Badge color="warning" renderAsDot />
-          <Text className="font-medium capitalize text-orange-dark">
+          <Text className="text-orange-dark font-medium capitalize">
             {value}
           </Text>
         </div>
       );
-    case "paid":
+    case 'paid':
       return (
         <div className="flex items-center gap-2">
           <Badge color="success" renderAsDot />
-          <Text className="font-medium capitalize text-green-dark">
+          <Text className="text-green-dark font-medium capitalize">
             {value}
           </Text>
         </div>
       );
-    case "overdue":
+    case 'overdue':
       return (
         <div className="flex items-center gap-2">
           <Badge color="danger" renderAsDot />
-          <Text className="font-medium capitalize text-red-dark">{value}</Text>
+          <Text className="text-red-dark font-medium capitalize">{value}</Text>
         </div>
       );
     default:
       return (
         <div className="flex items-center gap-2">
           <Badge renderAsDot className="bg-[var(--muted-foreground)]" />
-          <Text className="font-medium capitalize text-[var(--text-secondary)]">
+          <Text className="font-medium text-[var(--text-secondary)] capitalize">
             {value}
           </Text>
         </div>

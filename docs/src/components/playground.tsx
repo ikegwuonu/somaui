@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from "react";
+import React, { useState, ReactNode } from 'react';
 
 type PlaygroundProps = {
   component: ReactNode;
@@ -9,7 +9,7 @@ type PlaygroundState = {
 };
 
 const ComponentPlayground: React.FC<PlaygroundProps> = ({ component }) => {
-  const [props, setProps] = useState<PlaygroundState["props"]>({});
+  const [props, setProps] = useState<PlaygroundState['props']>({});
 
   const handlePropChange = (propName: string, value: any) => {
     setProps((prevProps) => ({
@@ -32,7 +32,7 @@ const ComponentPlayground: React.FC<PlaygroundProps> = ({ component }) => {
       propControls.push(
         <div key={propName}>
           <label>{propName}:</label>
-          {typeof propValue === "boolean" ? (
+          {typeof propValue === 'boolean' ? (
             <input
               type="checkbox"
               checked={propValue}
@@ -45,7 +45,7 @@ const ComponentPlayground: React.FC<PlaygroundProps> = ({ component }) => {
               onChange={(e) => handlePropChange(propName, e.target.value)}
             />
           )}
-        </div>,
+        </div>
       );
     }
 
@@ -81,7 +81,7 @@ const MyComponent: React.FC<MyComponentProps> = ({ name, age, isOnline }) => {
     <div>
       <h1>Hello, {name}</h1>
       <p>Age: {age}</p>
-      <p>Is Online: {isOnline ? "Yes" : "No"}</p>
+      <p>Is Online: {isOnline ? 'Yes' : 'No'}</p>
     </div>
   );
 };

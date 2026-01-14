@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, cn } from "@somaui/ui";
+import React, { useState } from 'react';
+import { Button, cn } from '@somaui/ui';
 
 type PaperProps = {
   className?: string;
@@ -18,8 +18,8 @@ export default function Paper({
   return (
     <div
       className={cn(
-        "mb-2.5 pt-10 pb-12 min-h-[200px] flex flex-col justify-center items-center px-6 relative rounded border border-border [box-shadow:0_1.5px_0_var(--border-color)]",
-        !toggleCode && "[&+.theme-code-block]:hidden",
+        'border-border relative mb-2.5 flex min-h-[200px] flex-col items-center justify-center rounded border px-6 pt-10 pb-12 [box-shadow:0_1.5px_0_var(--border-color)]',
+        !toggleCode && '[&+.theme-code-block]:hidden',
         className
       )}
     >
@@ -29,7 +29,7 @@ export default function Paper({
         <Button
           size="sm"
           variant="outline"
-          className="absolute h-8 bottom-2 right-2 rounded-sm"
+          className="absolute right-2 bottom-2 h-8 rounded-sm"
           onClick={() => setToggleCode((prevState) => !prevState)}
         >
           <svg
@@ -38,7 +38,7 @@ export default function Paper({
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-4 h-4 mr-1.5"
+            className="mr-1.5 h-4 w-4"
           >
             <path
               strokeLinecap="round"
@@ -46,7 +46,7 @@ export default function Paper({
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          {toggleCode ? "Hide Code" : "Show Code"}
+          {toggleCode ? 'Hide Code' : 'Show Code'}
         </Button>
       ) : null}
     </div>

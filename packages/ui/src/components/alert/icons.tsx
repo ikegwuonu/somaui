@@ -1,25 +1,25 @@
-import { CheckmarkIcon } from "@/icons/checkmark";
-import { QuestionMarkCircleIcon } from "@/icons/question-mark-circle";
-import { XIcon } from "@/icons/x-mark";
+import { CheckmarkIcon } from '@/icons/checkmark';
+import { QuestionMarkCircleIcon } from '@/icons/question-mark-circle';
+import { XIcon } from '@/icons/x-mark';
 
 const classes = {
   size: {
-    sm: "size-4",
-    md: "size-5",
-    lg: "size-6",
+    sm: 'size-4',
+    md: 'size-5',
+    lg: 'size-6',
   },
 };
 
 export type IconProps = {
   size: keyof typeof classes.size;
-  color: "danger" | "info" | "success" | "warning";
+  color: 'danger' | 'info' | 'success' | 'warning';
 };
 
 export function AlertIcon({ size, color }: IconProps) {
-  if (color === "danger") {
+  if (color === 'danger') {
     return <XIcon data-testid="alert-xicon" className={classes.size[size]} />;
   }
-  if (color === "info") {
+  if (color === 'info') {
     return (
       <QuestionMarkCircleIcon
         data-testid="alert-question-icon"
@@ -27,7 +27,7 @@ export function AlertIcon({ size, color }: IconProps) {
       />
     );
   }
-  if (color === "success") {
+  if (color === 'success') {
     return (
       <CheckmarkIcon
         data-testid="alert-check-icon"

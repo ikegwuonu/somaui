@@ -1,5 +1,5 @@
-import dayjs from "dayjs";
-import { Avatar, AvatarProps, Badge, cn, Text } from "@somaui/ui";
+import dayjs from 'dayjs';
+import { Avatar, AvatarProps, Badge, cn, Text } from '@somaui/ui';
 
 interface AvatarCardProps {
   src: string;
@@ -17,7 +17,7 @@ export function AvatarCard({
   avatarProps,
 }: AvatarCardProps) {
   return (
-    <figure className={cn("flex items-center gap-3", className)}>
+    <figure className={cn('flex items-center gap-3', className)}>
       <Avatar name={name} src={src} {...avatarProps} />
       <figcaption className="grid gap-0.5">
         <Text className="font-lexend text-sm font-medium text-[var(--text-primary)] dark:text-[var(--text-secondary)]">
@@ -47,24 +47,24 @@ export function DateCell({
   className,
   timeClassName,
   dateClassName,
-  dateFormat = "MMMM D, YYYY",
-  timeFormat = "h:mm A",
+  dateFormat = 'MMMM D, YYYY',
+  timeFormat = 'h:mm A',
 }: DateCellProps) {
   return (
-    <div className={cn("grid gap-0", className)}>
+    <div className={cn('grid gap-0', className)}>
       <time
-        dateTime={formatDate(date, "YYYY-MM-DD")}
+        dateTime={formatDate(date, 'YYYY-MM-DD')}
         className={cn(
-          "font-medium text-[var(--text-secondary)]",
+          'font-medium text-[var(--text-secondary)]',
           dateClassName
         )}
       >
         {formatDate(date, dateFormat)}
       </time>
       <time
-        dateTime={formatDate(date, "HH:mm:ss")}
+        dateTime={formatDate(date, 'HH:mm:ss')}
         className={cn(
-          "text-[13px] text-[var(--muted-foreground)] leading-normal",
+          'text-[13px] leading-normal text-[var(--muted-foreground)]',
           timeClassName
         )}
       >
@@ -76,33 +76,33 @@ export function DateCell({
 
 export function formatDate(
   date?: Date,
-  format: string = "DD MMM, YYYY"
+  format: string = 'DD MMM, YYYY'
 ): string {
-  if (!date) return "";
+  if (!date) return '';
   return dayjs(date).format(format);
 }
 
 export function getStatusBadge(status: string) {
   switch (status?.toLowerCase()) {
-    case "pending":
+    case 'pending':
       return (
         <div className="flex items-center gap-2">
           <Badge color="warning" renderAsDot />
-          <Text className="font-medium text-orange-dark">{status}</Text>
+          <Text className="text-orange-dark font-medium">{status}</Text>
         </div>
       );
-    case "paid":
+    case 'paid':
       return (
         <div className="flex items-center gap-2">
           <Badge color="success" renderAsDot />
-          <Text className="font-medium text-green-dark">{status}</Text>
+          <Text className="text-green-dark font-medium">{status}</Text>
         </div>
       );
-    case "overdue":
+    case 'overdue':
       return (
         <div className="flex items-center gap-2">
           <Badge color="danger" renderAsDot />
-          <Text className="font-medium text-red-dark">{status}</Text>
+          <Text className="text-red-dark font-medium">{status}</Text>
         </div>
       );
     default:

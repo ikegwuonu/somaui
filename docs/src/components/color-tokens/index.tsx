@@ -1,11 +1,11 @@
-import React from "react";
-import { cn, Tab, Popover, Button } from "@somaui/ui";
-import { ArrowPathIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { CopyButton } from "../copy-button";
-import { tokens, darkThemeTokens } from "./tokens";
-import { hexToOklch } from "@site/src/utils/hex-to-oklch";
-import RangeSlider from "@site/src/components/range-slider";
-import { useSomaUITheme } from "@site/src/contexts/somaui-theme-context";
+import React from 'react';
+import { cn, Tab, Popover, Button } from '@somaui/ui';
+import { ArrowPathIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { CopyButton } from '../copy-button';
+import { tokens, darkThemeTokens } from './tokens';
+import { hexToOklch } from '@site/src/utils/hex-to-oklch';
+import RangeSlider from '@site/src/components/range-slider';
+import { useSomaUITheme } from '@site/src/contexts/somaui-theme-context';
 
 type TokenTypes = {
   name: string;
@@ -58,7 +58,7 @@ function TokensTable({
   theme,
 }: {
   tokens: TokenTypes[];
-  theme: "light" | "dark";
+  theme: 'light' | 'dark';
 }) {
   return (
     <div className="@container">
@@ -88,7 +88,7 @@ const TokenRow = React.memo(function TokenRow({
   theme,
 }: {
   token: TokenTypes;
-  theme: "light" | "dark";
+  theme: 'light' | 'dark';
 }) {
   const { updateToken, resetToken } = useSomaUITheme();
   const [hex, setHex] = React.useState(token.hex);
@@ -96,16 +96,16 @@ const TokenRow = React.memo(function TokenRow({
   const [isChange, setIsChange] = React.useState(false);
 
   const cssVariable = `${token.name}: ${oklch}; /* ${hex} */`;
-  const isColorToken = token.hex !== "";
+  const isColorToken = token.hex !== '';
   const isSizeToken =
-    token.name === "--border-radius" || token.name === "--border-width";
+    token.name === '--border-radius' || token.name === '--border-width';
 
   // Determine if this token should have visual separation (bottom border)
   // Separate after: muted-foreground, border-color, text-secondary, and all *-lighter tokens
   const shouldSeparate =
-    token.name === "--border-radius" ||
-    token.name === "--text-primary" ||
-    token.name.includes("lighter");
+    token.name === '--border-radius' ||
+    token.name === '--text-primary' ||
+    token.name.includes('lighter');
 
   // Convert rem to number for slider (e.g., "0.5rem" -> 0.5)
   function remToNumber(remValue: string): number {
@@ -119,7 +119,7 @@ const TokenRow = React.memo(function TokenRow({
     // Round to avoid floating point precision issues
     // For border-radius (step 0.125), round to 3 decimal places
     // For border-width (step 0.0625), round to 4 decimal places
-    const decimals = token.name === "--border-width" ? 4 : 3;
+    const decimals = token.name === '--border-width' ? 4 : 3;
     const rounded =
       Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
     return `${rounded}rem`;
@@ -161,14 +161,14 @@ const TokenRow = React.memo(function TokenRow({
 
   // Get slider configuration based on token type
   const getSliderConfig = () => {
-    if (token.name === "--border-radius") {
+    if (token.name === '--border-radius') {
       return {
         min: 0,
         max: 2,
         step: 0.125,
       };
     }
-    if (token.name === "--border-width") {
+    if (token.name === '--border-width') {
       return {
         min: 0,
         max: 0.25,
@@ -181,8 +181,8 @@ const TokenRow = React.memo(function TokenRow({
   return (
     <tr
       className={cn(
-        "!border !border-border shadow-sm @3xl:shadow-none rounded-lg flex flex-col @3xl:table-row",
-        shouldSeparate ? "@3xl:!border-x-0 @3xl:!border-b-0" : "@3xl:!border-0"
+        '!border-border flex flex-col rounded-lg !border shadow-sm @3xl:table-row @3xl:shadow-none',
+        shouldSeparate ? '@3xl:!border-x-0 @3xl:!border-b-0' : '@3xl:!border-0'
       )}
     >
       <td>
@@ -205,7 +205,7 @@ const TokenRow = React.memo(function TokenRow({
       <td className="!pt-0 @3xl:!pt-3">
         <TokenOklchValue oklch={oklch} />
       </td>
-      <td className="!pt-0 @3xl:!pt-3 !text-left @3xl:!ps-6">
+      <td className="!pt-0 !text-left @3xl:!ps-6 @3xl:!pt-3">
         <span className="text-gray-900">{token.description}</span>
       </td>
     </tr>
@@ -232,7 +232,7 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
       const currentValue = match ? parseFloat(match[1]) : 0;
 
       return (
-        <div className="flex items-center gap-2 relative">
+        <div className="relative flex items-center gap-2">
           <Popover>
             <Popover.Trigger>
               <Button
@@ -241,16 +241,16 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
                 className="w-full justify-between font-mono text-xs"
               >
                 <span>{remValue}</span>
-                <ChevronDownIcon className="w-4 h-4 opacity-50" />
+                <ChevronDownIcon className="h-4 w-4 opacity-50" />
               </Button>
             </Popover.Trigger>
             <Popover.Content className="w-64 p-4">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                    {name.replace("--", "").replace(/-/g, " ")}
+                    {name.replace('--', '').replace(/-/g, ' ')}
                   </span>
-                  <span className="text-xs font-mono text-gray-600 dark:text-gray-400">
+                  <span className="font-mono text-xs text-gray-600 dark:text-gray-400">
                     {remValue}
                   </span>
                 </div>
@@ -273,9 +273,9 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
             <button
               title="Reset"
               onClick={onReset}
-              className="text-gray-900 dark:text-gray-100 flex-shrink-0 border-0 shadow-none outline-none p-0"
+              className="flex-shrink-0 border-0 p-0 text-gray-900 shadow-none outline-none dark:text-gray-100"
             >
-              <ArrowPathIcon strokeWidth={2} className="w-4 h-4 me-1" />
+              <ArrowPathIcon strokeWidth={2} className="me-1 h-4 w-4" />
             </button>
           ) : null}
         </div>
@@ -285,9 +285,9 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
     // For non-color tokens that aren't size tokens, show a visual indicator
     if (!isColorToken) {
       return (
-        <div className="flex items-center gap-2 relative">
-          <div className="w-full h-10 rounded shadow-md border-2 border-dashed border-muted flex items-center justify-center bg-muted/30">
-            <span className="text-xs text-gray-600 font-medium">
+        <div className="relative flex items-center gap-2">
+          <div className="border-muted bg-muted/30 flex h-10 w-full items-center justify-center rounded border-2 border-dashed shadow-md">
+            <span className="text-xs font-medium text-gray-600">
               Size Token
             </span>
           </div>
@@ -296,47 +296,47 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
     }
 
     return (
-      <div className="flex items-center gap-2 relative">
+      <div className="relative flex items-center gap-2">
         <Popover>
           <Popover.Trigger>
             <Button
               variant="outline"
               size="sm"
-              className="w-full justify-between p-0 h-10 overflow-hidden"
+              className="h-10 w-full justify-between overflow-hidden p-0"
             >
               <span
                 className={cn(
-                  "inline-flex h-full w-12 flex-shrink-0 rounded-l shadow-md",
-                  "border-r border-border",
-                  hex === "#ffffff" && "border-2",
-                  hex === "#000000" && "dark:border-2"
+                  'inline-flex h-full w-12 flex-shrink-0 rounded-l shadow-md',
+                  'border-border border-r',
+                  hex === '#ffffff' && 'border-2',
+                  hex === '#000000' && 'dark:border-2'
                 )}
                 style={{ backgroundColor: hex }}
               />
-              <span className="px-3 font-mono text-xs text-gray-700 dark:text-gray-300 flex-1 text-left">
+              <span className="flex-1 px-3 text-left font-mono text-xs text-gray-700 dark:text-gray-300">
                 {hex.toUpperCase()}
               </span>
-              <ChevronDownIcon className="w-4 h-4 opacity-50 me-2 flex-shrink-0" />
+              <ChevronDownIcon className="me-2 h-4 w-4 flex-shrink-0 opacity-50" />
             </Button>
           </Popover.Trigger>
           <Popover.Content className="w-64 p-4">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {name.replace("--", "").replace(/-/g, " ")}
+                  {name.replace('--', '').replace(/-/g, ' ')}
                 </span>
-                <span className="text-xs font-mono text-gray-600 dark:text-gray-400">
+                <span className="font-mono text-xs text-gray-600 dark:text-gray-400">
                   {hex.toUpperCase()}
                 </span>
               </div>
               <div className="relative">
-                <label className="relative flex-1 block">
+                <label className="relative block flex-1">
                   <span
                     className={cn(
-                      "inline-flex w-full h-20 rounded shadow-md cursor-pointer mb-2",
-                      "border border-border",
-                      hex === "#ffffff" && "border-2",
-                      hex === "#000000" && "dark:border-2"
+                      'mb-2 inline-flex h-20 w-full cursor-pointer rounded shadow-md',
+                      'border-border border',
+                      hex === '#ffffff' && 'border-2',
+                      hex === '#000000' && 'dark:border-2'
                     )}
                     style={{ backgroundColor: hex }}
                   />
@@ -344,11 +344,11 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
                     type="color"
                     name={name}
                     value={hex}
-                    className="opacity-0 invisible absolute inset-0"
+                    className="invisible absolute inset-0 opacity-0"
                     {...inputProps}
                   />
                 </label>
-                <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                <div className="text-center text-xs text-gray-500 dark:text-gray-400">
                   Click the color swatch to pick a color
                 </div>
               </div>
@@ -359,9 +359,9 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
           <button
             title="Reset"
             onClick={onReset}
-            className="text-gray-900 dark:text-gray-100 flex-shrink-0 border-0 shadow-none outline-none p-0"
+            className="flex-shrink-0 border-0 p-0 text-gray-900 shadow-none outline-none dark:text-gray-100"
           >
-            <ArrowPathIcon strokeWidth={2} className="w-4 h-4 me-1" />
+            <ArrowPathIcon strokeWidth={2} className="me-1 h-4 w-4" />
           </button>
         ) : null}
       </div>
@@ -371,7 +371,7 @@ const TokenColor = React.forwardRef<HTMLInputElement, any>(
 
 function TokenClipboard({ name, value }: { name: string; value: string }) {
   return (
-    <div className="whitespace-nowrap flex @3xl:inline-flex items-center ps-3 pe-2.5 py-1 justify-between text-text-primary">
+    <div className="text-text-primary flex items-center justify-between py-1 ps-3 pe-2.5 whitespace-nowrap @3xl:inline-flex">
       {name}
       <CopyButton value={value} />
     </div>
@@ -380,7 +380,7 @@ function TokenClipboard({ name, value }: { name: string; value: string }) {
 
 function TokenOklchValue({ oklch }: { oklch: string }) {
   return (
-    <div className="whitespace-nowrap text-gray-700 font-mono text-sm">
+    <div className="font-mono text-sm whitespace-nowrap text-gray-700">
       {oklch}
     </div>
   );

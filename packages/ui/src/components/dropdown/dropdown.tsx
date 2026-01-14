@@ -1,12 +1,12 @@
-import type { ReactNode } from "react";
-import { cn } from "@/lib/cn";
-import { Menu } from "@headlessui/react";
-import { DropdownItem } from "./dropdown-item";
-import { DropdownMenu } from "./dropdown-menu";
-import { DropdownTrigger } from "./dropdown-trigger";
-import { DropdownProvider } from "./dropdown-context";
-import type { ExtractProps } from "@/lib/extract-props";
-import type { TheirPlacementType } from "./dropdown.lib";
+import type { ReactNode } from 'react';
+import { cn } from '@/lib/cn';
+import { Menu } from '@headlessui/react';
+import { DropdownItem } from './dropdown-item';
+import { DropdownMenu } from './dropdown-menu';
+import { DropdownTrigger } from './dropdown-trigger';
+import { DropdownProvider } from './dropdown-context';
+import type { ExtractProps } from '@/lib/extract-props';
+import type { TheirPlacementType } from './dropdown.lib';
 
 export type DropdownProps = ExtractProps<typeof Menu> & {
   gap?: number;
@@ -20,7 +20,7 @@ export type DropdownProps = ExtractProps<typeof Menu> & {
 export function Dropdown({
   inPortal = true,
   modal = false,
-  placement = "bottom-start",
+  placement = 'bottom-start',
   gap = 6,
   children,
   className,
@@ -30,8 +30,8 @@ export function Dropdown({
       <Menu
         as="div"
         className={cn(
-          "somaui-dropdown-root inline-block",
-          "relative",
+          'somaui-dropdown-root inline-block',
+          'relative',
           className
         )}
       >
@@ -45,4 +45,4 @@ Dropdown.Trigger = DropdownTrigger;
 Dropdown.Menu = DropdownMenu;
 Dropdown.Item = DropdownItem;
 
-Dropdown.displayName = "Dropdown";
+Dropdown.displayName = 'Dropdown';

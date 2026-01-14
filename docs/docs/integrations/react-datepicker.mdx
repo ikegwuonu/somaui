@@ -11,16 +11,16 @@ import {
   CalendarWithTime,
   TimePicker,
   RangeDatePicker,
-} from "@site/src/components/date-picker";
-import Paper from "@site/src/components/paper";
-import { Badge } from "@somaui/ui/badge";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
+} from '@site/src/components/date-picker';
+import Paper from '@site/src/components/paper';
+import { Badge } from '@somaui/ui/badge';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
 
 # React Datepicker
 
@@ -53,12 +53,12 @@ A powerful and flexible date picker component built on top of **react-datepicker
 
 Before using the React Datepicker component, you'll need to install the required dependencies:
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
   <span>
-    Install the <strong>react-datepicker</strong> and{" "}
+    Install the <strong>react-datepicker</strong> and{' '}
     <strong>@types/react-datepicker</strong> packages.
   </span>
 </div>
@@ -123,7 +123,7 @@ bun add -d @types/react-datepicker`}
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -133,28 +133,28 @@ bun add -d @types/react-datepicker`}
 </div>
 
 ```tsx
-import React from "react";
-import { tv } from "tailwind-variants";
-import { Input, InputProps } from "@somaui/ui/input";
-import { cn } from "somaui";
-import DatePicker, { type DatePickerProps } from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { CalendarIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import React from 'react';
+import { tv } from 'tailwind-variants';
+import { Input, InputProps } from '@somaui/ui/input';
+import { cn } from 'somaui';
+import DatePicker, { type DatePickerProps } from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { CalendarIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const datePicker = tv({
   slots: {
     calendar:
-      "[&.react-datepicker]:!shadow-lg [&.react-datepicker]:!border-[var(--border-color)] [&.react-datepicker]:!rounded-[var(--border-radius)]",
+      '[&.react-datepicker]:!shadow-lg [&.react-datepicker]:!border-[var(--border-color)] [&.react-datepicker]:!rounded-[var(--border-radius)]',
     monthContainer:
-      "[&.react-datepicker>div]:!pt-5 [&.react-datepicker>div]:!pb-3",
+      '[&.react-datepicker>div]:!pt-5 [&.react-datepicker>div]:!pb-3',
     prevNextButton:
-      "[&.react-datepicker>button]:!items-baseline [&.react-datepicker>button]:!top-7 [&.react-datepicker>button]:!border [&.react-datepicker>button]:!border-solid [&.react-datepicker>button]:!border-[var(--border-color)] [&.react-datepicker>button]:!rounded-[var(--border-radius)] [&.react-datepicker>button]:!h-[22px] [&.react-datepicker>button]:!w-[22px] hover:[&.react-datepicker>button]:!border-[var(--text-primary)] [&.react-datepicker>button:hover>span::before]:!border-[var(--text-primary)]",
+      '[&.react-datepicker>button]:!items-baseline [&.react-datepicker>button]:!top-7 [&.react-datepicker>button]:!border [&.react-datepicker>button]:!border-solid [&.react-datepicker>button]:!border-[var(--border-color)] [&.react-datepicker>button]:!rounded-[var(--border-radius)] [&.react-datepicker>button]:!h-[22px] [&.react-datepicker>button]:!w-[22px] hover:[&.react-datepicker>button]:!border-[var(--text-primary)] [&.react-datepicker>button:hover>span::before]:!border-[var(--text-primary)]',
     prevNextButtonChild:
-      "[&.react-datepicker>button>span]:!top-0 [&.react-datepicker>button>span]:!before:border-t-[1.5px] [&.react-datepicker>button>span]:!before:border-r-[1.5px] [&.react-datepicker>button>span]:!before:border-[var(--muted-foreground)] [&.react-datepicker>button>span]:!before:h-[7px] [&.react-datepicker>button>span]:!before:w-[7px]",
+      '[&.react-datepicker>button>span]:!top-0 [&.react-datepicker>button>span]:!before:border-t-[1.5px] [&.react-datepicker>button>span]:!before:border-r-[1.5px] [&.react-datepicker>button>span]:!before:border-[var(--muted-foreground)] [&.react-datepicker>button>span]:!before:h-[7px] [&.react-datepicker>button>span]:!before:w-[7px]',
     timeOnly:
-      "[&.react-datepicker--time-only>div]:!pr-0 [&.react-datepicker--time-only>div]:!w-28",
+      '[&.react-datepicker--time-only>div]:!pr-0 [&.react-datepicker--time-only>div]:!w-28',
     popper:
-      "[&>svg]:!fill-[var(--background)] dark:[&>svg]:!fill-[var(--muted)] [&>svg]:!stroke-[var(--border-color)] dark:[&>svg]:!stroke-[var(--muted)] dark:[&>svg]:!text-[var(--muted)]",
+      '[&>svg]:!fill-[var(--background)] dark:[&>svg]:!fill-[var(--muted)] [&>svg]:!stroke-[var(--border-color)] dark:[&>svg]:!stroke-[var(--muted)] dark:[&>svg]:!text-[var(--muted)]',
   },
 });
 
@@ -190,13 +190,13 @@ const ReactDatePicker = ({
         customInput || (
           <Input
             prefix={
-              <CalendarIcon className="w-5 h-5 text-[var(--muted-foreground)]" />
+              <CalendarIcon className="h-5 w-5 text-[var(--muted-foreground)]" />
             }
             suffix={
               <ChevronDownIcon
                 className={cn(
-                  "h-4 w-4 text-[var(--muted-foreground)] transition",
-                  isCalenderOpen && "rotate-180"
+                  'h-4 w-4 text-[var(--muted-foreground)] transition',
+                  isCalenderOpen && 'rotate-180'
                 )}
               />
             }
@@ -220,13 +220,13 @@ const ReactDatePicker = ({
   );
 };
 
-ReactDatePicker.displayName = "ReactDatePicker";
+ReactDatePicker.displayName = 'ReactDatePicker';
 export default ReactDatePicker;
 ```
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 3
   </Badge>
@@ -356,7 +356,7 @@ export default ReactDatePicker;
 .react-datepicker .react-datepicker__day--range-start,
 .react-datepicker .react-datepicker__day--range-end,
 .react-datepicker .react-datepicker__day--selected {
-  @apply rounded-[var(--border-radius)] border-none bg-[var(--primary)] font-normal leading-7 text-[var(--primary-foreground)];
+  @apply rounded-[var(--border-radius)] border-none bg-[var(--primary)] leading-7 font-normal text-[var(--primary-foreground)];
   @apply hover:bg-[var(--primary-dark)] hover:text-[var(--primary-foreground)];
 }
 
@@ -479,7 +479,7 @@ export default ReactDatePicker;
 /* Year and month dropdown arrow */
 .react-datepicker .react-datepicker__year-read-view--down-arrow,
 .react-datepicker .react-datepicker__month-read-view--down-arrow {
-  @apply top-[5px] h-[7px] w-[7px] border-r-[length:var(--border-width)] border-t-[length:var(--border-width)] border-[var(--muted)];
+  @apply top-[5px] h-[7px] w-[7px] border-t-[length:var(--border-width)] border-r-[length:var(--border-width)] border-[var(--muted)];
 }
 
 /* Sub-header containing year and month dropdown */
@@ -570,8 +570,8 @@ The default date picker component with a clean, modern interface:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -596,8 +596,8 @@ Select a month and year using the month picker:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -626,8 +626,8 @@ Select a year using the year picker:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -656,8 +656,8 @@ Select a month from a dropdown menu:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -685,8 +685,8 @@ Select a year from a scrollable dropdown:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -715,8 +715,8 @@ Select both date and time in a single picker:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -745,8 +745,8 @@ Select only the time without a date:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -776,8 +776,8 @@ Select a date range with clearable functionality:
 </Paper>
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [dateRange, setDateRange] =
@@ -810,8 +810,8 @@ export default function App() {
 Customize the date format to match your requirements:
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -831,8 +831,8 @@ export default function App() {
 Restrict date selection to a specific range:
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -857,8 +857,8 @@ export default function App() {
 Filter out specific dates from selection:
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();
@@ -884,9 +884,9 @@ export default function App() {
 Use a custom input component:
 
 ```tsx
-import React from "react";
-import ReactDatePicker from "@components/date-picker";
-import { Button } from "@somaui/ui/button";
+import React from 'react';
+import ReactDatePicker from '@components/date-picker';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   const [startDate, setStartDate] = React.useState<Date | null>();

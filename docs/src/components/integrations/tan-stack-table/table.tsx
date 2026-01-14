@@ -1,7 +1,7 @@
-import React from "react";
-import { Table } from "@somaui/ui";
-import { Person } from "./data";
-import { flexRender, Table as TanStackTableTypes } from "@tanstack/react-table";
+import React from 'react';
+import { Table } from '@somaui/ui';
+import { Person } from './data';
+import { flexRender, Table as TanStackTableTypes } from '@tanstack/react-table';
 
 type TablePropsTypes = {
   table: TanStackTableTypes<Person>;
@@ -17,14 +17,14 @@ export default function MainTable({ table }: TablePropsTypes) {
     .filter(Boolean);
 
   return (
-    <div className="w-full overflow-x-auto overflow-y-hidden custom-scrollbar">
+    <div className="custom-scrollbar w-full overflow-x-auto overflow-y-hidden">
       <Table
-        className="!shadow-none !border-0"
+        className="!border-0 !shadow-none"
         style={{
           width: table.getTotalSize(),
         }}
       >
-        <Table.Header className="!bg-[var(--muted)]/50 !border-y-0">
+        <Table.Header className="!border-y-0 !bg-[var(--muted)]/50">
           {table.getHeaderGroups().map((headerGroup) => {
             return (
               <Table.Row key={headerGroup.id}>

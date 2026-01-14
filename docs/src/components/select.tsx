@@ -1,42 +1,42 @@
-import { z } from "zod";
-import React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
+import { z } from 'zod';
+import React from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 import {
   Select,
   Text,
   type SelectProps,
   type SelectOption,
   Button,
-} from "@somaui/ui";
+} from '@somaui/ui';
 
 const options = [
-  { label: "Apple 🍎", value: "apple" },
-  { label: "Banana 🍌", value: "banana" },
-  { label: "Cherry 🍒", value: "cherry" },
-  { label: "Orange 🍊", value: "orange" },
-  { label: "Strawberry 🍓", value: "strawberry" },
-  { label: "Watermelon 🍉", value: "watermelon" },
-  { label: "Pineapple 🍍", value: "pineapple" },
-  { label: "Mango 🥭", value: "mango" },
-  { label: "Kiwi 🥝", value: "kiwi" },
-  { label: "Blueberry 🫐", value: "blueberry" },
-  { label: "Peach 🍑", value: "peach" },
-  { label: "Plum 🍑", value: "plum" },
-  { label: "Raspberry 🍇", value: "raspberry" },
-  { label: "Blackberry 🫐", value: "blackberry" },
-  { label: "Pear 🍐", value: "pear" },
-  { label: "Grapes 🍇", value: "grapes" },
-  { label: "Lemon 🍋", value: "lemon" },
-  { label: "Lime 🫒", value: "lime" },
-  { label: "Cucumber 🥒", value: "cucumber" },
-  { label: "Avocado 🥑", value: "avocado" },
+  { label: 'Apple 🍎', value: 'apple' },
+  { label: 'Banana 🍌', value: 'banana' },
+  { label: 'Cherry 🍒', value: 'cherry' },
+  { label: 'Orange 🍊', value: 'orange' },
+  { label: 'Strawberry 🍓', value: 'strawberry' },
+  { label: 'Watermelon 🍉', value: 'watermelon' },
+  { label: 'Pineapple 🍍', value: 'pineapple' },
+  { label: 'Mango 🥭', value: 'mango' },
+  { label: 'Kiwi 🥝', value: 'kiwi' },
+  { label: 'Blueberry 🫐', value: 'blueberry' },
+  { label: 'Peach 🍑', value: 'peach' },
+  { label: 'Plum 🍑', value: 'plum' },
+  { label: 'Raspberry 🍇', value: 'raspberry' },
+  { label: 'Blackberry 🫐', value: 'blackberry' },
+  { label: 'Pear 🍐', value: 'pear' },
+  { label: 'Grapes 🍇', value: 'grapes' },
+  { label: 'Lemon 🍋', value: 'lemon' },
+  { label: 'Lime 🫒', value: 'lime' },
+  { label: 'Cucumber 🥒', value: 'cucumber' },
+  { label: 'Avocado 🥑', value: 'avocado' },
 ];
 
 export default function SelectBox({
   clearable,
-  label = "Select",
+  label = 'Select',
   ...props
 }: SelectProps<SelectOption>) {
   const [value, setValue] = React.useState<any>(null);
@@ -60,7 +60,7 @@ export default function SelectBox({
 
 export function SelectBoxClearable({
   clearable,
-  label = "Select",
+  label = 'Select',
   ...props
 }: SelectProps<SelectOption>) {
   const [value, setValue] = React.useState<any>(options[0]);
@@ -84,60 +84,60 @@ export function SelectBoxClearable({
 
 const customOptions = [
   {
-    label: "Wolverine",
-    value: "wolverine@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/43.jpg",
+    label: 'Wolverine',
+    value: 'wolverine@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/43.jpg',
   },
   {
-    label: "MessiJr",
-    value: "messijr@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    label: 'MessiJr',
+    value: 'messijr@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
   },
   {
-    label: "Fighter",
-    value: "fighter@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/40.jpg",
+    label: 'Fighter',
+    value: 'fighter@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/40.jpg',
   },
   {
-    label: "Missme",
-    value: "missme@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/79.jpg",
+    label: 'Missme',
+    value: 'missme@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/79.jpg',
   },
   {
-    label: "Price",
-    value: "price@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+    label: 'Price',
+    value: 'price@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
   },
   {
-    label: "Nightfury",
-    value: "nightfury@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/35.jpg",
+    label: 'Nightfury',
+    value: 'nightfury@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/35.jpg',
   },
   {
-    label: "Django",
-    value: "django@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+    label: 'Django',
+    value: 'django@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
   },
   {
-    label: "Professor",
-    value: "professor@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/48.jpg",
+    label: 'Professor',
+    value: 'professor@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/48.jpg',
   },
   {
-    label: "Top 4",
-    value: "top4@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/64.jpg",
+    label: 'Top 4',
+    value: 'top4@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
   },
   {
-    label: "Bucky",
-    value: "bucky@somaui.io",
-    avatar: "https://randomuser.me/api/portraits/men/41.jpg",
+    label: 'Bucky',
+    value: 'bucky@somaui.io',
+    avatar: 'https://randomuser.me/api/portraits/men/41.jpg',
   },
 ];
 
 export function CustomOptionSelectBox({
   clearable,
-  label = "Select",
+  label = 'Select',
   ...props
 }: SelectProps<SelectOption>) {
   const [value, setValue] = React.useState(null);
@@ -161,7 +161,7 @@ function renderDisplayValue(value: SelectOption) {
       <img
         src={value.avatar}
         alt={value.label}
-        className="w-7 h-7 object-cover rounded-full"
+        className="h-7 w-7 rounded-full object-cover"
       />
       <Text>{value.label}</Text>
     </span>
@@ -174,7 +174,7 @@ function renderOptionDisplayValue(option: SelectOption) {
       <img
         src={option.avatar}
         alt={option.label}
-        className="w-9 h-9 object-cover rounded bg-muted"
+        className="bg-muted h-9 w-9 rounded object-cover"
       />
       <div>
         <Text fontWeight="medium">{option.label}</Text>
@@ -187,7 +187,7 @@ function renderOptionDisplayValue(option: SelectOption) {
 // with react hook form and zod validation
 
 const schema = z.object({
-  select: z.string().min(1, { message: "Select an option!" }),
+  select: z.string().min(1, { message: 'Select an option!' }),
 });
 
 type SchemaType = z.infer<typeof schema>;
@@ -198,8 +198,8 @@ export function SelectWithForm() {
   });
 
   const onSubmit = (data: SchemaType) => {
-    console.log("Submitted data", data);
-    toast.success("Successfully Submitted.");
+    console.log('Submitted data', data);
+    toast.success('Successfully Submitted.');
   };
 
   return (
@@ -217,12 +217,12 @@ export function SelectWithForm() {
               onChange={onChange}
               getOptionValue={(option) => option.value}
               displayValue={(selected) =>
-                options?.find((r) => r.value === selected)?.label ?? ""
+                options?.find((r) => r.value === selected)?.label ?? ''
               }
               error={error?.message}
               className="w-full max-w-md"
               clearable
-              onClear={() => onChange("")}
+              onClear={() => onChange('')}
             />
           )}
         />
@@ -237,7 +237,7 @@ export function SelectWithForm() {
 
 export function CustomSelectWithSearch() {
   const [value, setValue] = React.useState(null);
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('');
 
   const filteredOptions = options.filter((option) =>
     option.label.toLowerCase().includes(search.toLowerCase())

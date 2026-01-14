@@ -1,34 +1,34 @@
 export const companyOptions = [
   {
-    label: "Google Inc",
-    value: "google",
+    label: 'Google Inc',
+    value: 'google',
   },
   {
-    label: "SomaUI Inc",
-    value: "somaui",
+    label: 'SomaUI Inc',
+    value: 'somaui',
   },
   {
-    label: "Microsoft Inc",
-    value: "microsoft",
+    label: 'Microsoft Inc',
+    value: 'microsoft',
   },
   {
-    label: "Meta Inc",
-    value: "meta",
+    label: 'Meta Inc',
+    value: 'meta',
   },
   {
-    label: "Amazon Inc",
-    value: "amazon",
+    label: 'Amazon Inc',
+    value: 'amazon',
   },
   {
-    label: "Tesla Inc",
-    value: "tesla",
+    label: 'Tesla Inc',
+    value: 'tesla',
   },
   {
-    label: "Envato Inc",
-    value: "envato",
+    label: 'Envato Inc',
+    value: 'envato',
   },
   {
-    label: "Tailwind Inc",
-    value: "tailwind",
+    label: 'Tailwind Inc',
+    value: 'tailwind',
   },
 ];

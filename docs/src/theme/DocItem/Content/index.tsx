@@ -1,11 +1,11 @@
-import React, { type ReactNode } from "react";
-import clsx from "clsx";
-import { ThemeClassNames } from "@docusaurus/theme-common";
-import { useDoc } from "@docusaurus/plugin-content-docs/client";
-import Heading from "@theme/Heading";
-import MDXContent from "@theme/MDXContent";
-import type { Props } from "@theme/DocItem/Content";
-import PageActionsDropdown from "@site/src/components/page-actions-dropdown";
+import React, { type ReactNode } from 'react';
+import clsx from 'clsx';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import Heading from '@theme/Heading';
+import MDXContent from '@theme/MDXContent';
+import type { Props } from '@theme/DocItem/Content';
+import PageActionsDropdown from '@site/src/components/page-actions-dropdown';
 
 /**
  Title can be declared inside md content or declared through
@@ -20,7 +20,7 @@ import PageActionsDropdown from "@site/src/components/page-actions-dropdown";
 function useSyntheticTitle(): string | null {
   const { metadata, frontMatter, contentTitle } = useDoc();
   const shouldRender =
-    !frontMatter.hide_title && typeof contentTitle === "undefined";
+    !frontMatter.hide_title && typeof contentTitle === 'undefined';
   if (!shouldRender) {
     return null;
   }
@@ -31,9 +31,9 @@ export default function DocItemContent({ children }: Props): ReactNode {
   const syntheticTitle = useSyntheticTitle();
   return (
     <div
-      className={clsx(ThemeClassNames.docs.docMarkdown, "markdown relative")}
+      className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown relative')}
     >
-      <div className="my-3 sm:my-0 sm:absolute sm:top-0 sm:right-0">
+      <div className="my-3 sm:absolute sm:top-0 sm:right-0 sm:my-0">
         <PageActionsDropdown />
       </div>
       {syntheticTitle && (

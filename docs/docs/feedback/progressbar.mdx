@@ -2,15 +2,15 @@
 sidebar_position: 3
 ---
 
-import { Progressbar } from "@somaui/ui/progressbar";
-import Paper from "@site/src/components/paper";
+import { Progressbar } from '@somaui/ui/progressbar';
+import Paper from '@site/src/components/paper';
 
 # Progressbar
 
 A basic widget for showing the work progress.
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -24,7 +24,7 @@ The default style of **Progressbar**.
 </Paper>
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 
 export default function App() {
   return <Progressbar value={75} />;
@@ -43,7 +43,7 @@ You can change the style of **Progressbar** using **variant** property.
 </Paper>
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 
 export default function App() {
   return (
@@ -68,7 +68,7 @@ You can change the size of **Progressbar** using [**size**](#progressbar-sizes) 
 </Paper>
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 
 export default function App() {
   return (
@@ -97,7 +97,7 @@ You can change the color of **Progressbar** using [**color**](#progressbar-color
 </Paper>
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 
 export default function App() {
   return (
@@ -122,7 +122,7 @@ You can set label of **Progressbar** using **label** property. And set position 
 Note: **labelPosition='insideBar'** property will only work when **size="lg"**.
 
 <Paper>
-  <div className="grid grid-cols-1 gap-10 w-full">
+  <div className="grid w-full grid-cols-1 gap-10">
     <Progressbar value={75} label="75%" />
     <Progressbar value={75} label="75%" labelPosition="inlineLeft" />
     <Progressbar value={75} label="75%" labelPosition="insideBar" />
@@ -130,11 +130,11 @@ Note: **labelPosition='insideBar'** property will only work when **size="lg"**.
 </Paper>
 
 ```tsx
-import { Progressbar } from "@somaui/ui/progressbar";
+import { Progressbar } from '@somaui/ui/progressbar';
 
 export default function App() {
   return (
-    <div className="grid grid-cols-1 gap-10 w-full">
+    <div className="grid w-full grid-cols-1 gap-10">
       <Progressbar value={75} label="75%" />
       <Progressbar value={75} label="75%" labelPosition="inlineLeft" />
       <Progressbar value={75} label="75%" labelPosition="insideBar" />
@@ -177,7 +177,7 @@ Here is the API documentation of the Progressbar component.
 ### Progressbar Sizes
 
 ```ts
-type ProgressbarSizes = "sm" | "md" | "lg";
+type ProgressbarSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />
@@ -186,12 +186,12 @@ type ProgressbarSizes = "sm" | "md" | "lg";
 
 ```ts
 type ProgressbarColors =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "info"
-  | "success"
-  | "warning";
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning';
 ```
 
 <div className="mb-10" />
@@ -199,5 +199,5 @@ type ProgressbarColors =
 ### Progressbar Label Position
 
 ```ts
-type ProgressbarLabelPosition = "inlineLeft" | "inlineRight" | "insideBar";
+type ProgressbarLabelPosition = 'inlineLeft' | 'inlineRight' | 'insideBar';
 ```

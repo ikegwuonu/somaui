@@ -1,7 +1,7 @@
-import React from "react";
-import { NotificationCard, cn } from "@somaui/ui";
-import toast from "react-hot-toast";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import React from 'react';
+import { NotificationCard, cn } from '@somaui/ui';
+import toast from 'react-hot-toast';
+import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
 export const notification = () =>
   toast.custom(
@@ -9,19 +9,19 @@ export const notification = () =>
       <NotificationCard
         title="Success"
         description="This is a success notification toast."
-        media={<CheckCircleIcon className="h-6 w-6 text-green" />}
+        media={<CheckCircleIcon className="text-green h-6 w-6" />}
         variant="flat"
         color="success"
         onClear={() => toast.dismiss(t.id)}
         containerClassName={cn(
-          "max-w-xs transition-all ease-in-out duration-300 bg-green-lighter",
-          t.visible ? "" : "translate-x-[150%]"
+          'max-w-xs transition-all ease-in-out duration-300 bg-green-lighter',
+          t.visible ? '' : 'translate-x-[150%]'
         )}
         className="[&_h2]:!mb-0"
       />
     ),
     {
       duration: 5000,
-      position: "top-right",
+      position: 'top-right',
     }
   );

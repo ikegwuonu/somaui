@@ -1,41 +1,41 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { Badge } from "../badge";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { Badge } from '../badge';
 
 const announcement = tv({
-  base: "flex items-center w-fit rounded-full",
+  base: 'flex items-center w-fit rounded-full',
   variants: {
     size: {
-      sm: "text-xs pe-6 ps-0.5 py-0.5",
-      md: "text-sm pe-7 ps-1 py-1",
-      lg: "text-base pe-8 ps-1 py-1",
+      sm: 'text-xs pe-6 ps-0.5 py-0.5',
+      md: 'text-sm pe-7 ps-1 py-1',
+      lg: 'text-base pe-8 ps-1 py-1',
     },
     bgColor: {
-      background: "bg-background",
-      muted: "bg-muted/60",
+      background: 'bg-background',
+      muted: 'bg-muted/60',
     },
   },
   defaultVariants: {
-    size: "md",
-    bgColor: "background",
+    size: 'md',
+    bgColor: 'background',
   },
 });
 
 const announcementHighlight = tv({
-  base: "somaui-announcement-highlighted-text ms-2.5 font-medium",
+  base: 'somaui-announcement-highlighted-text ms-2.5 font-medium',
   variants: {
     color: {
-      primary: "text-primary",
-      secondary: "text-secondary",
-      danger: "text-red",
-      info: "text-blue",
-      success: "text-green-dark",
-      warning: "text-orange-dark",
+      primary: 'text-primary',
+      secondary: 'text-secondary',
+      danger: 'text-red',
+      info: 'text-blue',
+      success: 'text-green-dark',
+      warning: 'text-orange-dark',
     },
   },
   defaultVariants: {
-    color: "primary",
+    color: 'primary',
   },
 });
 
@@ -43,9 +43,9 @@ type AnnouncementVariant = VariantProps<typeof announcement>;
 type HighlightedTextVariant = VariantProps<typeof announcementHighlight>;
 
 export interface AnnouncementProps {
-  size?: AnnouncementVariant["size"];
-  color?: HighlightedTextVariant["color"];
-  bgColor?: AnnouncementVariant["bgColor"];
+  size?: AnnouncementVariant['size'];
+  color?: HighlightedTextVariant['color'];
+  bgColor?: AnnouncementVariant['bgColor'];
   badgeText?: string;
   highlightedText?: string;
   className?: string;
@@ -56,9 +56,9 @@ export interface AnnouncementProps {
 }
 
 export const Announcement = ({
-  size = "md",
-  color = "primary",
-  bgColor = "background",
+  size = 'md',
+  color = 'primary',
+  bgColor = 'background',
   badgeText,
   highlightedText,
   children,
@@ -81,7 +81,7 @@ export const Announcement = ({
       <Badge
         size={size}
         color={color}
-        className={cn("somaui-announcement-badge", badgeClassName)}
+        className={cn('somaui-announcement-badge', badgeClassName)}
       >
         {badgeText}
       </Badge>
@@ -100,8 +100,8 @@ export const Announcement = ({
 
     <span
       className={cn(
-        "somaui-announcement-text",
-        !highlightedText ? "ms-2.5" : "ms-1"
+        'somaui-announcement-text',
+        !highlightedText ? 'ms-2.5' : 'ms-1'
       )}
     >
       {children}
@@ -111,4 +111,4 @@ export const Announcement = ({
   </div>
 );
 
-Announcement.displayName = "Announcement";
+Announcement.displayName = 'Announcement';

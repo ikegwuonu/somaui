@@ -7,7 +7,7 @@ import { Code } from '../components/typography/code';
 test('Renders code component', () => {
   render(<Code>const x = 1;</Code>);
   const codeElement = screen.getByText('const x = 1;');
-  
+
   expect(codeElement).toBeInTheDocument();
   expect(codeElement.tagName).toBe('CODE');
 });
@@ -15,7 +15,7 @@ test('Renders code component', () => {
 test('Renders code with custom className', () => {
   render(<Code className="custom-class">const x = 1;</Code>);
   const preElement = screen.getByText('const x = 1;').closest('pre');
-  
+
   expect(preElement).toHaveClass('custom-class');
   expect(preElement).toHaveClass('border');
 });
@@ -27,8 +27,7 @@ test('Renders code with multiple lines', () => {
 const y = 2;`}
     </Code>
   );
-  
+
   expect(screen.getByText(/const x = 1;/)).toBeInTheDocument();
   expect(screen.getByText(/const y = 2;/)).toBeInTheDocument();
 });
-

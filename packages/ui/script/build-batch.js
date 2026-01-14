@@ -1,8 +1,8 @@
 // scripts/build-batch.js
-import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,79 +10,79 @@ const __dirname = path.dirname(__filename);
 // Group components to build in batches
 const batches = [
   [
-    "accordion",
-    "action-icon",
-    "advanced-checkbox",
-    "advanced-radio",
-    "alert",
-    "avatar",
-    "announcement",
-    "badge",
-    "button",
+    'accordion',
+    'action-icon',
+    'advanced-checkbox',
+    'advanced-radio',
+    'alert',
+    'avatar',
+    'announcement',
+    'badge',
+    'button',
   ],
   [
-    "checkbox",
-    "checkbox-group",
-    "collapse",
-    "drawer",
-    "dropdown",
-    "empty",
-    "input",
-    "loader",
-    "modal",
+    'checkbox',
+    'checkbox-group',
+    'collapse',
+    'drawer',
+    'dropdown',
+    'empty',
+    'input',
+    'loader',
+    'modal',
   ],
   [
-    "multi-select",
-    "password",
-    "pin-code",
-    "popover",
-    "progressbar",
-    "radial-progressbar",
-    "radio",
-    "radio-group",
+    'multi-select',
+    'password',
+    'pin-code',
+    'popover',
+    'progressbar',
+    'radial-progressbar',
+    'radio',
+    'radio-group',
   ],
   [
-    "select",
-    "stepper",
-    "switch",
-    "table",
-    "tabs",
-    "textarea",
-    "tooltip",
-    "typography",
-    "upload",
+    'select',
+    'stepper',
+    'switch',
+    'table',
+    'tabs',
+    'textarea',
+    'tooltip',
+    'typography',
+    'upload',
   ],
-  ["layouts/box", "layouts/flex", "layouts/grid"],
+  ['layouts/box', 'layouts/flex', 'layouts/grid'],
   [
-    "typography/blockquote",
-    "typography/bold",
-    "typography/code",
-    "typography/italic",
-    "typography/text",
-    "typography/title",
+    'typography/blockquote',
+    'typography/bold',
+    'typography/code',
+    'typography/italic',
+    'typography/text',
+    'typography/title',
   ],
 ];
 
 // Additional files that need to be built
 const additionalFiles = [
-  "src/index.ts", // Main barrel export
-  "src/lib/cn.ts", // Utility
-  "src/lib/use-collapse.ts", // Hook
-  "src/components/field-clear-button.tsx",
-  "src/components/field-error-text.tsx",
-  "src/components/field-helper-text.tsx",
-  "src/components/highlight.tsx",
+  'src/index.ts', // Main barrel export
+  'src/lib/cn.ts', // Utility
+  'src/lib/use-collapse.ts', // Hook
+  'src/components/field-clear-button.tsx',
+  'src/components/field-error-text.tsx',
+  'src/components/field-helper-text.tsx',
+  'src/components/highlight.tsx',
 ];
 
 // Ensure dist directory exists
-const distDir = path.join(__dirname, "..", "dist");
+const distDir = path.join(__dirname, '..', 'dist');
 if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
 // Clean dist folder at the beginning
-console.log("🧹 Cleaning dist folder...");
-const entriesToKeep = ["package.json", "README.md"]; // Files to keep
+console.log('🧹 Cleaning dist folder...');
+const entriesToKeep = ['package.json', 'README.md']; // Files to keep
 const items = fs.readdirSync(distDir);
 items.forEach((item) => {
   const itemPath = path.join(distDir, item);
@@ -101,14 +101,14 @@ batches.forEach((batch, index) => {
 
   const entries = batch
     .map((comp) => `src/components/${comp}/index.ts`)
-    .join(" ");
+    .join(' ');
 
   try {
     execSync(
       `tsup ${entries} --format esm,cjs --dts --out-dir dist --no-clean`,
       {
-        stdio: "inherit",
-        cwd: path.join(__dirname, ".."),
+        stdio: 'inherit',
+        cwd: path.join(__dirname, '..'),
       }
     );
   } catch (error) {
@@ -118,30 +118,30 @@ batches.forEach((batch, index) => {
 });
 
 // Build additional files (including src/index.ts)
-console.log("\nBuilding additional files and main index...");
+console.log('\nBuilding additional files and main index...');
 try {
-  const additionalEntries = additionalFiles.join(" ");
+  const additionalEntries = additionalFiles.join(' ');
   execSync(
     `tsup ${additionalEntries} --format esm,cjs --dts --out-dir dist --no-clean`,
     {
-      stdio: "inherit",
-      cwd: path.join(__dirname, ".."),
+      stdio: 'inherit',
+      cwd: path.join(__dirname, '..'),
     }
   );
 } catch (error) {
-  console.error("Failed to build additional files:", error);
+  console.error('Failed to build additional files:', error);
   process.exit(1);
 }
 
 // Generate root index files if they don't exist from src/index.ts build
-console.log("\nEnsuring root index files exist...");
+console.log('\nEnsuring root index files exist...');
 ensureRootIndexFiles(distDir);
 
-console.log("\nBuild completed successfully!");
+console.log('\nBuild completed successfully!');
 
 // Helper function to ensure root index files exist
 function ensureRootIndexFiles(distDir) {
-  const indexFiles = ["index.js", "index.cjs", "index.d.ts"];
+  const indexFiles = ['index.js', 'index.cjs', 'index.d.ts'];
 
   // If src/index.ts was built, it should have created these files
   // If not, create them manually
@@ -150,13 +150,13 @@ function ensureRootIndexFiles(distDir) {
     if (!fs.existsSync(filePath)) {
       console.log(`⚠️  ${file} not found, creating...`);
 
-      if (file === "index.js") {
+      if (file === 'index.js') {
         // Create ESM index that re-exports from src/index.ts
         createESMIndex(distDir);
-      } else if (file === "index.cjs") {
+      } else if (file === 'index.cjs') {
         // Create CJS index that re-exports from src/index.ts
         createCJSIndex(distDir);
-      } else if (file === "index.d.ts") {
+      } else if (file === 'index.d.ts') {
         // Create TypeScript index that re-exports types
         createTypeScriptIndex(distDir);
       }
@@ -171,8 +171,8 @@ function createESMIndex(distDir) {
 
 export * from './index.js';
 `;
-  fs.writeFileSync(path.join(distDir, "index.js"), content);
-  console.log("✅ Created dist/index.js");
+  fs.writeFileSync(path.join(distDir, 'index.js'), content);
+  console.log('✅ Created dist/index.js');
 }
 
 // Create CJS index file
@@ -183,8 +183,8 @@ function createCJSIndex(distDir) {
 module.exports = require('./index.cjs');
 module.exports.default = module.exports;
 `;
-  fs.writeFileSync(path.join(distDir, "index.cjs"), content);
-  console.log("✅ Created dist/index.cjs");
+  fs.writeFileSync(path.join(distDir, 'index.cjs'), content);
+  console.log('✅ Created dist/index.cjs');
 }
 
 // Create TypeScript index file
@@ -194,6 +194,6 @@ function createTypeScriptIndex(distDir) {
 
 export * from './index.d.ts';
 `;
-  fs.writeFileSync(path.join(distDir, "index.d.ts"), content);
-  console.log("✅ Created dist/index.d.ts");
+  fs.writeFileSync(path.join(distDir, 'index.d.ts'), content);
+  console.log('✅ Created dist/index.d.ts');
 }

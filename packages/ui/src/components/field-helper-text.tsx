@@ -11,8 +11,9 @@ const fieldHelperText = tv({
   },
 });
 
-export interface FieldHelperTextProps
-  extends React.HTMLAttributes<HTMLDivElement | HTMLSpanElement> {
+export interface FieldHelperTextProps extends React.HTMLAttributes<
+  HTMLDivElement | HTMLSpanElement
+> {
   as?: 'div' | 'span';
   size?: VariantProps<typeof fieldHelperText>['size'];
   className?: string;

@@ -1,5 +1,5 @@
 packages:
-  - "packages/*"
-  - "cli"
-  - "docs"
-  - "vite-app"
+  - 'packages/*'
+  - 'cli'
+  - 'docs'
+  - 'vite-app'

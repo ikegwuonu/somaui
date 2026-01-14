@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
-import { copyRecursive } from "../utils/copy";
+import fs from 'fs';
+import path from 'path';
+import { copyRecursive } from '../utils/copy';
 
-const libraryPath = path.resolve(__dirname, "../../packages/ui/src/components");
-const metaPath = path.resolve(__dirname, "../../packages/ui/meta.json");
+const libraryPath = path.resolve(__dirname, '../../packages/ui/src/components');
+const metaPath = path.resolve(__dirname, '../../packages/ui/meta.json');
 
 type AddOptions = {
   all?: boolean;
@@ -13,31 +13,31 @@ type AddOptions = {
 
 export function addCommand(components: string[], options: AddOptions) {
   const cwd = options.cwd || process.cwd();
-  const targetRoot = path.join(cwd, "src/components");
+  const targetRoot = path.join(cwd, 'src/components');
 
   const overwrite = Boolean(options.overwrite);
   const installAll = Boolean(options.all);
 
   // Check if project is initialized
   if (!fs.existsSync(targetRoot)) {
-    console.error("❌ Project not initialized. Run `npx somaui init` first.");
+    console.error('❌ Project not initialized. Run `npx somaui init` first.');
     process.exit(1);
   }
 
   if (!fs.existsSync(metaPath)) {
-    console.error("❌ meta.json not found in SomaUI package");
+    console.error('❌ meta.json not found in SomaUI package');
     process.exit(1);
   }
 
   const meta: Record<string, string[]> = JSON.parse(
-    fs.readFileSync(metaPath, "utf8")
+    fs.readFileSync(metaPath, 'utf8')
   );
 
   const componentsToInstall = installAll ? Object.keys(meta) : components;
 
   if (componentsToInstall.length === 0) {
     console.error(
-      "❌ No components specified. Use `somaui add <component>` or `--all`."
+      '❌ No components specified. Use `somaui add <component>` or `--all`.'
     );
     process.exit(1);
   }
@@ -89,14 +89,14 @@ export function addCommand(components: string[], options: AddOptions) {
   }
 
   // Summary
-  console.log("🎉 Installation Complete!");
+  console.log('🎉 Installation Complete!');
   console.log(`✅ Added ${itemsInstalled.length} item(s) to your project:`);
   itemsInstalled.forEach((item) => console.log(`  • ${item}`));
 
   if (itemsInstalled.length > 0) {
-    console.log("\n✨ Components available at: src/components/");
+    console.log('\n✨ Components available at: src/components/');
     console.log(
-      "📝 Note: Files keep their original import structure. Update your build tool config for aliases if needed."
+      '📝 Note: Files keep their original import structure. Update your build tool config for aliases if needed.'
     );
   }
 }
@@ -104,7 +104,7 @@ export function addCommand(components: string[], options: AddOptions) {
 // Extract component name from path
 function extractComponentName(pathString: string): string {
   // Remove "components/" prefix and file extension
-  return pathString.replace(/^components\//, "").replace(/\.tsx$/, "");
+  return pathString.replace(/^components\//, '').replace(/\.tsx$/, '');
 }
 
 // Install a main component (could be file or folder)
@@ -117,7 +117,7 @@ function installComponent(
   const componentFile = path.join(libraryPath, `${componentName}.tsx`);
   const componentFolder = path.join(libraryPath, componentName);
 
-  let sourcePath = "";
+  let sourcePath = '';
   let isDirectory = false;
 
   if (
@@ -164,8 +164,8 @@ function installDependency(
   cwd: string,
   overwrite: boolean
 ): boolean {
-  const sourceBase = path.resolve(__dirname, "../../packages/ui/src");
-  const targetBase = path.join(cwd, "src");
+  const sourceBase = path.resolve(__dirname, '../../packages/ui/src');
+  const targetBase = path.join(cwd, 'src');
 
   const sourcePath = path.join(sourceBase, dependencyPath);
 

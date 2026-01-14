@@ -1,34 +1,34 @@
-import { Badge } from "@somaui/ui/badge";
-import { Table } from "@somaui/ui/table";
-import { cn } from "@somaui/ui/lib/cn";
-import type { TableVariantProps } from "@somaui/ui/table";
+import { Badge } from '@somaui/ui/badge';
+import { Table } from '@somaui/ui/table';
+import { cn } from '@somaui/ui/lib/cn';
+import type { TableVariantProps } from '@somaui/ui/table';
 
 export function TableDemo({
-  variant = "modern",
+  variant = 'modern',
 }: {
   variant: TableVariantProps;
 }) {
   return (
-    <div className="overflow-x-auto overflow-y-hidden w-full">
+    <div className="w-full overflow-x-auto overflow-y-hidden">
       <Table
         variant={variant}
         className={cn(
-          "!shadow-none",
-          variant === "modern" && "!border-0",
-          variant === "minimal" && "!border-0",
-          variant === "elegant" && "!border-0",
-          variant === "retro" && "!border-0"
+          '!shadow-none',
+          variant === 'modern' && '!border-0',
+          variant === 'minimal' && '!border-0',
+          variant === 'elegant' && '!border-0',
+          variant === 'retro' && '!border-0'
         )}
       >
         <Table.Header
           className={cn(
-            "!bg-gray-100",
-            variant === "modern" && "!border-y-0",
-            variant === "minimal" && "!border-y-0",
-            variant === "elegant" &&
-              "!bg-transparent dark:[&>tr>th]:!bg-transparent",
-            variant === "retro" &&
-              "!bg-transparent dark:[&>tr>th]:!bg-transparent"
+            '!bg-gray-100',
+            variant === 'modern' && '!border-y-0',
+            variant === 'minimal' && '!border-y-0',
+            variant === 'elegant' &&
+              '!bg-transparent dark:[&>tr>th]:!bg-transparent',
+            variant === 'retro' &&
+              '!bg-transparent dark:[&>tr>th]:!bg-transparent'
           )}
         >
           <Table.Row>

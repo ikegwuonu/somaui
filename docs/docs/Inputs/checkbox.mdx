@@ -2,17 +2,17 @@
 sidebar_position: 5
 ---
 
-import { Checkbox } from "@somaui/ui/checkbox";
-import Paper from "@site/src/components/paper";
+import { Checkbox } from '@somaui/ui/checkbox';
+import Paper from '@site/src/components/paper';
 
 # Checkbox
 
 A basic widget for getting the user input, used for selecting multiple values from several options.
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -26,9 +26,9 @@ The default style of **Checkbox** component.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return <Checkbox label="Remember me" />;
@@ -42,16 +42,16 @@ export default function App() {
 You can change the style of **Checkbox** using [**variant**](#checkbox-variants) property.
 
 <Paper>
-  <div className="w-full max-w-md flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-md flex-wrap justify-around gap-4">
     <Checkbox label="Outline" variant="outline" />
     <Checkbox label="Flat" variant="flat" />
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return (
@@ -70,7 +70,7 @@ export default function App() {
 You can change the sizes of **Checkbox** using [**size**](#checkbox-sizes) property.
 
 <Paper>
-  <div className="w-full max-w-xl flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-xl flex-wrap justify-around gap-4">
     <Checkbox label="Small" size="sm" />
     <Checkbox label="Default" size="md" />
     <Checkbox label="Large" size="lg" />
@@ -78,9 +78,9 @@ You can change the sizes of **Checkbox** using [**size**](#checkbox-sizes) prope
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return (
@@ -100,16 +100,16 @@ export default function App() {
 You can set label on the two different sides using **labelPlacement** property.
 
 <Paper>
-  <div className="w-full max-w-xl flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-xl flex-wrap justify-around gap-4">
     <Checkbox label="Left Placement" labelPlacement="left" />
     <Checkbox label="Right Placement" labelPlacement="right" />
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return (
@@ -136,9 +136,9 @@ The disabled style of the **Checkbox** component.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return <Checkbox className="m-2" label="Left Placement" disabled />;
@@ -161,9 +161,9 @@ You can add helper text to **Checkbox** using **helperText** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return (
@@ -193,9 +193,9 @@ You can show the validation error message using **error** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Checkbox } from "@somaui/ui/checkbox";
+import { Checkbox } from '@somaui/ui/checkbox';
 
 export default function App() {
   return (
@@ -250,7 +250,7 @@ Here is the API documentation of the Checkbox component. And the rest of the pro
 ### Checkbox Variants
 
 ```ts
-type CheckboxVariants = "outline" | "flat";
+type CheckboxVariants = 'outline' | 'flat';
 ```
 
 <div className="mb-10" />
@@ -258,7 +258,7 @@ type CheckboxVariants = "outline" | "flat";
 ### Label Weight
 
 ```ts
-type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+type LabelWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 ```
 
 <div className="mb-10" />
@@ -266,7 +266,7 @@ type LabelWeight = "normal" | "medium" | "semibold" | "bold";
 ### Checkbox Sizes
 
 ```ts
-type CheckboxSizes = "sm" | "md" | "lg";
+type CheckboxSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />

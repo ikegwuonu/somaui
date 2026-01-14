@@ -1,29 +1,29 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 const fieldClearButton = tv({
-  base: "somaui-input-clear-btn input-clear-btn inline-flex shrink-0 transform items-center justify-center rounded-full bg-muted/70 backdrop-blur text-foreground/90 transition-all duration-200 ease-in-out hover:bg-primary hover:text-primary-foreground",
+  base: 'somaui-input-clear-btn input-clear-btn inline-flex shrink-0 transform items-center justify-center rounded-full bg-muted/70 backdrop-blur text-foreground/90 transition-all duration-200 ease-in-out hover:bg-primary hover:text-primary-foreground',
   variants: {
     size: {
-      sm: "h-3.5 w-3.5",
-      md: "h-4 w-4",
-      lg: "h-4 w-4",
+      sm: 'h-3.5 w-3.5',
+      md: 'h-4 w-4',
+      lg: 'h-4 w-4',
     },
     hasSuffix: {
-      true: "",
+      true: '',
     },
   },
   compoundVariants: [
-    { hasSuffix: true, size: "sm", class: "me-1.5" },
-    { hasSuffix: true, size: "md", class: "me-2" },
-    { hasSuffix: true, size: "lg", class: "me-2.5" },
+    { hasSuffix: true, size: 'sm', class: 'me-1.5' },
+    { hasSuffix: true, size: 'md', class: 'me-2' },
+    { hasSuffix: true, size: 'lg', class: 'me-2.5' },
   ],
 });
 
 export interface FieldClearButtonProps {
   as?: React.ElementType;
   hasSuffix?: boolean;
-  size?: VariantProps<typeof fieldClearButton>["size"];
+  size?: VariantProps<typeof fieldClearButton>['size'];
   onClick?: (event: React.MouseEvent) => void;
   className?: string;
 }
@@ -35,7 +35,7 @@ export function FieldClearButton({
   hasSuffix,
   className,
 }: FieldClearButtonProps) {
-  const Component = as || "button";
+  const Component = as || 'button';
   return (
     <Component
       type="button"
@@ -61,4 +61,4 @@ export function FieldClearButton({
   );
 }
 
-FieldClearButton.displayName = "FieldClearButton";
+FieldClearButton.displayName = 'FieldClearButton';

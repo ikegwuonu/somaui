@@ -1,9 +1,9 @@
-import { type ReactNode } from "react";
-import { cn } from "@/lib/cn";
-import { useDropdown } from "./dropdown-context";
-import { ourPlacementObject } from "./dropdown.lib";
-import { dropdownStyles } from "@/lib/dropdown-list-style";
-import { MenuItems, Transition, type MenuItemsProps } from "@headlessui/react";
+import { type ReactNode } from 'react';
+import { cn } from '@/lib/cn';
+import { useDropdown } from './dropdown-context';
+import { ourPlacementObject } from './dropdown.lib';
+import { dropdownStyles } from '@/lib/dropdown-list-style';
+import { MenuItems, Transition, type MenuItemsProps } from '@headlessui/react';
 
 type DropdownMenuProps = {
   className?: string;
@@ -36,12 +36,12 @@ export function DropdownMenu({
           anchor: { to: ourPlacementObject[placement], gap: gap },
         })}
         className={cn(
-          "somaui-dropdown-menu",
-          "w-48",
+          'somaui-dropdown-menu',
+          'w-48',
           dropdownStyles.base,
-          anchorWidth && "w-[--button-width]",
+          anchorWidth && 'w-[--button-width]',
           dropdownStyles.shadow,
-          !inPortal && "absolute start-0 z-10 mt-1.5",
+          !inPortal && 'absolute start-0 z-10 mt-1.5',
           className
         )}
         {...props}
@@ -52,4 +52,4 @@ export function DropdownMenu({
   );
 }
 
-DropdownMenu.displayName = "DropdownMenu";
+DropdownMenu.displayName = 'DropdownMenu';

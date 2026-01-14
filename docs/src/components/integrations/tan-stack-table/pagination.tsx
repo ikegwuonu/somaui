@@ -1,17 +1,17 @@
-import { ActionIcon, Select, SelectOption, Text } from "@somaui/ui";
-import { type Table as ReactTableType } from "@tanstack/react-table";
+import { ActionIcon, Select, SelectOption, Text } from '@somaui/ui';
+import { type Table as ReactTableType } from '@tanstack/react-table';
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/20/solid';
 
 const options = [
-  { value: 5, label: "5" },
-  { value: 10, label: "10" },
-  { value: 15, label: "15" },
-  { value: 20, label: "20" },
+  { value: 5, label: '5' },
+  { value: 10, label: '10' },
+  { value: 15, label: '15' },
+  { value: 20, label: '20' },
 ];
 
 export default function TablePagination<TData extends Record<string, any>>({
@@ -20,16 +20,16 @@ export default function TablePagination<TData extends Record<string, any>>({
   table: ReactTableType<TData>;
 }) {
   return (
-    <div className="flex w-full items-center justify-between @container">
+    <div className="@container flex w-full items-center justify-between">
       <div className="hidden @2xl:block">
         <Text>
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </Text>
       </div>
       <div className="flex w-full items-center justify-between gap-6 @2xl:w-auto @2xl:gap-12">
         <div className="flex items-center gap-4">
-          <Text className="hidden whitespace-nowrap text-sm font-medium text-[var(--text-secondary)] @md:block">
+          <Text className="hidden text-sm font-medium whitespace-nowrap text-[var(--text-secondary)] @md:block">
             Rows per page
           </Text>
           <Select
@@ -46,7 +46,7 @@ export default function TablePagination<TData extends Record<string, any>>({
           />
         </div>
         <Text className="hidden text-sm font-medium text-[var(--text-secondary)] @3xl:block">
-          Page {table.getState().pagination.pageIndex + 1} of{" "}
+          Page {table.getState().pagination.pageIndex + 1} of{' '}
           {table.getPageCount().toLocaleString()}
         </Text>
         <div className="grid grid-cols-4 gap-2">

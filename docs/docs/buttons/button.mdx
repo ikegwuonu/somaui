@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-import { Button } from "@somaui/ui/button";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Paper from "@site/src/components/paper";
+import { Button } from '@somaui/ui/button';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Paper from '@site/src/components/paper';
 
 # Button
 
@@ -19,42 +19,42 @@ pnpm dlx somaui add button
 generates `components/button` and other dependent files/folder:
 
 ```tsx
-import React, { forwardRef, type ElementType } from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { Loader } from "@/components/loader";
+import React, { forwardRef, type ElementType } from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { Loader } from '@/components/loader';
 
 const button = tv({
-  base: "font-medium inline-flex items-center justify-center cursor-pointer active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)]",
+  base: 'font-medium inline-flex items-center justify-center cursor-pointer active:enabled:translate-y-px focus:outline-none focus-visible:ring-[1.8px] focus-visible:ring-offset-2 ring-offset-background transition-colors duration-200 rounded-[var(--border-radius)]',
   variants: {
     variant: {
       solid:
-        "bg-primary hover:bg-primary-dark dark:hover:bg-primary/90 focus-visible:ring-border text-primary-foreground border-[length:var(--border-width)] border-transparent dark:backdrop-blur",
+        'bg-primary hover:bg-primary-dark dark:hover:bg-primary/90 focus-visible:ring-border text-primary-foreground border-[length:var(--border-width)] border-transparent dark:backdrop-blur',
       outline:
-        "bg-transparent border-[length:var(--border-width)] border-border hover:border-primary focus-visible:ring-border hover:text-primary dark:backdrop-blur",
-      flat: "bg-muted hover:bg-primary-lighter focus-visible:ring-primary-lighter hover:text-primary-dark border-[length:var(--border-width)] border-transparent backdrop-blur",
-      text: "hover:text-primary focus-visible:ring-primary-lighter border-[length:var(--border-width)] border-transparent",
+        'bg-transparent border-[length:var(--border-width)] border-border hover:border-primary focus-visible:ring-border hover:text-primary dark:backdrop-blur',
+      flat: 'bg-muted hover:bg-primary-lighter focus-visible:ring-primary-lighter hover:text-primary-dark border-[length:var(--border-width)] border-transparent backdrop-blur',
+      text: 'hover:text-primary focus-visible:ring-primary-lighter border-[length:var(--border-width)] border-transparent',
       danger:
-        "bg-red hover:bg-red-dark dark:hover:bg-red/80 focus-visible:ring-red/30 text-white border-[length:var(--border-width)] border-transparent dark:backdrop-blur",
+        'bg-red hover:bg-red-dark dark:hover:bg-red/80 focus-visible:ring-red/30 text-white border-[length:var(--border-width)] border-transparent dark:backdrop-blur',
     },
     size: {
-      sm: "px-2.5 py-1 text-xs h-8",
-      md: "px-4 py-2 text-sm h-10",
-      lg: "px-5 py-2 text-base h-12",
+      sm: 'px-2.5 py-1 text-xs h-8',
+      md: 'px-4 py-2 text-sm h-10',
+      lg: 'px-5 py-2 text-base h-12',
     },
     disabled: {
-      true: "dark:hover:bg-muted/70 cursor-not-allowed border-muted bg-muted/70 text-muted-foreground hover:text-muted-foreground backdrop-blur-xl hover:border-muted hover:bg-muted/70",
+      true: 'dark:hover:bg-muted/70 cursor-not-allowed border-muted bg-muted/70 text-muted-foreground hover:text-muted-foreground backdrop-blur-xl hover:border-muted hover:bg-muted/70',
     },
     isLoading: {
-      true: "pointer-events-none relative",
+      true: 'pointer-events-none relative',
     },
   },
   defaultVariants: {
-    variant: "solid",
-    size: "md",
+    variant: 'solid',
+    size: 'md',
   },
 });
 
-export type ButtonProps<T extends ElementType = "button"> = VariantProps<
+export type ButtonProps<T extends ElementType = 'button'> = VariantProps<
   typeof button
 > & {
   as?: T;
@@ -62,7 +62,7 @@ export type ButtonProps<T extends ElementType = "button"> = VariantProps<
   isLoading?: boolean;
   loader?: React.ReactNode;
   children?: React.ReactNode;
-} & Omit<React.ComponentPropsWithRef<T>, "as" | "className" | "ref"> & {
+} & Omit<React.ComponentPropsWithRef<T>, 'as' | 'className' | 'ref'> & {
     className?: string;
   };
 
@@ -72,23 +72,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       className,
       isLoading,
-      as = "button",
-      type = "button",
-      variant = "solid",
-      size = "md",
-      color = "primary",
+      as = 'button',
+      type = 'button',
+      variant = 'solid',
+      size = 'md',
+      color = 'primary',
       disabled,
       loader,
       ...buttonProps
     },
     ref
   ) => {
-    const Component = (as || "button") as ElementType;
+    const Component = (as || 'button') as ElementType;
 
     return (
       <Component
         ref={ref}
-        type={Component === "button" ? type : undefined}
+        type={Component === 'button' ? type : undefined}
         disabled={disabled}
         aria-disabled={disabled}
         aria-busy={isLoading}
@@ -115,13 +115,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-Button.displayName = "Button";
+Button.displayName = 'Button';
 ```
 
 <p className="pt-4">As a package:</p>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -135,7 +135,7 @@ The default style of **Button** component.
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return <Button>Button</Button>;
@@ -149,7 +149,7 @@ export default function App() {
 You can change the style of the **Button** using [**variant**](#button-variants) property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-4">
     <Button variant="solid">Solid</Button>
     <Button variant="outline">Outline</Button>
     <Button variant="flat">Flat</Button>
@@ -159,7 +159,7 @@ You can change the style of the **Button** using [**variant**](#button-variants)
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -181,7 +181,7 @@ export default function App() {
 You can change the size of the **Button** using [**size**](#button-sizes) property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-4">
     <Button size="sm">Button</Button>
     <Button>Button</Button>
     <Button size="lg">Button</Button>
@@ -189,7 +189,7 @@ You can change the size of the **Button** using [**size**](#button-sizes) proper
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -211,7 +211,7 @@ export default function App() {
 You can set the loading state of the **Button** component using **isLoading** property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-4 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-4">
     <Button isLoading={true}>Solid</Button>
     <Button isLoading={true} variant="outline">
       Outline
@@ -226,7 +226,7 @@ You can set the loading state of the **Button** component using **isLoading** pr
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -257,7 +257,7 @@ This is the disabled style of the **Button** component.
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return <Button disabled={true}>Disabled</Button>;
@@ -272,20 +272,20 @@ You can set any Icon at any position.
 
 <Paper>
   <Button>
-    <span>View Details</span>{" "}
-    <ArrowRightIcon strokeWidth="2" className="h-4 w-4 ml-2" />
+    <span>View Details</span>{' '}
+    <ArrowRightIcon strokeWidth="2" className="ml-2 h-4 w-4" />
   </Button>
 </Paper>
 
 ```tsx
-import { Button } from "@somaui/ui/button";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Button } from '@somaui/ui/button';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
     <Button>
-      <span>View Details</span>{" "}
-      <ArrowRightIcon strokeWidth="2" className="h-4 w-4 ml-2" />
+      <span>View Details</span>{' '}
+      <ArrowRightIcon strokeWidth="2" className="ml-2 h-4 w-4" />
     </Button>
   );
 }
@@ -326,7 +326,7 @@ Here is the API documentation of the Button component. And the rest of the props
 ### Button Types
 
 ```ts
-type ButtonTypes = "button" | "submit" | "reset";
+type ButtonTypes = 'button' | 'submit' | 'reset';
 ```
 
 <div className="mb-10" />
@@ -334,7 +334,7 @@ type ButtonTypes = "button" | "submit" | "reset";
 ### Button Variants
 
 ```ts
-type ButtonVariants = "solid" | "outline" | "flat" | "text" | "danger";
+type ButtonVariants = 'solid' | 'outline' | 'flat' | 'text' | 'danger';
 ```
 
 <div className="mb-10" />
@@ -342,5 +342,5 @@ type ButtonVariants = "solid" | "outline" | "flat" | "text" | "danger";
 ### Button Sizes
 
 ```ts
-type ButtonSizes = "sm" | "md" | "lg";
+type ButtonSizes = 'sm' | 'md' | 'lg';
 ```

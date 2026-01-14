@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import { SunIcon } from "@heroicons/react/20/solid";
-import { MoonIcon, LinkIcon } from "@heroicons/react/24/outline";
-import { Avatar } from "@somaui/ui";
+import React, { Fragment } from 'react';
+import { SunIcon } from '@heroicons/react/20/solid';
+import { MoonIcon, LinkIcon } from '@heroicons/react/24/outline';
+import { Avatar } from '@somaui/ui';
 
 export const defaultCollapseData = [
   {
-    title: "Option A",
+    title: 'Option A',
     content: (
       <Fragment>
         If you are unhappy with your purchase for any reason, email us within 90
@@ -17,7 +17,7 @@ export const defaultCollapseData = [
     ),
   },
   {
-    title: "Option B",
+    title: 'Option B',
     content: (
       <Fragment>
         If you are unhappy with your purchase for any reason, email us within 90
@@ -29,7 +29,7 @@ export const defaultCollapseData = [
     ),
   },
   {
-    title: "Option C",
+    title: 'Option C',
     content: (
       <Fragment>
         If you are unhappy with your purchase for any reason, email us within 90
@@ -44,7 +44,7 @@ export const defaultCollapseData = [
 
 export const customStyleCollapseData = [
   {
-    title: "Option A",
+    title: 'Option A',
     icon: <LinkIcon />,
     avatar: (
       <Avatar
@@ -52,7 +52,7 @@ export const customStyleCollapseData = [
         size="lg"
         rounded="lg"
         src="https://randomuser.me/api/portraits/men/3.jpg"
-        className="ring-2 ring-primary ring-offset-2"
+        className="ring-primary ring-2 ring-offset-2"
       />
     ),
     defaultOpen: true,
@@ -67,7 +67,7 @@ export const customStyleCollapseData = [
     ),
   },
   {
-    title: "Option B",
+    title: 'Option B',
     icon: <MoonIcon />,
     avatar: (
       <Avatar
@@ -75,7 +75,7 @@ export const customStyleCollapseData = [
         size="lg"
         rounded="lg"
         src="https://randomuser.me/api/portraits/women/40.jpg"
-        className="ring-2 ring-green ring-offset-2"
+        className="ring-green ring-2 ring-offset-2"
       />
     ),
     defaultOpen: false,
@@ -90,7 +90,7 @@ export const customStyleCollapseData = [
     ),
   },
   {
-    title: "Option C",
+    title: 'Option C',
     icon: <SunIcon />,
     avatar: (
       <Avatar
@@ -98,7 +98,7 @@ export const customStyleCollapseData = [
         size="lg"
         rounded="lg"
         src="https://randomuser.me/api/portraits/women/7.jpg"
-        className="ring-2 ring-red ring-offset-2"
+        className="ring-red ring-2 ring-offset-2"
       />
     ),
     defaultOpen: false,

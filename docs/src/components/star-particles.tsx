@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type StarParticlesProps = {
   limit?: number;
@@ -15,15 +15,15 @@ export default function StarParticles({
   particleSize = 1,
   animated = false,
   animationSpeed = 0.2,
-  backgroundColor = "transparent",
-  color = "white",
-  className = "absolute top-0 left-0 -z-[1]",
+  backgroundColor = 'transparent',
+  color = 'white',
+  className = 'absolute top-0 left-0 -z-[1]',
 }: StarParticlesProps) {
   const canvasRef = React.useRef(null);
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     let particles = [];
 
     const resizeCanvas = () => {
@@ -71,14 +71,14 @@ export default function StarParticles({
       particles = Array.from({ length: limit }, createParticle);
     };
 
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
 
     resizeCanvas();
     initializeParticles();
     drawParticles();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, [limit, animated, animationSpeed, particleSize, color]);
 
@@ -86,7 +86,7 @@ export default function StarParticles({
     <canvas
       ref={canvasRef}
       className={className}
-      style={{ backgroundColor, width: "100%", height: "100%" }}
+      style={{ backgroundColor, width: '100%', height: '100%' }}
     />
   );
 }

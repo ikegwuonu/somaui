@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import { Dropdown } from "@somaui/ui/dropdown";
-import { Button } from "@somaui/ui/button";
-import TurndownService from "turndown";
-import { Box } from "@somaui/ui/box";
+import React, { useState } from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import { Dropdown } from '@somaui/ui/dropdown';
+import { Button } from '@somaui/ui/button';
+import TurndownService from 'turndown';
+import { Box } from '@somaui/ui/box';
 import {
   ClipboardDocumentIcon,
   ChevronDownIcon,
   CheckIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 // Icons for dropdown items - matching the design from the image
 const MarkdownIcon = () => (
@@ -67,39 +67,39 @@ function PageActionsDropdownContent() {
   const [copied, setCopied] = useState(false);
 
   const getCurrentUrl = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       return window.location.href;
     }
-    return "";
+    return '';
   };
 
   // Fallback method for copying to clipboard
   const fallbackCopyToClipboard = (text: string) => {
-    const textArea = document.createElement("textarea");
+    const textArea = document.createElement('textarea');
     textArea.value = text;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-999999px";
-    textArea.style.top = "-999999px";
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
     try {
-      document.execCommand("copy");
-      console.log("Markdown copied to clipboard!");
+      document.execCommand('copy');
+      console.log('Markdown copied to clipboard!');
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     } catch (err) {
-      console.error("Failed to copy markdown:", err);
+      console.error('Failed to copy markdown:', err);
     }
     document.body.removeChild(textArea);
   };
 
   const handleViewAsMarkdown = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       // Get the main content area
       const mainContent =
-        document.querySelector(".markdown") ||
-        document.querySelector("article");
+        document.querySelector('.markdown') ||
+        document.querySelector('article');
       if (!mainContent) return;
 
       // Create a clone to avoid modifying the original DOM
@@ -113,18 +113,18 @@ function PageActionsDropdownContent() {
 
       // Initialize Turndown service with options
       const turndownService = new TurndownService({
-        headingStyle: "atx",
-        codeBlockStyle: "fenced",
-        bulletListMarker: "-",
-        emDelimiter: "*",
-        strongDelimiter: "**",
-        linkStyle: "inlined",
-        linkReferenceStyle: "full",
+        headingStyle: 'atx',
+        codeBlockStyle: 'fenced',
+        bulletListMarker: '-',
+        emDelimiter: '*',
+        strongDelimiter: '**',
+        linkStyle: 'inlined',
+        linkReferenceStyle: 'full',
       });
 
       // Add custom rules for better conversion
-      turndownService.addRule("strikethrough", {
-        filter: ["del", "s", "strike"],
+      turndownService.addRule('strikethrough', {
+        filter: ['del', 's', 'strike'],
         replacement: (content) => `~~${content}~~`,
       });
 
@@ -137,12 +137,12 @@ function PageActionsDropdownContent() {
         navigator.clipboard
           .writeText(markdown)
           .then(() => {
-            console.log("Markdown copied to clipboard!");
+            console.log('Markdown copied to clipboard!');
             setCopied(true);
             setTimeout(() => setCopied(false), 1000);
           })
           .catch((err) => {
-            console.error("Failed to copy markdown:", err);
+            console.error('Failed to copy markdown:', err);
             // Fallback: Use the older method if clipboard API fails
             fallbackCopyToClipboard(markdown);
           });
@@ -154,38 +154,38 @@ function PageActionsDropdownContent() {
   };
 
   const handleOpenInV0 = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const url = getCurrentUrl();
       // v0.dev chat URL format
       const v0Url = `https://v0.dev/chat?q=${encodeURIComponent(
         `I'm reviewing the SomaUI documentation: ${url}. Please help me understand how to use it, including explanations, examples, and debugging support if needed.`
       )}`;
-      window.open(v0Url, "_blank");
+      window.open(v0Url, '_blank');
     }
   };
 
   const handleOpenInChatGPT = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const url = getCurrentUrl();
       // ChatGPT URL - opening in new tab with the page URL
       window.open(
         `https://chat.openai.com/?q=${encodeURIComponent(
           `I'm reviewing the SomaUI documentation: ${url}. Please help me understand how to use it, including explanations, examples, and debugging support if needed.`
         )}`,
-        "_blank"
+        '_blank'
       );
     }
   };
 
   const handleOpenInClaude = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const url = getCurrentUrl();
       // Claude AI URL
       window.open(
         `https://claude.ai/new?q=${encodeURIComponent(
           `I'm reviewing the SomaUI documentation: ${url}. Please help me understand how to use it, including explanations, examples, and debugging support if needed.`
         )}`,
-        "_blank"
+        '_blank'
       );
     }
   };
@@ -196,12 +196,12 @@ function PageActionsDropdownContent() {
         size="sm"
         variant="outline"
         onClick={handleViewAsMarkdown}
-        className="text-[13px] border-r-0 rounded-tr-none rounded-br-none hover:border-border focus:border-border"
+        className="hover:border-border focus:border-border rounded-tr-none rounded-br-none border-r-0 text-[13px]"
       >
         {copied ? (
-          <CheckIcon className="size-4.5 me-1.5" />
+          <CheckIcon className="me-1.5 size-4.5" />
         ) : (
-          <ClipboardDocumentIcon className="size-4.5 me-1.5" />
+          <ClipboardDocumentIcon className="me-1.5 size-4.5" />
         )}
         Copy Page
       </Button>
@@ -210,7 +210,7 @@ function PageActionsDropdownContent() {
           <Button
             size="sm"
             variant="outline"
-            className="gap-2 rounded-tl-none rounded-bl-none hover:border-border focus:border-border"
+            className="hover:border-border focus:border-border gap-2 rounded-tl-none rounded-bl-none"
           >
             <ChevronDownIcon className="size-4.5" />
           </Button>

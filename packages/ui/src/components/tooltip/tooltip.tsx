@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactElement, type ReactNode } from "react";
+import { useRef, useState, type ReactElement, type ReactNode } from 'react';
 import {
   type Placement,
   FloatingArrow,
@@ -15,68 +15,68 @@ import {
   arrow,
   useTransitionStyles,
   FloatingPortal,
-} from "@floating-ui/react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
+} from '@floating-ui/react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
 
 const tooltip = tv({
-  base: "text-center z-[9999] min-w-max rounded-[var(--border-radius)] border-[length:var(--border-width)] drop-shadow-[0px_8px_24px_rgba(149,157,165,0.2)]",
+  base: 'text-center z-[9999] min-w-max rounded-[var(--border-radius)] border-[length:var(--border-width)] drop-shadow-[0px_8px_24px_rgba(149,157,165,0.2)]',
   variants: {
     size: {
-      sm: "px-2.5 py-1 text-xs",
-      md: "px-3 py-1.5 text-sm",
-      lg: "px-3.5 py-2 text-base",
+      sm: 'px-2.5 py-1 text-xs',
+      md: 'px-3 py-1.5 text-sm',
+      lg: 'px-3.5 py-2 text-base',
     },
     color: {
-      primary: "",
-      invert: "",
-      secondary: "",
-      danger: "",
-      info: "",
-      success: "",
-      warning: "",
+      primary: '',
+      invert: '',
+      secondary: '',
+      danger: '',
+      info: '',
+      success: '',
+      warning: '',
     },
   },
   compoundVariants: [
     {
-      color: "primary",
-      class: "text-primary-foreground bg-primary border-transparent",
+      color: 'primary',
+      class: 'text-primary-foreground bg-primary border-transparent',
     },
     {
-      color: "invert",
+      color: 'invert',
       class:
-        "bg-background dark:bg-muted/80 dark:backdrop-blur-3xl border-border",
+        'bg-background dark:bg-muted/80 dark:backdrop-blur-3xl border-border',
     },
     {
-      color: "secondary",
-      class: "text-secondary-foreground bg-secondary border-transparent",
+      color: 'secondary',
+      class: 'text-secondary-foreground bg-secondary border-transparent',
     },
-    { color: "danger", class: "text-white bg-red border-transparent" },
-    { color: "info", class: "text-white bg-blue border-transparent" },
-    { color: "success", class: "text-white bg-green border-transparent" },
-    { color: "warning", class: "text-white bg-orange border-transparent" },
+    { color: 'danger', class: 'text-white bg-red border-transparent' },
+    { color: 'info', class: 'text-white bg-blue border-transparent' },
+    { color: 'success', class: 'text-white bg-green border-transparent' },
+    { color: 'warning', class: 'text-white bg-orange border-transparent' },
   ],
   defaultVariants: {
-    size: "md",
-    color: "primary",
+    size: 'md',
+    color: 'primary',
   },
 });
 
 const tooltipArrow = tv({
   variants: {
     color: {
-      primary: "fill-primary",
+      primary: 'fill-primary',
       invert:
-        "fill-background dark:fill-muted/80 [&>path]:stroke-muted dark:backdrop-blur-3xl",
-      secondary: "fill-secondary",
-      danger: "fill-red",
-      info: "fill-blue",
-      success: "fill-green",
-      warning: "fill-orange",
+        'fill-background dark:fill-muted/80 [&>path]:stroke-muted dark:backdrop-blur-3xl',
+      secondary: 'fill-secondary',
+      danger: 'fill-red',
+      info: 'fill-blue',
+      success: 'fill-green',
+      warning: 'fill-orange',
     },
   },
   defaultVariants: {
-    color: "primary",
+    color: 'primary',
   },
 });
 
@@ -92,21 +92,21 @@ const tooltipAnimation = {
   zoomIn: {
     initial: {
       opacity: 0,
-      transform: "scale(0.96)",
+      transform: 'scale(0.96)',
     },
     close: {
       opacity: 0,
-      transform: "scale(0.96)",
+      transform: 'scale(0.96)',
     },
   },
   slideIn: {
     initial: {
       opacity: 0,
-      transform: "translateY(4px)",
+      transform: 'translateY(4px)',
     },
     close: {
       opacity: 0,
-      transform: "translateY(4px)",
+      transform: 'translateY(4px)',
     },
   },
 } as const;
@@ -116,8 +116,8 @@ type TooltipVariant = VariantProps<typeof tooltip>;
 export type TooltipProps = {
   children: ReactElement;
   content: ReactNode;
-  color?: TooltipVariant["color"];
-  size?: TooltipVariant["size"];
+  color?: TooltipVariant['color'];
+  size?: TooltipVariant['size'];
   placement?: Placement;
   gap?: number;
   animation?: keyof typeof tooltipAnimation;
@@ -135,10 +135,10 @@ export function Tooltip({
   children,
   content,
   gap = 8,
-  animation = "zoomIn",
-  placement = "top",
-  size = "md",
-  color = "primary",
+  animation = 'zoomIn',
+  placement = 'top',
+  size = 'md',
+  color = 'primary',
   className,
   arrowClassName,
   showArrow = true,
@@ -162,7 +162,7 @@ export function Tooltip({
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useHover(context),
     useFocus(context),
-    useRole(context, { role: "tooltip" }),
+    useRole(context, { role: 'tooltip' }),
     useDismiss(context),
   ]);
 
@@ -187,7 +187,7 @@ export function Tooltip({
             role="tooltip"
             ref={refs.setFloating}
             className={cn(
-              "somaui-tooltip",
+              'somaui-tooltip',
               tooltip({ size, color, className })
             )}
             style={{
@@ -206,7 +206,7 @@ export function Tooltip({
                 context={context}
                 data-testid="tooltip-arrow"
                 className={tooltipArrow({ color, className: arrowClassName })}
-                style={{ strokeDasharray: "0,14, 5" }}
+                style={{ strokeDasharray: '0,14, 5' }}
               />
             )}
           </div>
@@ -216,4 +216,4 @@ export function Tooltip({
   );
 }
 
-Tooltip.displayName = "Tooltip";
+Tooltip.displayName = 'Tooltip';

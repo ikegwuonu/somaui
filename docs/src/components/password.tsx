@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Flex, Password } from "@somaui/ui";
+import React from 'react';
+import { Button, Flex, Password } from '@somaui/ui';
 
 export default function PasswordClearable({ label }) {
-  const [state, setState] = React.useState("my_password");
+  const [state, setState] = React.useState('my_password');
   return (
     <Password
       label={label}
       value={state}
       clearable={true}
-      onClear={() => setState("")}
+      onClear={() => setState('')}
       onChange={(e) => setState(e.target.value)}
       placeholder="Your password"
       className="w-full max-w-md"
@@ -28,7 +28,7 @@ export function PasswordVisibilityToggle() {
         className="grow"
       />
       <Button onClick={() => setShowPassword(!showPassword)}>
-        {showPassword ? "Hide" : "Show"}
+        {showPassword ? 'Hide' : 'Show'}
       </Button>
     </Flex>
   );

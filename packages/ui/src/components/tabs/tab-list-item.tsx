@@ -1,20 +1,20 @@
-import type { MouseEvent } from "react";
-import { Tab as HeadlessTab, type TabProps } from "@headlessui/react";
-import { tv } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import type { ExtractProps } from "@/lib/extract-props";
-import { useTab } from "./tab-context";
+import type { MouseEvent } from 'react';
+import { Tab as HeadlessTab, type TabProps } from '@headlessui/react';
+import { tv } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import type { ExtractProps } from '@/lib/extract-props';
+import { useTab } from './tab-context';
 
 const tabListItem = tv({
-  base: "relative py-2.5 px-3 flex items-center hover:text-primary gap-1 [&>*]:pointer-events-none outline-none before:absolute before:bg-primary before:opacity-0 before:transition-all before:duration-200 cursor-pointer",
+  base: 'relative py-2.5 px-3 flex items-center hover:text-primary gap-1 [&>*]:pointer-events-none outline-none before:absolute before:bg-primary before:opacity-0 before:transition-all before:duration-200 cursor-pointer',
   variants: {
     selected: {
-      true: "before:opacity-100 text-primary hover:text-primary-dark",
+      true: 'before:opacity-100 text-primary hover:text-primary-dark',
     },
     vertical: {
-      true: "before:h-full before:w-0.5 before:-end-[13px] before:bottom-0",
+      true: 'before:h-full before:w-0.5 before:-end-[13px] before:bottom-0',
       false:
-        "whitespace-nowrap before:w-full before:h-0.5 before:start-0 before:-bottom-[1px]",
+        'whitespace-nowrap before:w-full before:h-0.5 before:start-0 before:-bottom-[1px]',
     },
   },
 });
@@ -43,7 +43,7 @@ export function TabListItem({
       onMouseOver={handleMouseOver}
       className={({ selected }) =>
         cn(
-          "somaui-tab-list-item",
+          'somaui-tab-list-item',
           tabListItem({
             selected,
             vertical,
@@ -59,4 +59,4 @@ export function TabListItem({
   );
 }
 
-TabListItem.displayName = "TabListItem";
+TabListItem.displayName = 'TabListItem';

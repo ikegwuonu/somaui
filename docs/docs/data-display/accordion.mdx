@@ -2,24 +2,24 @@
 sidebar_position: 1
 ---
 
-import { Accordion } from "@somaui/ui/accordion";
-import { Avatar } from "@somaui/ui/avatar";
-import { cn } from "@somaui/ui/lib/cn";
-import Paper from "@site/src/components/paper";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { Accordion } from '@somaui/ui/accordion';
+import { Avatar } from '@somaui/ui/avatar';
+import { cn } from '@somaui/ui/lib/cn';
+import Paper from '@site/src/components/paper';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import {
   defaultCollapseData,
   customStyleCollapseData,
-} from "@site/src/data/collapse-data";
+} from '@site/src/data/collapse-data';
 
 # Accordion
 
 A content area which can be collapsed and expanded. Completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.
 
 ```tsx
-"use client";
+'use client';
 
-import { Accordion } from "@somaui/ui/accordion";
+import { Accordion } from '@somaui/ui/accordion';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -41,8 +41,8 @@ A simple style of **Accordion**.
               {item.title}
               <ChevronDownIcon
                 className={cn(
-                  "h-5 w-5 -rotate-90 transform transition-transform duration-300",
-                  open && "-rotate-0"
+                  'h-5 w-5 -rotate-90 transform transition-transform duration-300',
+                  open && '-rotate-0'
                 )}
               />
             </div>
@@ -112,7 +112,7 @@ export default function App() {
 You can change the style of the **Accordion**.
 
 <Paper className="block">
-  <div className="rounded-3xl border border-gray-200 w-full">
+  <div className="w-full rounded-3xl border border-gray-200">
     {customStyleCollapseData.map((item) => (
       <Accordion
         key={item.title}
@@ -133,8 +133,8 @@ You can change the style of the **Accordion**.
               </div>
               <div
                 className={cn(
-                  "h-5 w-5 transform transition-transform duration-300",
-                  open && "-rotate-90"
+                  'h-5 w-5 transform transition-transform duration-300',
+                  open && '-rotate-90'
                 )}
               >
                 {item.icon}

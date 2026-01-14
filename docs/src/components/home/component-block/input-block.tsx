@@ -6,13 +6,13 @@ import {
 export default function InputBlock() {
   return (
     <div className="w-full">
-      <div className="h-9 border ring-[0.5px] ring-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-50 flex items-center justify-between px-3.5">
+      <div className="flex h-9 items-center justify-between rounded-lg border border-gray-300 bg-white px-3.5 ring-[0.5px] ring-gray-300 dark:bg-gray-50">
         <MagnifyingGlassIcon
-          className="w-4 h-auto scale-0 group-hover/card:scale-100 transition-transform"
+          className="h-auto w-4 scale-0 transition-transform group-hover/card:scale-100"
           strokeWidth={2}
         />
         <ChevronDownIcon
-          className="w-4 h-auto group-hover/card:scale-0 transition-transform"
+          className="h-auto w-4 transition-transform group-hover/card:scale-0"
           strokeWidth={2}
         />
       </div>

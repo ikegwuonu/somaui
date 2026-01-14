@@ -14,7 +14,7 @@ test('Renders accordion component', () => {
   );
   const headerElement = screen.getByRole('button', { name: 'Header' });
   const bodyElement = screen.getByText('Body content');
-  
+
   expect(headerElement).toBeInTheDocument();
   expect(bodyElement).toBeInTheDocument();
 });
@@ -27,7 +27,7 @@ test('Accordion body is hidden by default', () => {
     </Accordion>
   );
   const bodyElement = screen.getByText('Body content');
-  
+
   expect(bodyElement).toHaveStyle({ display: 'none' });
 });
 
@@ -40,9 +40,9 @@ test('Accordion body toggles visibility on header click', async () => {
   );
   const headerElement = screen.getByRole('button', { name: 'Header' });
   const bodyElement = screen.getByText('Body content');
-  
+
   expect(bodyElement).toHaveStyle({ display: 'none' });
-  
+
   await user.click(headerElement);
   expect(bodyElement).toHaveStyle({ display: 'block' });
 });
@@ -55,7 +55,7 @@ test('Accordion opens by default when defaultOpen is true', () => {
     </Accordion>
   );
   const bodyElement = screen.getByText('Body content');
-  
+
   expect(bodyElement).toHaveStyle({ display: 'block' });
 });
 
@@ -68,12 +68,11 @@ test('Accordion header can render function children', async () => {
       <Accordion.Body>Body content</Accordion.Body>
     </Accordion>
   );
-  
+
   expect(screen.getByText('Header Closed')).toBeInTheDocument();
-  
+
   const headerElement = screen.getByRole('button');
   await user.click(headerElement);
-  
+
   expect(screen.getByText('Header Open')).toBeInTheDocument();
 });
-

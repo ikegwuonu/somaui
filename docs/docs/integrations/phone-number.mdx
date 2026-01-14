@@ -4,16 +4,16 @@ sidebar_position: 5
 
 import PhoneNumber, {
   PhoneNumberDefault,
-} from "@site/src/components/phone-number";
-import Paper from "@site/src/components/paper";
-import { Badge } from "@somaui/ui/badge";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
+} from '@site/src/components/phone-number';
+import Paper from '@site/src/components/paper';
+import { Badge } from '@somaui/ui/badge';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
 
 # PhoneNumber
 
@@ -25,7 +25,7 @@ A highly customizable phone input component with automatic formatting and intern
   <PhoneNumber
     label="Phone Number"
     country="us"
-    preferredCountries={["us"]}
+    preferredCountries={['us']}
     className="[&_li]:!my-0"
   />
 </Paper>
@@ -48,7 +48,7 @@ A highly customizable phone input component with automatic formatting and intern
 
 <hr />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
@@ -113,7 +113,7 @@ A highly customizable phone input component with automatic formatting and intern
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -123,111 +123,110 @@ A highly customizable phone input component with automatic formatting and intern
 </div>
 
 ```tsx
-import React from "react";
-import PhoneInput from "react-phone-input-2";
-import type { PhoneInputProps } from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@somaui/ui/lib/cn";
-import { FieldErrorText } from "@somaui/ui";
-import { FieldHelperText } from "@somaui/ui";
-import { FieldClearButton } from "@somaui/ui";
+import React from 'react';
+import PhoneInput from 'react-phone-input-2';
+import type { PhoneInputProps } from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@somaui/ui/lib/cn';
+import { FieldErrorText } from '@somaui/ui';
+import { FieldHelperText } from '@somaui/ui';
+import { FieldClearButton } from '@somaui/ui';
 
 const labelStyles = {
   size: {
-    sm: "text-xs mb-1",
-    md: "text-sm mb-1.5",
-    lg: "text-sm mb-1.5",
+    sm: 'text-xs mb-1',
+    md: 'text-sm mb-1.5',
+    lg: 'text-sm mb-1.5',
   },
 } as const;
 
 const phoneNumber = tv({
   slots: {
     input:
-      "block peer !w-full focus:outline-none transition duration-200 disabled:!bg-gray-100 disabled:!text-gray-500 disabled:placeholder:!text-gray-400 disabled:!cursor-not-allowed disabled:!border-gray-200 rounded-[var(--border-radius)]",
+      'block peer !w-full focus:outline-none transition duration-200 disabled:!bg-gray-100 disabled:!text-gray-500 disabled:placeholder:!text-gray-400 disabled:!cursor-not-allowed disabled:!border-gray-200 rounded-[var(--border-radius)]',
     button:
-      "!border-0 !bg-transparent !static [&>.selected-flag]:!absolute [&>.selected-flag]:!top-[1px] [&>.selected-flag]:!bottom-[1px] [&>.selected-flag]:!left-[1px] [&>.selected-flag.open]:!bg-transparent [&>.selected-flag:hover]:!bg-transparent [&>.selected-flag:focus]:!bg-transparent",
+      '!border-0 !bg-transparent !static [&>.selected-flag]:!absolute [&>.selected-flag]:!top-[1px] [&>.selected-flag]:!bottom-[1px] [&>.selected-flag]:!left-[1px] [&>.selected-flag.open]:!bg-transparent [&>.selected-flag:hover]:!bg-transparent [&>.selected-flag:focus]:!bg-transparent',
     dropdown:
-      "!border !border-border !shadow-xl !text-sm !max-h-[216px] !w-full !my-1.5 !bg-gray-50 [&>.no-entries-message]:!text-center [&>.divider]:!border-muted !rounded-[var(--border-radius)] [&>li.country.highlight]:!bg-primary-lighter/70 [&>li.country:hover]:!bg-primary-lighter/70 !p-0",
+      '!border !border-border !shadow-xl !text-sm !max-h-[216px] !w-full !my-1.5 !bg-gray-50 [&>.no-entries-message]:!text-center [&>.divider]:!border-muted !rounded-[var(--border-radius)] [&>li.country.highlight]:!bg-primary-lighter/70 [&>li.country:hover]:!bg-primary-lighter/70 !p-0',
     searchBox:
-      "!pr-2.5 !bg-gray-50 [&>.search-box]:!w-full [&>.search-box]:!m-0 [&>.search-box]:!px-3 [&>.search-box]:!py-1 [&>.search-box]:!text-sm [&>.search-box]:!capitalize [&>.search-box]:!h-9 [&>.search-box]:!leading-[36px] [&>.search-box]:!rounded-md [&>.search-box]:!bg-transparent [&>.search-box]:!border-muted [&>.search-box:focus]:!border-gray-400/70 [&>.search-box:focus]:!ring-0 [&>.search-box]:placeholder:!text-gray-500",
-    label: "",
+      '!pr-2.5 !bg-gray-50 [&>.search-box]:!w-full [&>.search-box]:!m-0 [&>.search-box]:!px-3 [&>.search-box]:!py-1 [&>.search-box]:!text-sm [&>.search-box]:!capitalize [&>.search-box]:!h-9 [&>.search-box]:!leading-[36px] [&>.search-box]:!rounded-md [&>.search-box]:!bg-transparent [&>.search-box]:!border-muted [&>.search-box:focus]:!border-gray-400/70 [&>.search-box:focus]:!ring-0 [&>.search-box]:placeholder:!text-gray-500',
+    label: '',
     clearButton:
-      "absolute right-2 group-hover/phone-number:visible group-hover/phone-number:translate-x-0 group-hover/phone-number:opacity-100",
+      'absolute right-2 group-hover/phone-number:visible group-hover/phone-number:translate-x-0 group-hover/phone-number:opacity-100',
   },
   variants: {
     variant: {
       flat: {
         input:
-          "!border-0 focus:ring-2 placeholder:!opacity-90 read-only:focus:!ring-0 !bg-primary-lighter/70 hover:enabled:!bg-primary-lighter/90 focus:!ring-primary/30 !text-primary-dark",
+          '!border-0 focus:ring-2 placeholder:!opacity-90 read-only:focus:!ring-0 !bg-primary-lighter/70 hover:enabled:!bg-primary-lighter/90 focus:!ring-primary/30 !text-primary-dark',
       },
       outline: {
         input:
-          "!bg-transparent focus:ring-[0.6px] !border !border-muted read-only:!border-muted read-only:focus:!ring-0 placeholder:!text-gray-500 hover:!border-primary focus:!border-primary focus:!ring-primary",
+          '!bg-transparent focus:ring-[0.6px] !border !border-muted read-only:!border-muted read-only:focus:!ring-0 placeholder:!text-gray-500 hover:!border-primary focus:!border-primary focus:!ring-primary',
       },
       text: {
         input:
-          "!border-0 focus:ring-2 !bg-transparent hover:!text-primary-dark focus:!ring-primary/30 !text-primary",
+          '!border-0 focus:ring-2 !bg-transparent hover:!text-primary-dark focus:!ring-primary/30 !text-primary',
       },
     },
     size: {
       sm: {
-        input: "py-1 !text-xs !h-8 !leading-[32px]",
-        button: "[&>.selected-flag]:!h-[30px]",
-        clearButton: "top-[9px]",
+        input: 'py-1 !text-xs !h-8 !leading-[32px]',
+        button: '[&>.selected-flag]:!h-[30px]',
+        clearButton: 'top-[9px]',
         label: labelStyles.size.sm,
       },
       md: {
-        input: "py-2 !text-sm !h-10 !leading-[40px]",
-        button: "[&>.selected-flag]:!h-[38px]",
-        clearButton: "top-3",
+        input: 'py-2 !text-sm !h-10 !leading-[40px]',
+        button: '[&>.selected-flag]:!h-[38px]',
+        clearButton: 'top-3',
         label: labelStyles.size.md,
       },
       lg: {
-        input: "py-2 !text-base !h-12 !leading-[48px]",
-        button: "[&>.selected-flag]:!h-[46px]",
-        clearButton: "top-4",
+        input: 'py-2 !text-base !h-12 !leading-[48px]',
+        button: '[&>.selected-flag]:!h-[46px]',
+        clearButton: 'top-4',
         label: labelStyles.size.lg,
       },
     },
     error: {
       true: {
         input:
-          "!border-red hover:enabled:!border-red focus:enabled:!border-red focus:!ring-red",
+          '!border-red hover:enabled:!border-red focus:enabled:!border-red focus:!ring-red',
       },
     },
     disabled: {
       true: {
-        button: "pointer-events-none",
+        button: 'pointer-events-none',
       },
     },
     readOnly: {
       true: {
-        button: "pointer-events-none",
+        button: 'pointer-events-none',
       },
     },
   },
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
-export interface PhoneNumberProps
-  extends Omit<
-    PhoneInputProps,
-    | "inputClass"
-    | "buttonClass"
-    | "containerClass"
-    | "dropdownClass"
-    | "searchClass"
-    | "enableSearch"
-    | "disableSearchIcon"
-  > {
+export interface PhoneNumberProps extends Omit<
+  PhoneInputProps,
+  | 'inputClass'
+  | 'buttonClass'
+  | 'containerClass'
+  | 'dropdownClass'
+  | 'searchClass'
+  | 'enableSearch'
+  | 'disableSearchIcon'
+> {
   label?: React.ReactNode;
   error?: string;
-  size?: VariantProps<typeof phoneNumber>["size"];
-  variant?: VariantProps<typeof phoneNumber>["variant"];
+  size?: VariantProps<typeof phoneNumber>['size'];
+  variant?: VariantProps<typeof phoneNumber>['variant'];
   clearable?: boolean;
   enableSearch?: boolean;
   onClear?: (event: React.MouseEvent) => void;
@@ -243,8 +242,8 @@ export interface PhoneNumberProps
 }
 
 const PhoneNumber = ({
-  size = "md",
-  variant = "outline",
+  size = 'md',
+  variant = 'outline',
   label,
   helperText,
   error,
@@ -282,15 +281,15 @@ const PhoneNumber = ({
   });
 
   return (
-    <div className={cn("somaui-phone-number", className)}>
+    <div className={cn('somaui-phone-number', className)}>
       {label && (
         <label
-          className={cn("block font-medium", labelClass(), labelClassName)}
+          className={cn('block font-medium', labelClass(), labelClassName)}
         >
           {label}
         </label>
       )}
-      <div className="relative group/phone-number">
+      <div className="group/phone-number relative">
         <PhoneInput
           inputClass={cn(inputClass(), inputClassName)}
           buttonClass={cn(buttonClass(), buttonClassName)}
@@ -320,7 +319,7 @@ const PhoneNumber = ({
   );
 };
 
-PhoneNumber.displayName = "PhoneNumber";
+PhoneNumber.displayName = 'PhoneNumber';
 export default PhoneNumber;
 ```
 
@@ -338,20 +337,20 @@ The simplest way to use the PhoneNumber component with default settings:
   <PhoneNumber
     label="Phone Number"
     country="us"
-    preferredCountries={["us"]}
+    preferredCountries={['us']}
     className="[&_li]:!my-0"
   />
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
     <PhoneNumber
       label="Phone Number"
       country="us"
-      preferredCountries={["us"]}
+      preferredCountries={['us']}
     />
   );
 }
@@ -368,18 +367,18 @@ For controlled usage, manage the phone number value with state:
 </Paper>
 
 ```tsx
-import React from "react";
-import PhoneNumber from "@components/phone-number";
+import React from 'react';
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
-  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState('');
 
   return (
     <PhoneNumber
       value={phoneNumber}
       country="us"
       label="Phone Number"
-      preferredCountries={["us"]}
+      preferredCountries={['us']}
       onChange={(value: string) => setPhoneNumber(value)}
     />
   );
@@ -392,7 +391,7 @@ export default function App() {
 
 The PhoneNumber component supports three visual variants to match your design needs:
 
-<Paper className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<Paper className="grid grid-cols-1 gap-6 sm:grid-cols-2">
   <PhoneNumber
     label="Outline Variant"
     country="us"
@@ -414,7 +413,7 @@ The PhoneNumber component supports three visual variants to match your design ne
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
@@ -433,7 +432,7 @@ export default function App() {
 
 Choose from three size options to match your form's density and design requirements:
 
-<Paper className="gap-6 justify-start items-start">
+<Paper className="items-start justify-start gap-6">
   <PhoneNumber
     label="Small Size"
     country="us"
@@ -455,7 +454,7 @@ Choose from three size options to match your form's density and design requireme
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
@@ -479,22 +478,22 @@ Enable the clear button to allow users to quickly reset the phone number field. 
 </Paper>
 
 ```tsx
-import React from "react";
-import PhoneNumber from "@components/phone-number";
+import React from 'react';
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
-  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState('');
 
   return (
     <PhoneNumber
       value={phoneNumber}
       country="us"
       label="Phone Number"
-      preferredCountries={["us"]}
+      preferredCountries={['us']}
       onChange={(value: string) => setPhoneNumber(value)}
       clearable={!!phoneNumber}
       onClear={() => {
-        setPhoneNumber("");
+        setPhoneNumber('');
       }}
     />
   );
@@ -517,7 +516,7 @@ Enable search functionality in the country dropdown for easier country selection
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return <PhoneNumber label="Phone Number" country="us" enableSearch />;
@@ -540,7 +539,7 @@ Disable the phone number input to prevent user interaction:
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return <PhoneNumber label="Phone Number" country="us" disabled />;
@@ -563,7 +562,7 @@ Provide additional context or instructions using the `helperText` prop:
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
@@ -592,7 +591,7 @@ Display validation errors using the `error` prop. When an error is present, the 
 </Paper>
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
@@ -614,7 +613,7 @@ export default function App() {
 You can customize individual parts of the component using className props:
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
@@ -635,14 +634,14 @@ export default function App() {
 Set preferred countries that appear at the top of the dropdown:
 
 ```tsx
-import PhoneNumber from "@components/phone-number";
+import PhoneNumber from '@components/phone-number';
 
 export default function App() {
   return (
     <PhoneNumber
       label="Phone Number"
       country="us"
-      preferredCountries={["us", "ca", "gb"]}
+      preferredCountries={['us', 'ca', 'gb']}
     />
   );
 }
@@ -686,7 +685,7 @@ export default function App() {
 ### PhoneNumber Variants
 
 ```ts
-type PhoneNumberVariants = "outline" | "flat" | "text";
+type PhoneNumberVariants = 'outline' | 'flat' | 'text';
 ```
 
 - **outline** - Input with border and transparent background (default)
@@ -698,7 +697,7 @@ type PhoneNumberVariants = "outline" | "flat" | "text";
 ### PhoneNumber Sizes
 
 ```ts
-type PhoneNumberSizes = "sm" | "md" | "lg";
+type PhoneNumberSizes = 'sm' | 'md' | 'lg';
 ```
 
 - **sm** - Small size with compact padding (32px height)

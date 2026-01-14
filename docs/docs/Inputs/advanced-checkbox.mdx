@@ -2,22 +2,22 @@
 sidebar_position: 6
 ---
 
-import { AdvancedCheckbox } from "@somaui/ui/advanced-checkbox";
-import { Text } from "@somaui/ui/typography";
+import { AdvancedCheckbox } from '@somaui/ui/advanced-checkbox';
+import { Text } from '@somaui/ui/typography';
 import {
   CurrencyBangladeshiIcon,
   CurrencyDollarIcon,
   CurrencyEuroIcon,
   CurrencyPoundIcon,
-} from "@heroicons/react/24/outline";
-import Paper from "@site/src/components/paper";
+} from '@heroicons/react/24/outline';
+import Paper from '@site/src/components/paper';
 
 # AdvancedCheckbox
 
 A basic widget for getting the user input of checkbox with advanced design.
 
 ```jsx
-import { AdvancedCheckbox } from "@somaui/ui/advanced-checkbox";
+import { AdvancedCheckbox } from '@somaui/ui/advanced-checkbox';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -80,7 +80,7 @@ You can change style of **AdvancedCheckbox**.
 </Paper>
 
 ```jsx
-import { AdvancedCheckbox } from "@somaui/ui/advanced-checkbox";
+import { AdvancedCheckbox } from '@somaui/ui/advanced-checkbox';
 
 export default function App() {
   return (
@@ -119,52 +119,52 @@ export default function App() {
 
 You can give different style of **AdvancedCheckbox** as you need.
 
-<Paper className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<Paper className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   <AdvancedCheckbox name="currency" value="taka" defaultChecked>
-    <CurrencyBangladeshiIcon className="w-7 h-auto mb-4" />
+    <CurrencyBangladeshiIcon className="mb-4 h-auto w-7" />
     <Text className="font-semibold">Taka</Text>
   </AdvancedCheckbox>
   <AdvancedCheckbox name="currency" value="dollar">
-    <CurrencyDollarIcon className="w-7 h-auto mb-4" />
+    <CurrencyDollarIcon className="mb-4 h-auto w-7" />
     <Text className="font-semibold">Dollar</Text>
   </AdvancedCheckbox>
   <AdvancedCheckbox name="currency" value="euro">
-    <CurrencyEuroIcon className="w-7 h-auto mb-4" />
+    <CurrencyEuroIcon className="mb-4 h-auto w-7" />
     <Text className="font-semibold">Euro</Text>
   </AdvancedCheckbox>
   <AdvancedCheckbox name="currency" value="pound">
-    <CurrencyPoundIcon className="w-7 h-auto mb-4" />
+    <CurrencyPoundIcon className="mb-4 h-auto w-7" />
     <Text className="font-semibold">Pound</Text>
   </AdvancedCheckbox>
 </Paper>
 
 ```jsx
-import { AdvancedCheckbox } from "@somaui/ui/advanced-checkbox";
-import { Text } from "@somaui/ui/typography";
+import { AdvancedCheckbox } from '@somaui/ui/advanced-checkbox';
+import { Text } from '@somaui/ui/typography';
 import {
   CurrencyBangladeshiIcon,
   CurrencyDollarIcon,
   CurrencyEuroIcon,
   CurrencyPoundIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <AdvancedCheckbox name="currency" value="taka" defaultChecked>
-        <CurrencyBangladeshiIcon className="w-7 h-auto mb-4" />
+        <CurrencyBangladeshiIcon className="mb-4 h-auto w-7" />
         <Text className="font-semibold">Taka</Text>
       </AdvancedCheckbox>
       <AdvancedCheckbox name="currency" value="dollar">
-        <CurrencyDollarIcon className="w-7 h-auto mb-4" />
+        <CurrencyDollarIcon className="mb-4 h-auto w-7" />
         <Text className="font-semibold">Dollar</Text>
       </AdvancedCheckbox>
       <AdvancedCheckbox name="currency" value="euro">
-        <CurrencyEuroIcon className="w-7 h-auto mb-4" />
+        <CurrencyEuroIcon className="mb-4 h-auto w-7" />
         <Text className="font-semibold">Euro</Text>
       </AdvancedCheckbox>
       <AdvancedCheckbox name="currency" value="pound">
-        <CurrencyPoundIcon className="w-7 h-auto mb-4" />
+        <CurrencyPoundIcon className="mb-4 h-auto w-7" />
         <Text className="font-semibold">Pound</Text>
       </AdvancedCheckbox>
     </div>
@@ -204,7 +204,7 @@ Here is the API documentation of the AdvancedCheckbox component. And the rest of
 ### Advanced Checkbox Sizes
 
 ```ts
-type CheckboxSizes = "sm" | "md" | "lg";
+type CheckboxSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />

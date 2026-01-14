@@ -2,18 +2,18 @@
 sidebar_position: 7
 ---
 
-import Paper from "@site/src/components/paper";
-import CheckboxGroupDefault from "@site/src/components/checkbox-group";
-import { CheckboxGroupWithCard } from "@site/src/components/checkbox-group";
+import Paper from '@site/src/components/paper';
+import CheckboxGroupDefault from '@site/src/components/checkbox-group';
+import { CheckboxGroupWithCard } from '@site/src/components/checkbox-group';
 
 # Checkbox Group
 
 You can make a group of multiple choices **Checkbox** using **CheckboxGroup** component.
 
 ```tsx
-"use client";
+'use client';
 
-import { CheckboxGroup } from "@somaui/ui/checkbox-group";
+import { CheckboxGroup } from '@somaui/ui/checkbox-group';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -27,14 +27,14 @@ Checkout the **CheckboxGroup** demo with **Checkbox** components.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Checkbox } from "@somaui/ui/checkbox";
-import { CheckboxGroup } from "@somaui/ui/checkbox-group";
+import { useState } from 'react';
+import { Checkbox } from '@somaui/ui/checkbox';
+import { CheckboxGroup } from '@somaui/ui/checkbox-group';
 
 export default function App() {
-  const [values, setValues] = useState(["apple"]);
+  const [values, setValues] = useState(['apple']);
   return (
     <CheckboxGroup
       values={values}

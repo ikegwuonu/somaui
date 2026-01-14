@@ -1,46 +1,46 @@
-import type { HTMLAttributes } from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { Text } from "../typography";
+import type { HTMLAttributes } from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { Text } from '../typography';
 
 const progressTrack = tv({
-  base: "relative w-full bg-muted rounded-full overflow-hidden",
+  base: 'relative w-full bg-muted rounded-full overflow-hidden',
   variants: {
     size: {
-      sm: "h-1.5",
-      md: "h-2",
-      lg: "h-3",
+      sm: 'h-1.5',
+      md: 'h-2',
+      lg: 'h-3',
     },
   },
   defaultVariants: {
-    size: "md",
+    size: 'md',
   },
 });
 
 const progressBar = tv({
-  base: "absolute top-0 bottom-0 left-0 h-full flex items-center justify-center rounded-full",
+  base: 'absolute top-0 bottom-0 left-0 h-full flex items-center justify-center rounded-full',
   variants: {
     color: {
-      primary: "bg-primary",
-      secondary: "bg-secondary",
-      danger: "bg-red",
-      info: "bg-blue",
-      success: "bg-green",
-      warning: "bg-orange",
+      primary: 'bg-primary',
+      secondary: 'bg-secondary',
+      danger: 'bg-red',
+      info: 'bg-blue',
+      success: 'bg-green',
+      warning: 'bg-orange',
     },
   },
   defaultVariants: {
-    color: "primary",
+    color: 'primary',
   },
 });
 
 const progressLabel = tv({
-  base: "font-bold",
+  base: 'font-bold',
   variants: {
     size: {
-      sm: "text-xs",
-      md: "text-sm",
-      lg: "text-sm",
+      sm: 'text-xs',
+      md: 'text-sm',
+      lg: 'text-sm',
     },
   },
 });
@@ -51,9 +51,9 @@ type ProgressBarVariant = VariantProps<typeof progressBar>;
 export interface ProgressbarProps extends HTMLAttributes<HTMLDivElement> {
   value?: number;
   label?: string;
-  size?: ProgressTrackVariant["size"];
-  color?: ProgressBarVariant["color"];
-  labelPosition?: "insideBar" | "inlineLeft" | "inlineRight";
+  size?: ProgressTrackVariant['size'];
+  color?: ProgressBarVariant['color'];
+  labelPosition?: 'insideBar' | 'inlineLeft' | 'inlineRight';
   className?: string;
   trackClassName?: string;
   barClassName?: string;
@@ -62,10 +62,10 @@ export interface ProgressbarProps extends HTMLAttributes<HTMLDivElement> {
 
 export function Progressbar({
   value = 0,
-  label = "",
-  size = "md",
-  color = "primary",
-  labelPosition = "inlineRight",
+  label = '',
+  size = 'md',
+  color = 'primary',
+  labelPosition = 'inlineRight',
   className,
   barClassName,
   trackClassName,
@@ -75,10 +75,10 @@ export function Progressbar({
   const isInsideBar = false;
 
   return (
-    <div className={cn("flex w-full items-center gap-4", className)}>
+    <div className={cn('flex w-full items-center gap-4', className)}>
       <div
         className={cn(
-          "somaui-progressbar-track",
+          'somaui-progressbar-track',
           progressTrack({ size, className: trackClassName })
         )}
       >
@@ -109,7 +109,7 @@ export function Progressbar({
           size={size}
           label={label}
           className={cn(
-            labelPosition === "inlineLeft" && "order-first",
+            labelPosition === 'inlineLeft' && 'order-first',
             labelClassName
           )}
         />
@@ -121,9 +121,9 @@ export function Progressbar({
 function ProgressbarLabel({
   label,
   className,
-  size = "md",
+  size = 'md',
 }: {
-  size: ProgressTrackVariant["size"];
+  size: ProgressTrackVariant['size'];
   label: string;
   className?: string;
 }) {
@@ -139,4 +139,4 @@ function ProgressbarLabel({
   );
 }
 
-Progressbar.displayName = "Progressbar";
+Progressbar.displayName = 'Progressbar';

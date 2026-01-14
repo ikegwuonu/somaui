@@ -53,7 +53,7 @@ test('Radio button with helper and error text', () => {
   );
   const helperText = screen.getByText(/this radio has value of one/i);
   const errorText = screen.getByRole('alert');
-  
+
   expect(helperText).toBeInTheDocument();
   expect(errorText).toHaveTextContent(/this field is required/i);
   expect(errorText).toHaveClass('text-red');

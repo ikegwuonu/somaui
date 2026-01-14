@@ -12,8 +12,9 @@ const fieldError = tv({
   },
 });
 
-interface FieldErrorTextProps
-  extends React.HTMLAttributes<HTMLDivElement | HTMLSpanElement> {
+interface FieldErrorTextProps extends React.HTMLAttributes<
+  HTMLDivElement | HTMLSpanElement
+> {
   as?: 'div' | 'span';
   error: string | null | undefined;
   size?: VariantProps<typeof fieldError>['size'];

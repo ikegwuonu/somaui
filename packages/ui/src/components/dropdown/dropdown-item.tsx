@@ -1,14 +1,14 @@
-import type { Ref, ButtonHTMLAttributes, HTMLAttributes } from "react";
-import { tv } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { MenuItem } from "@headlessui/react";
+import type { Ref, ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import { tv } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { MenuItem } from '@headlessui/react';
 
 const dropdownItem = tv({
-  base: "flex w-full items-center px-3 py-1.5 rounded-[calc(var(--border-radius)/2)] cursor-pointer",
+  base: 'flex w-full items-center px-3 py-1.5 rounded-[calc(var(--border-radius)/2)] cursor-pointer',
 });
 
 export type DropdownItemProps = {
-  as?: "button" | "li";
+  as?: 'button' | 'li';
   className?: string;
   disabledClassName?: string;
   activeClassName?: string;
@@ -18,7 +18,7 @@ export type DropdownItemProps = {
   HTMLAttributes<HTMLLIElement>;
 
 export function DropdownItem({
-  as = "button",
+  as = 'button',
   className,
   children,
   disabled,
@@ -34,10 +34,10 @@ export function DropdownItem({
         return (
           <Component
             ref={ref}
-            {...(as === "button" && { type: "button" as const })}
+            {...(as === 'button' && { type: 'button' as const })}
             className={dropdownItem({
               className: cn(
-                focus && ["bg-muted/70", activeClassName],
+                focus && ['bg-muted/70', activeClassName],
                 disabled && disabledClassName,
                 className
               ),

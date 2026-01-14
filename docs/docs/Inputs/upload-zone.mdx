@@ -2,17 +2,17 @@
 sidebar_position: 14
 ---
 
-import { UploadZone } from "@somaui/ui/upload";
-import Paper from "@site/src/components/paper";
+import { UploadZone } from '@somaui/ui/upload';
+import Paper from '@site/src/components/paper';
 
 # UploadZone
 
 A drag-and-drop file upload component with built-in preview functionality.
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -26,9 +26,9 @@ The default style of **UploadZone**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return <UploadZone label="Upload File" />;
@@ -47,9 +47,9 @@ You can change the style of **UploadZone** using [**variant**](#uploadzone-varia
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -67,16 +67,16 @@ export default function App() {
 
 You can change the size of **UploadZone** using [**size**](#uploadzone-sizes) property.
 
-<Paper className="justify-start items-start gap-6">
+<Paper className="items-start justify-start gap-6">
   <UploadZone label="Small UploadZone" size="sm" className="w-full" />
   <UploadZone label="Default UploadZone" className="w-full" />
   <UploadZone label="Large UploadZone" size="lg" className="w-full" />
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -100,9 +100,9 @@ By enabling **multiple** property true, user can upload multiple files.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return <UploadZone label="Upload Multiple Files" multiple />;
@@ -129,9 +129,9 @@ You can restrict file types using **accept** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -166,7 +166,7 @@ You can customize the placeholder text and icon using **placeholder** and **icon
     label="Custom Icon"
     icon={
       <svg
-        className="w-12 h-12 text-primary"
+        className="text-primary h-12 w-12"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -183,9 +183,9 @@ You can customize the placeholder text and icon using **placeholder** and **icon
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -198,7 +198,7 @@ export default function App() {
         label="Custom Icon"
         icon={
           <svg
-            className="w-12 h-12 text-primary"
+            className="text-primary h-12 w-12"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -228,9 +228,9 @@ The disabled state of the **UploadZone** component.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return <UploadZone label="Upload File" disabled />;
@@ -252,9 +252,9 @@ You can add helper text to the **UploadZone** component using **helperText** pro
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -282,9 +282,9 @@ You can show the validation error message using **error** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return <UploadZone label="Upload Files" error="Please select a valid file" />;
@@ -303,7 +303,7 @@ You can control the **UploadZone** component using **value** and **onChange** pr
     multiple
     onChange={(files) => {
       if (files) {
-        console.log("Selected files:", files);
+        console.log('Selected files:', files);
       }
     }}
     className="w-full"
@@ -311,10 +311,10 @@ You can control the **UploadZone** component using **value** and **onChange** pr
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { UploadZone } from "@somaui/ui/upload";
+import { useState } from 'react';
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -327,7 +327,7 @@ export default function App() {
       onChange={(files) => {
         setFiles(files);
         if (files) {
-          console.log("Selected files:", files);
+          console.log('Selected files:', files);
         }
       }}
       className="w-full"
@@ -347,16 +347,16 @@ You can use **onDrop** callback to handle drag-and-drop events specifically.
     label="Upload Files"
     multiple
     onDrop={(files) => {
-      console.log("Files dropped:", files);
+      console.log('Files dropped:', files);
     }}
     className="w-full"
   />
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { UploadZone } from "@somaui/ui/upload";
+import { UploadZone } from '@somaui/ui/upload';
 
 export default function App() {
   return (
@@ -364,11 +364,11 @@ export default function App() {
       label="Upload Files"
       multiple
       onDrop={(files) => {
-        console.log("Files dropped:", files);
+        console.log('Files dropped:', files);
         // Handle file upload
       }}
       onChange={(files) => {
-        console.log("Files selected:", files);
+        console.log('Files selected:', files);
       }}
     />
   );
@@ -423,7 +423,7 @@ Here is the API documentation of the UploadZone component. And the rest of the p
 ### UploadZone Variants
 
 ```ts
-type UploadZoneVariants = "outline" | "flat";
+type UploadZoneVariants = 'outline' | 'flat';
 ```
 
 <div className="mb-10" />
@@ -431,7 +431,7 @@ type UploadZoneVariants = "outline" | "flat";
 ### Label Weight
 
 ```ts
-type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+type LabelWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 ```
 
 <div className="mb-10" />
@@ -439,5 +439,5 @@ type LabelWeight = "normal" | "medium" | "semibold" | "bold";
 ### UploadZone Sizes
 
 ```ts
-type UploadZoneSizes = "sm" | "md" | "lg";
+type UploadZoneSizes = 'sm' | 'md' | 'lg';
 ```

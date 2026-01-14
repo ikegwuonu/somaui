@@ -1,9 +1,9 @@
-import React from "react";
-import { Tooltip } from "@somaui/ui";
+import React from 'react';
+import { Tooltip } from '@somaui/ui';
 import {
   ClipboardDocumentIcon,
   ClipboardDocumentCheckIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 interface CopyButtonProps {
   value: string;
@@ -30,13 +30,13 @@ export function CopyButton({ value, src }: CopyButtonProps) {
       size="sm"
       color="invert"
       placement="top"
-      content={hasCopied ? "Copied!" : "Copy to clipboard"}
+      content={hasCopied ? 'Copied!' : 'Copy to clipboard'}
       className="font-medium"
     >
       {hasCopied ? (
         <ClipboardDocumentCheckIcon
           strokeWidth={1.6}
-          className="size-[17px] ms-2 cursor-pointer"
+          className="ms-2 size-[17px] cursor-pointer"
           aria-label="Copied to clipboard"
           role="img"
         />
@@ -50,7 +50,7 @@ export function CopyButton({ value, src }: CopyButtonProps) {
             setHasCopied(true);
           }}
           aria-label="Copy to clipboard"
-          className="size-[17px] ms-2 cursor-pointer border-0 bg-transparent p-0"
+          className="ms-2 size-[17px] cursor-pointer border-0 bg-transparent p-0"
         >
           <ClipboardDocumentIcon
             strokeWidth={1.6}

@@ -1,7 +1,7 @@
-import React, { useMemo, useRef } from "react";
-import { isUnplacedRect, ReactiveDomReact } from "@/lib/use-rect";
-import usePrevious from "@/lib/use-previous";
-import { cn } from "@/lib/cn";
+import React, { useMemo, useRef } from 'react';
+import { isUnplacedRect, ReactiveDomReact } from '@/lib/use-rect';
+import usePrevious from '@/lib/use-previous';
+import { cn } from '@/lib/cn';
 
 type Props = {
   rect: ReactiveDomReact;
@@ -41,7 +41,7 @@ export function Highlight({
       left: `${rect.left + (rect.width - width) / 2}px`,
       height: `${height}px`,
       top: `${rect.elementTop + (rect.height - height) / 2}px`,
-      transition: isFirstVisible ? "opacity" : "opacity, width, left, top",
+      transition: isFirstVisible ? 'opacity' : 'opacity, width, left, top',
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rect, hoverWidthRatio, hoverHeightRatio]);
@@ -50,8 +50,8 @@ export function Highlight({
     <span
       ref={ref}
       className={cn(
-        "highlight bg-muted/60 absolute -z-1 rounded-md transition",
-        visible ? "opacity-100" : "opacity-0",
+        'highlight bg-muted/60 absolute -z-1 rounded-md transition',
+        visible ? 'opacity-100' : 'opacity-0',
         className
       )}
       style={{

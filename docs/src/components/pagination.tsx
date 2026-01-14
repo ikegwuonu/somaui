@@ -1,57 +1,57 @@
-import React from "react";
-import "rc-pagination/assets/index.css";
+import React from 'react';
+import 'rc-pagination/assets/index.css';
 import RcPagination, {
   PaginationProps as RcPaginationProps,
-} from "rc-pagination";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@somaui/ui";
+} from 'rc-pagination';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@somaui/ui';
 
 const pagination = tv({
   slots: {
     container:
-      "[&>.rc-pagination-item>a]:!no-underline [&>.rc-pagination-item>a]:!font-medium [&>li.rc-pagination-item]:!border-muted [&>.rc-pagination-item]:!rounded-[var(--border-radius)] [&>.rc-pagination-item:not(.rc-pagination-item-active)]:!bg-transparent",
-    icon: "",
+      '[&>.rc-pagination-item>a]:!no-underline [&>.rc-pagination-item>a]:!font-medium [&>li.rc-pagination-item]:!border-muted [&>.rc-pagination-item]:!rounded-[var(--border-radius)] [&>.rc-pagination-item:not(.rc-pagination-item-active)]:!bg-transparent',
+    icon: '',
     jumperDiv:
-      "[&>.rc-pagination-options>.rc-pagination-options-quick-jumper]:!text-sm [&>.rc-pagination-options>.rc-pagination-options-quick-jumper]:!text-gray-500",
+      '[&>.rc-pagination-options>.rc-pagination-options-quick-jumper]:!text-sm [&>.rc-pagination-options>.rc-pagination-options-quick-jumper]:!text-gray-500',
     jumperInput:
-      "[&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!py-[3px] [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!text-sm [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!border-muted [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!ring-0 rounded-[var(--border-radius)]",
+      '[&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!py-[3px] [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!text-sm [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!border-muted [&>.rc-pagination-options>.rc-pagination-options-quick-jumper>input]:!ring-0 rounded-[var(--border-radius)]',
   },
   variants: {
     variant: {
       solid: {
         container:
-          "[&>.rc-pagination-item-active]:!bg-primary [&>.rc-pagination-item-active]:!rounded-[var(--border-radius)] [&>.rc-pagination-item-active>a]:!text-primary-foreground [&>li.rc-pagination-item-active]:!border-primary [&>.rc-pagination-item-active]:hover:!border-primary [&>.rc-pagination-item-active]:focus:!border-primary",
+          '[&>.rc-pagination-item-active]:!bg-primary [&>.rc-pagination-item-active]:!rounded-[var(--border-radius)] [&>.rc-pagination-item-active>a]:!text-primary-foreground [&>li.rc-pagination-item-active]:!border-primary [&>.rc-pagination-item-active]:hover:!border-primary [&>.rc-pagination-item-active]:focus:!border-primary',
       },
       flat: {
         container:
-          "[&>.rc-pagination-item-active]:!bg-primary-lighter [&>.rc-pagination-item-active]:!rounded-[var(--border-radius)] [&>li.rc-pagination-item-active]:border-primary-lighter [&>.rc-pagination-item-active>a]:text-primary-dark [&>.rc-pagination-item-active>a]:hover:text-primary-dark [&>.rc-pagination-item-active>a]:focus:text-primary-dark [&>.rc-pagination-item-active]:hover:border-primary-lighter [&>.rc-pagination-item-active]:focus:!border-primary-lighter",
+          '[&>.rc-pagination-item-active]:!bg-primary-lighter [&>.rc-pagination-item-active]:!rounded-[var(--border-radius)] [&>li.rc-pagination-item-active]:border-primary-lighter [&>.rc-pagination-item-active>a]:text-primary-dark [&>.rc-pagination-item-active>a]:hover:text-primary-dark [&>.rc-pagination-item-active>a]:focus:text-primary-dark [&>.rc-pagination-item-active]:hover:border-primary-lighter [&>.rc-pagination-item-active]:focus:!border-primary-lighter',
       },
     },
     outline: {
       true: {
         container:
-          "[&>.rc-pagination-item]:!leading-7 [&>.rc-pagination-item]:!border-0",
-        icon: "[&>.rc-pagination-prev]:!align-baseline [&>.rc-pagination-next]:!align-baseline",
+          '[&>.rc-pagination-item]:!leading-7 [&>.rc-pagination-item]:!border-0',
+        icon: '[&>.rc-pagination-prev]:!align-baseline [&>.rc-pagination-next]:!align-baseline',
       },
       false: {
         container:
-          "[&>.rc-pagination-item]:!leading-7 [&>.rc-pagination-item]:!border-0",
-        icon: "[&>.rc-pagination-prev]:!align-baseline [&>.rc-pagination-next]:!align-baseline",
+          '[&>.rc-pagination-item]:!leading-7 [&>.rc-pagination-item]:!border-0',
+        icon: '[&>.rc-pagination-prev]:!align-baseline [&>.rc-pagination-next]:!align-baseline',
       },
     },
   },
   defaultVariants: {
-    variant: "solid",
+    variant: 'solid',
     outline: false,
   },
 });
 
 const iconTV = tv({
-  base: "text-foreground rounded-[var(--border-radius)]",
+  base: 'text-foreground rounded-[var(--border-radius)]',
   variants: {
     outline: {
-      true: "border border-muted p-[5px]",
-      false: "inline-block align-middle",
+      true: 'border border-muted p-[5px]',
+      false: 'inline-block align-middle',
     },
   },
   defaultVariants: {
@@ -111,10 +111,10 @@ const JumpPrevIcon = ({ icon, outline, className }: IconProps) => (
   <div
     className={iconTV({
       outline,
-      className: cn(!icon && outline && "py-0 leading-[26px]", className),
+      className: cn(!icon && outline && 'py-0 leading-[26px]', className),
     })}
   >
-    {icon || "•••"}
+    {icon || '•••'}
   </div>
 );
 
@@ -122,30 +122,30 @@ const JumpNextIcon = ({ icon, outline, className }: IconProps) => (
   <div
     className={iconTV({
       outline,
-      className: cn(!icon && outline && "py-0 leading-[26px]", className),
+      className: cn(!icon && outline && 'py-0 leading-[26px]', className),
     })}
   >
-    {icon || "•••"}
+    {icon || '•••'}
   </div>
 );
 
 export const localeDefault = {
-  items_per_page: "/ page",
-  jump_to: "Go to",
-  jump_to_confirm: "confirm",
-  page: "Page",
-  prev_page: "Previous Page",
-  next_page: "Next Page",
-  prev_5: "Previous 5 Pages",
-  next_5: "Next 5 Pages",
-  prev_3: "Previous 3 Pages",
-  next_3: "Next 3 Pages",
-  page_size: "Page Size",
+  items_per_page: '/ page',
+  jump_to: 'Go to',
+  jump_to_confirm: 'confirm',
+  page: 'Page',
+  prev_page: 'Previous Page',
+  next_page: 'Next Page',
+  prev_5: 'Previous 5 Pages',
+  next_5: 'Next 5 Pages',
+  prev_3: 'Previous 3 Pages',
+  next_3: 'Next 3 Pages',
+  page_size: 'Page Size',
 };
 
 export interface PaginationProps extends RcPaginationProps {
   outline?: boolean;
-  variant?: VariantProps<typeof pagination>["variant"];
+  variant?: VariantProps<typeof pagination>['variant'];
   prevIconClassName?: string;
   nextIconClassName?: string;
   jumpPrevIconClassName?: string;
@@ -154,7 +154,7 @@ export interface PaginationProps extends RcPaginationProps {
 
 export default function Pagination({
   outline = false,
-  variant = "solid",
+  variant = 'solid',
   locale,
   nextIcon,
   prevIcon,
@@ -220,4 +220,4 @@ export default function Pagination({
   );
 }
 
-Pagination.displayName = "Pagination";
+Pagination.displayName = 'Pagination';

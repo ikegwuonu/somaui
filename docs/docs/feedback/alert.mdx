@@ -2,18 +2,18 @@
 sidebar_position: 1
 ---
 
-import { Alert } from "@somaui/ui/alert";
-import { Text } from "@somaui/ui/typography";
-import Paper from "@site/src/components/paper";
-import AlertClearable from "@site/src/components/alert";
-import { EnvelopeIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { Alert } from '@somaui/ui/alert';
+import { Text } from '@somaui/ui/typography';
+import Paper from '@site/src/components/paper';
+import AlertClearable from '@site/src/components/alert';
+import { EnvelopeIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 # Alert
 
 A simple alert component for showing alert messages.
 
 ```jsx
-import { Alert } from "@somaui/ui/alert";
+import { Alert } from '@somaui/ui/alert';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -40,7 +40,7 @@ You can change the style of **Alert** using the **variant** property.
 </Paper>
 
 ```jsx
-import { Alert, Text } from "somaui";
+import { Alert, Text } from 'somaui';
 
 export default function App() {
   return (
@@ -70,7 +70,7 @@ export default function App() {
 
 You can set diffirent size of the **Alert** using [**size**](#alert-sizes) property.
 
-<Paper className="gap-4 justify-start items-start text-gray-950">
+<Paper className="items-start justify-start gap-4 text-gray-950">
   <Alert size="sm" color="danger">
     <Text className="font-semibold">Alert Small</Text>
     <Text>
@@ -95,7 +95,7 @@ You can set diffirent size of the **Alert** using [**size**](#alert-sizes) prope
 </Paper>
 
 ```jsx
-import { Alert } from "@somaui/ui/alert";
+import { Alert } from '@somaui/ui/alert';
 
 export default function App() {
   return (
@@ -132,7 +132,7 @@ export default function App() {
 
 You can set different states of **Alert** using [**color**](#alert-colors) property.
 
-<Paper className="gap-4 grid grid-cols-1 text-gray-950">
+<Paper className="grid grid-cols-1 gap-4 text-gray-950">
   <Alert color="danger" variant="flat">
     <Text className="font-semibold">Danger Alert</Text>
     <Text>
@@ -164,7 +164,7 @@ You can set different states of **Alert** using [**color**](#alert-colors) prope
 </Paper>
 
 ```tsx
-import { Alert } from "@somaui/ui/alert";
+import { Alert } from '@somaui/ui/alert';
 
 export default function App() {
   return (
@@ -211,8 +211,8 @@ You can change style of **Alert** with property **icon**, **clearIcon**.
 <Paper className="text-gray-950">
   <Alert
     color="info"
-    icon={<EnvelopeIcon className="w-6 text-blue-dark" />}
-    clearIcon={<TrashIcon className="w-6 text-blue-dark" />}
+    icon={<EnvelopeIcon className="text-blue-dark w-6" />}
+    clearIcon={<TrashIcon className="text-blue-dark w-6" />}
   >
     <Text className="font-semibold">Customizable icon Alert</Text>
     <Text>
@@ -223,15 +223,15 @@ You can change style of **Alert** with property **icon**, **clearIcon**.
 </Paper>
 
 ```tsx
-import { Alert } from "@somaui/ui/alert";
-import { EnvelopeIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { Alert } from '@somaui/ui/alert';
+import { EnvelopeIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
     <Alert
       color="info"
-      icon={<EnvelopeIcon className="w-6 text-blue-dark" />}
-      clearIcon={<TrashIcon className="w-6 text-blue-dark" />}
+      icon={<EnvelopeIcon className="text-blue-dark w-6" />}
+      clearIcon={<TrashIcon className="text-blue-dark w-6" />}
     >
       <Text className="font-semibold">Customizable icon Alert</Text>
       <Text>
@@ -281,7 +281,7 @@ You can make a classic bar **Alert** by using **bar** property.
 </Paper>
 
 ```tsx
-import { Alert } from "@somaui/ui/alert";
+import { Alert } from '@somaui/ui/alert';
 
 export default function App() {
   return (
@@ -325,13 +325,13 @@ export default function App() {
 
 You can make a closable **Alert** component using **closable** property.
 
-<Paper className="text-gray-950 justify-start items-start gap-4">
+<Paper className="items-start justify-start gap-4 text-gray-950">
   <AlertClearable />
 </Paper>
 
 ```tsx
-import React from "react";
-import { Alert, Button } from "somaui";
+import React from 'react';
+import { Alert, Button } from 'somaui';
 
 export default function App() {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -400,7 +400,7 @@ Here is the API documentation of the Alert component. You can use these props to
 ### Alert Colors
 
 ```ts
-type AlertColors = "danger" | "info" | "success" | "warning";
+type AlertColors = 'danger' | 'info' | 'success' | 'warning';
 ```
 
 <div className="mb-10" />
@@ -408,7 +408,7 @@ type AlertColors = "danger" | "info" | "success" | "warning";
 ### Alert Sizes
 
 ```ts
-type AlertSizes = "sm" | "md" | "lg";
+type AlertSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />

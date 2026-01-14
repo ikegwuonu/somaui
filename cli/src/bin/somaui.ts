@@ -1,38 +1,38 @@
 #!/usr/bin/env node
-import { Command } from "commander";
-import { initCommand } from "../commands/init";
-import { addCommand } from "../commands/add";
+import { Command } from 'commander';
+import { initCommand } from '../commands/init';
+import { addCommand } from '../commands/add';
 
 const program = new Command();
 
 program
-  .name("somaui")
-  .description("SomaUI CLI - Add beautiful UI components to your project")
-  .version("1.0.0");
+  .name('somaui')
+  .description('SomaUI CLI - Add beautiful UI components to your project')
+  .version('1.0.0');
 
 program
-  .command("init")
+  .command('init')
   .description(
-    "Initialize SomaUI in your project (copies global.css, lib, icons)"
+    'Initialize SomaUI in your project (copies global.css, lib, icons)'
   )
   .action(() => {
     initCommand();
   });
 
 program
-  .command("add")
-  .description("Add components to your project with dependencies")
-  .argument("[components...]", "Component names to add")
-  .option("-a, --all", "Add all components")
-  .option("-o, --overwrite", "Overwrite existing files")
-  .option("-c, --cwd <path>", "Working directory")
+  .command('add')
+  .description('Add components to your project with dependencies')
+  .argument('[components...]', 'Component names to add')
+  .option('-a, --all', 'Add all components')
+  .option('-o, --overwrite', 'Overwrite existing files')
+  .option('-c, --cwd <path>', 'Working directory')
   .action((components, options) => {
     addCommand(components, options);
   });
 
 // Add help for common usage
 program.addHelpText(
-  "after",
+  'after',
   `
 Examples:
   $ npx somaui init

@@ -1,13 +1,13 @@
-import React from "react";
-import Editor, { EditorProps } from "@monaco-editor/react";
-import { PACKAGE_MANAGERS } from "./code-editor.config";
-import { cn } from "../../utils/cn";
-import ClientComponent from "../client-component";
-import NpmIcon from "../icons/npm-icon";
-import YarnIcon from "../icons/yarn-icon";
-import PnpmIcon from "../icons/pnpm-icon";
-import BunIcon from "../icons/bun-icon";
-import { CopyButton } from "./copy-button";
+import React from 'react';
+import Editor, { EditorProps } from '@monaco-editor/react';
+import { PACKAGE_MANAGERS } from './code-editor.config';
+import { cn } from '../../utils/cn';
+import ClientComponent from '../client-component';
+import NpmIcon from '../icons/npm-icon';
+import YarnIcon from '../icons/yarn-icon';
+import PnpmIcon from '../icons/pnpm-icon';
+import BunIcon from '../icons/bun-icon';
+import { CopyButton } from './copy-button';
 
 type MultiFilesEditorProps = {
   files: {
@@ -42,21 +42,21 @@ export function MultiFilesEditor({
 
   return (
     <ClientComponent>
-      <div className={cn("group/editor", className)}>
-        <nav className="flex items-center border-b border-t-0 border-x-0 border-solid border-gray-300 dark:border-stone-700 mb-4 gap-4">
+      <div className={cn('group/editor', className)}>
+        <nav className="mb-4 flex items-center gap-4 border-x-0 border-t-0 border-b border-solid border-gray-300 dark:border-stone-700">
           {files.map((file) => (
             <button
               key={file.id}
               onClick={() => setFileName(file.name)}
               className={cn(
-                "border-0 bg-transparent cursor-pointer text-sm flex items-center py-3 px-2.5 relative font-inter transition-all duration-200 h-[47px]",
+                'font-inter relative flex h-[47px] cursor-pointer items-center border-0 bg-transparent px-2.5 py-3 text-sm transition-all duration-200',
                 fileName === file.name &&
-                  "pointer-events-none font-medium after:content-[''] after:block after:absolute after:w-full after:h-0.5 after:-bottom-[1px] after:start-0 after:bg-gray-900 dark:after:bg-gray-100"
+                  "pointer-events-none font-medium after:absolute after:start-0 after:-bottom-[1px] after:block after:h-0.5 after:w-full after:bg-gray-900 after:content-[''] dark:after:bg-gray-100"
               )}
             >
               <span
                 className={cn(
-                  "w-5 h-auto shrink-0 inline-flex items-center me-2"
+                  'me-2 inline-flex h-auto w-5 shrink-0 items-center'
                 )}
               >
                 {PACKAGE_MANAGERS_ICONS[file.manager]}
@@ -65,7 +65,7 @@ export function MultiFilesEditor({
             </button>
           ))}
         </nav>
-        <div className={cn("relative h-12", editorWrapperClassName)}>
+        <div className={cn('relative h-12', editorWrapperClassName)}>
           <Editor
             height="100%"
             theme="vs-dark"
@@ -76,16 +76,16 @@ export function MultiFilesEditor({
             options={{
               minimap: { enabled: false },
               scrollBeyondLastLine: false,
-              wordWrap: "on",
-              wrappingIndent: "same",
-              wrappingStrategy: "advanced",
+              wordWrap: 'on',
+              wrappingIndent: 'same',
+              wrappingStrategy: 'advanced',
               readOnly: true,
-              lineNumbers: "off",
+              lineNumbers: 'off',
               fontSize: 16,
               padding: { top: 11, bottom: 11 },
             }}
             {...editorOptions}
-            className={cn("rounded-lg overflow-hidden", editorClassName)}
+            className={cn('overflow-hidden rounded-lg', editorClassName)}
           />
           <CopyButton value={file.value} className="absolute end-2 top-2" />
         </div>

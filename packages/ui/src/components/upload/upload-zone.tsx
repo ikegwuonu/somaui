@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, {
   useCallback,
@@ -7,15 +7,15 @@ import React, {
   useEffect,
   useImperativeHandle,
   useMemo,
-} from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { FieldErrorText } from "../field-error-text";
-import { FieldHelperText } from "../field-helper-text";
-import { labelStyles } from "@/lib/label-size";
+} from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { FieldErrorText } from '../field-error-text';
+import { FieldHelperText } from '../field-helper-text';
+import { labelStyles } from '@/lib/label-size';
 
 // Constants extracted outside component to prevent recreation
-const DEFAULT_PLACEHOLDER = "Drag & drop files here or click to browse";
+const DEFAULT_PLACEHOLDER = 'Drag & drop files here or click to browse';
 
 const DefaultUploadIcon = ({ className }: { className?: string }) => (
   <svg
@@ -77,7 +77,7 @@ function UploadZoneImagePreview({
   file: File;
   className?: string;
 }) {
-  const [objectUrl, setObjectUrl] = useState<string>("");
+  const [objectUrl, setObjectUrl] = useState<string>('');
 
   useEffect(() => {
     // Create URL only in effect to avoid double creation
@@ -96,83 +96,82 @@ function UploadZoneImagePreview({
 
 const uploadZone = tv({
   slots: {
-    root: "flex flex-col",
+    root: 'flex flex-col',
     uploadZoneArea:
-      "relative flex flex-col items-center justify-center border-2 border-dashed rounded-[var(--border-radius)] transition-all duration-200 cursor-pointer",
-    input: "absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10",
+      'relative flex flex-col items-center justify-center border-2 border-dashed rounded-[var(--border-radius)] transition-all duration-200 cursor-pointer',
+    input: 'absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10',
     content:
-      "flex flex-col items-center justify-center text-center pointer-events-none relative z-0",
-    icon: "mb-2",
-    text: "text-sm",
-    previewContainer: "mt-4 space-y-2",
-    previewGrid: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4",
+      'flex flex-col items-center justify-center text-center pointer-events-none relative z-0',
+    icon: 'mb-2',
+    text: 'text-sm',
+    previewContainer: 'mt-4 space-y-2',
+    previewGrid: 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4',
     previewItem:
-      "relative group rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700",
-    previewImage: "w-full h-full object-cover",
+      'relative group rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700',
+    previewImage: 'w-full h-full object-cover',
     previewRemoveButton:
-      "absolute top-2 right-2 bg-red text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-red-dark cursor-pointer",
+      'absolute top-2 right-2 bg-red text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-red-dark cursor-pointer',
   },
   variants: {
     variant: {
       outline: {
         uploadZoneArea:
-          "bg-transparent border-border hover:border-primary hover:bg-muted/30 focus-visible:border-primary focus-visible:bg-muted/30 focus-visible:outline-none",
+          'bg-transparent border-border hover:border-primary hover:bg-muted/30 focus-visible:border-primary focus-visible:bg-muted/30 focus-visible:outline-none',
       },
       flat: {
         uploadZoneArea:
-          "bg-muted/30 backdrop-blur border-border hover:border-primary hover:bg-muted/50 focus-visible:border-primary focus-visible:bg-muted/50 focus-visible:outline-none",
+          'bg-muted/30 backdrop-blur border-border hover:border-primary hover:bg-muted/50 focus-visible:border-primary focus-visible:bg-muted/50 focus-visible:outline-none',
       },
     },
     size: {
       sm: {
-        uploadZoneArea: "p-6 min-h-[120px]",
-        text: "text-xs",
-        icon: "mb-1.5",
+        uploadZoneArea: 'p-6 min-h-[120px]',
+        text: 'text-xs',
+        icon: 'mb-1.5',
       },
       md: {
-        uploadZoneArea: "p-8 min-h-[160px]",
-        text: "text-sm",
-        icon: "mb-2",
+        uploadZoneArea: 'p-8 min-h-[160px]',
+        text: 'text-sm',
+        icon: 'mb-2',
       },
       lg: {
-        uploadZoneArea: "p-12 min-h-[200px]",
-        text: "text-base",
-        icon: "mb-3",
+        uploadZoneArea: 'p-12 min-h-[200px]',
+        text: 'text-base',
+        icon: 'mb-3',
       },
     },
     isDragging: {
       true: {
         uploadZoneArea:
-          "border-primary bg-primary/5 dark:bg-primary/10 scale-[1.02]",
+          'border-primary bg-primary/5 dark:bg-primary/10 scale-[1.02]',
       },
     },
     disabled: {
       true: {
         uploadZoneArea:
-          "!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted opacity-60",
-        input: "cursor-not-allowed",
+          '!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted opacity-60',
+        input: 'cursor-not-allowed',
       },
     },
     error: {
       true: {
         uploadZoneArea:
-          "!border-red hover:!border-red focus-visible:!border-red focus-visible:outline-none",
+          '!border-red hover:!border-red focus-visible:!border-red focus-visible:outline-none',
       },
     },
   },
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
-export interface UploadZoneProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "size" | "type" | "onChange" | "value" | "placeholder" | "onDrop"
-  > {
-  variant?: VariantProps<typeof uploadZone>["variant"];
-  size?: VariantProps<typeof uploadZone>["size"];
+export interface UploadZoneProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'type' | 'onChange' | 'value' | 'placeholder' | 'onDrop'
+> {
+  variant?: VariantProps<typeof uploadZone>['variant'];
+  size?: VariantProps<typeof uploadZone>['size'];
   disabled?: boolean;
   label?: React.ReactNode;
   labelWeight?: keyof typeof labelStyles.weight;
@@ -199,11 +198,11 @@ export interface UploadZoneProps
 
 export function UploadZone({
   className,
-  variant = "outline",
-  size = "md",
+  variant = 'outline',
+  size = 'md',
   disabled,
   label,
-  labelWeight = "medium",
+  labelWeight = 'medium',
   error,
   helperText,
   labelClassName,
@@ -284,7 +283,7 @@ export function UploadZone({
         handleFileChange(e.target.files);
       }
       // Reset input value to allow selecting the same file again
-      e.target.value = "";
+      e.target.value = '';
     },
     [handleFileChange]
   );
@@ -348,7 +347,7 @@ export function UploadZone({
   // Memoize accepted types for validation to avoid recalculation
   const acceptedTypes = useMemo(() => {
     if (!accept) return null;
-    return accept.split(",").map((type) => type.trim());
+    return accept.split(',').map((type) => type.trim());
   }, [accept]);
 
   const handleDrop = useCallback(
@@ -367,12 +366,12 @@ export function UploadZone({
         if (acceptedTypes && acceptedTypes.length > 0) {
           const validFiles = Array.from(files).filter((file) => {
             return acceptedTypes.some((type) => {
-              if (type.startsWith(".")) {
+              if (type.startsWith('.')) {
                 // Extension match
                 return file.name.toLowerCase().endsWith(type.toLowerCase());
               }
               // MIME type match
-              return file.type.match(type.replace("*", ".*"));
+              return file.type.match(type.replace('*', '.*'));
             });
           });
 
@@ -421,11 +420,11 @@ export function UploadZone({
       {label ? (
         <span
           className={cn(
-            "somaui-upload-zone-label",
-            "block",
+            'somaui-upload-zone-label',
+            'block',
             labelStyles.size[size],
             labelStyles.weight[labelWeight],
-            disabled && "text-muted-foreground",
+            disabled && 'text-muted-foreground',
             labelClassName
           )}
         >
@@ -444,8 +443,8 @@ export function UploadZone({
           const target = e.target as HTMLElement;
           if (
             disabled ||
-            target.closest(".somaui-upload-zone-preview-item") ||
-            target.closest("button")
+            target.closest('.somaui-upload-zone-preview-item') ||
+            target.closest('button')
           ) {
             return;
           }
@@ -455,7 +454,7 @@ export function UploadZone({
         tabIndex={disabled ? -1 : 0}
         aria-disabled={disabled}
         onKeyDown={(e) => {
-          if ((e.key === "Enter" || e.key === " ") && !disabled) {
+          if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
             e.preventDefault();
             inputRef.current?.click();
           }
@@ -470,7 +469,7 @@ export function UploadZone({
           multiple={multiple}
           accept={accept}
           onChange={handleInputChange}
-          aria-invalid={error ? "true" : undefined}
+          aria-invalid={error ? 'true' : undefined}
           aria-required={inputProps.required}
           {...inputProps}
         />
@@ -481,7 +480,7 @@ export function UploadZone({
               {icon || (
                 <DefaultUploadIcon
                   className={cn(
-                    "h-8 w-8 text-gray-400 dark:text-gray-500",
+                    'h-8 w-8 text-gray-400 dark:text-gray-500',
                     iconStyle()
                   )}
                 />
@@ -491,8 +490,8 @@ export function UploadZone({
           <p
             className={cn(
               text(),
-              "text-gray-600 dark:text-gray-400",
-              isDragging && "text-primary"
+              'text-gray-600 dark:text-gray-400',
+              isDragging && 'text-primary'
             )}
           >
             {placeholder || DEFAULT_PLACEHOLDER}
@@ -504,8 +503,8 @@ export function UploadZone({
         <FieldHelperText
           size={size}
           className={cn(
-            "somaui-upload-zone-helper-text",
-            disabled && "text-muted-foreground",
+            'somaui-upload-zone-helper-text',
+            disabled && 'text-muted-foreground',
             helperClassName
           )}
         >
@@ -525,10 +524,10 @@ export function UploadZone({
                   key={fileKey}
                   className={cn(
                     previewItem(),
-                    "somaui-upload-zone-preview-item"
+                    'somaui-upload-zone-preview-item'
                   )}
                 >
-                  {file.type.startsWith("image/") ? (
+                  {file.type.startsWith('image/') ? (
                     <div className="aspect-square">
                       <UploadZoneImagePreview
                         file={file}
@@ -573,7 +572,7 @@ export function UploadZone({
         <FieldErrorText
           size={size}
           error={error}
-          className={cn("somaui-upload-zone-error-text", errorClassName)}
+          className={cn('somaui-upload-zone-error-text', errorClassName)}
         />
       ) : null}
     </div>

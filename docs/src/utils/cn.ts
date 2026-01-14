@@ -1,4 +1,4 @@
-import { cx as cnBase } from "tailwind-variants";
+import { cx as cnBase } from 'tailwind-variants';
 
 /**
  * Utility function for conditionally joining class names together with proper
@@ -15,5 +15,5 @@ import { cx as cnBase } from "tailwind-variants";
  * cn(['flex', 'items-center']) // => 'flex items-center'
  */
 export function cn(...inputs: Parameters<typeof cnBase>): string {
-  return cnBase(...inputs) || "";
+  return cnBase(...inputs) || '';
 }

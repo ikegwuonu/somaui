@@ -2,18 +2,18 @@
 sidebar_position: 2
 ---
 
-import { Avatar } from "@somaui/ui/avatar";
-import { Badge } from "@somaui/ui/badge";
-import Paper from "@site/src/components/paper";
+import { Avatar } from '@somaui/ui/avatar';
+import { Badge } from '@somaui/ui/badge';
+import Paper from '@site/src/components/paper';
 
 # Avatar
 
 Avatar is a small UI item which represents user profile picture, or event that appears in relativity with the underlying object.
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -30,9 +30,9 @@ The default style of the **Avatar**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -51,7 +51,7 @@ export default function App() {
 You can add text or avatar icon to **Avatar** component using **initials** or **src** property.
 
 <Paper>
-  <div className="flex items-center gap-3 justify-around w-full max-w-xl">
+  <div className="flex w-full max-w-xl items-center justify-around gap-3">
     <Avatar name="John Doe" />
     <Avatar
       src="https://randomuser.me/api/portraits/women/40.jpg"
@@ -61,9 +61,9 @@ You can add text or avatar icon to **Avatar** component using **initials** or **
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -85,7 +85,7 @@ export default function App() {
 You can change the size of the **Avatar** using **size** property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <Avatar name="John Doe" initials="SM" size="sm" />
     <Avatar
       src="https://randomuser.me/api/portraits/men/40.jpg"
@@ -100,9 +100,9 @@ You can change the size of the **Avatar** using **size** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -129,7 +129,7 @@ export default function App() {
 You can change the color of the **Avatar** using **color** property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <Avatar name="John Doe" initials="SM" />
     <Avatar name="John Doe" initials="SM" color="primary" />
     <Avatar name="John Doe" initials="SM" color="secondary" />
@@ -141,9 +141,9 @@ You can change the color of the **Avatar** using **color** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -167,45 +167,45 @@ export default function App() {
 You can add border to **Avatar** by adding extra className using **className** property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <Avatar
       src="https://randomuser.me/api/portraits/women/41.jpg"
       name="John Doe"
-      className="ring-2 ring-primary ring-offset-background ring-offset-2"
+      className="ring-primary ring-offset-background ring-2 ring-offset-2"
     />
     <Avatar
       src="https://randomuser.me/api/portraits/women/42.jpg"
       name="John Doe"
-      className="ring-2 ring-secondary ring-offset-background ring-offset-2"
+      className="ring-secondary ring-offset-background ring-2 ring-offset-2"
     />
     <Avatar
       src="https://randomuser.me/api/portraits/women/43.jpg"
       size="lg"
       name="John Doe"
-      className="ring-2 ring-red  ring-offset-background ring-offset-2"
+      className="ring-red ring-offset-background ring-2 ring-offset-2"
     />
     <Avatar
       src="https://randomuser.me/api/portraits/women/44.jpg"
       name="John Doe"
-      className="ring-2 ring-orange ring-offset-background ring-offset-2"
+      className="ring-orange ring-offset-background ring-2 ring-offset-2"
     />
     <Avatar
       src="https://randomuser.me/api/portraits/women/45.jpg"
       name="John Doe"
-      className="ring-2 ring-green ring-offset-background ring-offset-2"
+      className="ring-green ring-offset-background ring-2 ring-offset-2"
     />
     <Avatar
       src="https://randomuser.me/api/portraits/women/46.jpg"
       name="John Doe"
-      className="ring-2 ring-blue ring-offset-background ring-offset-2"
+      className="ring-blue ring-offset-background ring-2 ring-offset-2"
     />
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -213,32 +213,32 @@ export default function App() {
       <Avatar
         src="https://randomuser.me/api/portraits/women/41.jpg"
         name="John Doe"
-        className="ring-2 ring-primary ring-offset-background ring-offset-2"
+        className="ring-primary ring-offset-background ring-2 ring-offset-2"
       />
       <Avatar
         src="https://randomuser.me/api/portraits/women/42.jpg"
         name="John Doe"
-        className="ring-2 ring-secondary ring-offset-background ring-offset-2"
+        className="ring-secondary ring-offset-background ring-2 ring-offset-2"
       />
       <Avatar
         src="https://randomuser.me/api/portraits/women/43.jpg"
         name="John Doe"
-        className="ring-2 ring-red ring-offset-background ring-offset-2"
+        className="ring-red ring-offset-background ring-2 ring-offset-2"
       />
       <Avatar
         src="https://randomuser.me/api/portraits/women/44.jpg"
         name="John Doe"
-        className="ring-2 ring-orange ring-offset-background ring-offset-2"
+        className="ring-orange ring-offset-background ring-2 ring-offset-2"
       />
       <Avatar
         src="https://randomuser.me/api/portraits/women/45.jpg"
         name="John Doe"
-        className="ring-2 ring-green ring-offset-background ring-offset-2"
+        className="ring-green ring-offset-background ring-2 ring-offset-2"
       />
       <Avatar
         src="https://randomuser.me/api/portraits/women/46.jpg"
         name="John Doe"
-        className="ring-2 ring-blue ring-offset-background ring-offset-2"
+        className="ring-blue ring-offset-background ring-2 ring-offset-2"
       />
     </>
   );
@@ -252,7 +252,7 @@ export default function App() {
 You can use **Badge** with **Avatar** component for online status.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 flex-wrap w-full max-w-xl">
+  <div className="flex w-full max-w-xl flex-wrap items-center justify-around gap-3">
     <div className="relative inline-flex">
       <Avatar
         name="John Doe"
@@ -263,7 +263,7 @@ You can use **Badge** with **Avatar** component for online status.
         color="success"
         enableOutlineRing
         size="lg"
-        className="absolute right-0 top-0 -translate-y-[25%]"
+        className="absolute top-0 right-0 -translate-y-[25%]"
       />
     </div>
     <div className="relative ml-3 inline-flex">
@@ -276,7 +276,7 @@ You can use **Badge** with **Avatar** component for online status.
         color="danger"
         enableOutlineRing
         size="lg"
-        className="absolute right-0 top-0 -translate-y-[25%]"
+        className="absolute top-0 right-0 -translate-y-[25%]"
       />
     </div>
     <div className="relative ml-3 inline-flex">
@@ -289,17 +289,17 @@ You can use **Badge** with **Avatar** component for online status.
         color="warning"
         enableOutlineRing
         size="lg"
-        className="absolute right-0 top-0 -translate-y-[30%]"
+        className="absolute top-0 right-0 -translate-y-[30%]"
       />
     </div>
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
-import { Badge } from "@somaui/ui/badge";
+import { Avatar } from '@somaui/ui/avatar';
+import { Badge } from '@somaui/ui/badge';
 
 export default function App() {
   return (
@@ -315,7 +315,7 @@ export default function App() {
           color="success"
           enableOutlineRing
           size="lg"
-          className="absolute right-0 top-0 -translate-y-[25%]"
+          className="absolute top-0 right-0 -translate-y-[25%]"
         />
       </div>
       <div className="relative ml-3 inline-flex">
@@ -329,7 +329,7 @@ export default function App() {
           color="danger"
           enableOutlineRing
           size="lg"
-          className="absolute right-0 top-0 -translate-y-[25%]"
+          className="absolute top-0 right-0 -translate-y-[25%]"
         />
       </div>
       <div className="relative ml-3 inline-flex">
@@ -343,7 +343,7 @@ export default function App() {
           color="warning"
           enableOutlineRing
           size="lg"
-          className="absolute right-0 top-0 -translate-y-[30%]"
+          className="absolute top-0 right-0 -translate-y-[30%]"
         />
       </div>
     </>
@@ -363,31 +363,31 @@ You can use **Avatar** component to create a group of avatars.
       customSize="42"
       name="John Doe"
       src="https://randomuser.me/api/portraits/women/40.jpg"
-      className="relative inline-flex  object-cover"
+      className="relative inline-flex object-cover"
     />
     <Avatar
       customSize="42"
       name="John Doe"
       src="https://randomuser.me/api/portraits/women/41.jpg"
-      className="relative inline-flex -translate-x-[5px] object-cover ring-2 ring-background"
+      className="ring-background relative inline-flex -translate-x-[5px] object-cover ring-2"
     />
     <Avatar
       customSize="42"
       name="John Doe"
       src="https://randomuser.me/api/portraits/women/42.jpg"
-      className="relative inline-flex -translate-x-[10px] object-cover ring-2 ring-background"
+      className="ring-background relative inline-flex -translate-x-[10px] object-cover ring-2"
     />
     <Avatar
       customSize="42"
       name="John Doe"
       src="https://randomuser.me/api/portraits/women/43.jpg"
-      className="relative inline-flex -translate-x-[15px] object-cover ring-2 ring-background"
+      className="ring-background relative inline-flex -translate-x-[15px] object-cover ring-2"
     />
     <Avatar
       customSize="42"
       name="John Doe"
       src="https://randomuser.me/api/portraits/women/44.jpg"
-      className="relative inline-flex -translate-x-[20px] object-cover ring-2 ring-background"
+      className="ring-background relative inline-flex -translate-x-[20px] object-cover ring-2"
     />
     <div className="bordered relative inline-flex h-[42px] w-[42px] -translate-x-[25px] items-center justify-center rounded-full object-cover text-sm font-medium text-gray-900">
       +5
@@ -396,9 +396,9 @@ You can use **Avatar** component to create a group of avatars.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Avatar } from "@somaui/ui/avatar";
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -407,31 +407,31 @@ export default function App() {
         customSize="42"
         name="John Doe"
         src="https://randomuser.me/api/portraits/women/40.jpg"
-        className="relative inline-flex  object-cover"
+        className="relative inline-flex object-cover"
       />
       <Avatar
         customSize="42"
         name="John Doe"
         src="https://randomuser.me/api/portraits/women/41.jpg"
-        className="relative inline-flex -translate-x-[5px] object-cover ring-2 ring-background"
+        className="ring-background relative inline-flex -translate-x-[5px] object-cover ring-2"
       />
       <Avatar
         customSize="42"
         name="John Doe"
         src="https://randomuser.me/api/portraits/women/42.jpg"
-        className="relative inline-flex -translate-x-[10px] object-cover ring-2 ring-background"
+        className="ring-background relative inline-flex -translate-x-[10px] object-cover ring-2"
       />
       <Avatar
         customSize="42"
         name="John Doe"
         src="https://randomuser.me/api/portraits/women/43.jpg"
-        className="relative inline-flex -translate-x-[15px] object-cover ring-2 ring-background"
+        className="ring-background relative inline-flex -translate-x-[15px] object-cover ring-2"
       />
       <Avatar
         customSize="42"
         name="John Doe"
         src="https://randomuser.me/api/portraits/women/44.jpg"
-        className="relative inline-flex -translate-x-[20px] object-cover ring-2 ring-background"
+        className="ring-background relative inline-flex -translate-x-[20px] object-cover ring-2"
       />
       <div className="bordered relative inline-flex h-[42px] w-[42px] -translate-x-[25px] items-center justify-center rounded-full object-cover text-sm font-medium text-gray-900">
         +5
@@ -474,12 +474,12 @@ Here is the API documentation of the Avatar component.
 
 ```ts
 type AvatarColors =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "info"
-  | "success"
-  | "warning";
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning';
 ```
 
 <div className="mb-10" />

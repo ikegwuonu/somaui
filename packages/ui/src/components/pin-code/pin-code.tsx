@@ -6,17 +6,17 @@ import {
   type ChangeEvent,
   type KeyboardEvent,
   type ClipboardEvent,
-} from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { FieldErrorText } from "../field-error-text";
+} from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { FieldErrorText } from '../field-error-text';
 
 const pinCodeContainer = tv({
-  base: "flex flex-row",
+  base: 'flex flex-row',
   variants: {
     center: {
-      true: "justify-center align-center",
-      false: "",
+      true: 'justify-center align-center',
+      false: '',
     },
   },
   defaultVariants: {
@@ -25,46 +25,45 @@ const pinCodeContainer = tv({
 });
 
 const pinCode = tv({
-  base: "block peer text-center bg-transparent mr-2 focus:placeholder:opacity-0 focus:outline-none transition duration-200 rounded-[var(--border-radius)] border-[length:var(--border-width)]",
+  base: 'block peer text-center bg-transparent mr-2 focus:placeholder:opacity-0 focus:outline-none transition duration-200 rounded-[var(--border-radius)] border-[length:var(--border-width)]',
   variants: {
     variant: {
-      flat: "focus:ring-[1.8px] border-0 placeholder:opacity-90 bg-muted/70 backdrop-blur focus:ring-primary focus:enabled:bg-transparent",
+      flat: 'focus:ring-[1.8px] border-0 placeholder:opacity-90 bg-muted/70 backdrop-blur focus:ring-primary focus:enabled:bg-transparent',
       outline:
-        "bg-transparent focus:ring-[0.8px] ring-border border-border placeholder:text-gray-500 hover:enabled:border-primary focus:enabled:border-primary focus:ring-primary",
+        'bg-transparent focus:ring-[0.8px] ring-border border-border placeholder:text-gray-500 hover:enabled:border-primary focus:enabled:border-primary focus:ring-primary',
     },
     size: {
-      sm: "px-1 py-1 h-8 w-8 text-sm",
-      md: "px-2 py-2 h-10 w-10 text-base",
-      lg: "px-2 py-2 h-12 w-12 text-lg",
+      sm: 'px-1 py-1 h-8 w-8 text-sm',
+      md: 'px-2 py-2 h-10 w-10 text-base',
+      lg: 'px-2 py-2 h-12 w-12 text-lg',
     },
     disabled: {
-      true: "disabled:bg-muted/70 disabled:backdrop-blur disabled:placeholder:text-muted-foreground disabled:text-muted-foreground disabled:cursor-not-allowed disabled:border-muted",
+      true: 'disabled:bg-muted/70 disabled:backdrop-blur disabled:placeholder:text-muted-foreground disabled:text-muted-foreground disabled:cursor-not-allowed disabled:border-muted',
     },
     error: {
-      true: "border-red hover:enabled:!border-red focus:enabled:!border-red !ring-red",
+      true: 'border-red hover:enabled:!border-red focus:enabled:!border-red !ring-red',
     },
   },
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
 type PinCodeVariant = VariantProps<typeof pinCode>;
 
-export interface PinCodeProps
-  extends Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    "size" | "type" | "value"
-  > {
+export interface PinCodeProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'type' | 'value'
+> {
   setValue?: Dispatch<SetStateAction<string | number | undefined>>;
-  type?: "text" | "number";
+  type?: 'text' | 'number';
   mask?: boolean;
   length?: number;
   center?: boolean;
   placeholder?: string;
-  size?: PinCodeVariant["size"];
-  variant?: PinCodeVariant["variant"];
+  size?: PinCodeVariant['size'];
+  variant?: PinCodeVariant['variant'];
   error?: string;
   inputClassName?: string;
   errorClassName?: string;
@@ -72,15 +71,15 @@ export interface PinCodeProps
 }
 
 export function PinCode({
-  type = "text",
+  type = 'text',
   defaultValue,
   mask = false,
   length = 4,
   setValue,
   center = true,
-  size = "md",
-  variant = "outline",
-  placeholder = "○",
+  size = 'md',
+  variant = 'outline',
+  placeholder = '○',
   error,
   className,
   inputClassName,
@@ -99,11 +98,11 @@ export function PinCode({
   }
 
   function setPinValue() {
-    setValue?.(inputRefs.current.map((node) => node.value).join(""));
+    setValue?.(inputRefs.current.map((node) => node.value).join(''));
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>, index: number) {
-    const inputValues = event.target.value.split("");
+    const inputValues = event.target.value.split('');
     inputRefs.current[index].value = inputValues[inputValues.length - 1];
     if (index < length - 1) inputRefs.current[index + 1].focus();
     setPinValue();
@@ -112,20 +111,20 @@ export function PinCode({
   function handleKeyDown(event: KeyboardEvent, index: number) {
     const currentValue = inputRefs.current[index].value;
 
-    if (event.key === "ArrowRight" && index < length - 1) {
+    if (event.key === 'ArrowRight' && index < length - 1) {
       inputRefs.current[index + 1].focus();
     }
 
-    if (event.key === "ArrowLeft" && index > 0) {
+    if (event.key === 'ArrowLeft' && index > 0) {
       inputRefs.current[index - 1].focus();
     }
 
-    if (event.key === "Backspace") {
-      if (currentValue !== "") {
-        inputRefs.current[index].value = "";
+    if (event.key === 'Backspace') {
+      if (currentValue !== '') {
+        inputRefs.current[index].value = '';
       } else {
         if (index === 0) return;
-        inputRefs.current[index - 1].value = "";
+        inputRefs.current[index - 1].value = '';
         inputRefs.current[index - 1].focus();
       }
       setPinValue();
@@ -134,13 +133,13 @@ export function PinCode({
 
   function handlePaste(event: ClipboardEvent<HTMLInputElement>, index: number) {
     event.preventDefault();
-    const pastedData = event.clipboardData.getData("text");
-    const copiedValue = pastedData.replace(/\D/g, "").split(""); // Remove non-digits for number type
+    const pastedData = event.clipboardData.getData('text');
+    const copiedValue = pastedData.replace(/\D/g, '').split(''); // Remove non-digits for number type
 
     // Fill inputs starting from the current index
     for (let i = 0; i < length - index && i < copiedValue.length; i += 1) {
       if (inputRefs.current[index + i]) {
-        inputRefs.current[index + i].value = copiedValue[i] ?? "";
+        inputRefs.current[index + i].value = copiedValue[i] ?? '';
       }
     }
 
@@ -159,11 +158,11 @@ export function PinCode({
   const pinGroupLabel = label || `Pin code, ${length} digits`;
 
   return (
-    <div className={cn("somaui-pin-code-root", "flex flex-col", className)}>
+    <div className={cn('somaui-pin-code-root', 'flex flex-col', className)}>
       <div
         role="group"
         aria-label={pinGroupLabel}
-        aria-invalid={error ? "true" : undefined}
+        aria-invalid={error ? 'true' : undefined}
         aria-required={props.required}
         className={pinCodeContainer({ center })}
       >
@@ -172,17 +171,17 @@ export function PinCode({
             key={index}
             ref={addInputRefs(index)}
             type={type}
-            inputMode={type === "text" ? "text" : "numeric"}
-            pattern={type === "number" ? "[0-9]*" : undefined}
+            inputMode={type === 'text' ? 'text' : 'numeric'}
+            pattern={type === 'number' ? '[0-9]*' : undefined}
             maxLength={1}
             defaultValue={
-              defaultValue ? defaultValue.toString().split("")[index] : ""
+              defaultValue ? defaultValue.toString().split('')[index] : ''
             }
             autoCapitalize="off"
             autoCorrect="off"
             autoComplete="one-time-code"
             placeholder={placeholder}
-            aria-invalid={error ? "true" : undefined}
+            aria-invalid={error ? 'true' : undefined}
             aria-label={`${pinGroupLabel}, digit ${index + 1} of ${length}`}
             onChange={(event) => handleChange(event, index)}
             onKeyDown={(event) => handleKeyDown(event, index)}
@@ -194,7 +193,7 @@ export function PinCode({
               error: !!error,
               className: cn(
                 mask &&
-                  "[-moz-text-security:circle] [-webkit-text-security:disc] [text-security:circle]",
+                  '[-moz-text-security:circle] [-webkit-text-security:disc] [text-security:circle]',
                 inputClassName
               ),
             })}
@@ -208,8 +207,8 @@ export function PinCode({
           size={size}
           error={error}
           className={cn(
-            "somaui-pin-code-error-text",
-            center && "flex justify-center",
+            'somaui-pin-code-error-text',
+            center && 'flex justify-center',
             errorClassName
           )}
         />
@@ -218,4 +217,4 @@ export function PinCode({
   );
 }
 
-PinCode.displayName = "PinCode";
+PinCode.displayName = 'PinCode';

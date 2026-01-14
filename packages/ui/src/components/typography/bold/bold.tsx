@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/cn";
+import React from 'react';
+import { cn } from '@/lib/cn';
 
 export type BoldProps = {
   className?: string;
@@ -11,10 +11,10 @@ export function Bold({
   ...props
 }: React.PropsWithChildren<BoldProps>) {
   return (
-    <b className={cn("somaui-bold", "text-text-primary", className)} {...props}>
+    <b className={cn('somaui-bold', 'text-text-primary', className)} {...props}>
       {children}
     </b>
   );
 }
 
-Bold.displayName = "Bold";
+Bold.displayName = 'Bold';

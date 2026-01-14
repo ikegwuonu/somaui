@@ -2,22 +2,22 @@
 sidebar_position: 10
 ---
 
-import Paper from "@site/src/components/paper";
+import Paper from '@site/src/components/paper';
 import SelectBox, {
   SelectBoxClearable,
   CustomOptionSelectBox,
   SelectWithForm,
   CustomSelectWithSearch,
-} from "@site/src/components/select";
+} from '@site/src/components/select';
 
 # Select
 
 Listboxes are a great foundation for building custom, accessible select menus for your app, complete with robust support for keyboard navigation.
 
 ```tsx
-"use client";
+'use client';
 
-import { Select } from "@somaui/ui/select";
+import { Select } from '@somaui/ui/select';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -217,13 +217,13 @@ In this example, we are going to use **React Hook Form** and **Zod** for validat
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Select } from "@somaui/ui/select";
-import { Button } from "@somaui/ui/button";
-import { z } from "zod";
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Select } from '@somaui/ui/select';
+import { Button } from '@somaui/ui/button';
+import { z } from 'zod';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const schema = z.object({
   select: z.string(),
@@ -237,7 +237,7 @@ export function SelectWithForm() {
   });
 
   const onSubmit = (data: SchemaType) => {
-    console.log("Submitted data", data);
+    console.log('Submitted data', data);
   };
 
   return (
@@ -253,12 +253,12 @@ export function SelectWithForm() {
             onChange={onChange}
             getOptionValue={(option) => option.value}
             displayValue={(selected) =>
-              options?.find((r) => r.value === selected)?.label ?? ""
+              options?.find((r) => r.value === selected)?.label ?? ''
             }
             error={error?.message}
             className="w-full max-w-md"
             clearable
-            onClear={() => onChange("")}
+            onClear={() => onChange('')}
           />
         )}
       />
@@ -355,7 +355,7 @@ type SelectOption = {
 ### Label Weight
 
 ```ts
-type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+type LabelWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 ```
 
 <div className="mb-10" />
@@ -363,7 +363,7 @@ type LabelWeight = "normal" | "medium" | "semibold" | "bold";
 ### Select Variants
 
 ```ts
-type SelectVariants = "outline" | "flat" | "text";
+type SelectVariants = 'outline' | 'flat' | 'text';
 ```
 
 <div className="mb-10" />
@@ -371,7 +371,7 @@ type SelectVariants = "outline" | "flat" | "text";
 ### Select Sizes
 
 ```ts
-type SelectSizes = "sm" | "md" | "lg";
+type SelectSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />

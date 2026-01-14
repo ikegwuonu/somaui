@@ -1,16 +1,16 @@
-import type { ComponentPropsWithRef } from "react";
-import type { VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { table } from "@/lib/table-style";
+import type { ComponentPropsWithRef } from 'react';
+import type { VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { table } from '@/lib/table-style';
 
-export type TableVariantProps = VariantProps<typeof table>["variant"];
-export interface TableProps extends ComponentPropsWithRef<"table"> {
+export type TableVariantProps = VariantProps<typeof table>['variant'];
+export interface TableProps extends ComponentPropsWithRef<'table'> {
   variant?: TableVariantProps;
 }
 
 function TableRoot({
   className,
-  variant = "modern",
+  variant = 'modern',
   ref,
   ...props
 }: TableProps) {
@@ -23,11 +23,11 @@ function TableHeader({
   className,
   ref,
   ...props
-}: ComponentPropsWithRef<"thead">) {
+}: ComponentPropsWithRef<'thead'>) {
   return (
     <thead
       ref={ref}
-      className={cn("somaui-table-header", className)}
+      className={cn('somaui-table-header', className)}
       {...props}
     />
   );
@@ -37,11 +37,11 @@ function TableBody({
   className,
   ref,
   ...props
-}: ComponentPropsWithRef<"tbody">) {
+}: ComponentPropsWithRef<'tbody'>) {
   return (
     <tbody
       ref={ref}
-      className={cn("somaui-table-body", className)}
+      className={cn('somaui-table-body', className)}
       {...props}
     />
   );
@@ -51,31 +51,31 @@ function TableFooter({
   className,
   ref,
   ...props
-}: ComponentPropsWithRef<"tfoot">) {
+}: ComponentPropsWithRef<'tfoot'>) {
   return (
     <tfoot
       ref={ref}
-      className={cn("somaui-table-footer", className)}
+      className={cn('somaui-table-footer', className)}
       {...props}
     />
   );
 }
 
-function TableRow({ className, ref, ...props }: ComponentPropsWithRef<"tr">) {
+function TableRow({ className, ref, ...props }: ComponentPropsWithRef<'tr'>) {
   return (
-    <tr ref={ref} className={cn("somaui-table-row", className)} {...props} />
+    <tr ref={ref} className={cn('somaui-table-row', className)} {...props} />
   );
 }
 
-function TableHead({ className, ref, ...props }: ComponentPropsWithRef<"th">) {
+function TableHead({ className, ref, ...props }: ComponentPropsWithRef<'th'>) {
   return (
-    <th ref={ref} className={cn("somaui-table-head", className)} {...props} />
+    <th ref={ref} className={cn('somaui-table-head', className)} {...props} />
   );
 }
 
-function TableCell({ className, ref, ...props }: ComponentPropsWithRef<"td">) {
+function TableCell({ className, ref, ...props }: ComponentPropsWithRef<'td'>) {
   return (
-    <td ref={ref} className={cn("somaui-table-cell", className)} {...props} />
+    <td ref={ref} className={cn('somaui-table-cell', className)} {...props} />
   );
 }
 

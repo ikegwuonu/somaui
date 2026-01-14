@@ -1,9 +1,9 @@
-import { Avatar } from "@somaui/ui";
+import { Avatar } from '@somaui/ui';
 
 export const advancedSelectOptions = [
   {
     id: 1,
-    name: "John",
+    name: 'John',
     label: (
       <span className="inline-flex items-center gap-2">
         <Avatar
@@ -16,7 +16,7 @@ export const advancedSelectOptions = [
   },
   {
     id: 2,
-    name: "Emily",
+    name: 'Emily',
     label: (
       <span className="inline-flex items-center gap-2">
         <Avatar
@@ -29,7 +29,7 @@ export const advancedSelectOptions = [
   },
   {
     id: 3,
-    name: "Miller",
+    name: 'Miller',
     label: (
       <span className="inline-flex items-center gap-2">
         <Avatar
@@ -42,7 +42,7 @@ export const advancedSelectOptions = [
   },
   {
     id: 4,
-    name: "James",
+    name: 'James',
     disabled: true,
     label: (
       <span className="inline-flex items-center gap-2">
@@ -56,7 +56,7 @@ export const advancedSelectOptions = [
   },
   {
     id: 5,
-    name: "Franky",
+    name: 'Franky',
     label: (
       <span className="inline-flex items-center gap-2">
         <Avatar

@@ -1,12 +1,12 @@
-"use client";
-import { Button } from "@somaui/ui/button";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import React from "react";
+'use client';
+import { Button } from '@somaui/ui/button';
+import { ActionIcon } from '@somaui/ui/action-icon';
+import React from 'react';
 
 const ButtonUI = () => {
   return (
     <>
-      {" "}
+      {' '}
       <div>
         <p className="my-2">Buttons</p>
       </div>
@@ -38,13 +38,13 @@ const ButtonUI = () => {
           Danger
         </Button>
         <ActionIcon size="sm">
-          <p children="kk" className="w-4 h-4" />
+          <p children="kk" className="h-4 w-4" />
         </ActionIcon>
         <ActionIcon>
-          <p children="kk" className="size-5 bg-red" />
+          <p children="kk" className="bg-red size-5" />
         </ActionIcon>
         <ActionIcon size="lg">
-          <p children="kk" className="w-6 h-6 " />
+          <p children="kk" className="h-6 w-6" />
         </ActionIcon>
         <ActionIcon variant="solid">
           <p>yhg</p>

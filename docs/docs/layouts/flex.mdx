@@ -2,16 +2,16 @@
 sidebar_position: 2
 ---
 
-import Paper from "@site/src/components/paper";
-import { Flex } from "@somaui/ui/flex";
-import { Box } from "@somaui/ui/box";
+import Paper from '@site/src/components/paper';
+import { Flex } from '@somaui/ui/flex';
+import { Box } from '@somaui/ui/box';
 
 # Flex
 
 Flex is a layout component that allows you to create a FlexBox layout.
 
 ```tsx
-import { Flex } from "somaui";
+import { Flex } from 'somaui';
 ```
 
 <div className="mb-20" />
@@ -22,21 +22,21 @@ The style of **Flex** component. The **Flex** gets the default style of the css 
 
 <Paper>
   <Flex justify="center" align="center">
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       1
     </Box>
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       2
     </Box>
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       3
     </Box>
   </Flex>
 </Paper>
 
 ```tsx
-import { Flex } from "@somaui/ui/flex";
-import { Box } from "@somaui/ui/box";
+import { Flex } from '@somaui/ui/flex';
+import { Box } from '@somaui/ui/box';
 
 export default function App() {
   return (
@@ -57,13 +57,13 @@ The style of **Flex** component can be modified using the **justify** prop. The 
 
 <Paper>
   <Flex justify="start">
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       1
     </Box>
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       2
     </Box>
-    <Box className="ms-auto border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted ms-auto flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       3
     </Box>
   </Flex>
@@ -102,13 +102,13 @@ The style of **Flex** component can be modified by using the **align** prop. The
 
 <Paper>
   <Flex justify="center" align="center">
-    <Box className="border border-muted rounded-md size-16 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-16 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       1
     </Box>
-    <Box className="border border-muted rounded-md size-20 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-20 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       2
     </Box>
-    <Box className="border border-muted rounded-md size-24 text-3xl font-semibold flex justify-center items-center shadow">
+    <Box className="border-muted flex size-24 items-center justify-center rounded-md border text-3xl font-semibold shadow">
       3
     </Box>
   </Flex>
@@ -171,7 +171,7 @@ Here is the API documentation of the **Flex** component. And the rest of the pro
 ### Direction Type
 
 ```ts
-type DirectionType = "col" | "row" | "row-reverse" | "col-reverse";
+type DirectionType = 'col' | 'row' | 'row-reverse' | 'col-reverse';
 ```
 
 <div className="mb-10" />
@@ -180,13 +180,13 @@ type DirectionType = "col" | "row" | "row-reverse" | "col-reverse";
 
 ```ts
 type JustifyType =
-  | "center"
-  | "start"
-  | "end"
-  | "between"
-  | "around"
-  | "evenly"
-  | "normal";
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'between'
+  | 'around'
+  | 'evenly'
+  | 'normal';
 ```
 
 <div className="mb-10" />
@@ -194,7 +194,7 @@ type JustifyType =
 ### Align Type
 
 ```ts
-type AlignType = "center" | "start" | "end" | "baseline" | "stretch";
+type AlignType = 'center' | 'start' | 'end' | 'baseline' | 'stretch';
 ```
 
 <div className="mb-10" />
@@ -203,16 +203,16 @@ type AlignType = "center" | "start" | "end" | "baseline" | "stretch";
 
 ```ts
 type GapType =
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9"
-  | "10"
-  | "11"
-  | "12";
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12';
 ```

@@ -5,15 +5,15 @@ import {
 
 export default function FeedbackBlock() {
   return (
-    <div className="w-full h-[60px] border p-3 ring-[0.5px] ring-gray-300 border-gray-300 rounded-lg bg-white dark:bg-gray-50 relative">
+    <div className="relative h-[60px] w-full rounded-lg border border-gray-300 bg-white p-3 ring-[0.5px] ring-gray-300 dark:bg-gray-50">
       <div className="flex items-center gap-3">
-        <div className="w-9 h-9 bg-gray-200 rounded-full flex items-center justify-center">
-          <ExclamationTriangleIcon className="w-4 h-auto" strokeWidth={2} />
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200">
+          <ExclamationTriangleIcon className="h-auto w-4" strokeWidth={2} />
         </div>
-        <div className="h-4 w-28 bg-gray-200 group-hover/card:w-20 transition-all" />
+        <div className="h-4 w-28 bg-gray-200 transition-all group-hover/card:w-20" />
       </div>
       <XMarkIcon
-        className="right-2.5 top-2.5 absolute w-4 h-auto scale-0 group-hover/card:scale-100 transition-all"
+        className="absolute top-2.5 right-2.5 h-auto w-4 scale-0 transition-all group-hover/card:scale-100"
         strokeWidth={2}
       />
     </div>

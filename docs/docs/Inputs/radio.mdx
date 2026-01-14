@@ -2,17 +2,17 @@
 sidebar_position: 8
 ---
 
-import { Radio } from "@somaui/ui/radio";
-import Paper from "@site/src/components/paper";
+import { Radio } from '@somaui/ui/radio';
+import Paper from '@site/src/components/paper';
 
 # Radio
 
 A basic widget for getting the user input. used for selecting single value from a list of options.
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -26,9 +26,9 @@ The default style of **Radio** component.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return <Radio label="Default" />;
@@ -42,16 +42,16 @@ export default function App() {
 You can change the style of **Radio** using [**variant**](#radio-variants) property.
 
 <Paper>
-  <div className="w-full max-w-md flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-md flex-wrap justify-around gap-4">
     <Radio label="Outline" />
     <Radio label="Flat" variant="flat" />
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return (
@@ -70,7 +70,7 @@ export default function App() {
 You can change the sizes of **Radio** using [**size**](#radio-sizes) property.
 
 <Paper>
-  <div className="w-full max-w-xl flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-xl flex-wrap justify-around gap-4">
     <Radio label="Small" size="sm" />
     <Radio label="Default" />
     <Radio label="Large" size="lg" />
@@ -78,9 +78,9 @@ You can change the sizes of **Radio** using [**size**](#radio-sizes) property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return (
@@ -100,16 +100,16 @@ export default function App() {
 You can set label on the two different sides using **labelPlacement** property.
 
 <Paper>
-  <div className="w-full max-w-md flex justify-around gap-4 flex-wrap">
+  <div className="flex w-full max-w-md flex-wrap justify-around gap-4">
     <Radio label="Left Placement" labelPlacement="left" />
     <Radio label="Right Placement" labelPlacement="right" />
   </div>
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return (
@@ -132,9 +132,9 @@ You can change style of **Radio** using **disabled** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return <Radio className="m-2" label="Remember Me" disabled />;
@@ -157,9 +157,9 @@ You can add helper text to **Radio**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return (
@@ -189,9 +189,9 @@ You can show the validation error message using **error** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Radio } from "@somaui/ui/radio";
+import { Radio } from '@somaui/ui/radio';
 
 export default function App() {
   return (
@@ -244,7 +244,7 @@ Here is the API documentation of the radio component. And the rest of the props 
 ### Radio Variants
 
 ```ts
-type RadioVariants = "outline" | "flat";
+type RadioVariants = 'outline' | 'flat';
 ```
 
 <div className="mb-10" />
@@ -252,7 +252,7 @@ type RadioVariants = "outline" | "flat";
 ### Label Weight
 
 ```ts
-type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+type LabelWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 ```
 
 <div className="mb-10" />
@@ -260,5 +260,5 @@ type LabelWeight = "normal" | "medium" | "semibold" | "bold";
 ### Radio Sizes
 
 ```ts
-type RadioSizes = "sm" | "md" | "lg";
+type RadioSizes = 'sm' | 'md' | 'lg';
 ```

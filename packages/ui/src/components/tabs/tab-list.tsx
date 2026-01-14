@@ -1,22 +1,22 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 import {
   TabList as HeadlessTabList,
   type TabListProps as HeadlessTabListProps,
-} from "@headlessui/react";
-import { tv } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import type { ExtractProps } from "@/lib/extract-props";
-import { Highlight } from "../highlight";
-import { useTab } from "./tab-context";
-import { useRePositioningActiveTab } from "./tab-lib";
+} from '@headlessui/react';
+import { tv } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import type { ExtractProps } from '@/lib/extract-props';
+import { Highlight } from '../highlight';
+import { useTab } from './tab-context';
+import { useRePositioningActiveTab } from './tab-lib';
 
 const tabList = tv({
-  base: "relative flex border-border",
+  base: 'relative flex border-border',
   variants: {
     vertical: {
-      true: "flex-col border-e pe-3",
+      true: 'flex-col border-e pe-3',
       false:
-        "justify-start border-b gap-4 pb-[1px] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+        'justify-start border-b gap-4 pb-[1px] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
     },
   },
   defaultVariants: {
@@ -26,7 +26,7 @@ const tabList = tv({
 
 export type TabListProps = Omit<
   ExtractProps<HeadlessTabListProps>,
-  "children"
+  'children'
 > & {
   children: ReactNode;
 };
@@ -49,7 +49,7 @@ export function TabList({ children, className, ...props }: TabListProps) {
     <HeadlessTabList
       ref={ref}
       onMouseLeave={() => setDisplayHighlight && setDisplayHighlight(false)}
-      className={cn("somaui-tab-list", tabList({ vertical }), className)}
+      className={cn('somaui-tab-list', tabList({ vertical }), className)}
       {...props}
     >
       {children}

@@ -1,9 +1,9 @@
-import { Text } from "@somaui/ui/text";
+import { Text } from '@somaui/ui/text';
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-4 sm:mt-6 md:mt-12 border-t border-gray-200 py-3">
+    <footer className="mt-4 border-t border-gray-200 py-3 sm:mt-6 md:mt-12">
       <div className="container! mx-auto text-center">
         <div className="flex items-center justify-between text-[15px]">
           <Text className="text-gray-500 dark:text-gray-500">
@@ -14,7 +14,7 @@ export default function Footer() {
             aria-label="View on Github"
             target="_blank"
             rel="noreferrer noopener"
-            className="transition-opacity opacity-60 hover:opacity-100"
+            className="opacity-60 transition-opacity hover:opacity-100"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

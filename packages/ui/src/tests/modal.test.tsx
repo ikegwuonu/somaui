@@ -11,7 +11,7 @@ test('Renders modal when isOpen is true', () => {
       <div>Modal content</div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Modal content')).toBeInTheDocument();
 });
 
@@ -21,7 +21,7 @@ test('Does not render modal when isOpen is false', () => {
       <div>Modal content</div>
     </Modal>
   );
-  
+
   expect(screen.queryByText('Modal content')).not.toBeInTheDocument();
 });
 
@@ -31,23 +31,23 @@ test('Renders modal with different sizes', () => {
       <div>Small modal</div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Small modal')).toBeInTheDocument();
-  
+
   rerender(
     <Modal isOpen={true} onClose={() => {}} size="md">
       <div>Medium modal</div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Medium modal')).toBeInTheDocument();
-  
+
   rerender(
     <Modal isOpen={true} onClose={() => {}} size="lg">
       <div>Large modal</div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Large modal')).toBeInTheDocument();
 });
 
@@ -58,7 +58,7 @@ test('Modal calls onClose when backdrop is clicked', async () => {
       <div>Modal content</div>
     </Modal>
   );
-  
+
   const backdrop = container.querySelector('[data-headlessui-state]');
   if (backdrop) {
     await user.click(backdrop);
@@ -73,7 +73,7 @@ test('Renders modal with custom className', () => {
       <div>Modal content</div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Modal content')).toBeInTheDocument();
 });
 
@@ -86,8 +86,7 @@ test('Renders modal with children', () => {
       </div>
     </Modal>
   );
-  
+
   expect(screen.getByText('Title')).toBeInTheDocument();
   expect(screen.getByText('Description')).toBeInTheDocument();
 });
-

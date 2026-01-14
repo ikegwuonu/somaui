@@ -23,7 +23,10 @@ export function isEmpty(value: any): boolean {
 }
 
 // Internal state management hook for controlled/uncontrolled components
-export const useInternalState = <T>(defaultValueProp: T, valueProp: T | undefined) => {
+export const useInternalState = <T>(
+  defaultValueProp: T,
+  valueProp: T | undefined
+) => {
   const isControlled = valueProp !== undefined;
   const [valueState, setValueState] = useState(defaultValueProp);
 
@@ -102,4 +105,3 @@ export function useFilteredOptions<T extends Record<string, any>>(
     [searchQuery, options, disableDefaultFilter, searchByKey]
   );
 }
-

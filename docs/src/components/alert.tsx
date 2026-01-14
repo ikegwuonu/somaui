@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 // import { Alert, Button } from "@somaui/ui";
-import { Button } from "@somaui/ui/button";
-import { Alert } from "@somaui/ui/alert";
+import { Button } from '@somaui/ui/button';
+import { Alert } from '@somaui/ui/alert';
 
 export default function AlertClearable() {
   const [state, setState] = React.useState(true);

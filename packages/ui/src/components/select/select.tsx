@@ -4,24 +4,24 @@ import {
   type ReactNode,
   type MouseEvent,
   type InputHTMLAttributes,
-} from "react";
+} from 'react';
 import {
   Listbox,
   Label,
   ListboxButton,
   ListboxOptions,
   ListboxOption,
-} from "@headlessui/react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import type { ExtractProps } from "@/lib/extract-props";
-import { FieldErrorText } from "../field-error-text";
-import { FieldHelperText } from "../field-helper-text";
-import { FieldClearButton } from "../field-clear-button";
-import { ChevronDownIcon } from "@/icons/chevron-down";
-import { labelStyles } from "@/lib/label-size";
-import { dropdownStyles } from "@/lib/dropdown-list-style";
-import { SearchIcon } from "@/icons/search";
+} from '@headlessui/react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import type { ExtractProps } from '@/lib/extract-props';
+import { FieldErrorText } from '../field-error-text';
+import { FieldHelperText } from '../field-helper-text';
+import { FieldClearButton } from '../field-clear-button';
+import { ChevronDownIcon } from '@/icons/chevron-down';
+import { labelStyles } from '@/lib/label-size';
+import { dropdownStyles } from '@/lib/dropdown-list-style';
+import { SearchIcon } from '@/icons/search';
 import {
   type TheirPlacementType,
   displayValueFn,
@@ -29,47 +29,47 @@ import {
   getOptionValueFn,
   isEmpty,
   isNumber,
-} from "./select.lib";
+} from './select.lib';
 import {
   ourPlacementObject,
   preventHeadlessUIKeyboardInterActions,
   useFilteredOptions,
   useInternalState,
-} from "./select-shared.lib";
-import { optionListStyles, searchStyles } from "./select-shared.styles";
+} from './select-shared.lib';
+import { optionListStyles, searchStyles } from './select-shared.styles';
 
 const select = tv({
-  base: "flex group items-center peer border-[length:var(--border-width)] hover:border-primary w-full transition duration-200 hover:ring-primary focus:border-primary focus:ring-[0.8px] focus:ring-primary rounded-[var(--border-radius)]",
+  base: 'flex group items-center peer border-[length:var(--border-width)] hover:border-primary w-full transition duration-200 hover:ring-primary focus:border-primary focus:ring-[0.8px] focus:ring-primary rounded-[var(--border-radius)]',
   variants: {
     variant: {
-      text: "border-transparent ring-transparent bg-transparent",
-      outline: "border-border ring-border bg-transparent",
+      text: 'border-transparent ring-transparent bg-transparent',
+      outline: 'border-border ring-border bg-transparent',
     },
     size: {
-      sm: "px-2 py-1 text-xs h-8",
-      md: "px-3 py-2 text-sm h-10",
-      lg: "px-4 py-2 text-base h-12",
+      sm: 'px-2 py-1 text-xs h-8',
+      md: 'px-3 py-2 text-sm h-10',
+      lg: 'px-4 py-2 text-base h-12',
     },
     disabled: {
-      true: "!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted text-muted-foreground placeholder:text-muted-foreground !ring-muted",
+      true: '!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted text-muted-foreground placeholder:text-muted-foreground !ring-muted',
     },
     error: {
-      true: "!border-red hover:!border-red focus:!border-red !ring-red",
+      true: '!border-red hover:!border-red focus:!border-red !ring-red',
     },
     hasPrefix: {
-      true: "",
+      true: '',
     },
     hasSuffix: {
-      true: "",
+      true: '',
     },
   },
   compoundVariants: [
-    { hasPrefix: true, class: "ps-2.5" },
-    { hasSuffix: true, class: "pe-2.5" },
+    { hasPrefix: true, class: 'ps-2.5' },
+    { hasSuffix: true, class: 'pe-2.5' },
   ],
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
@@ -84,14 +84,14 @@ export type SelectProps<SelectOption> = ExtractProps<typeof Listbox> & {
   /** Options for select */
   options: SelectOption[];
   /** The default value of the select (uncontrolled) */
-  defaultValue?: ExtractProps<typeof Listbox>["value"];
+  defaultValue?: ExtractProps<typeof Listbox>['value'];
   /** Whether the select is disabled */
   disabled?: boolean;
   label?: ReactNode;
   labelWeight?: keyof typeof labelStyles.weight;
   placeholder?: string;
-  size?: VariantProps<typeof select>["size"];
-  variant?: VariantProps<typeof select>["variant"];
+  size?: VariantProps<typeof select>['size'];
+  variant?: VariantProps<typeof select>['variant'];
   /** add clearable option */
   clearable?: boolean;
   /** Whether the select is focused by default or not */
@@ -107,7 +107,7 @@ export type SelectProps<SelectOption> = ExtractProps<typeof Listbox> & {
   /** Whether the select is searchable or not */
   searchable?: boolean;
   /** The type of the search input */
-  searchType?: "text" | "search";
+  searchType?: 'text' | 'search';
   /** The props for the search input */
   searchProps?: InputHTMLAttributes<HTMLInputElement>;
   /** The prefix for the search input */
@@ -171,7 +171,7 @@ export type SelectProps<SelectOption> = ExtractProps<typeof Listbox> & {
    * @param value - The value of the selected item.
    * @returns React node to display for the selected item.
    */
-  displayValue?(value: ExtractProps<typeof Listbox>["value"]): ReactNode;
+  displayValue?(value: ExtractProps<typeof Listbox>['value']): ReactNode;
   /**
    * Use this function when you want to display something other than the default displayValue.
    * @param option - The SelectOption for which to get the display value.
@@ -190,14 +190,14 @@ export type SelectProps<SelectOption> = ExtractProps<typeof Listbox> & {
 
 export function Select<OptionType extends SelectOption>({
   label,
-  labelWeight = "medium",
+  labelWeight = 'medium',
   error,
   options,
   disabled,
   autoFocus,
   helperText,
   prefix = null,
-  placeholder = "Select...",
+  placeholder = 'Select...',
   inPortal = true,
   modal = false,
   displayValue = displayValueFn,
@@ -209,10 +209,10 @@ export function Select<OptionType extends SelectOption>({
   onChange,
   onClear,
   clearable,
-  placement = "bottom-start",
+  placement = 'bottom-start',
   gap = 6,
-  size = "md",
-  variant = "outline",
+  size = 'md',
+  variant = 'outline',
   suffix = <ChevronDownIcon strokeWidth="2" className="size-4" />,
   searchable,
   searchType,
@@ -223,9 +223,9 @@ export function Select<OptionType extends SelectOption>({
   searchDisabled,
   searchReadOnly,
   onSearchChange,
-  searchPlaceHolder = "Search...",
+  searchPlaceHolder = 'Search...',
   className,
-  searchByKey = "label",
+  searchByKey = 'label',
   labelClassName,
   selectClassName,
   optionClassName,
@@ -245,7 +245,7 @@ export function Select<OptionType extends SelectOption>({
     defaultValue,
     value
   );
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Use internal value if component is uncontrolled
   const currentValue = value !== undefined ? value : internalValue;
@@ -263,7 +263,7 @@ export function Select<OptionType extends SelectOption>({
   const handleOnClear = useCallback(
     (e?: MouseEvent) => {
       e?.stopPropagation();
-      setSearchQuery("");
+      setSearchQuery('');
       onClear?.(e);
     },
     [onClear]
@@ -290,7 +290,7 @@ export function Select<OptionType extends SelectOption>({
 
   return (
     <div
-      className={cn("somaui-select-root", "grid w-full grid-cols-1", className)}
+      className={cn('somaui-select-root', 'grid w-full grid-cols-1', className)}
     >
       <Listbox
         value={currentValue}
@@ -302,11 +302,11 @@ export function Select<OptionType extends SelectOption>({
           {label && (
             <Label
               className={cn(
-                "somaui-select-label",
-                "block",
+                'somaui-select-label',
+                'block',
                 labelStyles.size[size],
                 labelStyles.weight[labelWeight],
-                disabled && "text-muted-foreground",
+                disabled && 'text-muted-foreground',
                 labelClassName
               )}
             >
@@ -314,7 +314,7 @@ export function Select<OptionType extends SelectOption>({
             </Label>
           )}
 
-          <div className={cn(!inPortal && "relative")}>
+          <div className={cn(!inPortal && 'relative')}>
             <ListboxButton
               className={select({
                 variant,
@@ -330,8 +330,8 @@ export function Select<OptionType extends SelectOption>({
               {prefix && (
                 <span
                   className={cn(
-                    "somaui-select-prefix",
-                    "block leading-normal whitespace-nowrap",
+                    'somaui-select-prefix',
+                    'block leading-normal whitespace-nowrap',
                     prefixClassName
                   )}
                 >
@@ -341,9 +341,9 @@ export function Select<OptionType extends SelectOption>({
 
               <span
                 className={cn(
-                  "somaui-select-value",
-                  "block w-full truncate text-left rtl:text-right",
-                  emptyValue && "text-muted-foreground"
+                  'somaui-select-value',
+                  'block w-full truncate text-left rtl:text-right',
+                  emptyValue && 'text-muted-foreground'
                 )}
               >
                 {emptyValue ? placeholder : displayValue(currentValue)}
@@ -361,8 +361,8 @@ export function Select<OptionType extends SelectOption>({
               {suffix && (
                 <span
                   className={cn(
-                    "somaui-select-suffix",
-                    "leading-normal whitespace-nowrap transition-transform duration-200 group-data-open:rotate-180",
+                    'somaui-select-suffix',
+                    'leading-normal whitespace-nowrap transition-transform duration-200 group-data-open:rotate-180',
                     suffixClassName
                   )}
                 >
@@ -381,7 +381,7 @@ export function Select<OptionType extends SelectOption>({
                 },
               })}
               className={cn(
-                "somaui-select-options",
+                'somaui-select-options',
                 optionListStyles.base,
                 optionListStyles.shadow,
                 inPortal
@@ -401,7 +401,7 @@ export function Select<OptionType extends SelectOption>({
                   {searchPrefix && (
                     <span
                       className={cn(
-                        "somaui-select-prefix",
+                        'somaui-select-prefix',
                         searchStyles.prefix,
                         searchPrefixClassName
                       )}
@@ -434,7 +434,7 @@ export function Select<OptionType extends SelectOption>({
                   {searchSuffix && (
                     <span
                       className={cn(
-                        "somaui-select-suffix",
+                        'somaui-select-suffix',
                         searchStyles.suffix,
                         searchSuffixClassName
                       )}
@@ -453,12 +453,12 @@ export function Select<OptionType extends SelectOption>({
                   })}
                   className={({ focus }) =>
                     cn(
-                      "somaui-select-option",
-                      "flex w-full items-center px-3 py-1.5",
-                      focus && "bg-muted/70",
-                      "rounded-[calc(var(--border-radius)/2)]",
+                      'somaui-select-option',
+                      'flex w-full items-center px-3 py-1.5',
+                      focus && 'bg-muted/70',
+                      'rounded-[calc(var(--border-radius)/2)]',
                       size && optionListStyles.item.size[size],
-                      !option?.disabled && "cursor-pointer",
+                      !option?.disabled && 'cursor-pointer',
                       optionClassName
                     )
                   }
@@ -467,7 +467,7 @@ export function Select<OptionType extends SelectOption>({
                   {({ selected }) => (
                     <div
                       className={cn(
-                        selected ? "font-medium" : "text-foreground"
+                        selected ? 'font-medium' : 'text-foreground'
                       )}
                     >
                       {getOptionDisplayValue(option)}
@@ -493,4 +493,4 @@ export function Select<OptionType extends SelectOption>({
   );
 }
 
-Select.displayName = "Select";
+Select.displayName = 'Select';

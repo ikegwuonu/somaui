@@ -1,90 +1,90 @@
 const theme = {
   plain: {
-    color: "#F8F8F2",
-    backgroundColor: "#1e293b",
+    color: '#F8F8F2',
+    backgroundColor: '#1e293b',
   },
   styles: [
     {
-      types: ["comment"],
+      types: ['comment'],
       style: {
-        color: "#626b84",
-        fontStyle: "italic",
+        color: '#626b84',
+        fontStyle: 'italic',
       },
     },
     {
-      types: ["string", "inserted", "attr-value"],
+      types: ['string', 'inserted', 'attr-value'],
       style: {
-        color: "#e2d775",
+        color: '#e2d775',
       },
     },
     {
-      types: ["number", "boolean"],
+      types: ['number', 'boolean'],
       style: {
-        color: "rgb(247, 140, 108)",
+        color: 'rgb(247, 140, 108)',
       },
     },
     {
       types: [
-        "builtin",
-        "char",
-        "constant",
-        "function",
-        "variable",
-        "property-access",
-        "class-name",
-        "tag",
+        'builtin',
+        'char',
+        'constant',
+        'function',
+        'variable',
+        'property-access',
+        'class-name',
+        'tag',
       ],
       style: {
-        color: "#38bdf8",
+        color: '#38bdf8',
       },
     },
     {
-      types: ["punctuation", "selector", "attr-name"],
+      types: ['punctuation', 'selector', 'attr-name'],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: 'rgb(199, 146, 234)',
       },
     },
     {
-      types: ["deleted"],
+      types: ['deleted'],
       style: {
-        color: "#db2777",
+        color: '#db2777',
       },
     },
     {
-      types: ["operator"],
+      types: ['operator'],
       style: {
-        color: "rgb(137, 221, 255)",
+        color: 'rgb(137, 221, 255)',
       },
     },
     {
-      types: ["keyword", "plain", "rule"],
+      types: ['keyword', 'plain', 'rule'],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: 'rgb(199, 146, 234)',
       },
     },
     {
-      types: ["doctype"],
+      types: ['doctype'],
       style: {
-        color: "rgb(199, 146, 234)",
-        fontStyle: "italic",
+        color: 'rgb(199, 146, 234)',
+        fontStyle: 'italic',
       },
     },
     {
-      types: ["namespace"],
+      types: ['namespace'],
       style: {
-        color: "rgb(178, 204, 214)",
+        color: 'rgb(178, 204, 214)',
       },
     },
     {
-      types: ["url"],
+      types: ['url'],
       style: {
-        color: "#f2f2f8",
+        color: '#f2f2f8',
       },
     },
     {
-      types: ["property"],
+      types: ['property'],
       style: {
-        color: "#7dd3fc",
+        color: '#7dd3fc',
       },
     },
   ],

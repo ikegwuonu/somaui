@@ -2,18 +2,18 @@
 sidebar_position: 4
 ---
 
-import { Badge } from "@somaui/ui/badge";
-import { Text } from "@somaui/ui/typography";
-import { Avatar } from "@somaui/ui/avatar";
-import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-import Paper from "@site/src/components/paper";
+import { Badge } from '@somaui/ui/badge';
+import { Text } from '@somaui/ui/typography';
+import { Avatar } from '@somaui/ui/avatar';
+import { ShoppingBagIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
+import Paper from '@site/src/components/paper';
 
 # Badge
 
 Badge is a small overlapped UI item which indicates a status, notification, or event that appears in relativity with the underlying object.
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
+import { Badge } from '@somaui/ui/badge';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -27,7 +27,7 @@ The default style of **Badge** component.
 </Paper>
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
+import { Badge } from '@somaui/ui/badge';
 
 export default function App() {
   return <Badge>Badge</Badge>;
@@ -41,7 +41,7 @@ export default function App() {
 You can change the style of the **Badge** using [**variant**](#badge-variants) property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 flex-wrap w-full max-w-xl">
+  <div className="flex w-full max-w-xl flex-wrap items-center justify-around gap-3">
     <Badge variant="outline">Badge</Badge>
     <Badge variant="flat">Badge</Badge>
     <Badge>Badge</Badge>
@@ -49,7 +49,7 @@ You can change the style of the **Badge** using [**variant**](#badge-variants) p
 </Paper>
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
+import { Badge } from '@somaui/ui/badge';
 
 export default function App() {
   return (
@@ -69,7 +69,7 @@ export default function App() {
 You can change the size of the **Badge** using [**size**](#badge-sizes) property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <Badge size="sm">Badge</Badge>
     <Badge>Badge</Badge>
     <Badge size="lg">Badge</Badge>
@@ -78,7 +78,7 @@ You can change the size of the **Badge** using [**size**](#badge-sizes) property
 </Paper>
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
+import { Badge } from '@somaui/ui/badge';
 
 export default function App() {
   return (
@@ -99,7 +99,7 @@ export default function App() {
 You can change the color of the **Badge** using [**color**](#badge-colors) property.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap mb-10">
+  <div className="mb-10 flex w-full flex-wrap items-center justify-around gap-3">
     <Badge>Badge</Badge>
     <Badge color="secondary">Badge</Badge>
     <Badge color="info">Badge</Badge>
@@ -107,7 +107,7 @@ You can change the color of the **Badge** using [**color**](#badge-colors) prope
     <Badge color="danger">Badge</Badge>
     <Badge color="success">Badge</Badge>
   </div>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap mb-10">
+  <div className="mb-10 flex w-full flex-wrap items-center justify-around gap-3">
     <Badge variant="flat">Badge</Badge>
     <Badge variant="flat" color="secondary">
       Badge
@@ -125,7 +125,7 @@ You can change the color of the **Badge** using [**color**](#badge-colors) prope
       Badge
     </Badge>
   </div>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <Badge variant="outline">Badge</Badge>
     <Badge variant="outline" color="secondary">
       Badge
@@ -146,13 +146,13 @@ You can change the color of the **Badge** using [**color**](#badge-colors) prope
 </Paper>
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
+import { Badge } from '@somaui/ui/badge';
 
 export default function App() {
   return (
     <>
       {/* variant solid / default */}
-      <div className="flex items-center justify-around gap-3 w-full flex-wrap mb-10">
+      <div className="mb-10 flex w-full flex-wrap items-center justify-around gap-3">
         <Badge>Badge</Badge>
         <Badge color="secondary">Badge</Badge>
         <Badge color="info">Badge</Badge>
@@ -161,7 +161,7 @@ export default function App() {
         <Badge color="success">Badge</Badge>
       </div>
       {/* variant flat */}
-      <div className="flex items-center justify-around gap-3 w-full flex-wrap mb-10">
+      <div className="mb-10 flex w-full flex-wrap items-center justify-around gap-3">
         <Badge variant="flat">Badge</Badge>
         <Badge variant="flat" color="secondary">
           Badge
@@ -180,7 +180,7 @@ export default function App() {
         </Badge>
       </div>
       {/* variant outline */}
-      <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+      <div className="flex w-full flex-wrap items-center justify-around gap-3">
         <Badge variant="outline">Badge</Badge>
         <Badge variant="outline" color="secondary">
           Badge
@@ -239,7 +239,7 @@ You can render **Badge** as dot using **renderAsDot** property.
 </Paper>
 
 ```tsx
-import { Badge, Text } from "somaui";
+import { Badge, Text } from 'somaui';
 
 export default function App() {
   return (
@@ -280,13 +280,13 @@ export default function App() {
 You can use **Badge** to make a ecommerce cart counter component.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <div className="relative inline-flex">
       <ShoppingBagIcon className="h-auto w-8" strokeWidth={1.2} />
       <Badge
         size="sm"
         enableOutlineRing
-        className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+        className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
       >
         99
       </Badge>
@@ -297,7 +297,7 @@ You can use **Badge** to make a ecommerce cart counter component.
         size="sm"
         color="success"
         enableOutlineRing
-        className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+        className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
       >
         99+
       </Badge>
@@ -308,7 +308,7 @@ You can use **Badge** to make a ecommerce cart counter component.
         size="sm"
         color="danger"
         enableOutlineRing
-        className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+        className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
       >
         999+
       </Badge>
@@ -317,8 +317,8 @@ You can use **Badge** to make a ecommerce cart counter component.
 </Paper>
 
 ```tsx
-import { Badge } from "@somaui/ui/badge";
-import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { Badge } from '@somaui/ui/badge';
+import { ShoppingBagIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
@@ -328,7 +328,7 @@ export default function App() {
         <Badge
           size="sm"
           enableOutlineRing
-          className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+          className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
         >
           99
         </Badge>
@@ -339,7 +339,7 @@ export default function App() {
           size="sm"
           color="success"
           enableOutlineRing
-          className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+          className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
         >
           99+
         </Badge>
@@ -350,7 +350,7 @@ export default function App() {
           size="sm"
           color="danger"
           enableOutlineRing
-          className="absolute right-0 top-0 -translate-y-1/3 translate-x-1/2"
+          className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/3"
         >
           999+
         </Badge>
@@ -367,7 +367,7 @@ export default function App() {
 You can use the **Badge** with **Avatar** component to show the current state of user.
 
 <Paper>
-  <div className="flex items-center justify-around gap-3 w-full flex-wrap">
+  <div className="flex w-full flex-wrap items-center justify-around gap-3">
     <div className="relative inline-flex">
       <Avatar
         name="John Doe"
@@ -379,7 +379,7 @@ You can use the **Badge** with **Avatar** component to show the current state of
         renderAsDot
         color="success"
         enableOutlineRing
-        className="absolute right-0 top-0 -translate-y-[25%]"
+        className="absolute top-0 right-0 -translate-y-[25%]"
       />
     </div>
     <div className="relative ml-3 inline-flex">
@@ -407,14 +407,14 @@ You can use the **Badge** with **Avatar** component to show the current state of
         renderAsDot
         color="warning"
         enableOutlineRing
-        className="absolute right-0 top-0 -translate-y-[30%]"
+        className="absolute top-0 right-0 -translate-y-[30%]"
       />
     </div>
   </div>
 </Paper>
 
 ```tsx
-import { Badge, Avatar } from "somaui";
+import { Badge, Avatar } from 'somaui';
 
 export default function App() {
   return (
@@ -430,7 +430,7 @@ export default function App() {
           renderAsDot
           color="success"
           enableOutlineRing
-          className="absolute right-0 top-0 -translate-y-[25%]"
+          className="absolute top-0 right-0 -translate-y-[25%]"
         />
       </div>
       <div className="relative ml-3 inline-flex">
@@ -458,7 +458,7 @@ export default function App() {
           renderAsDot
           color="warning"
           enableOutlineRing
-          className="absolute right-0 top-0 -translate-y-[30%]"
+          className="absolute top-0 right-0 -translate-y-[30%]"
         />
       </div>
     </>
@@ -497,7 +497,7 @@ Here is the API documentation of the Badge component. You can use props like **i
 ### Badge Variants
 
 ```ts
-type BadgeVariants = "solid" | "flat" | "outline";
+type BadgeVariants = 'solid' | 'flat' | 'outline';
 ```
 
 <div className="mb-10" />
@@ -505,7 +505,7 @@ type BadgeVariants = "solid" | "flat" | "outline";
 ### Badge Sizes
 
 ```ts
-type BadgeSizes = "sm" | "md" | "lg";
+type BadgeSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />
@@ -514,10 +514,10 @@ type BadgeSizes = "sm" | "md" | "lg";
 
 ```ts
 type BadgeColors =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "info"
-  | "success"
-  | "warning";
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'info'
+  | 'success'
+  | 'warning';
 ```

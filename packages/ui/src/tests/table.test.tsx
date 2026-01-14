@@ -21,7 +21,7 @@ test('Renders table component', () => {
       </Table.Body>
     </Table>
   );
-  
+
   expect(screen.getByText('Name')).toBeInTheDocument();
   expect(screen.getByText('Age')).toBeInTheDocument();
   expect(screen.getByText('John')).toBeInTheDocument();
@@ -48,7 +48,7 @@ test('Renders table with header, body, and footer', () => {
       </Table.Footer>
     </Table>
   );
-  
+
   expect(screen.getByText('Name')).toBeInTheDocument();
   expect(screen.getByText('John')).toBeInTheDocument();
   expect(screen.getByText('Total: 1')).toBeInTheDocument();
@@ -64,10 +64,10 @@ test('Renders table with different variants', () => {
       </Table.Body>
     </Table>
   );
-  
+
   let tableElement = container.querySelector('table');
   expect(tableElement).toBeInTheDocument();
-  
+
   rerender(
     <Table variant="minimal">
       <Table.Body>
@@ -77,7 +77,7 @@ test('Renders table with different variants', () => {
       </Table.Body>
     </Table>
   );
-  
+
   tableElement = container.querySelector('table');
   expect(tableElement).toBeInTheDocument();
 });
@@ -92,7 +92,7 @@ test('Renders table with custom className', () => {
       </Table.Body>
     </Table>
   );
-  
+
   const tableElement = container.querySelector('table');
   expect(tableElement).toHaveClass('custom-table');
 });
@@ -113,9 +113,8 @@ test('Renders table with multiple rows', () => {
       </Table.Body>
     </Table>
   );
-  
+
   expect(screen.getByText('Row 1')).toBeInTheDocument();
   expect(screen.getByText('Row 2')).toBeInTheDocument();
   expect(screen.getByText('Row 3')).toBeInTheDocument();
 });
-

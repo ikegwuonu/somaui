@@ -2,13 +2,13 @@
 sidebar_position: 7
 ---
 
-import { Dropdown } from "@somaui/ui/dropdown";
-import { Button } from "@somaui/ui/button";
-import { Text } from "@somaui/ui/typography";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { Avatar } from "@somaui/ui/avatar";
-import { cn } from "@somaui/ui/lib/cn";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Dropdown } from '@somaui/ui/dropdown';
+import { Button } from '@somaui/ui/button';
+import { Text } from '@somaui/ui/typography';
+import { ActionIcon } from '@somaui/ui/action-icon';
+import { Avatar } from '@somaui/ui/avatar';
+import { cn } from '@somaui/ui/lib/cn';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import {
   AdjustmentsHorizontalIcon,
   PencilIcon,
@@ -18,17 +18,17 @@ import {
   ShareIcon,
   HeartIcon,
   TrashIcon,
-} from "@heroicons/react/24/outline";
-import Paper from "@site/src/components/paper";
+} from '@heroicons/react/24/outline';
+import Paper from '@site/src/components/paper';
 
 # Dropdown
 
 A floating container which will appear on clicking the dropdown button.
 
 ```tsx
-"use client";
+'use client';
 
-import { Dropdown } from "@somaui/ui/dropdown";
+import { Dropdown } from '@somaui/ui/dropdown';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -45,7 +45,7 @@ A simple dropdown with component **Dropdown**.
         <ChevronDownIcon className="ml-2 w-5" />
       </Button>
     </Dropdown.Trigger>
-    <Dropdown.Menu className="text-sm font-inter">
+    <Dropdown.Menu className="font-inter text-sm">
       <Dropdown.Item>Account Settings</Dropdown.Item>
       <Dropdown.Item>Support</Dropdown.Item>
       <Dropdown.Item>License</Dropdown.Item>
@@ -55,10 +55,10 @@ A simple dropdown with component **Dropdown**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Dropdown } from "@somaui/ui/dropdown";
-import { Button } from "@somaui/ui/button";
+import { Dropdown } from '@somaui/ui/dropdown';
+import { Button } from '@somaui/ui/button';
 
 export default function App() {
   return (
@@ -103,7 +103,7 @@ You can use **placement** and icon.
           Duplicate
         </Dropdown.Item>
       </div>
-      <div className="mb-2 pt-2 border-t border-border">
+      <div className="border-border mb-2 border-t pt-2">
         <Dropdown.Item>
           <ArchiveBoxIcon className="mr-2 h-4 w-4" />
           Archive
@@ -113,7 +113,7 @@ You can use **placement** and icon.
           Move
         </Dropdown.Item>
       </div>
-      <div className="mb-2 pt-2 border-t border-border">
+      <div className="border-border mb-2 border-t pt-2">
         <Dropdown.Item>
           <ShareIcon className="mr-2 h-4 w-4" />
           Share
@@ -123,7 +123,7 @@ You can use **placement** and icon.
           Add to Favourite
         </Dropdown.Item>
       </div>
-      <div className="mt-2 pt-2 border-t border-border">
+      <div className="border-border mt-2 border-t pt-2">
         <Dropdown.Item>
           <TrashIcon className="mr-2 h-4 w-4" />
           Delete
@@ -134,12 +134,12 @@ You can use **placement** and icon.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Dropdown } from "@somaui/ui/dropdown";
-import { Button } from "@somaui/ui/button";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { cn } from "somaui";
+import { Dropdown } from '@somaui/ui/dropdown';
+import { Button } from '@somaui/ui/button';
+import { ActionIcon } from '@somaui/ui/action-icon';
+import { cn } from 'somaui';
 import {
   AdjustmentsHorizontalIcon,
   PencilIcon,
@@ -149,7 +149,7 @@ import {
   ShareIcon,
   HeartIcon,
   TrashIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
@@ -170,7 +170,7 @@ export default function App() {
             Duplicate
           </Dropdown.Item>
         </div>
-        <div className="mb-2 pt-2 border-t border-border">
+        <div className="border-border mb-2 border-t pt-2">
           <Dropdown.Item>
             <ArchiveBoxIcon className="mr-2 h-4 w-4" />
             Archive
@@ -180,7 +180,7 @@ export default function App() {
             Move
           </Dropdown.Item>
         </div>
-        <div className="mb-2 pt-2 border-t border-border">
+        <div className="border-border mb-2 border-t pt-2">
           <Dropdown.Item>
             <ShareIcon className="mr-2 h-4 w-4" />
             Share
@@ -190,7 +190,7 @@ export default function App() {
             Add to Favourite
           </Dropdown.Item>
         </div>
-        <div className="mt-2 pt-2 border-t border-border">
+        <div className="border-border mt-2 border-t pt-2">
           <Dropdown.Item>
             <TrashIcon className="mr-2 h-4 w-4" />
             Delete
@@ -225,13 +225,13 @@ The variation is limitless. You can style your **Dropdown** as you want to do.
           src="https://randomuser.me/api/portraits/women/40.jpg"
         />
         <span className="ml-2 text-start">
-          <Text className="text-gray-900 font-medium leading-tight">
+          <Text className="leading-tight font-medium text-gray-900">
             Mary Hoops
           </Text>
           <Text>maryhe@demo.io</Text>
         </span>
       </Dropdown.Item>
-      <div className="mt-3 mb-2 pt-2 border-t border-border">
+      <div className="border-border mt-3 mb-2 border-t pt-2">
         <Dropdown.Item className="hover:bg-gray-900 hover:text-gray-50">
           Account Settings
         </Dropdown.Item>
@@ -242,7 +242,7 @@ The variation is limitless. You can style your **Dropdown** as you want to do.
           License
         </Dropdown.Item>
       </div>
-      <div className="mt-2 pt-2 border-t border-border">
+      <div className="border-border mt-2 border-t pt-2">
         <Dropdown.Item className="hover:bg-gray-900 hover:text-gray-50">
           Sign Out
         </Dropdown.Item>
@@ -252,11 +252,11 @@ The variation is limitless. You can style your **Dropdown** as you want to do.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { Dropdown } from "@somaui/ui/dropdown";
-import { Text } from "@somaui/ui/typography";
-import { Avatar } from "@somaui/ui/avatar";
+import { Dropdown } from '@somaui/ui/dropdown';
+import { Text } from '@somaui/ui/typography';
+import { Avatar } from '@somaui/ui/avatar';
 
 export default function App() {
   return (
@@ -275,13 +275,13 @@ export default function App() {
             src="https://randomuser.me/api/portraits/women/40.jpg"
           />
           <span className="ml-2 text-start">
-            <Text className="text-gray-900 font-medium leading-tight">
+            <Text className="leading-tight font-medium text-gray-900">
               Mary Hoops
             </Text>
             <Text>maryhe@demo.io</Text>
           </span>
         </Dropdown.Item>
-        <div className="mt-3 mb-2 pt-2 border-t border-border">
+        <div className="border-border mt-3 mb-2 border-t pt-2">
           <Dropdown.Item className="hover:bg-gray-900 hover:text-gray-50">
             Account Settings
           </Dropdown.Item>
@@ -292,7 +292,7 @@ export default function App() {
             License
           </Dropdown.Item>
         </div>
-        <div className="mt-2 pt-2 border-t border-border">
+        <div className="border-border mt-2 border-t pt-2">
           <Dropdown.Item className="hover:bg-gray-900 hover:text-gray-50">
             Sign Out
           </Dropdown.Item>
@@ -383,7 +383,7 @@ Here is the API documentation of the Dropdown component. You can use the followi
 ### Dropdown Shadows
 
 ```ts
-type DropdownShadows = "sm" | "md" | "lg" | "xl" | "none";
+type DropdownShadows = 'sm' | 'md' | 'lg' | 'xl' | 'none';
 ```
 
 <div className="mb-10" />
@@ -392,16 +392,16 @@ type DropdownShadows = "sm" | "md" | "lg" | "xl" | "none";
 
 ```ts
 type DropdownPlacements =
-  | "left"
-  | "right"
-  | "top"
-  | "bottom"
-  | "left-start"
-  | "left-end"
-  | "right-start"
-  | "right-end"
-  | "top-start"
-  | "top-end"
-  | "bottom-start"
-  | "bottom-end";
+  | 'left'
+  | 'right'
+  | 'top'
+  | 'bottom'
+  | 'left-start'
+  | 'left-end'
+  | 'right-start'
+  | 'right-end'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom-start'
+  | 'bottom-end';
 ```

@@ -1,28 +1,28 @@
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { fontWeightStyles } from "@/lib/font-weight";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { fontWeightStyles } from '@/lib/font-weight';
 
 const fontWeight = {
   ...fontWeightStyles,
-  extraBold: "font-extrabold",
+  extraBold: 'font-extrabold',
 } as const;
 
 const title = tv({
-  base: "somaui-title text-text-primary",
+  base: 'somaui-title text-text-primary',
   variants: {
     as: {
-      h1: "text-4xl",
-      h2: "text-3xl",
-      h3: "text-2xl",
-      h4: "text-xl",
-      h5: "text-lg",
-      h6: "text-base",
+      h1: 'text-4xl',
+      h2: 'text-3xl',
+      h3: 'text-2xl',
+      h4: 'text-xl',
+      h5: 'text-lg',
+      h6: 'text-base',
     },
     fontWeight,
   },
   defaultVariants: {
-    as: "h2",
-    fontWeight: "bold",
+    as: 'h2',
+    fontWeight: 'bold',
   },
 });
 
@@ -31,8 +31,8 @@ export type TitleProps = VariantProps<typeof title> & {
 } & React.HTMLAttributes<HTMLHeadingElement>;
 
 export function Title({
-  as = "h2",
-  fontWeight = "bold",
+  as = 'h2',
+  fontWeight = 'bold',
   children,
   className,
   ...props
@@ -53,4 +53,4 @@ export function Title({
   );
 }
 
-Title.displayName = "Title";
+Title.displayName = 'Title';

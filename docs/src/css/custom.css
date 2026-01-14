@@ -1,14 +1,14 @@
-@import "tailwindcss";
-@import "../../static/fonts/outfit-font.css";
-@source "../../node_modules/somaui/src";
-@source "../../../packages/ui/src";
-@source "../../docs/**/*.{md,mdx}";
-@source "../../blog/**/*.{md,mdx}";
-@source "../../src/components/";
-@source "../../src/pages/";
-@source "../../src/theme/";
-@source "../../src/contexts";
-@plugin "@tailwindcss/forms";
+@import 'tailwindcss';
+@import '../../static/fonts/outfit-font.css';
+@source '../../node_modules/somaui/src';
+@source '../../../packages/ui/src';
+@source '../../docs/**/*.{md,mdx}';
+@source '../../blog/**/*.{md,mdx}';
+@source '../../src/components/';
+@source '../../src/pages/';
+@source '../../src/theme/';
+@source '../../src/contexts';
+@plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -112,7 +112,7 @@
 /* ----------------------------------- */
 /* dark theme */
 /* ----------------------------------- */
-[data-theme="dark"] {
+[data-theme='dark'] {
   /* body style */
   --background: oklch(14.11% 0.0112 275.23); /* #08090e */
   --foreground: oklch(90.37% 0 0); /* #dfdfdf */
@@ -185,25 +185,25 @@
 /* ----------------------------------- */
 
 /* Modern: default rounded, clean, airy */
-[data-ui-preset="modern"] {
+[data-ui-preset='modern'] {
   --border-radius: 0.5rem; /* 8px */
   --border-width: 0.0625rem; /* 1px */
 }
 
 /* Minimal: subtle, thin borders, less radius */
-[data-ui-preset="minimal"] {
+[data-ui-preset='minimal'] {
   --border-radius: 0.25rem; /* 4px */
   --border-width: 0.0625rem; /* 1px */
 }
 
 /* Bold: strong, thick borders, more radius */
-[data-ui-preset="bold"] {
+[data-ui-preset='bold'] {
   --border-radius: 0.75rem; /* 12px */
   --border-width: 0.125rem; /* 2px */
 }
 
 /* Soft: very rounded, pill-like */
-[data-ui-preset="soft"] {
+[data-ui-preset='soft'] {
   --border-radius: 1rem; /* 16px */
   --border-width: 0.0625rem; /* 1px */
 }
@@ -266,14 +266,14 @@
   --color-green-dark: var(--green-dark);
 }
 
-@import "./_variables.css";
-@import "./_layout.css";
-@import "./_common.css";
-@import "./_navbar.css";
-@import "./_sidebar.css";
-@import "./_table-of-contents.css";
-@import "./_mark-down.css";
-@import "./_adomonition.css";
-@import "./_blog.css";
-@import "./_datepicker.css";
-@import "./_home.css";
+@import './_variables.css';
+@import './_layout.css';
+@import './_common.css';
+@import './_navbar.css';
+@import './_sidebar.css';
+@import './_table-of-contents.css';
+@import './_mark-down.css';
+@import './_adomonition.css';
+@import './_blog.css';
+@import './_datepicker.css';
+@import './_home.css';

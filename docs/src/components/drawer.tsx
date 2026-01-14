@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Drawer,
@@ -8,9 +8,9 @@ import {
   Badge,
   Empty,
   EmptyProductBoxIcon,
-} from "@somaui/ui";
-import { ShoppingBagIcon } from "@heroicons/react/24/outline";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+} from '@somaui/ui';
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function DrawerDefault() {
   const [drawerState, setDrawerState] = useState(false);
@@ -23,7 +23,7 @@ export default function DrawerDefault() {
         className="z-[9999]"
         customSize={384}
       >
-        <div className="py-4 px-5">Default Drawer</div>
+        <div className="px-5 py-4">Default Drawer</div>
       </Drawer>
     </>
   );
@@ -32,19 +32,19 @@ export default function DrawerDefault() {
 export function DrawerSizes() {
   const [drawerSate, setDrawerState] = useState<any>({
     isOpen: false,
-    size: "md",
+    size: 'md',
   });
 
   return (
     <>
-      <div className="flex items-center justify-around gap-2 flex-wrap">
+      <div className="flex flex-wrap items-center justify-around gap-2">
         <Button
           variant="outline"
           onClick={() =>
             setDrawerState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "sm",
+              size: 'sm',
             }))
           }
         >
@@ -56,7 +56,7 @@ export function DrawerSizes() {
             setDrawerState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "md",
+              size: 'md',
             }))
           }
         >
@@ -68,7 +68,7 @@ export function DrawerSizes() {
             setDrawerState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "lg",
+              size: 'lg',
             }))
           }
         >
@@ -80,7 +80,7 @@ export function DrawerSizes() {
             setDrawerState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "full",
+              size: 'full',
             }))
           }
         >
@@ -95,13 +95,13 @@ export function DrawerSizes() {
         }
         className="z-[9999]"
       >
-        <div className="py-4 px-5">
-          This is{" "}
+        <div className="px-5 py-4">
+          This is{' '}
           <Text as="strong">
             &quot;
             {drawerSate.size}
             &quot;
-          </Text>{" "}
+          </Text>{' '}
           size Drawer. Press
           <Text as="strong">&quot; Esc &quot;</Text> key to close Drawer.
         </div>
@@ -113,7 +113,7 @@ export function DrawerSizes() {
 export function DrawerPlacement() {
   const [drawerSate, setDrawerState] = useState<any>({
     isOpen: false,
-    placement: "left",
+    placement: 'left',
   });
 
   return (
@@ -126,7 +126,7 @@ export function DrawerPlacement() {
               setDrawerState((prevState) => ({
                 ...prevState,
                 isOpen: true,
-                placement: "top",
+                placement: 'top',
               }))
             }
           >
@@ -138,7 +138,7 @@ export function DrawerPlacement() {
               setDrawerState((prevState) => ({
                 ...prevState,
                 isOpen: true,
-                placement: "bottom",
+                placement: 'bottom',
               }))
             }
           >
@@ -152,7 +152,7 @@ export function DrawerPlacement() {
               setDrawerState((prevState) => ({
                 ...prevState,
                 isOpen: true,
-                placement: "left",
+                placement: 'left',
               }))
             }
           >
@@ -164,7 +164,7 @@ export function DrawerPlacement() {
               setDrawerState((prevState) => ({
                 ...prevState,
                 isOpen: true,
-                placement: "right",
+                placement: 'right',
               }))
             }
           >
@@ -182,8 +182,8 @@ export function DrawerPlacement() {
         }
         className="z-[9999]"
       >
-        <div className="py-4 px-5">
-          The drawer placement on the{" "}
+        <div className="px-5 py-4">
+          The drawer placement on the{' '}
           <Text as="strong">
             &quot;
             {drawerSate.placement}
@@ -208,7 +208,7 @@ export function DrawerCustomSize() {
         className="z-[9999]"
         enableResizer={true}
       >
-        <div className="py-4 px-5">Custom Size = 600px</div>
+        <div className="px-5 py-4">Custom Size = 600px</div>
       </Drawer>
     </>
   );
@@ -227,7 +227,7 @@ export function DrawerCustomStyle() {
         containerClassName="!max-w-[calc(100%-480px)] !shadow-2xl"
         className="z-[9999]"
       >
-        <div className="py-4 px-5">Custom Style</div>
+        <div className="px-5 py-4">Custom Style</div>
       </Drawer>
     </>
   );
@@ -252,7 +252,7 @@ export function DrawerIcons() {
         <Badge
           size="sm"
           enableOutlineRing
-          className="absolute right-1 top-0.5 -translate-y-1/3 translate-x-1/2"
+          className="absolute top-0.5 right-1 translate-x-1/2 -translate-y-1/3"
           aria-label="0 items in cart"
         >
           0
@@ -263,7 +263,7 @@ export function DrawerIcons() {
         onClose={() => setDrawerState(false)}
         className="z-[9999]"
       >
-        <div className="flex min-h-full flex-col py-4 px-5">
+        <div className="flex min-h-full flex-col px-5 py-4">
           <header className="flex items-center justify-between">
             <Title as="h4">Shopping Cart</Title>
             <ActionIcon

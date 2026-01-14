@@ -2,18 +2,18 @@
 sidebar_position: 1
 ---
 
-import Rate from "@site/src/components/rate";
-import Paper from "@site/src/components/paper";
-import { Badge } from "@somaui/ui/badge";
-import { HeartIcon } from "@heroicons/react/24/solid";
-import { emoji } from "@site/src/data/rate-data";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
+import Rate from '@site/src/components/rate';
+import Paper from '@site/src/components/paper';
+import { Badge } from '@somaui/ui/badge';
+import { HeartIcon } from '@heroicons/react/24/solid';
+import { emoji } from '@site/src/data/rate-data';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
 
 # Rate
 
@@ -45,7 +45,7 @@ A flexible and intuitive rating component for collecting user feedback through v
 
 Before using the Rate component, you'll need to install the required dependency:
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
@@ -102,7 +102,7 @@ Before using the Rate component, you'll need to install the required dependency:
 
 <div className="mb-14" />
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -112,71 +112,73 @@ Before using the Rate component, you'll need to install the required dependency:
 </div>
 
 ```tsx
-import React from "react";
-import RcRate from "rc-rate";
-import type { RateProps as RcRateProps } from "rc-rate/lib/Rate";
-import type { StarProps as RcStarProps } from "rc-rate/lib/Star";
-import { StarIcon } from "@heroicons/react/24/outline";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@somaui/ui/lib/cn";
-import { FieldErrorText } from "@somaui/ui";
-import { FieldHelperText } from "@somaui/ui";
+import React from 'react';
+import RcRate from 'rc-rate';
+import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
+import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+import { StarIcon } from '@heroicons/react/24/outline';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@somaui/ui/lib/cn';
+import { FieldErrorText } from '@somaui/ui';
+import { FieldHelperText } from '@somaui/ui';
 
 const labelStyles = {
   size: {
-    sm: "text-xs mb-1",
-    md: "text-sm mb-1.5",
-    lg: "text-sm mb-1.5",
+    sm: 'text-xs mb-1',
+    md: 'text-sm mb-1.5',
+    lg: 'text-sm mb-1.5',
   },
 } as const;
 
 const rate = tv({
   slots: {
     container:
-      "flex items-center [&>li]:cursor-pointer [&.rc-rate-disabled>li]:cursor-default [&>li]:relative [&>li]:mr-0.5 rtl:[&>li]:ml-0.5 [&>li]:inline-block text-gray-200 [&>.rc-rate-star-half>div>.rc-rate-star-first]:text-orange [&>.rc-rate-star-full>div]:text-orange",
-    character: "[&>svg]:fill-current",
+      'flex items-center [&>li]:cursor-pointer [&.rc-rate-disabled>li]:cursor-default [&>li]:relative [&>li]:mr-0.5 rtl:[&>li]:ml-0.5 [&>li]:inline-block text-gray-200 [&>.rc-rate-star-half>div>.rc-rate-star-first]:text-orange [&>.rc-rate-star-full>div]:text-orange',
+    character: '[&>svg]:fill-current',
     firstStar:
-      "[&>li>div>.rc-rate-star-first]:absolute [&>li>div>.rc-rate-star-first]:left-0 rtl:[&>li>div>.rc-rate-star-first]:right-0 [&>li>div>.rc-rate-star-first]:top-0 [&>li>div>.rc-rate-star-first]:w-1/2 [&>li>div>.rc-rate-star-first]:h-full [&>li>div>.rc-rate-star-first]:overflow-hidden",
-    label: "",
+      '[&>li>div>.rc-rate-star-first]:absolute [&>li>div>.rc-rate-star-first]:left-0 rtl:[&>li>div>.rc-rate-star-first]:right-0 [&>li>div>.rc-rate-star-first]:top-0 [&>li>div>.rc-rate-star-first]:w-1/2 [&>li>div>.rc-rate-star-first]:h-full [&>li>div>.rc-rate-star-first]:overflow-hidden',
+    label: '',
   },
   variants: {
     size: {
       sm: {
-        container: "",
-        character: "h-5 w-5",
+        container: '',
+        character: 'h-5 w-5',
         label: labelStyles.size.sm,
       },
       md: {
-        container: "",
-        character: "h-6 w-6",
+        container: '',
+        character: 'h-6 w-6',
         label: labelStyles.size.md,
       },
       lg: {
-        container: "",
-        character: "h-7 w-7",
+        container: '',
+        character: 'h-7 w-7',
         label: labelStyles.size.lg,
       },
     },
     disabled: {
       true: {
-        container: "",
+        container: '',
       },
       false: {
         container:
-          "[&>li>div]:transition-all [&>li>div]:duration-300 [&>.rc-rate-star:hover]:scale-110",
+          '[&>li>div]:transition-all [&>li>div]:duration-300 [&>.rc-rate-star:hover]:scale-110',
       },
     },
   },
   defaultVariants: {
-    size: "md",
+    size: 'md',
     disabled: false,
   },
 });
 
-export interface RateProps
-  extends Omit<RcRateProps, "character" | "className"> {
+export interface RateProps extends Omit<
+  RcRateProps,
+  'character' | 'className'
+> {
   label?: React.ReactNode;
-  size?: VariantProps<typeof rate>["size"];
+  size?: VariantProps<typeof rate>['size'];
   character?: React.ReactNode | Array<React.ReactNode>;
   characterClassName?: string;
   helperText?: React.ReactNode;
@@ -190,7 +192,7 @@ export interface RateProps
 }
 
 const Rate = ({
-  size = "md",
+  size = 'md',
   disabled = false,
   character = <StarIcon />,
   label,
@@ -218,15 +220,15 @@ const Rate = ({
   const count = props.count ?? 5;
 
   return (
-    <div className={cn("somaui-rate", className)}>
+    <div className={cn('somaui-rate', className)}>
       {label && (
         <label
-          className={cn("block font-medium", labelClass(), labelClassName)}
+          className={cn('block font-medium', labelClass(), labelClassName)}
         >
           {label}
         </label>
       )}
-      <div role="radiogroup" aria-invalid={error ? "true" : undefined}>
+      <div role="radiogroup" aria-invalid={error ? 'true' : undefined}>
         <RcRate
           ref={ref}
           disabled={disabled}
@@ -241,7 +243,7 @@ const Rate = ({
             </div>
           )}
           className={cn(containerClass(), firstStarClass(), rateClassName)}
-          aria-label={typeof label === "string" ? label : "Rating"}
+          aria-label={typeof label === 'string' ? label : 'Rating'}
           {...props}
         />
       </div>
@@ -257,7 +259,7 @@ const Rate = ({
   );
 };
 
-Rate.displayName = "Rate";
+Rate.displayName = 'Rate';
 export default Rate;
 ```
 
@@ -276,7 +278,7 @@ The simplest way to use the Rate component with default settings:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate />;
@@ -290,8 +292,8 @@ export default function App() {
 For controlled usage, manage the rating value with state:
 
 ```tsx
-import React from "react";
-import Rate from "@components/rate";
+import React from 'react';
+import Rate from '@components/rate';
 
 export default function App() {
   const [value, setValue] = React.useState(0);
@@ -306,7 +308,7 @@ export default function App() {
 
 Choose from three size options to match your design requirements:
 
-<Paper className="gap-4 items-start">
+<Paper className="items-start gap-4">
   <Rate label="Small" size="sm" className="[&_li]:!mt-0 [&_ul]:!pl-0" />
   <Rate
     label="Medium (Default)"
@@ -317,7 +319,7 @@ Choose from three size options to match your design requirements:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return (
@@ -346,7 +348,7 @@ Enable half-star ratings for more granular feedback:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate allowHalf defaultValue={1.5} />;
@@ -368,8 +370,8 @@ Replace the default star icon with any custom character or icon:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
-import { HeartIcon } from "@heroicons/react/24/solid";
+import Rate from '@components/rate';
+import { HeartIcon } from '@heroicons/react/24/solid';
 
 export default function App() {
   return <Rate character={<HeartIcon className="w-6" />} defaultValue={1.5} />;
@@ -392,7 +394,7 @@ Use different characters for each rating level:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 const emoji = [
   <svg key="1" viewBox="0 0 16 16" fill="currentColor">
@@ -426,7 +428,7 @@ Disable the rate component to prevent user interaction:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate disabled />;
@@ -448,7 +450,7 @@ Provide additional context or instructions using the `helperText` prop:
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return (
@@ -471,7 +473,7 @@ Display validation errors using the `error` prop. When an error is present, the 
 </Paper>
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate error="Please provide a rating." />;
@@ -487,7 +489,7 @@ export default function App() {
 Display a rating without allowing user interaction:
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate value={4.5} allowHalf disabled />;
@@ -499,7 +501,7 @@ export default function App() {
 Change the number of rating items:
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return <Rate count={10} defaultValue={5} />;
@@ -511,7 +513,7 @@ export default function App() {
 Add a descriptive label above the rating:
 
 ```tsx
-import Rate from "@components/rate";
+import Rate from '@components/rate';
 
 export default function App() {
   return (
@@ -564,7 +566,7 @@ export default function App() {
 ### Rate Sizes
 
 ```ts
-type RateSizes = "sm" | "md" | "lg";
+type RateSizes = 'sm' | 'md' | 'lg';
 ```
 
 - **sm** - Small size (20px × 20px)

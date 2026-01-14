@@ -1,65 +1,67 @@
-import type { InputHTMLAttributes, ReactNode, Ref } from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { FieldErrorText } from "../field-error-text";
-import { FieldHelperText } from "../field-helper-text";
-import { labelStyles } from "@/lib/label-size";
-import { useRadioGroup } from "../radio-group/radio-group";
+import type { InputHTMLAttributes, ReactNode, Ref } from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { FieldErrorText } from '../field-error-text';
+import { FieldHelperText } from '../field-helper-text';
+import { labelStyles } from '@/lib/label-size';
+import { useRadioGroup } from '../radio-group/radio-group';
 
 const radio = tv({
-  base: "disabled:bg-muted/70 disabled:backdrop-blur disabled:border-muted focus:ring-border focus:ring-offset-background text-primary dark:text-primary-foreground border-[length:var(--border-width)]",
+  base: 'disabled:bg-muted/70 disabled:backdrop-blur disabled:border-muted focus:ring-border focus:ring-offset-background text-primary dark:text-primary-foreground border-[length:var(--border-width)]',
   variants: {
     variant: {
       outline:
-        "bg-transparent border-border checked:!bg-primary dark:checked:!bg-transparent checked:!border-primary hover:enabled:border-primary",
+        'bg-transparent border-border checked:!bg-primary dark:checked:!bg-transparent checked:!border-primary hover:enabled:border-primary',
     },
     size: {
-      sm: "h-5 w-5",
-      md: "h-6 w-6",
-      lg: "h-7 w-7",
+      sm: 'h-5 w-5',
+      md: 'h-6 w-6',
+      lg: 'h-7 w-7',
     },
   },
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
 const radioLabel = tv({
-  base: "mb-0",
+  base: 'mb-0',
   variants: {
     size: {
-      sm: "text-xs",
-      md: "text-sm",
-      lg: "text-sm",
+      sm: 'text-xs',
+      md: 'text-sm',
+      lg: 'text-sm',
     },
     labelWeight: labelStyles.weight,
     labelPlacement: {
-      left: "",
-      right: "",
+      left: '',
+      right: '',
     },
     disabled: {
-      true: "text-muted-foreground",
+      true: 'text-muted-foreground',
     },
   },
   compoundVariants: [
-    { labelPlacement: "left", class: "order-first" },
-    { labelPlacement: "left", size: "sm", class: "me-1.5" },
-    { labelPlacement: "left", size: "md", class: "me-2" },
-    { labelPlacement: "left", size: "lg", class: "me-2.5" },
-    { labelPlacement: "right", size: "sm", class: "ms-1.5" },
-    { labelPlacement: "right", size: "md", class: "ms-2" },
-    { labelPlacement: "right", size: "lg", class: "ms-2.5" },
+    { labelPlacement: 'left', class: 'order-first' },
+    { labelPlacement: 'left', size: 'sm', class: 'me-1.5' },
+    { labelPlacement: 'left', size: 'md', class: 'me-2' },
+    { labelPlacement: 'left', size: 'lg', class: 'me-2.5' },
+    { labelPlacement: 'right', size: 'sm', class: 'ms-1.5' },
+    { labelPlacement: 'right', size: 'md', class: 'ms-2' },
+    { labelPlacement: 'right', size: 'lg', class: 'ms-2.5' },
   ],
 });
 
 type RadioVariant = VariantProps<typeof radio>;
 
-export interface RadioProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
-  variant?: RadioVariant["variant"];
-  size?: RadioVariant["size"];
-  labelPlacement?: "left" | "right";
+export interface RadioProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'size'
+> {
+  variant?: RadioVariant['variant'];
+  size?: RadioVariant['size'];
+  labelPlacement?: 'left' | 'right';
   labelWeight?: keyof typeof labelStyles.weight;
   disabled?: boolean;
   label?: ReactNode;
@@ -74,10 +76,10 @@ export interface RadioProps
 }
 
 export function Radio({
-  variant = "outline",
-  size = "md",
-  labelPlacement = "right",
-  labelWeight = "medium",
+  variant = 'outline',
+  size = 'md',
+  labelPlacement = 'right',
+  labelWeight = 'medium',
   label,
   disabled,
   error,
@@ -109,12 +111,12 @@ export function Radio({
   const handleChange = groupContext ? groupContext.onChange : onChange;
 
   return (
-    <div className={cn("somaui-radio-root", "flex flex-col", className)}>
+    <div className={cn('somaui-radio-root', 'flex flex-col', className)}>
       <label
         className={cn(
-          "somaui-radio-container",
-          "flex cursor-pointer flex-row items-center",
-          disabled && "text-foreground/70 cursor-not-allowed"
+          'somaui-radio-container',
+          'flex cursor-pointer flex-row items-center',
+          disabled && 'text-foreground/70 cursor-not-allowed'
         )}
       >
         <input
@@ -124,7 +126,7 @@ export function Radio({
           value={value}
           checked={isChecked}
           onChange={handleChange}
-          aria-invalid={error ? "true" : undefined}
+          aria-invalid={error ? 'true' : undefined}
           aria-required={radioProps.required}
           className={radio({
             variant,
@@ -153,8 +155,8 @@ export function Radio({
         <FieldHelperText
           size={size}
           className={cn(
-            "somaui-radio-helper-text",
-            disabled && "text-muted-foreground",
+            'somaui-radio-helper-text',
+            disabled && 'text-muted-foreground',
             helperClassName
           )}
         >
@@ -166,7 +168,7 @@ export function Radio({
         <FieldErrorText
           size={size}
           error={error}
-          className={cn("somaui-radio-error-text", errorClassName)}
+          className={cn('somaui-radio-error-text', errorClassName)}
         />
       ) : null}
     </div>

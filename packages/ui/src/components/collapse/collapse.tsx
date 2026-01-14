@@ -1,6 +1,6 @@
-import type { ReactNode, ElementType } from "react";
-import { cn } from "@/lib/cn";
-import { useCollapse } from "@/lib/use-collapse";
+import type { ReactNode, ElementType } from 'react';
+import { cn } from '@/lib/cn';
+import { useCollapse } from '@/lib/use-collapse';
 
 export interface CollapseHeader {
   open?: boolean;
@@ -8,7 +8,7 @@ export interface CollapseHeader {
 }
 
 export interface CollapseProps {
-  as?: "div" | "ul";
+  as?: 'div' | 'ul';
   header: ({ open, toggle }: CollapseHeader) => ReactNode;
   duration?: number;
   defaultOpen?: boolean;
@@ -18,7 +18,7 @@ export interface CollapseProps {
 }
 
 export function Collapse({
-  as = "div",
+  as = 'div',
   header,
   duration,
   defaultOpen = false,
@@ -30,21 +30,21 @@ export function Collapse({
     duration,
     defaultOpen
   );
-  const Component = (as || "div") as ElementType;
-  const Children = (as !== "div" ? "li" : "div") as ElementType;
+  const Component = (as || 'div') as ElementType;
+  const Children = (as !== 'div' ? 'li' : 'div') as ElementType;
 
   return (
     <Component
       role="collapse"
       aria-expanded={open}
       data-testid="collapse-parent"
-      className={cn("somaui-collapse-root", className)}
+      className={cn('somaui-collapse-root', className)}
     >
       {header({ open, toggle })}
       <Children
         ref={targetEl}
-        className={cn("somaui-collapse-panel", panelClassName)}
-        style={!openTargetEl ? { display: "none" } : { display: "block" }}
+        className={cn('somaui-collapse-panel', panelClassName)}
+        style={!openTargetEl ? { display: 'none' } : { display: 'block' }}
       >
         {children}
       </Children>
@@ -52,4 +52,4 @@ export function Collapse({
   );
 }
 
-Collapse.displayName = "Collapse";
+Collapse.displayName = 'Collapse';

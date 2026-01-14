@@ -2,20 +2,20 @@
 sidebar_position: 4
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
-import NpmIcon from "@site/src/components/icons/npm-icon";
-import YarnIcon from "@site/src/components/icons/yarn-icon";
-import PnpmIcon from "@site/src/components/icons/pnpm-icon";
-import BunIcon from "@site/src/components/icons/bun-icon";
-import { Badge } from "@somaui/ui/badge";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import NpmIcon from '@site/src/components/icons/npm-icon';
+import YarnIcon from '@site/src/components/icons/yarn-icon';
+import PnpmIcon from '@site/src/components/icons/pnpm-icon';
+import BunIcon from '@site/src/components/icons/bun-icon';
+import { Badge } from '@somaui/ui/badge';
 
 # Dark Mode
 
 Adding dark mode to your Next.js app, it's a one-time process. We use [next-themes](https://www.npmjs.com/package/next-themes) and [CSS variables](#configure-globalcss) for a seamless dark mode experience.
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 1
   </Badge>
@@ -70,7 +70,7 @@ Install [next-themes](https://www.npmjs.com/package/next-themes) by running the 
   </TabItem>
 </Tabs>
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 2
   </Badge>
@@ -82,9 +82,9 @@ Install [next-themes](https://www.npmjs.com/package/next-themes) by running the 
 Create a theme provider component, <strong>components/theme-provider.tsx</strong>
 
 ```tsx theme-provider.tsx
-"use client";
+'use client';
 
-import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
 
 export function ThemeProvider({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -99,7 +99,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren<{}>) {
 }
 ```
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 3
   </Badge>
@@ -111,12 +111,12 @@ export function ThemeProvider({ children }: React.PropsWithChildren<{}>) {
 Add the <strong>ThemeProvider</strong> component to your root layout, <strong>app/layout.tsx</strong>
 
 ```tsx layout.tsx
-import { ThemeProvider } from "@/components/theme-provider";
-import "@/app/styles/global.css";
+import { ThemeProvider } from '@/components/theme-provider';
+import '@/app/styles/global.css';
 
 export const metadata = {
-  title: "App Name",
-  description: "Write your app description",
+  title: 'App Name',
+  description: 'Write your app description',
 };
 
 export default async function RootLayout({ children }: RootLayoutProps) {
@@ -136,7 +136,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 }
 ```
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 4
   </Badge>
@@ -148,14 +148,14 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 Add a theme switcher components, <strong>components/theme-switcher.tsx</strong>
 
 ```tsx theme-switcher.tsx
-"use client";
+'use client';
 
-import React from "react";
-import { useTheme } from "next-themes";
-import { ActionIcon } from "@/components/action-icon";
-import { DropdownMenu } from "@/components/dropdown";
+import React from 'react';
+import { useTheme } from 'next-themes';
+import { ActionIcon } from '@/components/action-icon';
+import { DropdownMenu } from '@/components/dropdown';
 // import  import { DropdownMenu } from "@somaui/ui/dropdown"; when using ui package
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
 export function ThemeSwitcher() {
   const { setTheme } = useTheme();
@@ -165,21 +165,21 @@ export function ThemeSwitcher() {
       <Dropdown.Trigger>
         <ActionIcon variant="outline">
           <SunIcon className="h-5 w-5 dark:hidden" />
-          <MoonIcon className="absolute h-5 w-5 hidden dark:block" />
+          <MoonIcon className="absolute hidden h-5 w-5 dark:block" />
           <span className="sr-only">Toggle theme</span>
         </ActionIcon>
       </Dropdown.Trigger>
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => setTheme("light")}>Light</Dropdown.Item>
-        <Dropdown.Item onClick={() => setTheme("dark")}>Dark</Dropdown.Item>
-        <Dropdown.Item onClick={() => setTheme("system")}>System</Dropdown.Item>
+        <Dropdown.Item onClick={() => setTheme('light')}>Light</Dropdown.Item>
+        <Dropdown.Item onClick={() => setTheme('dark')}>Dark</Dropdown.Item>
+        <Dropdown.Item onClick={() => setTheme('system')}>System</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
 }
 ```
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 5
   </Badge>
@@ -194,7 +194,7 @@ SomaUI uses <strong>Tailwind CSS v4</strong> with the modern OKLCH color space f
 
 ```css title=global.css
 /* Import Tailwind CSS v4 */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Configure content sources for SomaUI components by uncommenting the line below if using the ui package */
 /* @source '../node_modules/somaui/dist'; */
@@ -256,7 +256,7 @@ SomaUI uses <strong>Tailwind CSS v4</strong> with the modern OKLCH color space f
 }
 
 /* Dark theme colors */
-[data-theme="dark"] {
+[data-theme='dark'] {
   /* Base Colors */
   --background: oklch(14.11% 0.0112 275.23);
   --foreground: oklch(90.37% 0 0);
@@ -369,7 +369,7 @@ textarea:-moz-autofill:active {
 
 **Note:** use our theming tools to customize these [CSS variables](/docs/guide/theming#theme-tokens)
 
-<div className="flex items-center gap-2 mb-4">
+<div className="mb-4 flex items-center gap-2">
   <Badge color="primary" size="sm" className="rounded-md">
     Step 6
   </Badge>
@@ -383,7 +383,7 @@ Create or update your <code>postcss.config.mjs</code>:
 ```js title=postcss.config.mjs
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    '@tailwindcss/postcss': {},
   },
 };
 export default config;
@@ -396,8 +396,8 @@ You are now ready to use dark mode in your application. Tailwind CSS v4 requires
 Use the theme switcher component to toggle between light and dark modes:
 
 ```tsx
-import { Button } from "somaui";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { Button } from 'somaui';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export default function App() {
   return (

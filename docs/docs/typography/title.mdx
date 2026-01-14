@@ -2,16 +2,16 @@
 sidebar_position: 1
 ---
 
-import { Title } from "@somaui/ui/title";
-import { Text } from "@somaui/ui/text";
-import Paper from "@site/src/components/paper";
+import { Title } from '@somaui/ui/title';
+import { Text } from '@somaui/ui/text';
+import Paper from '@site/src/components/paper';
 
 # Title
 
 Title component is the used to render headings from h1 to h6. It renders as **h2** by default.
 
 ```jsx
-import { Title } from "@somaui/ui/title";
+import { Title } from '@somaui/ui/title';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -25,7 +25,7 @@ The default style of the **Title**.
 </Paper>
 
 ```jsx
-import { Title } from "@somaui/ui/title";
+import { Title } from '@somaui/ui/title';
 
 export default function App() {
   return <Title>The brown fox jumps over the lazy dog</Title>;
@@ -80,7 +80,7 @@ You can change style by just changing **tag** property in **Text** component.
 </Paper>
 
 ```jsx
-import { Title } from "@somaui/ui/titles";
+import { Title } from '@somaui/ui/titles';
 
 export default function App() {
   return (
@@ -128,7 +128,7 @@ Here is the API documentation of the Title component.
 ### Title Tags
 
 ```ts
-type TitleTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type TitleTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 ```
 
 <div className="mb-10" />
@@ -136,5 +136,5 @@ type TitleTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 ### Title Weights
 
 ```ts
-type TitleWeights = "bold" | "normal" | "medium" | "semibold" | "extraBold";
+type TitleWeights = 'bold' | 'normal' | 'medium' | 'semibold' | 'extraBold';
 ```

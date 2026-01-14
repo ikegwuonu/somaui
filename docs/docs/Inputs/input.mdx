@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-import { Input } from "@somaui/ui/input";
-import Paper from "@site/src/components/paper";
+import { Input } from '@somaui/ui/input';
+import Paper from '@site/src/components/paper';
 import InputCounter, {
   InputCharacterCounter,
   InputClearable,
-} from "@site/src/components/input";
+} from '@site/src/components/input';
 import {
   MagnifyingGlassIcon,
   ArrowRightIcon,
   CurrencyDollarIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 # Input
 
@@ -27,84 +27,83 @@ pnpm dlx somaui add input
 generates `components/input` and other dependent files/folder:
 
 ```tsx
-import React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { cn } from "@/lib/cn";
-import { FieldErrorText } from "../field-error-text";
-import { FieldHelperText } from "../field-helper-text";
-import { FieldClearButton } from "../field-clear-button";
-import { labelStyles } from "@/lib/label-size";
+import React from 'react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { cn } from '@/lib/cn';
+import { FieldErrorText } from '../field-error-text';
+import { FieldHelperText } from '../field-helper-text';
+import { FieldClearButton } from '../field-clear-button';
+import { labelStyles } from '@/lib/label-size';
 
 const inputContainer = tv({
-  base: "flex items-center peer w-full transition duration-200 border-[length:var(--border-width)] focus-within:ring-[0.8px] hover:border-primary focus-within:border-primary focus-within:ring-primary [&_input::placeholder]:opacity-60 rounded-[var(--border-radius)]",
+  base: 'flex items-center peer w-full transition duration-200 border-[length:var(--border-width)] focus-within:ring-[0.8px] hover:border-primary focus-within:border-primary focus-within:ring-primary [&_input::placeholder]:opacity-60 rounded-[var(--border-radius)]',
   variants: {
     variant: {
-      text: "border-transparent ring-transparent bg-transparent",
-      outline: "border-border ring-border bg-transparent",
+      text: 'border-transparent ring-transparent bg-transparent',
+      outline: 'border-border ring-border bg-transparent',
     },
     size: {
-      sm: "px-2 py-1 text-xs h-8",
-      md: "px-3.5 py-2 text-sm h-10",
-      lg: "px-4 py-2 text-base h-12",
+      sm: 'px-2 py-1 text-xs h-8',
+      md: 'px-3.5 py-2 text-sm h-10',
+      lg: 'px-4 py-2 text-base h-12',
     },
     disabled: {
-      true: "!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted",
+      true: '!bg-muted/70 backdrop-blur cursor-not-allowed !border-muted',
     },
     error: {
-      true: "!border-red hover:!border-red focus-within:!border-red !ring-red !bg-transparent",
+      true: '!border-red hover:!border-red focus-within:!border-red !ring-red !bg-transparent',
     },
   },
   defaultVariants: {
-    variant: "outline",
-    size: "md",
+    variant: 'outline',
+    size: 'md',
   },
 });
 
 const inputField = tv({
-  base: "somaui-input-field w-full border-0 bg-transparent p-0 [font-size:inherit] focus:outline-none focus:ring-0 [&::-ms-clear]:hidden [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none",
+  base: 'somaui-input-field w-full border-0 bg-transparent p-0 [font-size:inherit] focus:outline-none focus:ring-0 [&::-ms-clear]:hidden [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none',
   variants: {
     disabled: {
-      true: "cursor-not-allowed placeholder:text-muted-foreground",
+      true: 'cursor-not-allowed placeholder:text-muted-foreground',
     },
     clearable: {
-      true: "[&:placeholder-shown~.input-clear-btn]:opacity-0 [&:placeholder-shown~.input-clear-btn]:invisible [&:not(:placeholder-shown)~.input-clear-btn]:opacity-100 [&:not(:placeholder-shown)~.input-clear-btn]:visible",
+      true: '[&:placeholder-shown~.input-clear-btn]:opacity-0 [&:placeholder-shown~.input-clear-btn]:invisible [&:not(:placeholder-shown)~.input-clear-btn]:opacity-100 [&:not(:placeholder-shown)~.input-clear-btn]:visible',
     },
     hasPrefix: {
-      true: "",
+      true: '',
     },
     hasSuffix: {
-      true: "",
+      true: '',
     },
     hasPlaceholder: {
-      true: "",
-      false: "placeholder-shown:placeholder:opacity-0",
+      true: '',
+      false: 'placeholder-shown:placeholder:opacity-0',
     },
   },
   compoundVariants: [
-    { hasPrefix: true, class: "ps-2.5" },
-    { hasSuffix: true, class: "pe-2.5" },
+    { hasPrefix: true, class: 'ps-2.5' },
+    { hasSuffix: true, class: 'pe-2.5' },
   ],
 });
 
-export interface InputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "size" | "type" | "prefix" | "suffix"
-  > {
+export interface InputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'size' | 'type' | 'prefix' | 'suffix'
+> {
   type?:
-    | "text"
-    | "email"
-    | "number"
-    | "tel"
-    | "search"
-    | "url"
-    | "time"
-    | "date"
-    | "week"
-    | "month"
-    | "datetime-local";
-  variant?: VariantProps<typeof inputContainer>["variant"];
-  size?: VariantProps<typeof inputContainer>["size"];
+    | 'text'
+    | 'email'
+    | 'number'
+    | 'tel'
+    | 'search'
+    | 'url'
+    | 'time'
+    | 'date'
+    | 'week'
+    | 'month'
+    | 'datetime-local';
+  variant?: VariantProps<typeof inputContainer>['variant'];
+  size?: VariantProps<typeof inputContainer>['size'];
   placeholder?: string;
   disabled?: boolean;
   label?: React.ReactNode;
@@ -127,13 +126,13 @@ export interface InputProps
 
 export function Input({
   className,
-  type = "text",
-  variant = "outline",
-  size = "md",
+  type = 'text',
+  variant = 'outline',
+  size = 'md',
   disabled,
   placeholder,
   label,
-  labelWeight = "medium",
+  labelWeight = 'medium',
   error,
   clearable,
   onClear,
@@ -151,16 +150,16 @@ export function Input({
   ...inputProps
 }: InputProps) {
   return (
-    <div className={cn("somaui-input-root", "flex flex-col", className)}>
+    <div className={cn('somaui-input-root', 'flex flex-col', className)}>
       <label className="block">
         {label ? (
           <span
             className={cn(
-              "somaui-input-label",
-              "block",
+              'somaui-input-label',
+              'block',
               labelStyles.size[size],
               labelStyles.weight[labelWeight],
-              disabled && "text-muted-foreground",
+              disabled && 'text-muted-foreground',
               labelClassName
             )}
           >
@@ -180,8 +179,8 @@ export function Input({
           {prefix ? (
             <span
               className={cn(
-                "somaui-input-prefix",
-                "leading-normal whitespace-nowrap",
+                'somaui-input-prefix',
+                'leading-normal whitespace-nowrap',
                 prefixClassName
               )}
             >
@@ -195,8 +194,8 @@ export function Input({
             disabled={disabled}
             readOnly={readOnly}
             spellCheck="false"
-            placeholder={placeholder || "Screen reader only"}
-            aria-invalid={error ? "true" : undefined}
+            placeholder={placeholder || 'Screen reader only'}
+            aria-invalid={error ? 'true' : undefined}
             aria-required={inputProps.required}
             className={inputField({
               disabled,
@@ -220,8 +219,8 @@ export function Input({
           {suffix ? (
             <span
               className={cn(
-                "somaui-input-suffix",
-                "leading-normal whitespace-nowrap",
+                'somaui-input-suffix',
+                'leading-normal whitespace-nowrap',
                 suffixClassName
               )}
             >
@@ -235,8 +234,8 @@ export function Input({
         <FieldHelperText
           size={size}
           className={cn(
-            "somaui-input-helper-text",
-            disabled && "text-muted-foreground",
+            'somaui-input-helper-text',
+            disabled && 'text-muted-foreground',
             helperClassName
           )}
         >
@@ -248,7 +247,7 @@ export function Input({
         <FieldErrorText
           size={size}
           error={error}
-          className={cn("somaui-input-error-text", errorClassName)}
+          className={cn('somaui-input-error-text', errorClassName)}
         />
       ) : null}
     </div>
@@ -259,7 +258,7 @@ export function Input({
 <p className="pt-4">As a package:</p>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -268,7 +267,7 @@ import { Input } from "@somaui/ui/input";
 
 The default style of **Input** component.
 
-<Paper className="text-gray-950 block">
+<Paper className="block text-gray-950">
   <Input
     label="Name"
     placeholder="Enter your name"
@@ -277,7 +276,7 @@ The default style of **Input** component.
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return <Input label="Name" placeholder="Enter your name" />;
@@ -291,7 +290,7 @@ export default function App() {
 You can change the type of **Input** using [**type**](#input-types) property.
 
 <Paper className="block">
-  <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4 text-gray-950">
+  <div className="grid grid-cols-1 gap-4 text-gray-950 sm:grid-cols-2 2xl:grid-cols-4">
     <Input type="number" label="Number" placeholder="1234567890" />
     <Input type="text" label="Name" placeholder="Enter your Name" />
     <Input type="email" label="Email" placeholder="Your email" />
@@ -307,7 +306,7 @@ You can change the type of **Input** using [**type**](#input-types) property.
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -334,14 +333,14 @@ export default function App() {
 
 You can change the style of **Input** using [**variant**](#input-variants) property.
 
-<Paper className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-4 text-gray-950">
+<Paper className="grid grid-cols-1 gap-4 text-gray-950 sm:grid-cols-2 2xl:grid-cols-3">
   <Input label="Outline" placeholder="Enter your name" variant="outline" />
   <Input label="Flat" placeholder="Enter your name" variant="flat" />
   <Input label="Text" placeholder="Enter your name" variant="text" />
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -360,7 +359,7 @@ export default function App() {
 
 You can change the sizes of **Input** using [**size**](#input-sizes) property.
 
-<Paper className="gap-4 justify-start items-start text-gray-950">
+<Paper className="items-start justify-start gap-4 text-gray-950">
   <Input
     type="email"
     size="sm"
@@ -384,7 +383,7 @@ You can change the sizes of **Input** using [**size**](#input-sizes) property.
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -433,12 +432,12 @@ You can add any text or icon to the **Input** component using **prefix**, **suff
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 import {
   MagnifyingGlassIcon,
   ArrowRightIcon,
   CurrencyDollarIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 export default function App() {
   return (
@@ -473,11 +472,11 @@ You can create quantity counter with **Input**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input } from "@somaui/ui/input";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import { Input } from '@somaui/ui/input';
+import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
   const [state, setState] = useState(0);
@@ -491,17 +490,17 @@ export default function App() {
       value={state}
       onChange={(e) => setState(Number(e.target.value))}
       suffix={
-        <div className="-mr-3.5 grid gap-[2px] p-0.5 rtl:-ml-3.5 rtl:-mr-0">
+        <div className="-mr-3.5 grid gap-[2px] p-0.5 rtl:-mr-0 rtl:-ml-3.5">
           <button
             type="button"
-            className="rounded-[3px] bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            className="rounded-[3px] bg-gray-100 px-1.5 py-0.5 hover:bg-gray-200 focus:bg-gray-200"
             onClick={() => setState((prevState) => prevState + 1)}
           >
             <ChevronUpIcon className="h-3 w-3" />
           </button>
           <button
             type="button"
-            className="rounded-[3px] bg-gray-100 py-0.5 px-1.5 hover:bg-gray-200 focus:bg-gray-200"
+            className="rounded-[3px] bg-gray-100 px-1.5 py-0.5 hover:bg-gray-200 focus:bg-gray-200"
             onClick={() => setState((prevState) => prevState - 1)}
           >
             <ChevronDownIcon className="h-3 w-3" />
@@ -524,14 +523,14 @@ You can create character counter with **Input**.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input } from "@somaui/ui/input";
+import { useState } from 'react';
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   const MAXLENGTH = 24;
-  const [state, setState] = useState("Chat GPT is awesome!");
+  const [state, setState] = useState('Chat GPT is awesome!');
 
   return (
     <Input
@@ -557,13 +556,13 @@ You can create clearable **Input** using **clearable** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Input } from "@somaui/ui/input";
+import { useState } from 'react';
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
-  const [state, setState] = useState("This is Jhon.");
+  const [state, setState] = useState('This is Jhon.');
 
   return (
     <Input
@@ -572,7 +571,7 @@ export default function App() {
       value={state}
       placeholder="clearable ..."
       onChange={(e) => setState(e.target.value)}
-      onClear={() => setState("")}
+      onClear={() => setState('')}
       clearable
     />
   );
@@ -596,7 +595,7 @@ You can make disabled **Input** using **disabled** property.
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -622,7 +621,7 @@ You can show field helper message to the **Input** using **helperText** property
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -652,7 +651,7 @@ You can show the validation error message using **error** property.
 </Paper>
 
 ```tsx
-import { Input } from "@somaui/ui/input";
+import { Input } from '@somaui/ui/input';
 
 export default function App() {
   return (
@@ -712,17 +711,17 @@ Here is the API documentation of the Input component. And the rest of the props 
 
 ```ts
 type InputTypes =
-  | "text"
-  | "number"
-  | "email"
-  | "time"
-  | "date"
-  | "datetime-local"
-  | "month"
-  | "search"
-  | "tel"
-  | "url"
-  | "week";
+  | 'text'
+  | 'number'
+  | 'email'
+  | 'time'
+  | 'date'
+  | 'datetime-local'
+  | 'month'
+  | 'search'
+  | 'tel'
+  | 'url'
+  | 'week';
 ```
 
 <div className="mb-10" />
@@ -730,7 +729,7 @@ type InputTypes =
 ### Label Weight
 
 ```ts
-type LabelWeight = "normal" | "medium" | "semibold" | "bold";
+type LabelWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 ```
 
 <div className="mb-10" />
@@ -738,7 +737,7 @@ type LabelWeight = "normal" | "medium" | "semibold" | "bold";
 ### Input Variants
 
 ```ts
-type InputVariants = "outline" | "flat" | "text";
+type InputVariants = 'outline' | 'flat' | 'text';
 ```
 
 <div className="mb-10" />
@@ -746,7 +745,7 @@ type InputVariants = "outline" | "flat" | "text";
 ### Input Sizes
 
 ```ts
-type InputSizes = "sm" | "md" | "lg";
+type InputSizes = 'sm' | 'md' | 'lg';
 ```
 
 <div className="mb-10" />

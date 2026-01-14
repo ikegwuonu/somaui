@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/cn";
+import React from 'react';
+import { cn } from '@/lib/cn';
 
 export type ItalicProps = {
   className?: string;
@@ -12,7 +12,7 @@ export function Italic({
 }: React.PropsWithChildren<ItalicProps>) {
   return (
     <i
-      className={cn("somaui-italic", "text-text-secondary", className)}
+      className={cn('somaui-italic', 'text-text-secondary', className)}
       {...props}
     >
       {children}
@@ -20,4 +20,4 @@ export function Italic({
   );
 }
 
-Italic.displayName = "Italic";
+Italic.displayName = 'Italic';

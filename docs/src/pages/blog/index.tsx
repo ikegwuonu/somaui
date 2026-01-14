@@ -1,58 +1,58 @@
-import React from "react";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
-import Footer from "@site/src/components/home/footer";
-import { Button } from "@somaui/ui/button";
+import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import Footer from '@site/src/components/home/footer';
+import { Button } from '@somaui/ui/button';
 
 // Blog post data
 const blogPosts = [
   {
-    title: "SomaUI.0",
-    date: "January 13, 2026",
-    readingTime: "7 min read",
+    title: 'SomaUI.0',
+    date: 'January 13, 2026',
+    readingTime: '7 min read',
     description:
       "We're excited to announce SomaUI.0, a major release that brings significant improvements to the developer experience, performance, and modern web standards. This release includes the new UploadZone component, Tailwind CSS v4 migration, and represents a major step forward in making SomaUI more powerful, easier to use, and aligned with the latest web technologies.",
     features: [
-      "Tailwind CSS v4 Migration",
-      "CSS-First Configuration",
-      "OKLCH Color Space",
-      "Theme Style Tokens",
-      "Breaking Changes",
-      "Modern React Patterns",
-      "Enhanced Performance",
-      "Improved Dark Mode",
-      "Updated Peer Dependencies",
-      "New UploadZone Component",
+      'Tailwind CSS v4 Migration',
+      'CSS-First Configuration',
+      'OKLCH Color Space',
+      'Theme Style Tokens',
+      'Breaking Changes',
+      'Modern React Patterns',
+      'Enhanced Performance',
+      'Improved Dark Mode',
+      'Updated Peer Dependencies',
+      'New UploadZone Component',
     ],
 
-    link: "/blog/2026/1/1/2026/",
+    link: '/blog/2026/1/1/2026/',
   },
 ];
 
 function BlogPostCard({ post }: { post: (typeof blogPosts)[0] }) {
   return (
-    <article className="border border-border p-1.5 rounded-xl flex flex-col justify-between bg-white dark:bg-[#111111] 2xl:p-3">
+    <article className="border-border flex flex-col justify-between rounded-xl border bg-white p-1.5 2xl:p-3 dark:bg-[#111111]">
       <header className="p-3 pb-0">
-        <div className="text-sm text-gray-500 dark:text-text-secondary mb-2">
+        <div className="dark:text-text-secondary mb-2 text-sm text-gray-500">
           {post.date} · {post.readingTime}
         </div>
-        <h2 className="text-xl font-medium -mb-2">
+        <h2 className="-mb-2 text-xl font-medium">
           <Link
             to={post.link}
-            className="text-blue-600 dark:text-blue-400 hover:no-underline"
+            className="text-blue-600 hover:no-underline dark:text-blue-400"
           >
             {post.title}
           </Link>
         </h2>
       </header>
-      <div className="px-3 mt-3 flex-grow">
-        <p className="text-gray-600 dark:text-text-secondary">
+      <div className="mt-3 flex-grow px-3">
+        <p className="dark:text-text-secondary text-gray-600">
           {post.description}
         </p>
         <ul className="!mt-6 space-y-2 !p-0">
           {post.features.map((feature, idx) => (
-            <li key={idx} className="text-gray-600 dark:text-text-secondary">
+            <li key={idx} className="dark:text-text-secondary text-gray-600">
               → {feature}
             </li>
           ))}
@@ -79,7 +79,7 @@ export default function BlogIndex(): React.JSX.Element {
       <div className="blog-banner">
         <div className="container! mx-auto">
           <div className="blog-banner-content">
-            <h1 className="text-3xl! sm:text-4xl! leading-[1.3]! sm:leading-[1.3]! lg:leading-[1.2]! xl:leading-[1.2]! 2xl:leading-[1.18]! mb-4! font-semibold text-gray-900 dark:text-white">
+            <h1 className="mb-4! text-3xl! leading-[1.3]! font-semibold text-gray-900 sm:text-4xl! sm:leading-[1.3]! lg:leading-[1.2]! xl:leading-[1.2]! 2xl:leading-[1.18]! dark:text-white">
               Latest Blog Posts
             </h1>
             <p className="blog-banner-description">
@@ -89,7 +89,7 @@ export default function BlogIndex(): React.JSX.Element {
           </div>
         </div>
       </div>
-      <main className="grid justify-between items-start grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-6 mx-auto max-w-[1300px] w-full flex-auto px-4 md:px-6 py-8 md:py-12 2xl:gap-x-6 2xl:gap-y-8 2xl:py-16">
+      <main className="mx-auto grid w-full max-w-[1300px] flex-auto grid-cols-1 items-start justify-between gap-x-5 gap-y-6 px-4 py-8 sm:grid-cols-2 md:px-6 md:py-12 xl:grid-cols-3 2xl:gap-x-6 2xl:gap-y-8 2xl:py-16">
         {blogPosts.map((post, idx) => (
           <BlogPostCard key={idx} post={post} />
         ))}

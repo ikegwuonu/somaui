@@ -1,0 +1,10 @@
+node_modules
+build
+**/dist
+**/build
+dist
+coverage
+docusaurus
+package-lock.json
+.env
+.package.json

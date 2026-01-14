@@ -2,21 +2,21 @@
 sidebar_position: 38
 ---
 
-import Paper from "@site/src/components/paper";
+import Paper from '@site/src/components/paper';
 import ModalDefault, {
   ModalSizes,
   ModalCustomSize,
   ModalCustomStyle,
-} from "@site/src/components/modal";
+} from '@site/src/components/modal';
 
 # Modal
 
 A fully-managed renderless Modal component. When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use Modal to create a new floating layer over the current page to get user feedback or display information.
 
 ```tsx
-"use client";
+'use client';
 
-import { Modal } from "@somaui/ui/modal";
+import { Modal } from '@somaui/ui/modal';
 ```
 
 <div className="mb-20 md:mb-28" />
@@ -30,9 +30,9 @@ A simple sigun up modal example.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Modal,
   Button,
@@ -42,8 +42,8 @@ import {
   Input,
   Password,
   Checkbox,
-} from "somaui";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+} from 'somaui';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function App() {
   const [modalState, setModalState] = useState(false);
@@ -62,7 +62,7 @@ export default function App() {
               <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
             </ActionIcon>
           </div>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-5 [&_label>span]:font-medium">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-6 [&_label>span]:font-medium">
             <Input label="First Name *" inputClassName="border-2" size="lg" />
             <Input label="Last Name *" inputClassName="border-2" size="lg" />
             <Input
@@ -89,8 +89,8 @@ export default function App() {
               className="col-span-2"
               label={
                 <Text className="text-sm">
-                  I agree to SomaUI&lsquo;s{" "}
-                  <a className="underline">Terms of Service</a> and{" "}
+                  I agree to SomaUI&lsquo;s{' '}
+                  <a className="underline">Terms of Service</a> and{' '}
                   <a className="underline">Privacy Policy</a>
                 </Text>
               }
@@ -122,9 +122,9 @@ You can change the size of **Modal** using [**size**](#modal-sizes) property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Modal,
   Button,
@@ -134,24 +134,24 @@ import {
   Input,
   Password,
   Checkbox,
-} from "somaui";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+} from 'somaui';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function App() {
   const [modalState, setModalState] = useState({
     isOpen: false,
-    size: "md",
+    size: 'md',
   });
   return (
     <>
-      <div className="flex items-center justify-around gap-2 flex-wrap">
+      <div className="flex flex-wrap items-center justify-around gap-2">
         <Button
           variant="outline"
           onClick={() =>
             setModalState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "sm",
+              size: 'sm',
             }))
           }
         >
@@ -163,7 +163,7 @@ export default function App() {
             setModalState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "md",
+              size: 'md',
             }))
           }
         >
@@ -175,7 +175,7 @@ export default function App() {
             setModalState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "lg",
+              size: 'lg',
             }))
           }
         >
@@ -187,7 +187,7 @@ export default function App() {
             setModalState((prevState) => ({
               ...prevState,
               isOpen: true,
-              size: "full",
+              size: 'full',
             }))
           }
         >
@@ -214,7 +214,7 @@ export default function App() {
               <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
             </ActionIcon>
           </div>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-5 [&_label>span]:font-medium">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-6 [&_label>span]:font-medium">
             <Input label="First Name *" inputClassName="border-2" size="lg" />
             <Input label="Last Name *" inputClassName="border-2" size="lg" />
             <Input
@@ -241,8 +241,8 @@ export default function App() {
               className="col-span-2"
               label={
                 <Text className="text-sm">
-                  I agree to SomaUI&lsquo;s{" "}
-                  <a className="underline">Terms of Service</a> and{" "}
+                  I agree to SomaUI&lsquo;s{' '}
+                  <a className="underline">Terms of Service</a> and{' '}
                   <a className="underline">Privacy Policy</a>
                 </Text>
               }
@@ -276,9 +276,9 @@ You can use change the **Modal** size style using **customSize** property.
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Modal,
   Button,
@@ -288,8 +288,8 @@ import {
   Input,
   Password,
   Checkbox,
-} from "somaui";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+} from 'somaui';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function App() {
   const [modalState, setModalState] = useState(false);
@@ -312,7 +312,7 @@ export default function App() {
               <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
             </ActionIcon>
           </div>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-5 [&_label>span]:font-medium">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-6 [&_label>span]:font-medium">
             <Input label="First Name *" inputClassName="border-2" size="lg" />
             <Input label="Last Name *" inputClassName="border-2" size="lg" />
             <Input
@@ -339,8 +339,8 @@ export default function App() {
               className="col-span-2"
               label={
                 <Text className="text-sm">
-                  I agree to SomaUI&lsquo;s{" "}
-                  <a className="underline">Terms of Service</a> and{" "}
+                  I agree to SomaUI&lsquo;s{' '}
+                  <a className="underline">Terms of Service</a> and{' '}
                   <a className="underline">Privacy Policy</a>
                 </Text>
               }
@@ -372,9 +372,9 @@ The customization options are limitless, You can customize as per your preferenc
 </Paper>
 
 ```tsx
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Modal,
   Button,
@@ -384,8 +384,8 @@ import {
   Input,
   Password,
   Checkbox,
-} from "somaui";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+} from 'somaui';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 export default function App() {
   const [modalState, setModalState] = useState(false);
@@ -409,7 +409,7 @@ export default function App() {
               <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
             </ActionIcon>
           </div>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-5 [&_label>span]:font-medium">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-6 [&_label>span]:font-medium">
             <Input label="First Name *" inputClassName="border-2" size="lg" />
             <Input label="Last Name *" inputClassName="border-2" size="lg" />
             <Input
@@ -436,8 +436,8 @@ export default function App() {
               className="col-span-2"
               label={
                 <Text className="text-sm">
-                  I agree to SomaUI&lsquo;s{" "}
-                  <a className="underline">Terms of Service</a> and{" "}
+                  I agree to SomaUI&lsquo;s{' '}
+                  <a className="underline">Terms of Service</a> and{' '}
                   <a className="underline">Privacy Policy</a>
                 </Text>
               }
@@ -490,7 +490,7 @@ Here is the API documentation of the Modal component.
 ### Modal Sizes
 
 ```ts
-type ModalSizes = "sm" | "md" | "lg" | "full";
+type ModalSizes = 'sm' | 'md' | 'lg' | 'full';
 ```
 
 <div className="mb-10" />

@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { z } from "zod";
-import toast, { Toaster } from "react-hot-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
+import { useState } from 'react';
+import { z } from 'zod';
+import toast, { Toaster } from 'react-hot-toast';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
 
 // Individual imports from somaui
-import { Input } from "@somaui/ui/input";
-import { Textarea } from "@somaui/ui/textarea";
-import { Password } from "@somaui/ui/password";
-import { Select, type SelectOption } from "@somaui/ui/select";
-import { MultiSelect, type MultiSelectOption } from "@somaui/ui/multi-select";
-import { Checkbox } from "@somaui/ui/checkbox";
-import { Radio } from "@somaui/ui/radio";
-import { Switch } from "@somaui/ui/switch";
-import { UploadZone } from "@somaui/ui/upload";
-import { AdvancedRadio } from "@somaui/ui/advanced-radio";
-import { CheckboxGroup } from "@somaui/ui/checkbox-group";
-import { RadioGroup } from "@somaui/ui/radio-group";
-import { Button } from "@somaui/ui/button";
-import { Modal } from "@somaui/ui/modal";
-import { Title } from "@somaui/ui/title";
-import { Text } from "@somaui/ui/text";
-import { ActionIcon } from "@somaui/ui/action-icon";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+import { Input } from '@somaui/ui/input';
+import { Textarea } from '@somaui/ui/textarea';
+import { Password } from '@somaui/ui/password';
+import { Select, type SelectOption } from '@somaui/ui/select';
+import { MultiSelect, type MultiSelectOption } from '@somaui/ui/multi-select';
+import { Checkbox } from '@somaui/ui/checkbox';
+import { Radio } from '@somaui/ui/radio';
+import { Switch } from '@somaui/ui/switch';
+import { UploadZone } from '@somaui/ui/upload';
+import { AdvancedRadio } from '@somaui/ui/advanced-radio';
+import { CheckboxGroup } from '@somaui/ui/checkbox-group';
+import { RadioGroup } from '@somaui/ui/radio-group';
+import { Button } from '@somaui/ui/button';
+import { Modal } from '@somaui/ui/modal';
+import { Title } from '@somaui/ui/title';
+import { Text } from '@somaui/ui/text';
+import { ActionIcon } from '@somaui/ui/action-icon';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 // Form validation schema
 const schema = z
@@ -32,142 +32,142 @@ const schema = z
     // Basic Information
     fullName: z
       .string()
-      .min(2, { message: "Full name must be at least 2 characters" }),
-    email: z.string().email({ message: "Invalid email address" }),
-    phone: z.string().min(10, { message: "Phone number is required" }),
-    dateOfBirth: z.string().min(1, { message: "Date of birth is required" }),
+      .min(2, { message: 'Full name must be at least 2 characters' }),
+    email: z.string().email({ message: 'Invalid email address' }),
+    phone: z.string().min(10, { message: 'Phone number is required' }),
+    dateOfBirth: z.string().min(1, { message: 'Date of birth is required' }),
     website: z
       .string()
-      .url({ message: "Invalid URL" })
+      .url({ message: 'Invalid URL' })
       .optional()
-      .or(z.literal("")),
+      .or(z.literal('')),
 
     // Password & Security
     password: z
       .string()
-      .min(8, { message: "Password must be at least 8 characters" }),
+      .min(8, { message: 'Password must be at least 8 characters' }),
     confirmPassword: z
       .string()
-      .min(8, { message: "Please confirm your password" }),
+      .min(8, { message: 'Please confirm your password' }),
 
     // Location
-    country: z.string().min(1, { message: "Country is required" }),
-    city: z.string().min(1, { message: "City is required" }),
+    country: z.string().min(1, { message: 'Country is required' }),
+    city: z.string().min(1, { message: 'City is required' }),
 
     // Professional Information
-    experience: z.string().min(1, { message: "Experience level is required" }),
-    jobType: z.string().min(1, { message: "Job type is required" }),
+    experience: z.string().min(1, { message: 'Experience level is required' }),
+    jobType: z.string().min(1, { message: 'Job type is required' }),
     skills: z
       .array(z.string())
-      .min(1, { message: "Select at least one skill" }),
+      .min(1, { message: 'Select at least one skill' }),
     preferredLocations: z
       .array(z.string())
-      .min(1, { message: "Select at least one location" }),
+      .min(1, { message: 'Select at least one location' }),
 
     // Preferences
     notifications: z.boolean(),
     newsletter: z.boolean(),
 
     // Additional Information
-    bio: z.string().min(10, { message: "Bio must be at least 10 characters" }),
+    bio: z.string().min(10, { message: 'Bio must be at least 10 characters' }),
     resume: z.any().refine(
       (files) => {
         // Check if FileList is available (browser environment)
         try {
-          if (typeof window !== "undefined" && window.FileList) {
+          if (typeof window !== 'undefined' && window.FileList) {
             return files instanceof window.FileList && files.length > 0;
           }
         } catch {
           // FileList not available (SSR)
         }
         // SSR fallback: check if it's a FileList-like object
-        return files && typeof files.length === "number" && files.length > 0;
+        return files && typeof files.length === 'number' && files.length > 0;
       },
       {
-        message: "Resume file is required",
+        message: 'Resume file is required',
       }
     ),
 
     // Radio Group
     employmentStatus: z
       .string()
-      .min(1, { message: "Employment status is required" }),
+      .min(1, { message: 'Employment status is required' }),
 
     // Checkbox Group
     interests: z
       .array(z.string())
-      .min(1, { message: "Select at least one interest" }),
+      .min(1, { message: 'Select at least one interest' }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
+    message: 'Passwords do not match',
+    path: ['confirmPassword'],
   });
 
 type SchemaType = z.infer<typeof schema>;
 
 // Options for selects and multi-selects
 const countryOptions: SelectOption[] = [
-  { label: "United States", value: "us" },
-  { label: "United Kingdom", value: "uk" },
-  { label: "Canada", value: "ca" },
-  { label: "Australia", value: "au" },
-  { label: "Germany", value: "de" },
-  { label: "France", value: "fr" },
+  { label: 'United States', value: 'us' },
+  { label: 'United Kingdom', value: 'uk' },
+  { label: 'Canada', value: 'ca' },
+  { label: 'Australia', value: 'au' },
+  { label: 'Germany', value: 'de' },
+  { label: 'France', value: 'fr' },
 ];
 
 const cityOptions: SelectOption[] = [
-  { label: "New York", value: "ny" },
-  { label: "London", value: "london" },
-  { label: "Toronto", value: "toronto" },
-  { label: "Sydney", value: "sydney" },
-  { label: "Berlin", value: "berlin" },
-  { label: "Paris", value: "paris" },
+  { label: 'New York', value: 'ny' },
+  { label: 'London', value: 'london' },
+  { label: 'Toronto', value: 'toronto' },
+  { label: 'Sydney', value: 'sydney' },
+  { label: 'Berlin', value: 'berlin' },
+  { label: 'Paris', value: 'paris' },
 ];
 
 const experienceOptions: SelectOption[] = [
-  { label: "Entry Level (0-2 years)", value: "entry" },
-  { label: "Mid Level (3-5 years)", value: "mid" },
-  { label: "Senior Level (6-10 years)", value: "senior" },
-  { label: "Executive (10+ years)", value: "executive" },
+  { label: 'Entry Level (0-2 years)', value: 'entry' },
+  { label: 'Mid Level (3-5 years)', value: 'mid' },
+  { label: 'Senior Level (6-10 years)', value: 'senior' },
+  { label: 'Executive (10+ years)', value: 'executive' },
 ];
 
 const skillsOptions: MultiSelectOption[] = [
-  { label: "React", value: "react" },
-  { label: "TypeScript", value: "typescript" },
-  { label: "Node.js", value: "nodejs" },
-  { label: "Python", value: "python" },
-  { label: "UI/UX Design", value: "design" },
-  { label: "Project Management", value: "pm" },
-  { label: "DevOps", value: "devops" },
-  { label: "Machine Learning", value: "ml" },
+  { label: 'React', value: 'react' },
+  { label: 'TypeScript', value: 'typescript' },
+  { label: 'Node.js', value: 'nodejs' },
+  { label: 'Python', value: 'python' },
+  { label: 'UI/UX Design', value: 'design' },
+  { label: 'Project Management', value: 'pm' },
+  { label: 'DevOps', value: 'devops' },
+  { label: 'Machine Learning', value: 'ml' },
 ];
 
 const locationOptions: MultiSelectOption[] = [
-  { label: "Remote", value: "remote" },
-  { label: "Hybrid", value: "hybrid" },
-  { label: "On-site", value: "onsite" },
+  { label: 'Remote', value: 'remote' },
+  { label: 'Hybrid', value: 'hybrid' },
+  { label: 'On-site', value: 'onsite' },
 ];
 
 const employmentStatusOptions = [
-  { label: "Full-time", value: "fulltime" },
-  { label: "Part-time", value: "parttime" },
-  { label: "Contract", value: "contract" },
-  { label: "Freelance", value: "freelance" },
+  { label: 'Full-time', value: 'fulltime' },
+  { label: 'Part-time', value: 'parttime' },
+  { label: 'Contract', value: 'contract' },
+  { label: 'Freelance', value: 'freelance' },
 ];
 
 const interestOptions = [
-  { label: "Technology", value: "tech" },
-  { label: "Design", value: "design" },
-  { label: "Business", value: "business" },
-  { label: "Marketing", value: "marketing" },
-  { label: "Education", value: "education" },
+  { label: 'Technology', value: 'tech' },
+  { label: 'Design', value: 'design' },
+  { label: 'Business', value: 'business' },
+  { label: 'Marketing', value: 'marketing' },
+  { label: 'Education', value: 'education' },
 ];
 
 export default function SomaUIForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<SchemaType | null>(null);
   const [interests, setInterests] = useState<string[]>([]);
-  const [employmentStatus, setEmploymentStatus] = useState<string>("");
+  const [employmentStatus, setEmploymentStatus] = useState<string>('');
 
   const {
     handleSubmit,
@@ -181,7 +181,7 @@ export default function SomaUIForm() {
       skills: [],
       preferredLocations: [],
       interests: [],
-      employmentStatus: "",
+      employmentStatus: '',
     },
     resolver: zodResolver(schema),
   });
@@ -198,11 +198,11 @@ export default function SomaUIForm() {
     };
     setFormData(formattedData as any);
     setIsModalOpen(true);
-    toast.success("Form submitted successfully!");
+    toast.success('Form submitted successfully!');
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto mb-10">
+    <div className="mx-auto mb-10 w-full max-w-5xl">
       <Toaster />
 
       <form noValidate onSubmit={handleSubmit(onSubmit)} className="space-y-14">
@@ -214,11 +214,11 @@ export default function SomaUIForm() {
             </Title>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Input
               label="Full Name"
               placeholder="John Doe"
-              {...register("fullName")}
+              {...register('fullName')}
               error={errors.fullName?.message}
             />
 
@@ -226,7 +226,7 @@ export default function SomaUIForm() {
               type="email"
               label="Email Address"
               placeholder="john.doe@example.com"
-              {...register("email")}
+              {...register('email')}
               error={errors.email?.message}
             />
 
@@ -234,14 +234,14 @@ export default function SomaUIForm() {
               type="tel"
               label="Phone Number"
               placeholder="+1 (555) 123-4567"
-              {...register("phone")}
+              {...register('phone')}
               error={errors.phone?.message}
             />
 
             <Input
               type="date"
               label="Date of Birth"
-              {...register("dateOfBirth")}
+              {...register('dateOfBirth')}
               error={errors.dateOfBirth?.message}
             />
 
@@ -249,7 +249,7 @@ export default function SomaUIForm() {
               type="url"
               label="Website (Optional)"
               placeholder="https://yourwebsite.com"
-              {...register("website")}
+              {...register('website')}
               error={errors.website?.message}
             />
           </div>
@@ -263,18 +263,18 @@ export default function SomaUIForm() {
             </Title>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Password
               label="Password"
               placeholder="Enter your password"
-              {...register("password")}
+              {...register('password')}
               error={errors.password?.message}
             />
 
             <Password
               label="Confirm Password"
               placeholder="Confirm your password"
-              {...register("confirmPassword")}
+              {...register('confirmPassword')}
               error={errors.confirmPassword?.message}
             />
           </div>
@@ -288,7 +288,7 @@ export default function SomaUIForm() {
             </Title>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Controller
               control={control}
               name="country"
@@ -304,7 +304,7 @@ export default function SomaUIForm() {
                   error={error?.message}
                   displayValue={(selected: string) =>
                     countryOptions?.find((r) => r.value === selected)?.label ??
-                    ""
+                    ''
                   }
                 />
               )}
@@ -324,7 +324,7 @@ export default function SomaUIForm() {
                   onChange={(v: SelectOption) => onChange(v.value)}
                   error={error?.message}
                   displayValue={(selected: string) =>
-                    cityOptions?.find((r) => r.value === selected)?.label ?? ""
+                    cityOptions?.find((r) => r.value === selected)?.label ?? ''
                   }
                 />
               )}
@@ -340,7 +340,7 @@ export default function SomaUIForm() {
             </Title>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Controller
               control={control}
               name="experience"
@@ -356,7 +356,7 @@ export default function SomaUIForm() {
                   error={error?.message}
                   displayValue={(selected: string) =>
                     experienceOptions?.find((r) => r.value === selected)
-                      ?.label ?? ""
+                      ?.label ?? ''
                   }
                   className="md:col-span-2"
                 />
@@ -369,7 +369,7 @@ export default function SomaUIForm() {
                 <AdvancedRadio
                   value="fulltime"
                   contentClassName="p-4"
-                  {...register("jobType")}
+                  {...register('jobType')}
                 >
                   <Title as="h4" className="text-base font-semibold">
                     Full-time
@@ -381,7 +381,7 @@ export default function SomaUIForm() {
                 <AdvancedRadio
                   value="contract"
                   contentClassName="p-4"
-                  {...register("jobType")}
+                  {...register('jobType')}
                 >
                   <Title as="h4" className="text-base font-semibold">
                     Contract
@@ -392,7 +392,7 @@ export default function SomaUIForm() {
                 </AdvancedRadio>
               </div>
               {errors.jobType && (
-                <Text className="text-red-500 text-sm mt-1">
+                <Text className="mt-1 text-sm text-red-500">
                   {errors.jobType.message}
                 </Text>
               )}
@@ -462,7 +462,7 @@ export default function SomaUIForm() {
                       ))}
                     </RadioGroup>
                     {error && (
-                      <Text className="text-red-500 text-sm mt-1">
+                      <Text className="mt-1 text-sm text-red-500">
                         {error.message}
                       </Text>
                     )}
@@ -495,7 +495,7 @@ export default function SomaUIForm() {
                       ))}
                     </CheckboxGroup>
                     {error && (
-                      <Text className="text-red-500 text-sm mt-1">
+                      <Text className="mt-1 text-sm text-red-500">
                         {error.message}
                       </Text>
                     )}
@@ -517,12 +517,12 @@ export default function SomaUIForm() {
           <div className="space-y-4">
             <Switch
               label="Enable Email Notifications"
-              {...register("notifications")}
+              {...register('notifications')}
             />
 
             <Switch
               label="Subscribe to Newsletter"
-              {...register("newsletter")}
+              {...register('newsletter')}
             />
           </div>
         </div>
@@ -540,7 +540,7 @@ export default function SomaUIForm() {
               label="Bio"
               placeholder="Tell us about yourself..."
               rows={4}
-              {...register("bio")}
+              {...register('bio')}
               error={errors.bio?.message}
             />
 
@@ -569,7 +569,7 @@ export default function SomaUIForm() {
           <Button
             type="submit"
             size="lg"
-            className="w-full md:w-auto min-w-[200px]"
+            className="w-full min-w-[200px] md:w-auto"
           >
             Submit Application
           </Button>
@@ -597,10 +597,10 @@ export default function SomaUIForm() {
             </ActionIcon>
           </div>
 
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 overflow-auto max-h-[60vh]">
+          <div className="max-h-[60vh] overflow-auto rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
             <pre className="text-sm">
               <code className="text-gray-800 dark:text-gray-200">
-                {formData ? JSON.stringify(formData, null, 2) : ""}
+                {formData ? JSON.stringify(formData, null, 2) : ''}
               </code>
             </pre>
           </div>

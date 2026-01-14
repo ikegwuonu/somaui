@@ -3,7 +3,7 @@ export default function IntegrationBlock() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      className="text-gray-400 w-32 h-auto"
+      className="h-auto w-32 text-gray-400"
     >
       <g fill="none" strokeWidth={2.8}>
         <rect
@@ -25,7 +25,7 @@ export default function IntegrationBlock() {
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M22 24h4"
-          className="opacity-0 group-hover/card:opacity-100 transition-all"
+          className="opacity-0 transition-all group-hover/card:opacity-100"
         />
       </g>
     </svg>

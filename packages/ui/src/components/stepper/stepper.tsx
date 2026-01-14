@@ -4,39 +4,39 @@ import {
   useRef,
   type ReactNode,
   type HTMLAttributes,
-} from "react";
-import { Step } from "./step";
-import { cn } from "@/lib/cn";
+} from 'react';
+import { Step } from './step';
+import { cn } from '@/lib/cn';
 
 const containerClasses = {
-  base: "flex-col space-y-2",
-  line: "[&>.somaui-step-line]:hidden",
+  base: 'flex-col space-y-2',
+  line: '[&>.somaui-step-line]:hidden',
   verticalLine: {
-    base: "[&>.somaui-step-line]:h-full [&>.somaui-step-line]:w-px min-h-[100px] last:min-h-0",
+    base: '[&>.somaui-step-line]:h-full [&>.somaui-step-line]:w-px min-h-[100px] last:min-h-0',
     left: {
       noDot: {
-        sm: "[&>.somaui-step-line]:left-3 rtl:[&>.somaui-step-line]:right-3",
-        md: "[&>.somaui-step-line]:left-3.5 rtl:[&>.somaui-step-line]:right-3.5",
-        lg: "[&>.somaui-step-line]:left-4 rtl:[&>.somaui-step-line]:right-4",
+        sm: '[&>.somaui-step-line]:left-3 rtl:[&>.somaui-step-line]:right-3',
+        md: '[&>.somaui-step-line]:left-3.5 rtl:[&>.somaui-step-line]:right-3.5',
+        lg: '[&>.somaui-step-line]:left-4 rtl:[&>.somaui-step-line]:right-4',
       },
       dot: {
-        sm: "[&>.somaui-step-line]:left-[5px] rtl:[&>.somaui-step-line]:right-[5px]",
-        md: "[&>.somaui-step-line]:left-2 rtl:[&>.somaui-step-line]:right-2",
-        lg: "[&>.somaui-step-line]:left-2.5 rtl:[&>.somaui-step-line]:right-2.5",
+        sm: '[&>.somaui-step-line]:left-[5px] rtl:[&>.somaui-step-line]:right-[5px]',
+        md: '[&>.somaui-step-line]:left-2 rtl:[&>.somaui-step-line]:right-2',
+        lg: '[&>.somaui-step-line]:left-2.5 rtl:[&>.somaui-step-line]:right-2.5',
       },
     },
   },
 };
 
 const contentClasses = {
-  base: "[&>.somaui-step-title]:justify-start [&>.somaui-step-title>span]:hidden",
+  base: '[&>.somaui-step-title]:justify-start [&>.somaui-step-title>span]:hidden',
   containerDesc:
-    "[&>.somaui-step-description]:-translate-x-6 rtl:[&>.somaui-step-description]:translate-x-6 -ms-2 [&>.somaui-step-title>h2]:me-0",
+    '[&>.somaui-step-description]:-translate-x-6 rtl:[&>.somaui-step-description]:translate-x-6 -ms-2 [&>.somaui-step-title>h2]:me-0',
 };
 
 type StepperContextType = {
   currentIndex: number;
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
   dot: boolean;
   dotClassName?: string;
   contentClassName?: string;
@@ -55,14 +55,14 @@ const StepperContext = createContext<StepperContextType | null>(null);
 export function useStepper() {
   const context = useContext(StepperContext);
   if (!context) {
-    throw new Error("useStepper must be used within a Stepper component");
+    throw new Error('useStepper must be used within a Stepper component');
   }
   return context;
 }
 
 export interface StepperProps extends HTMLAttributes<HTMLDivElement> {
   currentIndex?: number;
-  direction?: "horizontal" | "vertical";
+  direction?: 'horizontal' | 'vertical';
   dot?: boolean;
   children: ReactNode;
   dotClassName?: string;
@@ -74,7 +74,7 @@ export interface StepperProps extends HTMLAttributes<HTMLDivElement> {
 export function Stepper({
   currentIndex = 0,
   children,
-  direction = "horizontal",
+  direction = 'horizontal',
   dot = false,
   className,
   titleClassName,
@@ -104,9 +104,9 @@ export function Stepper({
     size: keyof typeof containerClasses.verticalLine.left.noDot
   ) => {
     return cn(
-      direction === "horizontal" && containerClasses.line,
-      direction === "vertical" && containerClasses.verticalLine.base,
-      direction === "vertical" &&
+      direction === 'horizontal' && containerClasses.line,
+      direction === 'vertical' && containerClasses.verticalLine.base,
+      direction === 'vertical' &&
         (dot
           ? containerClasses.verticalLine.left.dot[size]
           : containerClasses.verticalLine.left.noDot[size])
@@ -114,12 +114,12 @@ export function Stepper({
   };
 
   const getCircleClassName = () => {
-    return cn(dot && direction === "vertical" && "mt-1.5", dotClassName);
+    return cn(dot && direction === 'vertical' && 'mt-1.5', dotClassName);
   };
 
   const getContentClassName = () => {
     return cn(
-      direction === "vertical" && contentClasses.base,
+      direction === 'vertical' && contentClasses.base,
       contentClassName
     );
   };
@@ -142,9 +142,9 @@ export function Stepper({
     >
       <div
         className={cn(
-          "somaui-stepper-root",
-          "flex justify-between space-x-4 rtl:space-x-0",
-          direction === "vertical" && "flex-col space-x-0",
+          'somaui-stepper-root',
+          'flex justify-between space-x-4 rtl:space-x-0',
+          direction === 'vertical' && 'flex-col space-x-0',
           className
         )}
       >
@@ -156,4 +156,4 @@ export function Stepper({
 
 Stepper.Step = Step;
 
-Stepper.displayName = "Stepper";
+Stepper.displayName = 'Stepper';

@@ -23,7 +23,7 @@ test('Renders tabs component', () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   expect(screen.getByText('Tab 1')).toBeInTheDocument();
   expect(screen.getByText('Tab 2')).toBeInTheDocument();
   expect(screen.getByText('Panel 1')).toBeInTheDocument();
@@ -42,7 +42,7 @@ test('Shows first panel by default', () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   expect(screen.getByText('Panel 1')).toBeVisible();
   expect(screen.queryByText('Panel 2')).not.toBeInTheDocument();
 });
@@ -60,10 +60,10 @@ test('Switches panels when tab is clicked', async () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   const tab2 = screen.getByText('Tab 2');
   await user.click(tab2);
-  
+
   expect(screen.getByText('Panel 2')).toBeVisible();
   expect(screen.queryByText('Panel 1')).not.toBeInTheDocument();
 });
@@ -81,7 +81,7 @@ test('Renders tabs with selectedIndex', () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   expect(screen.getByText('Panel 2')).toBeVisible();
   expect(screen.queryByText('Panel 1')).not.toBeInTheDocument();
 });
@@ -99,7 +99,7 @@ test('Renders vertical tabs', () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   const tabRoot = container.querySelector('.rizzui-tab-root');
   expect(tabRoot).toHaveClass('flex');
 });
@@ -115,8 +115,7 @@ test('Renders tabs with custom className', () => {
       </Tab.Panels>
     </Tab>
   );
-  
+
   const tabRoot = container.querySelector('.rizzui-tab-root');
   expect(tabRoot).toHaveClass('custom-tabs');
 });
-

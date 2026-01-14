@@ -1,15 +1,15 @@
-import React from "react";
-import MainTable from "./table";
+import React from 'react';
+import MainTable from './table';
 import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { defaultData } from "./data";
-import { defaultColumns } from "./column";
-import TableToolbar from "./toolbar";
-import TablePagination from "./pagination";
+} from '@tanstack/react-table';
+import { defaultData } from './data';
+import { defaultColumns } from './column';
+import TableToolbar from './toolbar';
+import TablePagination from './pagination';
 
 export default function TanStackTableDemo() {
   const [rowSelection, setRowSelection] = React.useState({});
