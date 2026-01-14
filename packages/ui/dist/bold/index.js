@@ -1,1 +1,0 @@
-import {cx}from'tailwind-variants';import {jsx}from'react/jsx-runtime';function t(...o){return cx(...o)||""}function r({children:o,className:e,...a}){return jsx("b",{className:t("somaui-bold","text-text-primary",e),...a,children:o})}r.displayName="Bold";export{r as Bold};

@@ -1,1 +1,0 @@
-'use strict';var tailwindVariants=require('tailwind-variants'),jsxRuntime=require('react/jsx-runtime');function o(...e){return tailwindVariants.cx(...e)||""}function a({as:e,ref:t,children:n,className:r,...p}){return jsxRuntime.jsx(e||"div",{ref:t,className:o("block",r),...p,children:n})}exports.Box=a;

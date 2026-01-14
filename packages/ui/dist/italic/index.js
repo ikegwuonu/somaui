@@ -1,1 +1,0 @@
-import {cx}from'tailwind-variants';import {jsx}from'react/jsx-runtime';function r(...t){return cx(...t)||""}function a({children:t,className:e,...i}){return jsx("i",{className:r("somaui-italic","text-text-secondary",e),...i,children:t})}a.displayName="Italic";export{a as Italic};

@@ -1,1 +1,0 @@
-'use strict';var react=require('react'),jsxRuntime=require('react/jsx-runtime');var d=react.createContext(null);function s({value:t,setValue:n,children:r,...i}){let a=e=>{n(e.target.value);},p=e=>t===e;return jsxRuntime.jsx(d.Provider,{value:{value:t,onChange:a,isChecked:p},children:jsxRuntime.jsx("div",{...i,children:r})})}exports.RadioGroup=s;

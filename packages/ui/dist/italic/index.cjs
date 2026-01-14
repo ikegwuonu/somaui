@@ -1,1 +1,0 @@
-'use strict';var tailwindVariants=require('tailwind-variants'),jsxRuntime=require('react/jsx-runtime');function r(...t){return tailwindVariants.cx(...t)||""}function a({children:t,className:e,...i}){return jsxRuntime.jsx("i",{className:r("somaui-italic","text-text-secondary",e),...i,children:t})}a.displayName="Italic";exports.Italic=a;

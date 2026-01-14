@@ -1,1 +1,0 @@
-'use strict';var tailwindVariants=require('tailwind-variants'),jsxRuntime=require('react/jsx-runtime');function t(...o){return tailwindVariants.cx(...o)||""}function r({children:o,className:e,...a}){return jsxRuntime.jsx("b",{className:t("somaui-bold","text-text-primary",e),...a,children:o})}r.displayName="Bold";exports.Bold=r;

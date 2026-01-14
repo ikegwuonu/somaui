@@ -3,7 +3,6 @@ import path from "path";
 import { copyRecursive } from "../utils/copy";
 
 const libraryPath = path.resolve(__dirname, "../../packages/ui/src/components");
-
 const metaPath = path.resolve(__dirname, "../../packages/ui/meta.json");
 
 type AddOptions = {
@@ -97,7 +96,7 @@ export function addCommand(components: string[], options: AddOptions) {
   if (itemsInstalled.length > 0) {
     console.log("\n✨ Components available at: src/components/");
     console.log(
-      "📝 Remember: @/lib imports use path aliases (configure in your build tool)"
+      "📝 Note: Files keep their original import structure. Update your build tool config for aliases if needed."
     );
   }
 }
@@ -152,12 +151,8 @@ function installComponent(
   // Copy component
   if (isDirectory) {
     copyRecursive(sourcePath, targetPath, overwrite);
-
-    // Update imports in all TypeScript/JS files in the folder
-    updateImportsInDirectory(targetPath);
   } else {
     fs.copyFileSync(sourcePath, targetPath);
-    updateImportsInFile(targetPath);
   }
 
   return true;
@@ -193,151 +188,9 @@ function installDependency(
   const isDirectory = fs.statSync(sourcePath).isDirectory();
   if (isDirectory) {
     copyRecursive(sourcePath, targetPath, overwrite);
-    updateImportsInDirectory(targetPath);
   } else {
     fs.copyFileSync(sourcePath, targetPath);
-    updateImportsInFile(targetPath);
   }
 
   return true;
-}
-
-// Update imports in all TypeScript/JS files in a directory
-function updateImportsInDirectory(dirPath: string) {
-  if (!fs.existsSync(dirPath)) return;
-
-  const items = fs.readdirSync(dirPath, { withFileTypes: true });
-
-  for (const item of items) {
-    const itemPath = path.join(dirPath, item.name);
-
-    if (item.isDirectory()) {
-      updateImportsInDirectory(itemPath);
-    } else if (
-      itemPath.endsWith(".tsx") ||
-      itemPath.endsWith(".ts") ||
-      itemPath.endsWith(".js") ||
-      itemPath.endsWith(".jsx")
-    ) {
-      updateImportsInFile(itemPath);
-    }
-  }
-}
-
-// Update imports in a single file
-function updateImportsInFile(filePath: string) {
-  try {
-    let content = fs.readFileSync(filePath, "utf-8");
-    const originalContent = content;
-
-    const currentDir = path.dirname(filePath);
-    const projectRoot = process.cwd();
-
-    // Update @/components/... imports to relative paths
-    content = content.replace(
-      /from\s+['"]@\/components\/([^'"]+)['"]/g,
-      (match, importPath) => {
-        try {
-          const targetPath = path.join(
-            projectRoot,
-            "src/components",
-            importPath
-          );
-          let relativePath = path.relative(currentDir, targetPath);
-
-          // Ensure path starts with ./
-          if (!relativePath.startsWith(".")) {
-            relativePath = "./" + relativePath;
-          }
-
-          // Remove .tsx/.ts extension for cleaner imports
-          relativePath = relativePath.replace(/\.(tsx|ts|js|jsx)$/, "");
-
-          return `from "${relativePath}"`;
-        } catch (error) {
-          return match; // Keep original if we can't compute
-        }
-      }
-    );
-
-    // Update @/icons/... imports to relative paths
-    content = content.replace(
-      /from\s+['"]@\/icons\/([^'"]+)['"]/g,
-      (match, iconName) => {
-        try {
-          const targetPath = path.join(projectRoot, "src/icons", iconName);
-          let relativePath = path.relative(currentDir, targetPath);
-
-          if (!relativePath.startsWith(".")) {
-            relativePath = "./" + relativePath;
-          }
-
-          // Remove file extension
-          relativePath = relativePath.replace(/\.(tsx|ts|js|jsx)$/, "");
-
-          return `from "${relativePath}"`;
-        } catch {
-          return match;
-        }
-      }
-    );
-
-    // DO NOT update @/lib/... imports - leave them as aliases
-    // Example: import { cn } from '@/lib/cn' stays as-is
-
-    // Update relative imports within the same component
-    content = content.replace(
-      /from\s+['"]\.\/([^'"]+)['"]/g,
-      (match, importPath) => {
-        try {
-          const targetPath = path.join(currentDir, importPath);
-          let relativePath = path.relative(currentDir, targetPath);
-
-          if (!relativePath.startsWith(".")) {
-            relativePath = "./" + relativePath;
-          }
-
-          // Remove file extension
-          relativePath = relativePath.replace(/\.(tsx|ts|js|jsx)$/, "");
-
-          return `from "${relativePath}"`;
-        } catch {
-          return match;
-        }
-      }
-    );
-
-    // Update parent directory imports
-    content = content.replace(
-      /from\s+['"]\.\.\/([^'"]+)['"]/g,
-      (match, importPath) => {
-        try {
-          const targetPath = path.join(currentDir, "..", importPath);
-          let relativePath = path.relative(currentDir, targetPath);
-
-          if (!relativePath.startsWith(".")) {
-            relativePath = "./" + relativePath;
-          }
-
-          // Remove file extension
-          relativePath = relativePath.replace(/\.(tsx|ts|js|jsx)$/, "");
-
-          return `from "${relativePath}"`;
-        } catch {
-          return match;
-        }
-      }
-    );
-
-    if (content !== originalContent) {
-      fs.writeFileSync(filePath, content, "utf-8");
-    }
-  } catch (error) {
-    console.warn(
-      `  ⚠️ Could not update imports in ${path.relative(
-        process.cwd(),
-        filePath
-      )}`
-    );
-  }
 }
