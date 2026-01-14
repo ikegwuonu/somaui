@@ -1,5 +1,7 @@
 import React from "react";
-import { Button, Stepper, cn } from "@somaui/ui";
+import { Button } from "@somaui/ui/button";
+import { Stepper } from "@somaui/ui/stepper";
+import { cn } from "@somaui/ui/lib/cn";
 
 export default function FunctionalStepper() {
   const [currentStep, setCurrentStep] = React.useState(0);
@@ -10,6 +12,7 @@ export default function FunctionalStepper() {
         <Stepper.Step title="Step 1" description="This is a description" />
         <Stepper.Step title="Step 2" description="This is a description" />
         <Stepper.Step title="Step 3" description="This is a description" />
+        <> </>
       </Stepper>
 
       <div className="flex space-x-4 mt-7">

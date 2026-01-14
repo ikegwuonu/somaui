@@ -48,7 +48,8 @@
     "react-hook-form": "^7.71.0",
     "react-hot-toast": "^2.6.0",
     "react-phone-input-2": "^2.15.1",
-    "turndown": "^7.2.2"
+    "turndown": "^7.2.2",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
@@ -73,8 +74,5 @@
       "last 3 firefox version",
       "last 5 safari version"
     ]
-  },
-  "engines": {
-    "node": ">=20.0"
   }
 }

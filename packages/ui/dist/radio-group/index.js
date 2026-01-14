@@ -1,1 +1,1 @@
-export{b as RadioGroup}from'../chunk-RH4CI2WF.js';
+import {createContext}from'react';import {jsx}from'react/jsx-runtime';var d=createContext(null);function s({value:t,setValue:n,children:r,...i}){let a=e=>{n(e.target.value);},p=e=>t===e;return jsx(d.Provider,{value:{value:t,onChange:a,isChecked:p},children:jsx("div",{...i,children:r})})}export{s as RadioGroup};

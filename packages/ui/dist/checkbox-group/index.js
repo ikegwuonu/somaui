@@ -1,1 +1,1 @@
-export{b as CheckboxGroup}from'../chunk-HA5GM4WG.js';
+import {createContext}from'react';import {jsx}from'react/jsx-runtime';var x=createContext(null);function a({values:e,setValues:r,children:c,...p}){let u=t=>{let{value:o}=t.target,s=e.includes(o)?e.filter(h=>h!==o):[...e,o];r(s);},i=t=>e.includes(t);return jsx(x.Provider,{value:{values:e,onChange:u,isChecked:i},children:jsx("div",{...p,children:c})})}export{a as CheckboxGroup};
