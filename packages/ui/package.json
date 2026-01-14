@@ -21,6 +21,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "A Shadcn inspired version of RizzUI",
+  "homepage": "https://github.com/ikegwuonu/somaui/packages/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikegwuonu/somaui/packages/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ikegwuonu/somaui/packages/ui/issues"
+  },
   "scripts": {
     "clean": "rm -rf node_modules dist coverage",
     "test": "jest --coverage",

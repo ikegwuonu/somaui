@@ -1,15 +1,28 @@
 {
   "name": "@somaui/cli",
   "version": "1.0.0",
+  "description": "A CLI tool for SomaUI",
+  "keywords": [
+    "cli",
+    "somaui",
+    "tool"
+  ],
+  "homepage": "https://github.com/ikegwuonu/somaui-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikegwuonu/somaui-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ikegwuonu/somaui-cli/issues"
+  },
   "bin": {
-    "somaui": "./dist/somaui.cjs"
+    "somaui": "dist/somaui.cjs"
   },
   "private": false,
   "files": [
     "dist"
   ],
   "type": "module",
-  "description": "CLI for adding SomaUI components to your project",
   "main": "dist/somaui.cjs",
   "publishConfig": {
     "access": "public"
