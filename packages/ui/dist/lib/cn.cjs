@@ -1,1 +1,1 @@
-'use strict';var chunkFROGBQFC_cjs=require('../chunk-FROGBQFC.cjs');Object.defineProperty(exports,"cn",{enumerable:true,get:function(){return chunkFROGBQFC_cjs.a}});
+'use strict';var tailwindVariants=require('tailwind-variants');function t(...r){return tailwindVariants.cx(...r)||""}exports.cn=t;

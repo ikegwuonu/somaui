@@ -1,1 +1,1 @@
-import {a}from'../chunk-BVZYQBQW.js';import {jsx}from'react/jsx-runtime';function t({children:r,className:e,...p}){return jsx("b",{className:a("somaui-bold","text-text-primary",e),...p,children:r})}t.displayName="Bold";export{t as Bold};
+import {cx}from'tailwind-variants';import {jsx}from'react/jsx-runtime';function t(...o){return cx(...o)||""}function r({children:o,className:e,...a}){return jsx("b",{className:t("somaui-bold","text-text-primary",e),...a,children:o})}r.displayName="Bold";export{r as Bold};

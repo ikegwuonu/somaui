@@ -65,7 +65,7 @@ export default defineConfig({
   clean: true,
   minify: true,
   sourcemap: false,
-  splitting: true,
+  splitting: false,
   treeshake: true,
   bundle: true,
   minifyWhitespace: true,

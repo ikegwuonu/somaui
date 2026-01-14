@@ -1,1 +1,1 @@
-export{a as FieldHelperText}from'../chunk-TOE5FIDQ.js';
+import {tv}from'tailwind-variants';import {jsx}from'react/jsx-runtime';var l=tv({variants:{size:{sm:"text-[11px] mt-0.5",md:"text-[13px] mt-0.5",lg:"text-[13px] mt-1"}}});function n({size:t,as:p="div",children:e,className:r}){let i=p;return e?jsx(i,{className:l({size:t,className:r}),children:e}):null}n.displayName="FieldHelperText";export{n as FieldHelperText};
