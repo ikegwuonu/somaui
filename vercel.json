@@ -1,4 +1,3 @@
 {
-  "buildCommand": "pnpm --filter docs build",
-  "outputDirectory": "docs/build"
+  "buildCommand": "pnpm --filter docs build"
 }
