@@ -8,7 +8,7 @@ const config: Config = {
     "A RizzUI version of Shadcn. Designed to provide you with a simple and intuitive set of UI components that are easy to use, customize and integrate into your React application.",
   favicon: "img/soma-favicon.ico",
 
-  url: "https://rizzui.com/",
+  url: "https://somaui.vercel.app/",
 
   baseUrl: "/",
 
@@ -45,18 +45,18 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
-          editUrl: "https://github.com/rizzui/rizzui/apps/docs",
+          editUrl: "https://github.com/ikegwuonu/somaui/docs",
           routeBasePath: "docs",
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/rizzui/rizzui/apps/docs/blog",
+          editUrl: "https://github.com/ikegwuonu/somaui/docs/blog",
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
           postsPerPage: 12,
-          blogTitle: "RizzUI Blogs",
-          blogDescription: "Read blog posts about RizzUI updates from team.",
+          blogTitle: "SomaUI Blogs",
+          blogDescription: "Read blog posts about SomaUI updates from team.",
           blogSidebarCount: "ALL",
           blogSidebarTitle: "List of all posts",
           blogListComponent: "@site/src/pages/blog/index",
@@ -96,7 +96,7 @@ const config: Config = {
           label: "Blog",
         },
         {
-          href: "https://github.com/rizzui/rizzui",
+          href: "https://github.com/ikegwuonu/somaui",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub",

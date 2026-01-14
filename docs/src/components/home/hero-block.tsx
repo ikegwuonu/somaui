@@ -11,7 +11,7 @@ import { ProaLogo } from "../icons/proa-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const data = {
-  title: `A Shadcn-inspired version of RizzUI
+  title: `A Shadcn-inspired version of SomaUI
   <br className="hidden md:inline-block" /> <span className="italic">React UI Library</span>`,
   description: `Built with Tailwind CSS. Beautifully crafted, production-ready components designed for creators who value elegant simplicity and performance.`,
 };
@@ -88,6 +88,12 @@ export default function HeroBlock() {
           />
           <Text className="text-[15px] md:text-base leading-[1.9] md:leading-[1.9] max-w-[786px] mx-auto mb-8! md:mb-12 text-gray-600 dark:text-gray-500 2xl:text-lg">
             {data.description}
+          </Text>
+          <Text className="text-[12px] md:text-base leading-[1.9] md:leading-[1.9] max-w-[786px] mx-auto mb-8! md:mb-12 text-gray-600 dark:text-gray-500 2xl:text-lg">
+            Built with ❤️ by{" "}
+            <a className="" href="https://github.com/ikegwuonu">
+              ikegwuonu
+            </a>
           </Text>
 
           <div className="flex items-center justify-center gap-4 md:gap-5 flex-col sm:flex-row">

@@ -3,7 +3,7 @@ sidebar_position: 8
 ---
 
 import Paper from "@site/src/components/paper";
-import RizzUIForm from "@site/src/components/form";
+import SomaUIForm from "@site/src/components/form";
 
 # React Hook Form
 
@@ -12,7 +12,7 @@ A React Hook Form integration with SomaUI Form components and zod validations.
 <br />
 
 <Paper>
-  <RizzUIForm />
+  <SomaUIForm />
 </Paper>
 
 ```tsx
@@ -167,7 +167,7 @@ const interestOptions = [
   { label: 'Education', value: 'education' },
 ];
 
-export default function RizzUIForm() {
+export default function SomaUIForm() {
   const [formData, setFormData] = useState<SchemaType | null>(null);
   const [interests, setInterests] = useState<string[]>([]);
   const [employmentStatus, setEmploymentStatus] = useState<string>('');

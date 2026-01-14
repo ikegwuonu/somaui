@@ -163,7 +163,7 @@ const interestOptions = [
   { label: "Education", value: "education" },
 ];
 
-export default function RizzUIForm() {
+export default function SomaUIForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<SchemaType | null>(null);
   const [interests, setInterests] = useState<string[]>([]);

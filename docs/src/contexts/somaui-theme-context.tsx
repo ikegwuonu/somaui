@@ -23,7 +23,7 @@ type ThemeTokens = {
   [key: string]: TokenValue;
 };
 
-type RizzUIThemeContextType = {
+type SomaUIThemeContextType = {
   lightTokens: ThemeTokens;
   darkTokens: ThemeTokens;
   updateToken: (
@@ -35,7 +35,7 @@ type RizzUIThemeContextType = {
   resetAllTokens: (theme: "light" | "dark") => void;
 };
 
-const RizzUIThemeContext = createContext<RizzUIThemeContextType | undefined>(
+const SomaUIThemeContext = createContext<SomaUIThemeContextType | undefined>(
   undefined
 );
 
@@ -50,7 +50,7 @@ function tokensToObject(tokensArray: typeof tokens): ThemeTokens {
   }, {} as ThemeTokens);
 }
 
-export function RizzUIThemeProvider({
+export function SomaUIThemeProvider({
   children,
 }: {
   children: React.ReactNode;
@@ -309,16 +309,16 @@ export function RizzUIThemeProvider({
   );
 
   return (
-    <RizzUIThemeContext.Provider value={contextValue}>
+    <SomaUIThemeContext.Provider value={contextValue}>
       {children}
-    </RizzUIThemeContext.Provider>
+    </SomaUIThemeContext.Provider>
   );
 }
 
-export function useRizzUITheme() {
-  const context = useContext(RizzUIThemeContext);
+export function useSomaUITheme() {
+  const context = useContext(SomaUIThemeContext);
   if (context === undefined) {
-    throw new Error("useRizzUITheme must be used within a RizzUIThemeProvider");
+    throw new Error("useSomaUITheme must be used within a SomaUIThemeProvider");
   }
   return context;
 }
