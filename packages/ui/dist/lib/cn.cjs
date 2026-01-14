@@ -1,0 +1,1 @@
+'use strict';var chunkFROGBQFC_cjs=require('../chunk-FROGBQFC.cjs');Object.defineProperty(exports,"cn",{enumerable:true,get:function(){return chunkFROGBQFC_cjs.a}});

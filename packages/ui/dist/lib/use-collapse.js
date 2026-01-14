@@ -1,0 +1,1 @@
+export{a as useCollapse}from'../chunk-YPCWUEGJ.js';

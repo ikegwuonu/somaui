@@ -1,0 +1,1 @@
+import {cx}from'tailwind-variants';function t(...r){return cx(...r)||""}export{t as a};

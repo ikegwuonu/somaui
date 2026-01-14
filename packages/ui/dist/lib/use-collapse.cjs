@@ -1,0 +1,1 @@
+'use strict';var chunkGK2NXFDB_cjs=require('../chunk-GK2NXFDB.cjs');Object.defineProperty(exports,"useCollapse",{enumerable:true,get:function(){return chunkGK2NXFDB_cjs.a}});
