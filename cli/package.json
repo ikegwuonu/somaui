@@ -1,6 +1,6 @@
 {
   "name": "@somaui/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool for SomaUI",
   "keywords": [
     "cli",
@@ -16,14 +16,14 @@
     "url": "https://github.com/ikegwuonu/somaui-cli/issues"
   },
   "bin": {
-    "somaui": "dist/somaui.cjs"
+    "somaui": "dist/bin/somaui.cjs"
   },
   "private": false,
   "files": [
     "dist"
   ],
   "type": "module",
-  "main": "dist/somaui.cjs",
+  "main": "dist/bin/somaui.cjs",
   "publishConfig": {
     "access": "public"
   },
