@@ -36,7 +36,7 @@
     "test:ci": "pnpm test --ci",
     "test:watch": "jest --watch",
     "build:batch": "node script/build-batch.js",
-    "build": "npm run build:batch",
+    "build": "pnpm run build:batch",
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {

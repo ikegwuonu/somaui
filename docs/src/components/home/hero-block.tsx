@@ -3,7 +3,6 @@ import { Announcement } from '@somaui/ui/announcement';
 import { Button } from '@somaui/ui/button';
 import { Title } from '@somaui/ui/title';
 import { Text } from '@somaui/ui/text';
-import { cn } from '@somaui/ui/lib/cn';
 import { GovernfulLogo } from '../icons/governful-logo';
 // import { TrueBeepLogo } from '../icons/truebeep-logo';
 import { RedQLogo } from '../icons/redq-logo';
@@ -11,7 +10,7 @@ import { ProaLogo } from '../icons/proa-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 const data = {
-  title: `A Shadcn-inspired version of SomaUI
+  title: `A Shadcn-inspired version of RizzUI
   <br className="hidden md:inline-block" /> <span className="italic">React UI Library</span>`,
   description: `Built with Tailwind CSS. Beautifully crafted, production-ready components designed for creators who value elegant simplicity and performance.`,
 };

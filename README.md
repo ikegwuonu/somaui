@@ -13,6 +13,6 @@ A ShadcnUI version Rizz UI system with additional components.
 
 ## Tasks
 
-- Work on using aliases
-- Create tests with jest
+- Add more components
+- Create more tests with jest
 - Update playground test UI
