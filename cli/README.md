@@ -93,21 +93,21 @@ src/
 
 **Add individual components:**
 
-npx somaui add button
+npx @somaui/cli add button
 
 
 **Add multiple components:**
 
-npx somaui add button input card
+npx @somaui/cli add button input 
 
 
 **Add all available components:**
 
-npx somaui add --all
+npx @somaui/cli add --all
 
 **Overwrite existing components:**
 
-npx somaui add button --overwrite
+npx @somaui/cli add button --overwrite
 
 ⚙️ Required Configuration
 Path Aliases (Required)

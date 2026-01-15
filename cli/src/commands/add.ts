@@ -2,14 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import { copyRecursive } from '../utils/copy';
 
-const libraryPath = path.resolve(__dirname, '../../packages/ui/src/components');
-const metaPath = path.resolve(__dirname, '../../packages/ui/meta.json');
-
+// Assets inside src/assets in CLI
+const assetsRoot = path.join(__dirname, '../assets'); // CLI/src/assets
+const libraryPath = path.join(assetsRoot, 'components'); // All main components
+const metaPath = path.join(assetsRoot, 'meta.json'); // Dependencies for components
+console.log(assetsRoot);
+console.log(metaPath);
 type AddOptions = {
   all?: boolean;
   overwrite?: boolean;
   cwd?: string;
 };
+if (!assetsRoot) {
+  console.log('No assets located');
+}
 
 export function addCommand(components: string[], options: AddOptions) {
   const cwd = options.cwd || process.cwd();
@@ -20,12 +26,14 @@ export function addCommand(components: string[], options: AddOptions) {
 
   // Check if project is initialized
   if (!fs.existsSync(targetRoot)) {
-    console.error('❌ Project not initialized. Run `npx somaui init` first.');
+    console.error(
+      '❌ Project not initialized. Run `npx @somaui/cli init` first.'
+    );
     process.exit(1);
   }
 
   if (!fs.existsSync(metaPath)) {
-    console.error('❌ meta.json not found in SomaUI package');
+    console.error('❌ meta.json not found in CLI assets');
     process.exit(1);
   }
 
@@ -33,21 +41,17 @@ export function addCommand(components: string[], options: AddOptions) {
     fs.readFileSync(metaPath, 'utf8')
   );
 
-  const componentsToInstall = installAll ? Object.keys(meta) : components;
+  // If --all, we include all components in assets/components folder
+  const allComponentsInAssets = fs
+    .readdirSync(libraryPath)
+    .map((f) => f.replace(/\.tsx$/, ''));
+  const componentsToInstall = installAll ? allComponentsInAssets : components;
 
   if (componentsToInstall.length === 0) {
     console.error(
-      '❌ No components specified. Use `somaui add <component>` or `--all`.'
+      '❌ No components specified. Use `@somaui/cli add <component>` or `--all`.'
     );
     process.exit(1);
-  }
-
-  // Validate all components exist in meta
-  for (const component of componentsToInstall) {
-    if (!meta[component]) {
-      console.error(`❌ Component "${component}" not found in SomaUI`);
-      process.exit(1);
-    }
   }
 
   // Track what we're installing to avoid duplicates
@@ -70,12 +74,10 @@ export function addCommand(components: string[], options: AddOptions) {
       console.log(`  ⏭️ ${componentName} already installed`);
     }
 
-    // Install dependencies from meta.json
-    const dependencies = meta[componentName];
+    // Install dependencies from meta.json if any
+    const dependencies = meta[componentName] || [];
     for (const dependencyPath of dependencies) {
-      if (installedPaths.has(dependencyPath)) {
-        continue;
-      }
+      if (installedPaths.has(dependencyPath)) continue;
 
       if (installDependency(dependencyPath, cwd, overwrite)) {
         installedPaths.add(dependencyPath);
@@ -113,7 +115,6 @@ function installComponent(
   targetRoot: string,
   overwrite: boolean
 ): boolean {
-  // Look for component in library
   const componentFile = path.join(libraryPath, `${componentName}.tsx`);
   const componentFolder = path.join(libraryPath, componentName);
 
@@ -134,21 +135,17 @@ function installComponent(
     return false;
   }
 
-  // Determine target path
   const targetPath = isDirectory
     ? path.join(targetRoot, componentName)
     : path.join(targetRoot, `${componentName}.tsx`);
 
-  // Skip if already exists and not overwriting
   if (fs.existsSync(targetPath) && !overwrite) {
     console.log(`  ⏭️ ${componentName} already exists`);
     return false;
   }
 
-  // Ensure target directory exists
   fs.mkdirSync(path.dirname(targetPath), { recursive: true });
 
-  // Copy component
   if (isDirectory) {
     copyRecursive(sourcePath, targetPath, overwrite);
   } else {
@@ -164,7 +161,7 @@ function installDependency(
   cwd: string,
   overwrite: boolean
 ): boolean {
-  const sourceBase = path.resolve(__dirname, '../../packages/ui/src');
+  const sourceBase = path.join(assetsRoot); // Assets root
   const targetBase = path.join(cwd, 'src');
 
   const sourcePath = path.join(sourceBase, dependencyPath);
@@ -176,15 +173,10 @@ function installDependency(
 
   const targetPath = path.join(targetBase, dependencyPath);
 
-  // Skip if already exists and not overwriting
-  if (fs.existsSync(targetPath) && !overwrite) {
-    return false;
-  }
+  if (fs.existsSync(targetPath) && !overwrite) return false;
 
-  // Ensure target directory exists
   fs.mkdirSync(path.dirname(targetPath), { recursive: true });
 
-  // Copy based on type
   const isDirectory = fs.statSync(sourcePath).isDirectory();
   if (isDirectory) {
     copyRecursive(sourcePath, targetPath, overwrite);

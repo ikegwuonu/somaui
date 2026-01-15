@@ -28,12 +28,14 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup src/bin/somaui.ts --format cjs --platform node --target node18 --out-dir dist --clean --minify",
+    "build": "tsup src/bin/somaui.ts src/scripts/copy-assets.ts --format cjs --platform node --target node18 --out-dir dist --clean --minify && node dist/scripts/copy-assets.cjs",
     "dev": "tsup src/bin/somaui.ts --format cjs --platform node --target node18 --out-dir dist --clean --watch",
     "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
+    "cpy": "^12.1.0",
+    "ts-node": "^10.9.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },

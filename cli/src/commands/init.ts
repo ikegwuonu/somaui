@@ -5,25 +5,21 @@ import { copyRecursive } from '../utils/copy';
 
 export function initCommand() {
   const project = detectProject();
-
-  console.log('🔍 Detected project setup:');
-  console.log(project);
+  console.log('🔍 Detected project setup:', project);
 
   if (!project.tailwind) {
     console.log(
-      '\n⚠️  Install Tailwind v4+ and @tailwindcss/forms plugin to use SomaUI components!'
+      '\n⚠️ Install Tailwind v4+ and @tailwindcss/forms plugin to use SomaUI components!'
     );
     console.log('   Learn more: https://tailwindcss.com/docs/installation');
   }
 
   const cwd = process.cwd();
+  const assetsRoot = path.join(__dirname, 'assets'); // <- points to CLI assets
 
-  // Paths to UI library source
-  const uiRoot = path.resolve(__dirname, '../../packages/ui');
-
-  // 1️⃣ Copy global.css from packages/ui/global.css
+  // 1️⃣ Copy global.css
   const globalDest = path.join(cwd, 'src/styles/global.css');
-  const uiGlobalCss = path.join(uiRoot, 'global.css');
+  const uiGlobalCss = path.join(assetsRoot, 'styles/global.css');
 
   if (!fs.existsSync(globalDest)) {
     fs.mkdirSync(path.dirname(globalDest), { recursive: true });
@@ -33,23 +29,19 @@ export function initCommand() {
       console.log('✅ Copied src/styles/global.css from SomaUI');
     } else {
       // Fallback if global.css doesn't exist
-      const fallbackContent =
-        /* Import Tailwind CSS v4 */
-        `@import "tailwindcss";`;
-
-      fs.copyFileSync(uiGlobalCss, globalDest);
+      fs.writeFileSync(globalDest, '@import "tailwindcss";');
       console.log('✅ Created src/styles/global.css');
       console.log(
-        '⚠️ Iniialize SomaUI with npx somaui init to get lib, icons and components folders.'
+        '⚠️ Initialize SomaUI with `npx @somaui/cli init` to get lib, icons, and components folders.'
       );
     }
   } else {
     console.log('⚠️ src/styles/global.css already exists');
   }
 
-  // 2️⃣ Copy icons folder from packages/ui/src/icons
+  // 2️⃣ Copy icons folder
   const iconsDest = path.join(cwd, 'src/icons');
-  const uiIconsDir = path.join(uiRoot, 'src/icons');
+  const uiIconsDir = path.join(assetsRoot, 'icons');
 
   if (!fs.existsSync(iconsDest)) {
     if (fs.existsSync(uiIconsDir)) {
@@ -63,9 +55,9 @@ export function initCommand() {
     console.log('⚠️ src/icons/ already exists');
   }
 
-  // 3️⃣ Copy lib folder from packages/ui/src/lib
+  // 3️⃣ Copy lib folder
   const libsDest = path.join(cwd, 'src/lib');
-  const uiLibDir = path.join(uiRoot, 'src/lib');
+  const uiLibDir = path.join(assetsRoot, 'lib');
 
   if (!fs.existsSync(libsDest)) {
     if (fs.existsSync(uiLibDir)) {
@@ -88,6 +80,7 @@ export function initCommand() {
     console.log('⚠️ src/components/ already exists');
   }
 
+  // 5️⃣ Summary / next steps
   console.log(
     '\n🎉 SomaUI initialized!\n\n' +
       'Next steps:\n' +
@@ -98,9 +91,9 @@ export function initCommand() {
       '     "@/lib/*": ["./src/lib/*"]\n' +
       '   }\n\n' +
       '2. Add components:\n' +
-      '   npx somaui add button\n' +
-      '   npx somaui add button input card\n' +
-      '   npx somaui add --all\n' +
-      '   npx somaui add button --overwrite\n'
+      '   npx @somaui/cli add button\n' +
+      '   npx @somaui/cli add button input card\n' +
+      '   npx @somaui/cli add --all\n' +
+      '   npx @somaui/cli add button --overwrite\n'
   );
 }

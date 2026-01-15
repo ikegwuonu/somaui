@@ -13,19 +13,12 @@
 
 <br />
 
-<div align="center">
-  <a href="https://www.npmjs.com/package/@somaui/ui">
-    <img alt="npm" src="https://somaui.vercel.app/img/soma-favicon.ico" />
-  </a>
-  <a href="https://somaui.vercel.app/docs/guide/getting-started">
-    <img alt="Read the documentation" src="https://somaui.vercel.app/img/soma-favicon.ico" height="20" width="auto" />
-  </a>
-</div>
+
 
 <br />
 
 <div align="center">
-  <a href="https://somaui.vercel.app//docs/guide/getting-started">Documentation</a> &bull;
+  <a href="https://somaui.vercel.app/docs/guide/getting-started">Documentation</a> &bull;
   <a href="https://somaui.vercel.app/">Website</a> &bull;
   <a href="https://github.com/ikegwuonu/somaui/packages/ui">GitHub</a>
 </div>
