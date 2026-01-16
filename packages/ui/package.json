@@ -22,13 +22,13 @@
     "access": "public"
   },
   "description": "A Shadcn inspired version of RizzUI",
-  "homepage": "https://github.com/ikegwuonu/somaui/packages/ui",
+  "homepage": "https://github.com/ikegwuonu/somaui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ikegwuonu/somaui/packages/ui.git"
+    "url": "https://github.com/ikegwuonu/somaui.git"
   },
   "bugs": {
-    "url": "https://github.com/ikegwuonu/somaui/packages/ui/issues"
+    "url": "https://github.com/ikegwuonu/somaui/issues"
   },
   "scripts": {
     "clean": "rm -rf node_modules dist coverage",

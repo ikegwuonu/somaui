@@ -20,7 +20,7 @@
 <div align="center">
   <a href="https://somaui.vercel.app/docs/guide/getting-started">Documentation</a> &bull;
   <a href="https://somaui.vercel.app/">Website</a> &bull;
-  <a href="https://github.com/ikegwuonu/somaui/packages/ui">GitHub</a>
+  <a href="https://github.com/ikegwuonu/somaui">GitHub</a>
 </div>
 
 <br />
@@ -343,9 +343,9 @@ Explore component APIs, examples, and best practices in our comprehensive docs.
 
 We love contributions! Whether it's fixing bugs, adding features, or improving documentation, your help makes SomaUI better for everyone.
 
-- 🐛 **Found a bug?** [Open an issue](https://github.com/ikegwuonu/somaui/packages/ui/issues)
-- 💡 **Have an idea?** [Start a discussion](https://github.com/ikegwuonu/somaui/packages/ui/discussions)
-- 🔧 **Want to contribute?** Check out our [Contributing Guidelines](https://github.com/ikegwuonu/somaui/packages/ui/blob/bugfix/CONTRIBUTING.md)
+- 🐛 **Found a bug?** [Open an issue](https://github.com/ikegwuonu/somaui/issues)
+- 💡 **Have an idea?** [Start a discussion](https://github.com/ikegwuonu/somaui/discussions)
+- 🔧 **Want to contribute?** Check out our [Contributing Guidelines](https://github.com/ikegwuonu/somaui/blob/bugfix/CONTRIBUTING.md)
 
 ## License
 
