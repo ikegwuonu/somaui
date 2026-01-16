@@ -7,25 +7,25 @@ const installationCommands = [
     id: uuidv4(),
     name: 'npm',
     manager: PACKAGE_MANAGERS.NPM,
-    value: `npm i somaui @headlessui/react @floating-ui/react`,
+    value: `npm i @somaui/ui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
     name: 'yarn',
     manager: PACKAGE_MANAGERS.YARN,
-    value: `yarn add somaui @headlessui/react @floating-ui/react`,
+    value: `yarn add @somaui/ui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
     name: 'pnpm',
     manager: PACKAGE_MANAGERS.PNPM,
-    value: `pnpm i somaui @headlessui/react @floating-ui/react`,
+    value: `pnpm i @somaui/ui @headlessui/react @floating-ui/react`,
   },
   {
     id: uuidv4(),
     name: 'bun',
     manager: PACKAGE_MANAGERS.BUN,
-    value: `bun add somaui @headlessui/react @floating-ui/react`,
+    value: `bun add @somaui/ui @headlessui/react @floating-ui/react`,
   },
 ];
 

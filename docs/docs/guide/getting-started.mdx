@@ -38,7 +38,7 @@ SomaUI comes with a handy CLI to generate components and scaffold projects.
     default
   >
     <CodeBlock language="js">
-      {`npx somaui init
+      {`npx @somaui/cli init
 `}
     </CodeBlock>
   </TabItem>
@@ -50,7 +50,7 @@ SomaUI comes with a handy CLI to generate components and scaffold projects.
       </div>
     }
   >
-    <CodeBlock language="js">{`yarn dlx somaui init`}</CodeBlock>
+    <CodeBlock language="js">{`yarn dlx @somaui/cli init`}</CodeBlock>
   </TabItem>
   <TabItem
     value="pnpm"
@@ -70,7 +70,7 @@ SomaUI comes with a handy CLI to generate components and scaffold projects.
       </div>
     }
   >
-    <CodeBlock language="js">{`bun somaui init`}</CodeBlock>
+    <CodeBlock language="js">{`bun @somaui/cli init`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -89,7 +89,7 @@ Next proceed to add your components.
     default
   >
     <CodeBlock language="js">
-      {`npx somaui add button
+      {`npx @somaui/cli add button
 `}
     </CodeBlock>
   </TabItem>
@@ -101,7 +101,7 @@ Next proceed to add your components.
       </div>
     }
   >
-    <CodeBlock language="js">{`yarn dlx somaui add button`}</CodeBlock>
+    <CodeBlock language="js">{`yarn dlx @somaui/cli add button`}</CodeBlock>
   </TabItem>
   <TabItem
     value="pnpm"
@@ -111,7 +111,7 @@ Next proceed to add your components.
       </div>
     }
   >
-    <CodeBlock language="js">{`pnpm dlx somaui add button`}</CodeBlock>
+    <CodeBlock language="js">{`pnpm dlx @somaui/cli add button`}</CodeBlock>
   </TabItem>
   <TabItem
     value="bun"
@@ -121,7 +121,7 @@ Next proceed to add your components.
       </div>
     }
   >
-    <CodeBlock language="js">{`bunx somaui add button`}</CodeBlock>
+    <CodeBlock language="js">{`bunx @somaui/cli add button`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -138,7 +138,7 @@ This will copy a ready to use `button/index.tsx` in your component folder{" "}. 
     default
   >
     <CodeBlock language="js">
-      {`npx somaui add button input select
+      {`npx @somaui/cli add button input select
 `}
     </CodeBlock>
   </TabItem>
@@ -150,7 +150,7 @@ This will copy a ready to use `button/index.tsx` in your component folder{" "}. 
       </div>
     }
   >
-    <CodeBlock language="js">{`yarn dlx somaui add button input select`}</CodeBlock>
+    <CodeBlock language="js">{`yarn dlx @somaui/cli add button input select`}</CodeBlock>
   </TabItem>
   <TabItem
     value="pnpm"
@@ -160,7 +160,7 @@ This will copy a ready to use `button/index.tsx` in your component folder{" "}. 
       </div>
     }
   >
-    <CodeBlock language="js">{`pnpm dlx somaui add button input select`}</CodeBlock>
+    <CodeBlock language="js">{`pnpm dlx @somaui/cli add button input select`}</CodeBlock>
   </TabItem>
   <TabItem
     value="bun"
@@ -170,7 +170,7 @@ This will copy a ready to use `button/index.tsx` in your component folder{" "}. 
       </div>
     }
   >
-    <CodeBlock language="js">{`bunx somaui add button input select`}</CodeBlock>
+    <CodeBlock language="js">{`bunx @somaui/cli add button input select`}</CodeBlock>
   </TabItem>
 </Tabs>
 This will copy a ready to use `button/index.tsx`, `input/index.tsx`,
@@ -189,7 +189,7 @@ Use the `all` flag to get all components
     default
   >
     <CodeBlock language="js">
-      {`npx somaui add --all
+      {`npx @somaui/cli add --all
 `}
     </CodeBlock>
   </TabItem>
@@ -201,7 +201,7 @@ Use the `all` flag to get all components
       </div>
     }
   >
-    <CodeBlock language="js">{`yarn dlx somaui add --all`}</CodeBlock>
+    <CodeBlock language="js">{`yarn dlx @somaui/cli add --all`}</CodeBlock>
   </TabItem>
   <TabItem
     value="pnpm"
@@ -211,7 +211,7 @@ Use the `all` flag to get all components
       </div>
     }
   >
-    <CodeBlock language="js">{`pnpm dlx somaui add --all`}</CodeBlock>
+    <CodeBlock language="js">{`pnpm dlx @somaui/cli add --all`}</CodeBlock>
   </TabItem>
   <TabItem
     value="bun"
@@ -221,7 +221,7 @@ Use the `all` flag to get all components
       </div>
     }
   >
-    <CodeBlock language="js">{`bunx somaui add --all`}</CodeBlock>
+    <CodeBlock language="js">{`bunx @somaui/cli add --all`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -239,72 +239,72 @@ See full list of components:
   >
    <CodeBlock language="js">{`
 //Basic UI Components
-npx somaui add button
-npx somaui add input
-npx somaui add select
-npx somaui add checkbox
-npx somaui add radio
-npx somaui add textarea
-npx somaui add switch
-npx somaui add password
-npx somaui add pin-code
-npx somaui add multi-select
+npx @somaui/cli add button
+npx @somaui/cli add input
+npx @somaui/cli add select
+npx @somaui/cli add checkbox
+npx @somaui/cli add radio
+npx @somaui/cli add textarea
+npx @somaui/cli add switch
+npx @somaui/cli add password
+npx @somaui/cli add pin-code
+npx @somaui/cli add multi-select
 
 //Form Components
-npx somaui add checkbox-group
-npx somaui add radio-group
-npx somaui add field-clear-button
-npx somaui add field-error-text
-npx somaui add field-helper-text
+npx @somaui/cli add checkbox-group
+npx @somaui/cli add radio-group
+npx @somaui/cli add field-clear-button
+npx @somaui/cli add field-error-text
+npx @somaui/cli add field-helper-text
 
 //Feedback & Overlay Components
-npx somaui add alert
-npx somaui add modal
-npx somaui add drawer
-npx somaui add tooltip
-npx somaui add popover
-npx somaui add progressbar
-npx somaui add radial-progressbar
-npx somaui add loader
-npx somaui add announcement
+npx @somaui/cli add alert
+npx @somaui/cli add modal
+npx @somaui/cli add drawer
+npx @somaui/cli add tooltip
+npx @somaui/cli add popover
+npx @somaui/cli add progressbar
+npx @somaui/cli add radial-progressbar
+npx @somaui/cli add loader
+npx @somaui/cli add announcement
 
 //Layout Components
-npx somaui add box
-npx somaui add flex
-npx somaui add grid
-npx somaui add collapse
-npx somaui add accordion
-npx somaui add tabs
-npx somaui add stepper
-npx somaui add table
+npx @somaui/cli add box
+npx @somaui/cli add flex
+npx @somaui/cli add grid
+npx @somaui/cli add collapse
+npx @somaui/cli add accordion
+npx @somaui/cli add tabs
+npx @somaui/cli add stepper
+npx @somaui/cli add table
 
 //Data Display Components
-npx somaui add avatar
-npx somaui add badge
-npx somaui add empty
-npx somaui add dropdown
-npx somaui add upload
-npx somaui add action-icon
+npx @somaui/cli add avatar
+npx @somaui/cli add badge
+npx @somaui/cli add empty
+npx @somaui/cli add dropdown
+npx @somaui/cli add upload
+npx @somaui/cli add action-icon
 
 //Advanced Components
-npx somaui add advanced-checkbox
-npx somaui add advanced-radio
-npx somaui add highlight
-npx somaui add file-input
-npx somaui add upload-zone
+npx @somaui/cli add advanced-checkbox
+npx @somaui/cli add advanced-radio
+npx @somaui/cli add highlight
+npx @somaui/cli add file-input
+npx @somaui/cli add upload-zone
 
 //Typography Components
-npx somaui add typography
-npx somaui add title
-npx somaui add text
-npx somaui add code
-npx somaui add blockquote
-npx somaui add italic
-npx somaui add bold
+npx @somaui/cli add typography
+npx @somaui/cli add title
+npx @somaui/cli add text
+npx @somaui/cli add code
+npx @somaui/cli add blockquote
+npx @somaui/cli add italic
+npx @somaui/cli add bold
 
 //Utility Components
-npx somaui add cn
-npx somaui add use-collapse
+npx @somaui/cli add cn
+npx @somaui/cli add use-collapse
 
 `}</CodeBlock>
 
@@ -319,72 +319,72 @@ npx somaui add use-collapse
   >
     <CodeBlock language="js">{`
     //Basic UI Components
-yarn dlx somaui add button
-yarn dlx somaui add input
-yarn dlx somaui add select
-yarn dlx somaui add checkbox
-yarn dlx somaui add radio
-yarn dlx somaui add textarea
-yarn dlx somaui add switch
-yarn dlx somaui add password
-yarn dlx somaui add pin-code
-yarn dlx somaui add multi-select
+yarn dlx @somaui/cli add button
+yarn dlx @somaui/cli add input
+yarn dlx @somaui/cli add select
+yarn dlx @somaui/cli add checkbox
+yarn dlx @somaui/cli add radio
+yarn dlx @somaui/cli add textarea
+yarn dlx @somaui/cli add switch
+yarn dlx @somaui/cli add password
+yarn dlx @somaui/cli add pin-code
+yarn dlx @somaui/cli add multi-select
 
 //Form Components
-yarn dlx somaui add checkbox-group
-yarn dlx somaui add radio-group
-yarn dlx somaui add field-clear-button
-yarn dlx somaui add field-error-text
-yarn dlx somaui add field-helper-text
+yarn dlx @somaui/cli add checkbox-group
+yarn dlx @somaui/cli add radio-group
+yarn dlx @somaui/cli add field-clear-button
+yarn dlx @somaui/cli add field-error-text
+yarn dlx @somaui/cli add field-helper-text
 
 //Feedback & Overlay Components
-yarn dlx somaui add alert
-yarn dlx somaui add modal
-yarn dlx somaui add drawer
-yarn dlx somaui add tooltip
-yarn dlx somaui add popover
-yarn dlx somaui add progressbar
-yarn dlx somaui add radial-progressbar
-yarn dlx somaui add loader
-yarn dlx somaui add announcement
+yarn dlx @somaui/cli add alert
+yarn dlx @somaui/cli add modal
+yarn dlx @somaui/cli add drawer
+yarn dlx @somaui/cli add tooltip
+yarn dlx @somaui/cli add popover
+yarn dlx @somaui/cli add progressbar
+yarn dlx @somaui/cli add radial-progressbar
+yarn dlx @somaui/cli add loader
+yarn dlx @somaui/cli add announcement
 
 //Layout Components
-yarn dlx somaui add box
-yarn dlx somaui add flex
-yarn dlx somaui add grid
-yarn dlx somaui add collapse
-yarn dlx somaui add accordion
-yarn dlx somaui add tabs
-yarn dlx somaui add stepper
-yarn dlx somaui add table
+yarn dlx @somaui/cli add box
+yarn dlx @somaui/cli add flex
+yarn dlx @somaui/cli add grid
+yarn dlx @somaui/cli add collapse
+yarn dlx @somaui/cli add accordion
+yarn dlx @somaui/cli add tabs
+yarn dlx @somaui/cli add stepper
+yarn dlx @somaui/cli add table
 
 //Data Display Components
-yarn dlx somaui add avatar
-yarn dlx somaui add badge
-yarn dlx somaui add empty
-yarn dlx somaui add dropdown
-yarn dlx somaui add upload
-yarn dlx somaui add action-icon
+yarn dlx @somaui/cli add avatar
+yarn dlx @somaui/cli add badge
+yarn dlx @somaui/cli add empty
+yarn dlx @somaui/cli add dropdown
+yarn dlx @somaui/cli add upload
+yarn dlx @somaui/cli add action-icon
 
 //Advanced Components
-yarn dlx somaui add advanced-checkbox
-yarn dlx somaui add advanced-radio
-yarn dlx somaui add highlight
-yarn dlx somaui add file-input
-yarn dlx somaui add upload-zone
+yarn dlx @somaui/cli add advanced-checkbox
+yarn dlx @somaui/cli add advanced-radio
+yarn dlx @somaui/cli add highlight
+yarn dlx @somaui/cli add file-input
+yarn dlx @somaui/cli add upload-zone
 
 //Typography Components
-yarn dlx somaui add typography
-yarn dlx somaui add title
-yarn dlx somaui add text
-yarn dlx somaui add code
-yarn dlx somaui add blockquote
-yarn dlx somaui add italic
-yarn dlx somaui add bold
+yarn dlx @somaui/cli add typography
+yarn dlx @somaui/cli add title
+yarn dlx @somaui/cli add text
+yarn dlx @somaui/cli add code
+yarn dlx @somaui/cli add blockquote
+yarn dlx @somaui/cli add italic
+yarn dlx @somaui/cli add bold
 
 //Utility Components
-yarn dlx somaui add cn
-yarn dlx somaui add use-collapse
+yarn dlx @somaui/cli add cn
+yarn dlx @somaui/cli add use-collapse
 `}</CodeBlock>
 
   </TabItem>
@@ -397,72 +397,72 @@ yarn dlx somaui add use-collapse
     }
   >
     <CodeBlock language="js">{`//Basic UI Components
-pnpm dlx somaui add button
-pnpm dlx somaui add input
-pnpm dlx somaui add select
-pnpm dlx somaui add checkbox
-pnpm dlx somaui add radio
-pnpm dlx somaui add textarea
-pnpm dlx somaui add switch
-pnpm dlx somaui add password
-pnpm dlx somaui add pin-code
-pnpm dlx somaui add multi-select
+pnpm dlx @somaui/cli add button
+pnpm dlx @somaui/cli add input
+pnpm dlx @somaui/cli add select
+pnpm dlx @somaui/cli add checkbox
+pnpm dlx @somaui/cli add radio
+pnpm dlx @somaui/cli add textarea
+pnpm dlx @somaui/cli add switch
+pnpm dlx @somaui/cli add password
+pnpm dlx @somaui/cli add pin-code
+pnpm dlx @somaui/cli add multi-select
 
 //Form Components
-pnpm dlx somaui add checkbox-group
-pnpm dlx somaui add radio-group
-pnpm dlx somaui add field-clear-button
-pnpm dlx somaui add field-error-text
-pnpm dlx somaui add field-helper-text
+pnpm dlx @somaui/cli add checkbox-group
+pnpm dlx @somaui/cli add radio-group
+pnpm dlx @somaui/cli add field-clear-button
+pnpm dlx @somaui/cli add field-error-text
+pnpm dlx @somaui/cli add field-helper-text
 
 //Feedback & Overlay Components
-pnpm dlx somaui add alert
-pnpm dlx somaui add modal
-pnpm dlx somaui add drawer
-pnpm dlx somaui add tooltip
-pnpm dlx somaui add popover
-pnpm dlx somaui add progressbar
-pnpm dlx somaui add radial-progressbar
-pnpm dlx somaui add loader
-pnpm dlx somaui add announcement
+pnpm dlx @somaui/cli add alert
+pnpm dlx @somaui/cli add modal
+pnpm dlx @somaui/cli add drawer
+pnpm dlx @somaui/cli add tooltip
+pnpm dlx @somaui/cli add popover
+pnpm dlx @somaui/cli add progressbar
+pnpm dlx @somaui/cli add radial-progressbar
+pnpm dlx @somaui/cli add loader
+pnpm dlx @somaui/cli add announcement
 
 //Layout Components
-pnpm dlx somaui add box
-pnpm dlx somaui add flex
-pnpm dlx somaui add grid
-pnpm dlx somaui add collapse
-pnpm dlx somaui add accordion
-pnpm dlx somaui add tabs
-pnpm dlx somaui add stepper
-pnpm dlx somaui add table
+pnpm dlx @somaui/cli add box
+pnpm dlx @somaui/cli add flex
+pnpm dlx @somaui/cli add grid
+pnpm dlx @somaui/cli add collapse
+pnpm dlx @somaui/cli add accordion
+pnpm dlx @somaui/cli add tabs
+pnpm dlx @somaui/cli add stepper
+pnpm dlx @somaui/cli add table
 
 //Data Display Components
-pnpm dlx somaui add avatar
-pnpm dlx somaui add badge
-pnpm dlx somaui add empty
-pnpm dlx somaui add dropdown
-pnpm dlx somaui add upload
-pnpm dlx somaui add action-icon
+pnpm dlx @somaui/cli add avatar
+pnpm dlx @somaui/cli add badge
+pnpm dlx @somaui/cli add empty
+pnpm dlx @somaui/cli add dropdown
+pnpm dlx @somaui/cli add upload
+pnpm dlx @somaui/cli add action-icon
 
 //Advanced Components
-pnpm dlx somaui add advanced-checkbox
-pnpm dlx somaui add advanced-radio
-pnpm dlx somaui add highlight
-pnpm dlx somaui add file-input
-pnpm dlx somaui add upload-zone
+pnpm dlx @somaui/cli add advanced-checkbox
+pnpm dlx @somaui/cli add advanced-radio
+pnpm dlx @somaui/cli add highlight
+pnpm dlx @somaui/cli add file-input
+pnpm dlx @somaui/cli add upload-zone
 
 //Typography Components
-pnpm dlx somaui add typography
-pnpm dlx somaui add title
-pnpm dlx somaui add text
-pnpm dlx somaui add code
-pnpm dlx somaui add blockquote
-pnpm dlx somaui add italic
-pnpm dlx somaui add bold
+pnpm dlx @somaui/cli add typography
+pnpm dlx @somaui/cli add title
+pnpm dlx @somaui/cli add text
+pnpm dlx @somaui/cli add code
+pnpm dlx @somaui/cli add blockquote
+pnpm dlx @somaui/cli add italic
+pnpm dlx @somaui/cli add bold
 
 //Utility Components
-pnpm dlx somaui add cn
-pnpm dlx somaui add use-collapse
+pnpm dlx @somaui/cli add cn
+pnpm dlx @somaui/cli add use-collapse
 `}</CodeBlock>
 
   </TabItem>
@@ -475,72 +475,72 @@ pnpm dlx somaui add use-collapse
     }
   >
     <CodeBlock language="js">{`//Basic UI Components
-bunx somaui add button
-bunx somaui add input
-bunx somaui add select
-bunx somaui add checkbox
-bunx somaui add radio
-bunx somaui add textarea
-bunx somaui add switch
-bunx somaui add password
-bunx somaui add pin-code
-bunx somaui add multi-select
+bunx @somaui/cli add button
+bunx @somaui/cli add input
+bunx @somaui/cli add select
+bunx @somaui/cli add checkbox
+bunx @somaui/cli add radio
+bunx @somaui/cli add textarea
+bunx @somaui/cli add switch
+bunx @somaui/cli add password
+bunx @somaui/cli add pin-code
+bunx @somaui/cli add multi-select
 
 //Form Components
-bunx somaui add checkbox-group
-bunx somaui add radio-group
-bunx somaui add field-clear-button
-bunx somaui add field-error-text
-bunx somaui add field-helper-text
+bunx @somaui/cli add checkbox-group
+bunx @somaui/cli add radio-group
+bunx @somaui/cli add field-clear-button
+bunx @somaui/cli add field-error-text
+bunx @somaui/cli add field-helper-text
 
 //Feedback & Overlay Components
-bunx somaui add alert
-bunx somaui add modal
-bunx somaui add drawer
-bunx somaui add tooltip
-bunx somaui add popover
-bunx somaui add progressbar
-bunx somaui add radial-progressbar
-bunx somaui add loader
-bunx somaui add announcement
+bunx @somaui/cli add alert
+bunx @somaui/cli add modal
+bunx @somaui/cli add drawer
+bunx @somaui/cli add tooltip
+bunx @somaui/cli add popover
+bunx @somaui/cli add progressbar
+bunx @somaui/cli add radial-progressbar
+bunx @somaui/cli add loader
+bunx @somaui/cli add announcement
 
 //Layout Components
-bunx somaui add box
-bunx somaui add flex
-bunx somaui add grid
-bunx somaui add collapse
-bunx somaui add accordion
-bunx somaui add tabs
-bunx somaui add stepper
-bunx somaui add table
+bunx @somaui/cli add box
+bunx @somaui/cli add flex
+bunx @somaui/cli add grid
+bunx @somaui/cli add collapse
+bunx @somaui/cli add accordion
+bunx @somaui/cli add tabs
+bunx @somaui/cli add stepper
+bunx @somaui/cli add table
 
 //Data Display Components
-bunx somaui add avatar
-bunx somaui add badge
-bunx somaui add empty
-bunx somaui add dropdown
-bunx somaui add upload
-bunx somaui add action-icon
+bunx @somaui/cli add avatar
+bunx @somaui/cli add badge
+bunx @somaui/cli add empty
+bunx @somaui/cli add dropdown
+bunx @somaui/cli add upload
+bunx @somaui/cli add action-icon
 
 //Advanced Components
-bunx somaui add advanced-checkbox
-bunx somaui add advanced-radio
-bunx somaui add highlight
-bunx somaui add file-input
-bunx somaui add upload-zone
+bunx @somaui/cli add advanced-checkbox
+bunx @somaui/cli add advanced-radio
+bunx @somaui/cli add highlight
+bunx @somaui/cli add file-input
+bunx @somaui/cli add upload-zone
 
 //Typography Components
-bunx somaui add typography
-bunx somaui add title
-bunx somaui add text
-bunx somaui add code
-bunx somaui add blockquote
-bunx somaui add italic
-bunx somaui add bold
+bunx @somaui/cli add typography
+bunx @somaui/cli add title
+bunx @somaui/cli add text
+bunx @somaui/cli add code
+bunx @somaui/cli add blockquote
+bunx @somaui/cli add italic
+bunx @somaui/cli add bold
 
 //Utility Components
-bunx somaui add cn
-bunx somaui add use-collapse
+bunx @somaui/cli add cn
+bunx @somaui/cli add use-collapse
 `}</CodeBlock>
 
   </TabItem>
