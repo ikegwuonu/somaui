@@ -78,7 +78,7 @@ src/components/
 
 Empty by default
 
-Components are added here when you run somaui add
+Components are added here when you run npx @somaui/cli add
 
 📁 Project Structure After Init
 

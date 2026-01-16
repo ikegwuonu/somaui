@@ -35,11 +35,11 @@ program.addHelpText(
   'after',
   `
 Examples:
-  $ npx somaui init
-  $ npx somaui add button
-  $ npx somaui add button input checkbox
-  $ npx somaui add --all
-  $ npx somaui add button --overwrite
+  $ npx @somaui/cli init
+  $ npx @somaui/cli add button
+  $ npx @somaui/cli add button input checkbox
+  $ npx @somaui/cli add --all
+  $ npx @somaui/cli add button --overwrite
 
 Important:
   • Run 'init' first to set up project structure
