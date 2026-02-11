@@ -1,5 +1,11 @@
 # @somaui/cli
 
+## 1.0.2
+
+### Patch Changes
+
+- Update github repo link
+
 ## 1.0.1
 
 ### Patch Changes

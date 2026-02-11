@@ -12,7 +12,8 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier --write .",
-    "build": "pnpm --filter packages/ui build && pnpm --filter docs build && pnpm --filter vite-app build && pnpm --filter cli build"
+    "build": "pnpm --filter packages/ui build && pnpm --filter docs build && pnpm --filter vite-app build && pnpm --filter cli build",
+    "docs:build": "pnpm --filter docs build"
   },
   "author": "ikegwuonu",
   "license": "ISC",
