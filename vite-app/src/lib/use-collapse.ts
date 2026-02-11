@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { useState, useRef } from 'react';
 
 export function useCollapse(

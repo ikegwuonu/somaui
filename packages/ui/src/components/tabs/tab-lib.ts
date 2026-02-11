@@ -41,7 +41,7 @@ export function useRePositioningActiveTab({ ref, activeTab }: any) {
         const containerScrollWidth = ref.current.scrollWidth;
         const currentScrollLeft = ref.current.scrollLeft;
 
-        let newScrollLeft = currentScrollLeft;
+        const newScrollLeft = currentScrollLeft;
 
         if (containerScrollWidth > containerWidth) {
           // reach to the right

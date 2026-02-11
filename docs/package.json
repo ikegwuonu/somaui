@@ -27,7 +27,7 @@
     "@mdx-js/react": "^3.0.0",
     "@monaco-editor/react": "^4.7.0",
     "@number-flow/react": "^0.5.10",
-    "@somaui/ui": "^1.0.0",
+    "@somaui/ui": "workspace:*",
     "@tanstack/react-table": "^8.21.3",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.19",

@@ -42,7 +42,7 @@ export function Empty({
   defaultImageClassName,
   children,
 }: React.PropsWithChildren<EmptyProps>) {
-  let Component = textAs;
+  const Component = textAs;
   return (
     <div
       data-testid="empty-state"

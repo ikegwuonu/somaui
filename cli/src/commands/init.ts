@@ -15,7 +15,7 @@ export function initCommand() {
   }
 
   const cwd = process.cwd();
-  const assetsRoot = path.join(__dirname, 'assets'); // <- points to CLI assets
+  const assetsRoot = path.join(__dirname, '../assets'); // <- points to CLI assets
 
   // 1️⃣ Copy global.css
   const globalDest = path.join(cwd, 'src/styles/global.css');
@@ -32,7 +32,7 @@ export function initCommand() {
       fs.writeFileSync(globalDest, '@import "tailwindcss";');
       console.log('✅ Created src/styles/global.css');
       console.log(
-        '⚠️ Initialize SomaUI with `npx @somaui/cli init` to get lib, icons, and components folders.'
+        '⚠️ Copy styles/global.css from SomaUI repository later for full setup.'
       );
     }
   } else {

@@ -25,7 +25,7 @@ export function useInteractiveEvent({
     (e: InputFocusEvent) => {
       if (readOnly === true) return false;
       setIsFocus((prevState) => !prevState);
-      onFocus && onFocus(e); // eslint-disable-line no-unused-expressions
+      onFocus && onFocus(e);
     },
     [readOnly, onFocus]
   );
@@ -34,7 +34,7 @@ export function useInteractiveEvent({
     (e: InputFocusEvent) => {
       if (readOnly === true) return false;
       setIsFocus(() => false);
-      onBlur && onBlur(e); // eslint-disable-line no-unused-expressions
+      onBlur && onBlur(e);
     },
     [readOnly, onBlur]
   );
@@ -43,7 +43,7 @@ export function useInteractiveEvent({
     (e: InputMouseEvent) => {
       if (readOnly === true) return false;
       setIsHover(() => true);
-      onMouseEnter && onMouseEnter(e); // eslint-disable-line no-unused-expressions
+      onMouseEnter && onMouseEnter(e);
     },
     [readOnly]
   );
@@ -52,7 +52,7 @@ export function useInteractiveEvent({
     (e: InputMouseEvent) => {
       if (readOnly === true) return false;
       setIsHover(() => false);
-      onMouseLeave && onMouseLeave(e); // eslint-disable-line no-unused-expressions
+      onMouseLeave && onMouseLeave(e);
     },
     [readOnly]
   );

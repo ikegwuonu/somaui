@@ -45,12 +45,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
-          editUrl: 'https://github.com/ikegwuonu/somaui/docs',
+          editUrl: 'https://github.com/ikegwuonu/somaui/tree/main/',
           routeBasePath: 'docs',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/ikegwuonu/somaui/docs/blog',
+          editUrl: 'https://github.com/ikegwuonu/somaui/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',

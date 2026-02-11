@@ -27,7 +27,6 @@ Inside your project root, run:
 
 **npx @somaui/cli init**
 
-
 This will initialize SomaUI in your project.
 
 🧠 What somaui init Does
@@ -49,7 +48,6 @@ If Tailwind is missing, you’ll see a warning:
 2️⃣ Copies global styles
 src/styles/global.css
 
-
 Copied from @somaui/ui
 
 Includes Tailwind v4 base imports
@@ -59,7 +57,6 @@ Will NOT overwrite existing files
 3️⃣ Copies icons
 src/icons/
 
-
 SVG icon set used by SomaUI components
 
 Fully editable
@@ -67,14 +64,12 @@ Fully editable
 4️⃣ Copies shared utilities
 src/lib/
 
-
 Utility functions used internally by components
 
 You own and control this code
 
 5️⃣ Creates components directory
 src/components/
-
 
 Empty by default
 
@@ -87,7 +82,7 @@ src/
 ├── icons/
 ├── lib/
 ├── styles/
-│   └── global.css
+│ └── global.css
 
 ➕ Adding Components
 
@@ -95,11 +90,9 @@ src/
 
 npx @somaui/cli add button
 
-
 **Add multiple components:**
 
-npx @somaui/cli add button input 
-
+npx @somaui/cli add button input
 
 **Add all available components:**
 
@@ -116,14 +109,13 @@ Configure path aliases in your project.
 
 tsconfig.json
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/lib/*": ["./src/lib/*"]
-    }
-  }
+"compilerOptions": {
+"paths": {
+"@/_": ["./src/_"],
+"@/lib/_": ["./src/lib/_"]
 }
-
+}
+}
 
 For Vite or Next.js, ensure aliases match this setup.
 

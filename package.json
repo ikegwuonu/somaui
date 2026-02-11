@@ -10,9 +10,10 @@
     "cli"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --cache --ext .ts,.tsx,.jsx",
     "format": "prettier --write .",
-    "build": "pnpm --filter packages/ui build && pnpm --filter docs build && pnpm --filter vite-app build && pnpm --filter cli build"
+    "build": "pnpm -r build",
+    "build:docs": "pnpm --filter docs build"
   },
   "author": "ikegwuonu",
   "license": "ISC",
@@ -22,8 +23,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^29.12.1",

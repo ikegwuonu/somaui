@@ -1,7 +1,7 @@
 /* Import Tailwind CSS v4 */
 @import 'tailwindcss';
 
-/* Enable enhanced form styles */
+/* Note: Install @tailwindcss/forms plugin to enable enhanced form styles */
 @plugin '@tailwindcss/forms';
 
 /* Define color palette using OKLCH color space */

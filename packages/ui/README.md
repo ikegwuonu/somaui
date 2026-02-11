@@ -13,8 +13,6 @@
 
 <br />
 
-
-
 <br />
 
 <div align="center">
@@ -31,6 +29,7 @@
 SomaUI is a Shadcn-inspired version of RizzUI. Its designed for developers who want **beautiful, accessible components**. The cli is available at https://www.npmjs.com/package/@somaui/cli
 
 Features
+
 - 🎨 **Modern Design** - Clean, minimal components that look great out of the box
 - ⚡️ **Lightweight** - Tree-shakeable exports, import only what you need
 - 🎯 **Type-Safe** - Full TypeScript support with excellent autocomplete
