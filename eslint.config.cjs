@@ -1,14 +1,28 @@
-// eslint.config.cjs
-const { flatConfig } = require('@eslint/eslintrc');
+const tsParser = require('@typescript-eslint/parser');
 
 module.exports = [
   {
-    ignores: ['dist/**', 'build/**', 'node_modules/**', 'coverage/**'],
+    ignores: [
+      'docs/**',
+      '**/docs/**',
+      'node_modules/**',
+      '**/node_modules/**',
+      'coverage/**',
+      '**/coverage/**',
+      '**/dist/**',
+      '**/build/**',
+      'cli/src/assets/**',
+    ],
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      parser: '@typescript-eslint/parser',
+      parser: tsParser, // <- use the actual object
       parserOptions: {
         ecmaVersion: 2022,
         sourceType: 'module',
+        project: ['./tsconfig.json', './vite-app/tsconfig.json'], // multiple projects
+        tsconfigRootDir: __dirname,
       },
     },
     plugins: {
@@ -18,7 +32,35 @@ module.exports = [
       jest: require('eslint-plugin-jest'),
     },
     rules: {
-      // add your rules here
+      // General
+      'no-unused-vars': 'warn',
+      'no-console': 'warn',
+      'no-debugger': 'error',
+      'prefer-const': 'error',
+
+      // TypeScript
+      '@typescript-eslint/no-unused-vars': ['warn'],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      // '@typescript-eslint/consistent-type-imports': 'error',
+
+      // React
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react/jsx-key': 'error',
+
+      // React Hooks
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // '@typescript-eslint/no-floating-promises': 'error',
+      // '@typescript-eslint/no-misused-promises': 'error',
+      // eqeqeq: ['error', 'always'],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
 ];
